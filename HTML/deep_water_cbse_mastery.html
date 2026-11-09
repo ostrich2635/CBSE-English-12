@@ -545,9 +545,11 @@ td:last-child, th:last-child { border-right: 0; }
 }
 
 
+
+
 /* Tooltip & Word-Hover System (makingsoftware.com Black & White Theme) */
 .vw {
-  cursor: help;
+  cursor: pointer;
   transition: all 0.12s ease;
   border-bottom: none;
   display: inline;
@@ -562,18 +564,20 @@ td:last-child, th:last-child { border-right: 0; }
   position: fixed;
   display: none;
   z-index: 10000;
-  max-width: 320px;
-  min-width: 200px;
+  max-width: 340px;
+  min-width: 240px;
   background: #111111;
   color: #ffffff;
   border: 1px solid #333333;
   border-radius: 3px;
-  padding: 10px 14px;
+  padding: 12px 14px;
   font-family: var(--font-sans);
-  font-size: 0.85rem;
-  line-height: 1.45;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  pointer-events: none;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  pointer-events: auto;
+  cursor: pointer;
+  user-select: none;
   transition: opacity 0.12s ease, transform 0.12s ease;
   transform: translateY(-4px);
   opacity: 0;
@@ -588,24 +592,54 @@ td:last-child, th:last-child { border-right: 0; }
   justify-content: space-between;
   align-items: baseline;
   border-bottom: 1px solid #333333;
-  padding-bottom: 4px;
-  margin-bottom: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
   font-family: var(--font-mono);
 }
 #vocab-tooltip .tt-word {
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.96rem;
   color: #ffffff;
   text-transform: capitalize;
+}
+#vocab-tooltip .tt-meta {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
 }
 #vocab-tooltip .tt-pos {
   font-size: 0.72rem;
   color: #aaaaaa;
   font-style: italic;
 }
+#vocab-tooltip .tt-cycle-badge {
+  font-size: 0.68rem;
+  border: 1px solid #555555;
+  padding: 1px 5px;
+  border-radius: 2px;
+  color: #dddddd;
+  cursor: pointer;
+  background: #222222;
+}
+#vocab-tooltip .tt-cycle-badge:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
 #vocab-tooltip .tt-def {
-  color: #e5e5e5;
-  font-size: 0.84rem;
+  color: #f1f1f1;
+  font-size: 0.85rem;
+  min-height: 28px;
+}
+#vocab-tooltip .tt-footer {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px dashed #333333;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #888888;
+  display: flex;
+  justify-content: space-between;
 }
 #vocab-tooltip .tt-loading {
   color: #888888;
@@ -1537,607 +1571,1215 @@ td:last-child, th:last-child { border-right: 0; }
 <div style="margin-top:6px; font-size:0.75rem;"><span class="vw" data-w="compiled">Compiled</span> from <span class="vw" data-w="ncert">NCERT</span>, <span class="vw" data-w="successcds">SuccessCDs</span>, and <span class="vw" data-w="official">Official</span> CBSE Board <span class="vw" data-w="marking">Marking</span> <span class="vw" data-w="criteria">Criteria</span>.</div>
 </footer>
 </div>
+
+
+
 <div id="vocab-tooltip">
 <div class="tt-header">
 <span class="tt-word" id="tt-word-el"></span>
+<div class="tt-meta">
 <span class="tt-pos" id="tt-pos-el"></span>
+<span class="tt-cycle-badge" id="tt-cycle-btn" title="Click to see another meaning">1 of 1 ↻</span>
+</div>
 </div>
 <div class="tt-def" id="tt-def-el"></div>
+<div class="tt-footer">
+<span>[ CLICK WORD FOR NEXT MEANING ]</span>
+<span id="tt-indicator">↻</span>
+</div>
 </div>
 <script>
 (function() {
   const DICT = {
-  "treacherous": {
-    "pos": "adj.",
-    "def": "Deceitfully dangerous, unpredictable, and hazardous (used for the fatal currents of the Yakima River)."
-  },
-  "aversion": {
-    "pos": "n.",
-    "def": "A strong, deep-seated psychological dislike or antipathy towards something."
-  },
-  "subdued": {
-    "pos": "v.",
-    "def": "Suppressed, overcame, or brought under control (overcame his pride/shyness)."
-  },
-  "skinny": {
-    "pos": "adj.",
-    "def": "Unusually thin, emaciated, or lacking physical muscular bulk."
-  },
-  "pride": {
-    "pos": "n.",
-    "def": "Personal vanity, self-respect, or self-consciousness about one's body."
-  },
-  "wings": {
-    "pos": "n.",
-    "def": "Inflatable buoyant arm floats designed to keep a learner swimmer afloat."
-  },
-  "surf": {
-    "pos": "n.",
-    "def": "The foamy swell and breaking surge of waves washing onto a seashore."
-  },
-  "buried": {
-    "pos": "v.",
-    "def": "Submerged, smothered, or overwhelmed completely under water."
-  },
-  "overpowering": {
-    "pos": "adj.",
-    "def": "Irresistible, crushing, or subduing through immense physical momentum."
-  },
-  "aping": {
-    "pos": "v.",
-    "def": "Imitating or copying someone's actions mechanically or uncritically."
-  },
-  "misadventure": {
-    "pos": "n.",
-    "def": "A disastrous mishap, unfortunate accident, or catastrophic turn of events."
-  },
-  "timid": {
-    "pos": "adj.",
-    "def": "Lacking courage or boldness; hesitant and fearful of danger."
-  },
-  "bruiser": {
-    "pos": "n.",
-    "def": "A tough, aggressive, and heavily built person prone to bullying or fighting."
-  },
-  "specimen": {
-    "pos": "n.",
-    "def": "An individual regarded as an exemplary physical model or representative type."
-  },
-  "rippling": {
-    "pos": "adj.",
-    "def": "Displaying undulating, defined muscular waves under movement."
-  },
-  "ducked": {
-    "pos": "v.",
-    "def": "Forcibly plunged or shoved headfirst beneath the water surface."
-  },
-  "tossed": {
-    "pos": "v.",
-    "def": "Flung or hurled with careless ease and callous disdain."
-  },
-  "wits": {
-    "pos": "n.",
-    "def": "Rational cognitive intellect and presence of mind ('frightened out of my wits')."
-  },
-  "summoned": {
-    "pos": "v.",
-    "def": "Gathered, mobilized, or rallied bodily strength from within."
-  },
-  "spring": {
-    "pos": "n./v.",
-    "def": "A rapid, forceful upward leap or rebound from a solid surface."
-  },
-  "bob": {
-    "pos": "v.",
-    "def": "To bounce or shoot up buoyantly to the surface like a cork."
-  },
-  "cork": {
-    "pos": "n.",
-    "def": "A lightweight, extremely buoyant material that naturally floats on water."
-  },
-  "tinge": {
-    "pos": "n.",
-    "def": "A faint trace or slight cast of a specified color (dirty yellow tinge)."
-  },
-  "suffocating": {
-    "pos": "v./adj.",
-    "def": "Experiencing severe deprivation of breathable air; asphyxiating."
-  },
-  "flailed": {
-    "pos": "v.",
-    "def": "Waved, thrashed, or beat arms wildly and ineffectively against water."
-  },
-  "choked": {
-    "pos": "v.",
-    "def": "Gagged or suffered severe airway obstruction from ingesting liquid."
-  },
-  "rigid": {
-    "pos": "adj.",
-    "def": "Stiffened, inflexible, and locked by terror and neuromuscular spasm."
-  },
-  "dead": {
-    "pos": "adj.",
-    "def": "Lifeless, inert, or completely unyielding ('hung as dead weights')."
-  },
-  "weights": {
-    "pos": "n.",
-    "def": "Heavy, unresponsive burdens dragging the body downward."
-  },
-  "expending": {
-    "pos": "v.",
-    "def": "Exhausting or consuming energy completely against overwhelming odds."
-  },
-  "irresistible": {
-    "pos": "adj.",
-    "def": "Impossible to resist, repel, or withstand by physical effort."
-  },
-  "ached": {
-    "pos": "v.",
-    "def": "Suffered a dull, persistent, and debilitating physical pain."
-  },
-  "throbbed": {
-    "pos": "v.",
-    "def": "Pulsated with severe, rhythmically pounding pressure in the skull."
-  },
-  "dizzy": {
-    "pos": "adj.",
-    "def": "Feeling lightheaded, unsteady, and suffering from acute vertigo."
-  },
-  "strategy": {
-    "pos": "n.",
-    "def": "A systematic, calculated plan designed to achieve survival or escape."
-  },
-  "stark": {
-    "pos": "adj.",
-    "def": "Pure, unmitigated, absolute, and grim ('sheer, stark terror')."
-  },
-  "seized": {
-    "pos": "v.",
-    "def": "Gripped or captured suddenly and violently with inescapable power."
-  },
-  "shrieking": {
-    "pos": "v.",
-    "def": "Screaming in a high-pitched, piercing, and desperate voice underwater."
-  },
-  "paralysed": {
-    "pos": "adj.",
-    "def": "Completely incapacitated and stripped of voluntary muscular movement."
-  },
-  "frozen": {
-    "pos": "adj.",
-    "def": "Immobilized, congealed, and choked with cold fear ('screams were frozen')."
-  },
-  "pounding": {
-    "pos": "n.",
-    "def": "A heavy, rapid rhythmic pulsating sensation inside the head or heart."
-  },
-  "midst": {
-    "pos": "n.",
-    "def": "The central, thickest, or most intense part of a crisis or struggle."
-  },
-  "reason": {
-    "pos": "n.",
-    "def": "Logical intellect, conscious judgment, and rational clarity."
-  },
-  "charge": {
-    "pos": "n.",
-    "def": "A sudden, violent electrical shock or intense surge through the nerves."
-  },
-  "trembled": {
-    "pos": "v.",
-    "def": "Vibrated or shuddered violently with involuntary panic."
-  },
-  "ceased": {
-    "pos": "v.",
-    "def": "Stopped completely; terminated all physical expenditure of energy."
-  },
-  "limp": {
-    "pos": "adj.",
-    "def": "Completely flaccid, lifeless, and without muscular tension."
-  },
-  "blackness": {
-    "pos": "n.",
-    "def": "Total cerebral blackout, absence of consciousness, and sensory shutdown."
-  },
-  "oblivion": {
-    "pos": "n.",
-    "def": "The psychological void of total unconsciousness, nothingness, and unawareness."
-  },
-  "curtain": {
-    "pos": "n.",
-    "def": "(Curtain of life) Theatrical metaphor for the termination of consciousness or death."
-  },
-  "drowsy": {
-    "pos": "adj.",
-    "def": "Heavily somnolent, lethargic, and drifting peacefully into sleep."
-  },
-  "exertion": {
-    "pos": "n.",
-    "def": "Strenuous physical or mental effort; bodily expenditure."
-  },
-  "wobbly": {
-    "pos": "adj.",
-    "def": "Trembling, weak, and unsteady at the knees due to trauma."
-  },
-  "haunting": {
-    "pos": "adj.",
-    "def": "Persistently intruding upon consciousness like an inescapable ghost."
-  },
-  "handicap": {
-    "pos": "n.",
-    "def": "A severe psychological disability or impediment hindering full living."
-  },
-  "cascades": {
-    "pos": "n.",
-    "def": "Steep, picturesque glacial waterfalls in the mountain wilderness."
-  },
-  "wading": {
-    "pos": "v.",
-    "def": "Walking through water with effort against current resistance."
-  },
-  "possession": {
-    "pos": "n.",
-    "def": "Total domination of mental faculties as if by an invading spirit."
-  },
-  "icy": {
-    "pos": "adj.",
-    "def": "Freezingly cold; emotionally chilling and paralyzing."
-  },
-  "canoes": {
-    "pos": "n.",
-    "def": "Light, narrow open watercraft propelled by handheld paddles."
-  },
-  "salmon": {
-    "pos": "n.",
-    "def": "A prized, athletic freshwater/marine game fish known for river runs."
-  },
-  "bass": {
-    "pos": "n.",
-    "def": "A popular freshwater sporting fish found in North American lakes."
-  },
-  "trout": {
-    "pos": "n.",
-    "def": "A prized freshwater fish closely related to salmon, found in clear cold streams."
-  },
-  "deprived": {
-    "pos": "v.",
-    "def": "Robbed, dispossessed, or stripped of essential joy, freedom, or recreation."
-  },
-  "instructor": {
-    "pos": "n.",
-    "def": "A trained, professional educator who imparts skills methodically."
-  },
-  "pulley": {
-    "pos": "n.",
-    "def": "A grooved wheel over which a rope runs to support and hoist weight."
-  },
-  "cable": {
-    "pos": "n.",
-    "def": "A heavy-duty suspended overhead wire rope carrying a moving harness."
-  },
-  "slack": {
-    "pos": "v.",
-    "def": "To loosen, ease, or diminish in intensity ('tension began to slack')."
-  },
-  "shed": {
-    "pos": "v.",
-    "def": "Discarded or eliminated gradually ('shed part of the panic')."
-  },
-  "command": {
-    "pos": "v.",
-    "def": "To direct with sovereign conscious authority; exert voluntary motor control."
-  },
-  "crawl": {
-    "pos": "n.",
-    "def": "(Crawl stroke) A foundational rapid front swimming stroke using alternating arm pulls."
-  },
-  "vestiges": {
-    "pos": "n.",
-    "def": "Lingering traces, microscopic remnants, or marks of something disappearing."
-  },
-  "dock": {
-    "pos": "n.",
-    "def": "A wooden landing stage or pier extending from shore into deep lake water."
-  },
-  "bottomless": {
-    "pos": "adj.",
-    "def": "Profoundly abyssal, appearing to have no reachable floor or base."
-  },
-  "miniature": {
-    "pos": "n./adj.",
-    "def": "A greatly reduced, diminished, or miniature scale of an original entity."
-  },
-  "fled": {
-    "pos": "v.",
-    "def": "Vanished or retreated precipitously upon being boldly confronted."
-  },
-  "residual": {
-    "pos": "adj.",
-    "def": "Lingering, remaining, or surviving after the primary struggle is over."
-  },
-  "glacier": {
-    "pos": "n.",
-    "def": "A massive, perennial alpine sheet of compressed ice moving slowly down mountain slopes."
-  },
-  "meadow": {
-    "pos": "n.",
-    "def": "A high-altitude open grassland or valley surrounded by alpine peaks."
-  },
-  "echo": {
-    "pos": "n./v.",
-    "def": "The acoustic reverberation and reflection of sound bouncing off rock faces."
-  },
-  "conquered": {
-    "pos": "v.",
-    "def": "Overcame, vanquished, or gained absolute psychological mastery over a foe."
-  },
-  "dictum": {
-    "pos": "n.",
-    "def": "A formal, authoritative philosophical maxim or pronouncement."
-  },
-  "intensity": {
-    "pos": "n.",
-    "def": "The degree, strength, and passionate magnitude of life force or emotion."
-  },
-  "released": {
-    "pos": "adj.",
-    "def": "Emancipated, untethered, and set completely free from mental bondage."
-  },
-  "hypoxia": {
-    "pos": "n.",
-    "def": "Severe medical deficiency in the amount of oxygen reaching vital brain tissue."
-  },
-  "dissociation": {
-    "pos": "n.",
-    "def": "Mental detachment from physical reality, bodily sensations, or trauma."
-  },
-  "desensitization": {
-    "pos": "n.",
-    "def": "Gradual behavioral reconditioning to eliminate panic through controlled exposure."
-  },
-  "autonomy": {
-    "pos": "n.",
-    "def": "Self-directed freedom, internal independence, and personal agency."
-  },
-  "pedagogy": {
-    "pos": "n.",
-    "def": "The systematic theory, method, and structured practice of teaching."
-  },
-  "psychosomatic": {
-    "pos": "adj.",
-    "def": "Physical bodily symptoms (wobbly knees, nausea) caused by emotional trauma."
-  },
-  "epiphany": {
-    "pos": "n.",
-    "def": "A moment of sudden, transcendent spiritual revelation or intuitive insight."
-  },
-  "solipsism": {
-    "pos": "n.",
-    "def": "Existential isolation where the self feels utterly solitary in the universe."
-  },
-  "catharsis": {
-    "pos": "n.",
-    "def": "Emotional purification and relief resulting from confronting deep trauma."
-  },
-  "phobia": {
-    "pos": "n.",
-    "def": "An extreme, irrational, and debilitating fear of a specific situation or object."
-  },
-  "hydrophobia": {
-    "pos": "n.",
-    "def": "A pathological, morbid dread of water and drowning."
-  },
-  "trauma": {
-    "pos": "n.",
-    "def": "A deeply distressing or disturbing experience causing lasting psychological damage."
-  },
-  "subconscious": {
-    "pos": "adj.",
-    "def": "Operating beneath the threshold of conscious awareness; latent."
-  },
-  "asphyxiation": {
-    "pos": "n.",
-    "def": "The state of being deprived of oxygen, leading to unconsciousness or death."
-  },
-  "resuscitation": {
-    "pos": "n.",
-    "def": "The act of reviving someone from unconsciousness or apparent death."
-  },
-  "tenacity": {
-    "pos": "n.",
-    "def": "Persistent determination, grit, and stubborn refusal to give up."
-  },
-  "willpower": {
-    "pos": "n.",
-    "def": "Conscious self-control and determination to carry out one's intention."
-  },
-  "reconditioning": {
-    "pos": "n.",
-    "def": "Retraining neurological reflexes and behavioral responses."
-  },
-  "metaphor": {
-    "pos": "n.",
-    "def": "A figure of speech comparing two unrelated things without using 'like' or 'as'."
-  },
-  "simile": {
-    "pos": "n.",
-    "def": "A figure of speech comparing two different things using 'like' or 'as'."
-  },
-  "personification": {
-    "pos": "n.",
-    "def": "Attributing human qualities, feelings, or agency to non-human entities."
-  },
-  "hyperbole": {
-    "pos": "n.",
-    "def": "Deliberate, extravagant exaggeration used for emphasis or dramatic effect."
-  },
-  "oxymoron": {
-    "pos": "n.",
-    "def": "A figure of speech pairing seemingly contradictory terms together."
-  },
-  "paradox": {
-    "pos": "n.",
-    "def": "A statement that seems self-contradictory but reveals a deeper underlying truth."
-  },
-  "anaphora": {
-    "pos": "n.",
-    "def": "The deliberate repetition of a word or phrase at the beginning of successive clauses."
-  },
-  "epistrophe": {
-    "pos": "n.",
-    "def": "The repetition of a word at the end of successive clauses or sentences."
-  },
-  "reverberate": {
-    "pos": "v.",
-    "def": "To resound or echo repeatedly across a vast physical space."
-  },
-  "inevitable": {
-    "pos": "adj.",
-    "def": "Certain to happen; unavoidable and inescapable."
-  },
-  "transcendence": {
-    "pos": "n.",
-    "def": "Existence or experience beyond the normal or physical level; spiritual elevation."
-  },
-  "insidious": {
-    "pos": "adj.",
-    "def": "Proceeding in a gradual, subtle way, but with harmful, destructive effects."
-  },
-  "archetype": {
-    "pos": "n.",
-    "def": "A very typical, recurrent example of a certain person, pattern, or thing in literature."
-  },
-  "catalyst": {
-    "pos": "n.",
-    "def": "An event, person, or realization that precipitates a significant transformation."
-  },
-  "emancipation": {
-    "pos": "n.",
-    "def": "The process of being set free from legal, social, or psychological restrictions."
-  },
-  "resilience": {
-    "pos": "n.",
-    "def": "The capacity to withstand or recover quickly from difficulties; psychological toughness."
-  }
+  "jarring": [
+    {
+      "pos": "adj.",
+      "def": "Causing a discordant, shocking, or unsettling effect; clashing harshly with expectations."
+    },
+    {
+      "pos": "verb",
+      "def": "To knock, strike, or shake violently; causing a quivering or vibrating shock."
+    },
+    {
+      "pos": "noun",
+      "def": "A sudden jolt, vibration, or painful physical impact."
+    },
+    {
+      "pos": "verb",
+      "def": "To preserve (food) in a glass jar."
+    }
+  ],
+  "treacherous": [
+    {
+      "pos": "adj.",
+      "def": "Deceitfully dangerous, unpredictable, and posing hidden hazards (used for the fatal currents of Yakima River)."
+    },
+    {
+      "pos": "adj.",
+      "def": "Guilty of or involving betrayal or deception; traitorous; disloyal."
+    }
+  ],
+  "aversion": [
+    {
+      "pos": "n.",
+      "def": "A strong, deep-seated psychological dislike or antipathy towards something."
+    },
+    {
+      "pos": "n.",
+      "def": "A feeling of intense reluctance, distaste, or repugnance."
+    }
+  ],
+  "subdued": [
+    {
+      "pos": "v.",
+      "def": "Suppressed, overcame, or brought under control (overcame vanity/shyness)."
+    },
+    {
+      "pos": "adj.",
+      "def": "Quiet, restrained, or lowered in intensity (subdued lighting, subdued voice)."
+    },
+    {
+      "pos": "v.",
+      "def": "Conquered or subjugated an opponent through superior force."
+    }
+  ],
+  "skinny": [
+    {
+      "pos": "adj.",
+      "def": "Unusually thin, emaciated, or lacking muscular bulk."
+    },
+    {
+      "pos": "n.",
+      "def": "(Informal) Confidential inside information or true facts about a topic."
+    }
+  ],
+  "pride": [
+    {
+      "pos": "n.",
+      "def": "Personal vanity, self-esteem, or self-consciousness about physical appearance."
+    },
+    {
+      "pos": "n.",
+      "def": "A sense of dignity, self-respect, and personal honor."
+    },
+    {
+      "pos": "n.",
+      "def": "A social group or pack of lions."
+    }
+  ],
+  "wings": [
+    {
+      "pos": "n.",
+      "def": "Inflatable waterproof buoyancy arm-bands designed to aid novice swimmers."
+    },
+    {
+      "pos": "n.",
+      "def": "The feathered flight appendages of a bird or structural airfoils of an aircraft."
+    },
+    {
+      "pos": "n.",
+      "def": "The side areas backstage in a theater concealed from audience view."
+    }
+  ],
+  "surf": [
+    {
+      "pos": "n.",
+      "def": "The foamy swell and breaking surge of waves washing onto a seashore."
+    },
+    {
+      "pos": "v.",
+      "def": "To ride breaking waves toward the shore on a surfboard."
+    },
+    {
+      "pos": "v.",
+      "def": "(Digital) To navigate or browse through web pages online."
+    }
+  ],
+  "buried": [
+    {
+      "pos": "v.",
+      "def": "Submerged, overwhelmed, or smothered completely under water or waves."
+    },
+    {
+      "pos": "v.",
+      "def": "Interred or placed into the earth during a funeral."
+    },
+    {
+      "pos": "v.",
+      "def": "Concealed deeply within memory or conscious thought."
+    }
+  ],
+  "overpowering": [
+    {
+      "pos": "adj.",
+      "def": "Irresistible, crushing, or subduing through immense physical momentum."
+    },
+    {
+      "pos": "adj.",
+      "def": "Intense, suffocating, and impossible to ignore (an overpowering odor or emotion)."
+    }
+  ],
+  "aping": [
+    {
+      "pos": "v.",
+      "def": "Imitating or copying someone's actions mechanically or uncritically."
+    },
+    {
+      "pos": "v.",
+      "def": "Mimicking someone in an absurd, exaggerated, or mocking manner."
+    }
+  ],
+  "misadventure": [
+    {
+      "pos": "n.",
+      "def": "A disastrous mishap, unfortunate accident, or catastrophic turn of events."
+    },
+    {
+      "pos": "n.",
+      "def": "(Legal) Accidental death without intention or negligence."
+    }
+  ],
+  "timid": [
+    {
+      "pos": "adj.",
+      "def": "Lacking courage or boldness; hesitant and fearful of danger."
+    },
+    {
+      "pos": "adj.",
+      "def": "Shy, nervous, and easily intimidated by unfamiliar surroundings."
+    }
+  ],
+  "bruiser": [
+    {
+      "pos": "n.",
+      "def": "A tough, aggressive, and heavily built person prone to bullying or brawling."
+    },
+    {
+      "pos": "n.",
+      "def": "A boxer, prizefighter, or physically intimidating enforcer."
+    }
+  ],
+  "specimen": [
+    {
+      "pos": "n.",
+      "def": "An individual regarded as an exemplary physical model or representative type."
+    },
+    {
+      "pos": "n.",
+      "def": "A sample of tissue, blood, or substance taken for scientific analysis."
+    }
+  ],
+  "rippling": [
+    {
+      "pos": "adj.",
+      "def": "Displaying undulating, defined muscular waves under movement."
+    },
+    {
+      "pos": "v./adj.",
+      "def": "Forming small, gentle waves on the surface of water."
+    }
+  ],
+  "ducked": [
+    {
+      "pos": "v.",
+      "def": "Forcibly plunged or shoved headfirst beneath the water surface."
+    },
+    {
+      "pos": "v.",
+      "def": "Lowered the head or body quickly to avoid a blow or detection."
+    },
+    {
+      "pos": "v.",
+      "def": "Dodged or evaded a duty or question."
+    }
+  ],
+  "tossed": [
+    {
+      "pos": "v.",
+      "def": "Flung or hurled with careless ease and callous disdain."
+    },
+    {
+      "pos": "v.",
+      "def": "Moved erratically up and down on stormy waters."
+    },
+    {
+      "pos": "v.",
+      "def": "Mixed food ingredients gently (tossed salad)."
+    }
+  ],
+  "wits": [
+    {
+      "pos": "n.",
+      "def": "Rational cognitive intellect and presence of mind ('frightened out of my wits')."
+    },
+    {
+      "pos": "n.",
+      "def": "Mental sharpness, intelligence, and resourcefulness."
+    },
+    {
+      "pos": "n.",
+      "def": "The faculty for humorous, clever expression."
+    }
+  ],
+  "summoned": [
+    {
+      "pos": "v.",
+      "def": "Gathered, mobilized, or rallied bodily strength from within."
+    },
+    {
+      "pos": "v.",
+      "def": "Authoritatively commanded someone to appear in a court or official setting."
+    }
+  ],
+  "spring": [
+    {
+      "pos": "n./v.",
+      "def": "A rapid, forceful upward leap or rebound from a solid surface."
+    },
+    {
+      "pos": "n.",
+      "def": "An elastic coiled metal device that recovers its shape after compression."
+    },
+    {
+      "pos": "n.",
+      "def": "The season of new growth following winter."
+    },
+    {
+      "pos": "n.",
+      "def": "A natural source where water flows upward out of the ground."
+    }
+  ],
+  "bob": [
+    {
+      "pos": "v.",
+      "def": "To bounce or shoot up buoyantly to the surface like a cork."
+    },
+    {
+      "pos": "v.",
+      "def": "To move up and down quickly or gently with water waves."
+    },
+    {
+      "pos": "n.",
+      "def": "A short haircut for women."
+    }
+  ],
+  "cork": [
+    {
+      "pos": "n.",
+      "def": "A lightweight, extremely buoyant bark material that floats naturally on water."
+    },
+    {
+      "pos": "n.",
+      "def": "A cylindrical stopper used to seal wine bottles or containers."
+    }
+  ],
+  "tinge": [
+    {
+      "pos": "n.",
+      "def": "A faint trace or slight cast of a specified color (dirty yellow tinge)."
+    },
+    {
+      "pos": "n.",
+      "def": "A subtle underlying emotion or flavor (a tinge of melancholy)."
+    }
+  ],
+  "suffocating": [
+    {
+      "pos": "v./adj.",
+      "def": "Experiencing severe deprivation of breathable air; asphyxiating."
+    },
+    {
+      "pos": "adj.",
+      "def": "Oppressively hot, humid, or emotionally stifling."
+    }
+  ],
+  "flailed": [
+    {
+      "pos": "v.",
+      "def": "Waved, thrashed, or beat arms wildly and ineffectively against water."
+    },
+    {
+      "pos": "v.",
+      "def": "Struggled awkwardly, moving limbs about erratically."
+    }
+  ],
+  "choked": [
+    {
+      "pos": "v.",
+      "def": "Gagged or suffered severe airway obstruction from ingesting water."
+    },
+    {
+      "pos": "v.",
+      "def": "Blocked or clogged a pipe or passage."
+    },
+    {
+      "pos": "v.",
+      "def": "Failed to perform effectively under intense competitive pressure."
+    }
+  ],
+  "rigid": [
+    {
+      "pos": "adj.",
+      "def": "Stiffened, inflexible, and locked by terror and neuromuscular spasm."
+    },
+    {
+      "pos": "adj.",
+      "def": "Strict, unyielding, and resistant to compromise or change."
+    }
+  ],
+  "dead": [
+    {
+      "pos": "adj.",
+      "def": "Lifeless, inert, or completely unyielding ('hung as dead weights')."
+    },
+    {
+      "pos": "adj.",
+      "def": "No longer alive; deceased."
+    },
+    {
+      "pos": "adj.",
+      "def": "Completely drained of electrical power (dead battery)."
+    }
+  ],
+  "weights": [
+    {
+      "pos": "n.",
+      "def": "Heavy, unresponsive burdens dragging the body downward."
+    },
+    {
+      "pos": "n.",
+      "def": "Heavy metal objects lifted for athletic strength training."
+    },
+    {
+      "pos": "n.",
+      "def": "The relative importance, influence, or priority assigned to something."
+    }
+  ],
+  "expending": [
+    {
+      "pos": "v.",
+      "def": "Exhausting or consuming energy completely against overwhelming odds."
+    },
+    {
+      "pos": "v.",
+      "def": "Spending money, time, or resources on an endeavor."
+    }
+  ],
+  "irresistible": [
+    {
+      "pos": "adj.",
+      "def": "Impossible to resist, repel, or withstand by physical effort."
+    },
+    {
+      "pos": "adj.",
+      "def": "So compelling, alluring, or charming that one cannot say no."
+    }
+  ],
+  "ached": [
+    {
+      "pos": "v.",
+      "def": "Suffered a dull, persistent, and debilitating physical pain."
+    },
+    {
+      "pos": "v.",
+      "def": "Felt intense longing, sympathy, or emotional heartache."
+    }
+  ],
+  "throbbed": [
+    {
+      "pos": "v.",
+      "def": "Pulsated with severe, rhythmically pounding pressure in the skull."
+    },
+    {
+      "pos": "v.",
+      "def": "Beat with strong, regular rhythm (the throb of a heart or drum)."
+    }
+  ],
+  "dizzy": [
+    {
+      "pos": "adj.",
+      "def": "Feeling lightheaded, unsteady, and suffering from acute vertigo."
+    },
+    {
+      "pos": "adj.",
+      "def": "Extremely rapid, confusing, or disorienting (dizzy pace)."
+    }
+  ],
+  "strategy": [
+    {
+      "pos": "n.",
+      "def": "A systematic, calculated plan designed to achieve survival or escape."
+    },
+    {
+      "pos": "n.",
+      "def": "The overarching art of planning military or competitive campaigns."
+    }
+  ],
+  "stark": [
+    {
+      "pos": "adj.",
+      "def": "Pure, unmitigated, absolute, and grim ('sheer, stark terror')."
+    },
+    {
+      "pos": "adj.",
+      "def": "Sharply delineated, bare, or desolate in appearance (stark landscape)."
+    }
+  ],
+  "seized": [
+    {
+      "pos": "v.",
+      "def": "Gripped or captured suddenly and violently with inescapable power."
+    },
+    {
+      "pos": "v.",
+      "def": "Confiscated by legal or police authority."
+    },
+    {
+      "pos": "v.",
+      "def": "Became jammed or frozen tightly due to mechanical friction."
+    }
+  ],
+  "shrieking": [
+    {
+      "pos": "v.",
+      "def": "Screaming in a high-pitched, piercing, and desperate voice underwater."
+    },
+    {
+      "pos": "adj.",
+      "def": "Loud, harsh, and grating on the ears."
+    }
+  ],
+  "paralysed": [
+    {
+      "pos": "adj.",
+      "def": "Completely incapacitated and stripped of voluntary muscular movement."
+    },
+    {
+      "pos": "adj.",
+      "def": "Rendered unable to function, progress, or take action due to crisis."
+    }
+  ],
+  "frozen": [
+    {
+      "pos": "adj.",
+      "def": "Immobilized, congealed, and choked with cold fear ('screams were frozen')."
+    },
+    {
+      "pos": "adj.",
+      "def": "Turned into or covered with solid ice."
+    },
+    {
+      "pos": "adj.",
+      "def": "(Financial) Assets held or blocked from withdrawal."
+    }
+  ],
+  "pounding": [
+    {
+      "pos": "n.",
+      "def": "A heavy, rapid rhythmic pulsating sensation inside the head or heart."
+    },
+    {
+      "pos": "v.",
+      "def": "Striking or hammering repeatedly with forceful blows."
+    }
+  ],
+  "midst": [
+    {
+      "pos": "n.",
+      "def": "The central, thickest, or most intense part of a crisis or struggle."
+    },
+    {
+      "pos": "prep.",
+      "def": "Surrounded by or in the middle of individuals or events."
+    }
+  ],
+  "reason": [
+    {
+      "pos": "n.",
+      "def": "Logical intellect, conscious judgment, and rational clarity."
+    },
+    {
+      "pos": "n.",
+      "def": "The cause, justification, or explanation for an event or action."
+    }
+  ],
+  "charge": [
+    {
+      "pos": "n.",
+      "def": "A sudden, violent electrical shock or intense surge through the nerves."
+    },
+    {
+      "pos": "v.",
+      "def": "To rush forward aggressively in attack."
+    },
+    {
+      "pos": "n.",
+      "def": "The price or fee demanded for a service."
+    }
+  ],
+  "trembled": [
+    {
+      "pos": "v.",
+      "def": "Vibrated or shuddered violently with involuntary panic or cold."
+    },
+    {
+      "pos": "v.",
+      "def": "Quivered with deep emotional distress or anxiety."
+    }
+  ],
+  "ceased": [
+    {
+      "pos": "v.",
+      "def": "Stopped completely; terminated all physical expenditure of energy."
+    },
+    {
+      "pos": "v.",
+      "def": "Came to an end; brought to a permanent finish."
+    }
+  ],
+  "limp": [
+    {
+      "pos": "adj.",
+      "def": "Completely flaccid, lifeless, and without muscular tension."
+    },
+    {
+      "pos": "v./n.",
+      "def": "An uneven, labored walking gait caused by injury to a leg."
+    }
+  ],
+  "blackness": [
+    {
+      "pos": "n.",
+      "def": "Total cerebral blackout, absence of consciousness, and sensory shutdown."
+    },
+    {
+      "pos": "n.",
+      "def": "The complete absence or absorption of visible light."
+    }
+  ],
+  "oblivion": [
+    {
+      "pos": "n.",
+      "def": "The psychological void of total unconsciousness, nothingness, and unawareness."
+    },
+    {
+      "pos": "n.",
+      "def": "The state of being forgotten, extinct, or discarded by history."
+    }
+  ],
+  "curtain": [
+    {
+      "pos": "n.",
+      "def": "(Curtain of life) Theatrical metaphor for the termination of consciousness or death."
+    },
+    {
+      "pos": "n.",
+      "def": "A hanging fabric drape used to cover a window or stage opening."
+    }
+  ],
+  "drowsy": [
+    {
+      "pos": "adj.",
+      "def": "Heavily somnolent, lethargic, and drifting peacefully into sleep."
+    },
+    {
+      "pos": "adj.",
+      "def": "Causing sleepiness or peaceful relaxation."
+    }
+  ],
+  "exertion": [
+    {
+      "pos": "n.",
+      "def": "Strenuous physical or mental effort; bodily expenditure."
+    },
+    {
+      "pos": "n.",
+      "def": "The application or exercise of force, influence, or authority."
+    }
+  ],
+  "wobbly": [
+    {
+      "pos": "adj.",
+      "def": "Trembling, weak, and unsteady at the knees due to trauma."
+    },
+    {
+      "pos": "adj.",
+      "def": "Shaky, rocking unsteadily, or prone to tipping over."
+    }
+  ],
+  "haunting": [
+    {
+      "pos": "adj.",
+      "def": "Persistently intruding upon consciousness like an inescapable ghost."
+    },
+    {
+      "pos": "adj.",
+      "def": "Evocative, deeply moving, and unforgettable (a haunting melody)."
+    }
+  ],
+  "handicap": [
+    {
+      "pos": "n.",
+      "def": "A severe psychological disability or impediment hindering full living."
+    },
+    {
+      "pos": "n.",
+      "def": "A condition that marks a disadvantage in sports or competition."
+    },
+    {
+      "pos": "v.",
+      "def": "To place an obstacle or disadvantage upon someone."
+    }
+  ],
+  "cascades": [
+    {
+      "pos": "n.",
+      "def": "Steep, picturesque glacial waterfalls in the mountain wilderness."
+    },
+    {
+      "pos": "v.",
+      "def": "Flows or falls downward rapidly and in copious volume."
+    }
+  ],
+  "wading": [
+    {
+      "pos": "v.",
+      "def": "Walking through water with effort against current resistance."
+    },
+    {
+      "pos": "v.",
+      "def": "Working slowly through a long, tedious text or task."
+    }
+  ],
+  "possession": [
+    {
+      "pos": "n.",
+      "def": "Total domination of mental faculties as if by an invading spirit."
+    },
+    {
+      "pos": "n.",
+      "def": "The ownership, control, or holding of property and goods."
+    }
+  ],
+  "icy": [
+    {
+      "pos": "adj.",
+      "def": "Freezingly cold; emotionally chilling and paralyzing with dread."
+    },
+    {
+      "pos": "adj.",
+      "def": "Extremely slippery due to frozen water; hostile or unfriendly."
+    }
+  ],
+  "canoes": [
+    {
+      "pos": "n.",
+      "def": "Light, narrow open watercraft propelled by handheld paddles."
+    }
+  ],
+  "salmon": [
+    {
+      "pos": "n.",
+      "def": "A prized, athletic freshwater/marine game fish known for river runs."
+    }
+  ],
+  "bass": [
+    {
+      "pos": "n.",
+      "def": "A popular freshwater sporting fish found in North American lakes."
+    },
+    {
+      "pos": "n.",
+      "def": "The lowest adult male singing voice or low-frequency pitch."
+    }
+  ],
+  "trout": [
+    {
+      "pos": "n.",
+      "def": "A prized freshwater fish closely related to salmon, found in clear cold streams."
+    }
+  ],
+  "deprived": [
+    {
+      "pos": "v.",
+      "def": "Robbed, dispossessed, or stripped of essential joy, freedom, or recreation."
+    },
+    {
+      "pos": "adj.",
+      "def": "Suffering from severe lack of necessary material or cultural benefits."
+    }
+  ],
+  "instructor": [
+    {
+      "pos": "n.",
+      "def": "A trained, professional educator who imparts skills methodically."
+    },
+    {
+      "pos": "n.",
+      "def": "A low-to-mid ranking faculty member at an academic college."
+    }
+  ],
+  "pulley": [
+    {
+      "pos": "n.",
+      "def": "A grooved wheel over which a rope runs to support and hoist weight."
+    }
+  ],
+  "cable": [
+    {
+      "pos": "n.",
+      "def": "A heavy-duty suspended overhead wire rope carrying a moving harness."
+    },
+    {
+      "pos": "n.",
+      "def": "An insulated wire transmitting electrical signals or television broadcasts."
+    }
+  ],
+  "slack": [
+    {
+      "pos": "v.",
+      "def": "To loosen, ease, or diminish in intensity ('tension began to slack')."
+    },
+    {
+      "pos": "adj.",
+      "def": "Lacking tightness, firmness, or tautness; loose."
+    },
+    {
+      "pos": "v.",
+      "def": "To work slowly, shirk, or be lazy (slacking off)."
+    }
+  ],
+  "shed": [
+    {
+      "pos": "v.",
+      "def": "Discarded, cast off, or eliminated gradually ('shed part of the panic')."
+    },
+    {
+      "pos": "n.",
+      "def": "A simple roofed outbuilding used for shelter or storage."
+    },
+    {
+      "pos": "v.",
+      "def": "To drop leaves or cast off old animal hair naturally."
+    }
+  ],
+  "command": [
+    {
+      "pos": "v.",
+      "def": "To direct with sovereign conscious authority; exert voluntary motor control."
+    },
+    {
+      "pos": "n.",
+      "def": "An authoritative order; mastery of a subject; military authority."
+    }
+  ],
+  "crawl": [
+    {
+      "pos": "n.",
+      "def": "(Crawl stroke) A foundational rapid front swimming stroke using alternating arm pulls."
+    },
+    {
+      "pos": "v.",
+      "def": "To move forward slowly on hands and knees or belly close to the ground."
+    }
+  ],
+  "vestiges": [
+    {
+      "pos": "n.",
+      "def": "Lingering traces, microscopic remnants, or marks of something disappearing."
+    },
+    {
+      "pos": "n.",
+      "def": "A degenerate or imperfectly developed anatomical structure."
+    }
+  ],
+  "dock": [
+    {
+      "pos": "n.",
+      "def": "A wooden landing stage or pier extending from shore into deep lake water."
+    },
+    {
+      "pos": "v.",
+      "def": "To bring a vessel into a slip or moor beside a pier."
+    },
+    {
+      "pos": "v.",
+      "def": "To deduct money from wages as a penalty."
+    }
+  ],
+  "bottomless": [
+    {
+      "pos": "adj.",
+      "def": "Profoundly abyssal, appearing to have no reachable floor or base."
+    },
+    {
+      "pos": "adj.",
+      "def": "Having no bottom; having an inexhaustible supply."
+    }
+  ],
+  "miniature": [
+    {
+      "pos": "n./adj.",
+      "def": "A greatly reduced, diminished, or microscopic scale of an original entity."
+    },
+    {
+      "pos": "n.",
+      "def": "A tiny, meticulously painted portrait or model."
+    }
+  ],
+  "fled": [
+    {
+      "pos": "v.",
+      "def": "Vanished or retreated precipitously upon being boldly confronted."
+    },
+    {
+      "pos": "v.",
+      "def": "Past tense of flee: ran away from a danger or enemy."
+    }
+  ],
+  "residual": [
+    {
+      "pos": "adj.",
+      "def": "Lingering, remaining, or surviving after the primary struggle is over."
+    },
+    {
+      "pos": "n.",
+      "def": "A royalty paid to performers for repeated broadcasts."
+    }
+  ],
+  "glacier": [
+    {
+      "pos": "n.",
+      "def": "A massive, perennial alpine sheet of compressed ice moving slowly down mountain slopes."
+    }
+  ],
+  "meadow": [
+    {
+      "pos": "n.",
+      "def": "A high-altitude open grassland or valley surrounded by alpine peaks."
+    }
+  ],
+  "echo": [
+    {
+      "pos": "n./v.",
+      "def": "The acoustic reverberation and reflection of sound bouncing off rock faces."
+    },
+    {
+      "pos": "v.",
+      "def": "To repeat someone else's sentiments closely."
+    }
+  ],
+  "conquered": [
+    {
+      "pos": "v.",
+      "def": "Overcame, vanquished, or gained absolute psychological mastery over a foe."
+    },
+    {
+      "pos": "v.",
+      "def": "Successfully climbed a challenging mountain peak or traversed difficult terrain."
+    }
+  ],
+  "dictum": [
+    {
+      "pos": "n.",
+      "def": "A formal, authoritative philosophical maxim or pronouncement."
+    },
+    {
+      "pos": "n.",
+      "def": "(Legal) An opinion expressed by a judge not necessary to the decision."
+    }
+  ],
+  "intensity": [
+    {
+      "pos": "n.",
+      "def": "The degree, strength, and passionate magnitude of life force or emotion."
+    },
+    {
+      "pos": "n.",
+      "def": "The measurable power of physical light, sound, or radiation."
+    }
+  ],
+  "released": [
+    {
+      "pos": "adj.",
+      "def": "Emancipated, untethered, and set completely free from mental bondage."
+    },
+    {
+      "pos": "v.",
+      "def": "Allowed to escape or liberated from confinement."
+    }
+  ],
+  "hypoxia": [
+    {
+      "pos": "n.",
+      "def": "Severe medical deficiency in the amount of oxygen reaching vital brain tissue."
+    }
+  ],
+  "dissociation": [
+    {
+      "pos": "n.",
+      "def": "Mental detachment from physical reality, bodily sensations, or trauma."
+    },
+    {
+      "pos": "n.",
+      "def": "(Chemistry) The reversible splitting of a molecule into smaller fragments."
+    }
+  ],
+  "desensitization": [
+    {
+      "pos": "n.",
+      "def": "Gradual behavioral reconditioning to eliminate panic through controlled exposure."
+    }
+  ],
+  "autonomy": [
+    {
+      "pos": "n.",
+      "def": "Self-directed freedom, internal independence, and personal agency."
+    },
+    {
+      "pos": "n.",
+      "def": "The right or condition of self-government of a region."
+    }
+  ],
+  "pedagogy": [
+    {
+      "pos": "n.",
+      "def": "The systematic theory, method, and structured practice of teaching."
+    }
+  ],
+  "psychosomatic": [
+    {
+      "pos": "adj.",
+      "def": "Physical bodily symptoms (wobbly knees, nausea) caused by emotional trauma."
+    }
+  ],
+  "epiphany": [
+    {
+      "pos": "n.",
+      "def": "A moment of sudden, transcendent spiritual revelation or intuitive insight."
+    },
+    {
+      "pos": "n.",
+      "def": "A Christian holiday commemorating the manifestation of Christ to the Magi."
+    }
+  ],
+  "solipsism": [
+    {
+      "pos": "n.",
+      "def": "Existential isolation where the self feels utterly solitary in the universe."
+    },
+    {
+      "pos": "n.",
+      "def": "(Philosophy) The view that only one's own mind is sure to exist."
+    }
+  ],
+  "catharsis": [
+    {
+      "pos": "n.",
+      "def": "Emotional purification and relief resulting from confronting deep trauma."
+    }
+  ]
 };
-  const cache = {};
+  const defsCache = {}; // cleanWord -> Array of { pos, def }
+  const wordIndices = {}; // cleanWord -> currentIndex
 
   const tooltip = document.getElementById('vocab-tooltip');
   const wordEl = document.getElementById('tt-word-el');
   const posEl = document.getElementById('tt-pos-el');
   const defEl = document.getElementById('tt-def-el');
+  const cycleBtn = document.getElementById('tt-cycle-btn');
+  const indicator = document.getElementById('tt-indicator');
 
+  let currentWord = '';
   let currentTarget = null;
   let hideTimeout = null;
 
-  function showTooltip(word, x, y) {
-    const cleanWord = word.toLowerCase().trim();
-    if (!cleanWord) return;
-
-    wordEl.textContent = word;
-    posEl.textContent = '';
-    defEl.textContent = '';
-
-    // Check pre-loaded dictionary
+  function getWordDefs(cleanWord) {
     if (DICT[cleanWord]) {
-      posEl.textContent = DICT[cleanWord].pos || '';
-      defEl.textContent = DICT[cleanWord].def || '';
-    } else if (cache[cleanWord]) {
-      posEl.textContent = cache[cleanWord].pos || '';
-      defEl.textContent = cache[cleanWord].def || '';
-    } else {
+      return Array.isArray(DICT[cleanWord]) ? DICT[cleanWord] : [DICT[cleanWord]];
+    }
+    if (defsCache[cleanWord]) {
+      return defsCache[cleanWord];
+    }
+    return null;
+  }
+
+  function renderCurrentMeaning(cleanWord, displayWord, x, y) {
+    const defs = getWordDefs(cleanWord);
+    wordEl.textContent = displayWord;
+
+    if (!defs || defs.length === 0) {
+      posEl.textContent = '';
+      cycleBtn.style.display = 'none';
       defEl.innerHTML = '<span class="tt-loading">Looking up definition...</span>';
-      // Fallback query to Free Dictionary API
-      fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${cleanWord}`)
-        .then(r => r.json())
-        .then(data => {
-          if (Array.isArray(data) && data[0]?.meanings?.[0]?.definitions?.[0]) {
-            const meaning = data[0].meanings[0];
-            const partOfSpeech = meaning.partOfSpeech ? `${meaning.partOfSpeech}.` : '';
-            const definition = meaning.definitions[0].definition;
-            cache[cleanWord] = { pos: partOfSpeech, def: definition };
-            if (currentTarget && currentTarget.getAttribute('data-w') === cleanWord) {
-              posEl.textContent = partOfSpeech;
-              defEl.textContent = definition;
-            }
-          } else {
-            const fallbackDef = `Contextual term used in Deep Water examination analysis.`;
-            cache[cleanWord] = { pos: 'term', def: fallbackDef };
-            if (currentTarget && currentTarget.getAttribute('data-w') === cleanWord) {
-              posEl.textContent = 'term';
-              defEl.textContent = fallbackDef;
-            }
-          }
-        })
-        .catch(() => {
-          defEl.textContent = 'Definition unavailable offline.';
-        });
+      return;
     }
 
-    // Position tooltip smoothly
-    tooltip.classList.add('active');
-    const tipWidth = 300;
-    const tipHeight = tooltip.offsetHeight || 90;
-    
-    let posX = x + 12;
-    let posY = y - tipHeight - 10;
+    const total = defs.length;
+    let idx = wordIndices[cleanWord] || 0;
+    if (idx >= total) idx = 0;
+    wordIndices[cleanWord] = idx;
 
-    // Viewport bounds checking
+    const curr = defs[idx];
+    posEl.textContent = curr.pos || '';
+    defEl.textContent = curr.def || '';
+
+    if (total > 1) {
+      cycleBtn.style.display = 'inline-block';
+      cycleBtn.textContent = `${idx + 1} of ${total} ↻`;
+      indicator.textContent = `${idx + 1}/${total}`;
+    } else {
+      cycleBtn.style.display = 'none';
+      indicator.textContent = '•';
+    }
+
+    positionTooltip(x, y);
+  }
+
+  function fetchWordDefs(cleanWord, displayWord, x, y) {
+    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${cleanWord}`)
+      .then(r => r.json())
+      .then(data => {
+        const defs = [];
+        const seen = new Set();
+        if (Array.isArray(data)) {
+          data.forEach(entry => {
+            (entry.meanings || []).forEach(m => {
+              const pos = m.partOfSpeech ? `${m.partOfSpeech}.` : '';
+              (m.definitions || []).forEach(d => {
+                const defText = d.definition?.trim();
+                if (defText && !seen.has(defText.toLowerCase())) {
+                  seen.add(defText.toLowerCase());
+                  defs.push({ pos: pos, def: defText });
+                }
+              });
+            });
+          });
+        }
+
+        if (defs.length > 0) {
+          defsCache[cleanWord] = defs;
+        } else {
+          defsCache[cleanWord] = [{ pos: 'term.', def: 'Contextual term used in Deep Water examination study manual.' }];
+        }
+
+        if (currentWord === cleanWord) {
+          renderCurrentMeaning(cleanWord, displayWord, x, y);
+        }
+      })
+      .catch(() => {
+        defsCache[cleanWord] = [{ pos: '', def: 'Definition unavailable offline.' }];
+        if (currentWord === cleanWord) {
+          renderCurrentMeaning(cleanWord, displayWord, x, y);
+        }
+      });
+  }
+
+  function positionTooltip(x, y) {
+    tooltip.classList.add('active');
+    const tipWidth = 320;
+    const tipHeight = tooltip.offsetHeight || 100;
+
+    let posX = x + 12;
+    let posY = y - tipHeight - 12;
+
     if (posX + tipWidth > window.innerWidth - 12) {
       posX = window.innerWidth - tipWidth - 14;
     }
     if (posX < 10) posX = 10;
 
     if (posY < 10) {
-      posY = y + 22; // Show below cursor if top edge clips
+      posY = y + 24; // Display below cursor if top clips
     }
 
     tooltip.style.left = `${posX}px`;
     tooltip.style.top = `${posY}px`;
   }
 
+  function showTooltipForWord(el, x, y) {
+    clearTimeout(hideTimeout);
+    currentTarget = el;
+    const displayWord = el.textContent.trim();
+    const cleanWord = (el.getAttribute('data-w') || displayWord).toLowerCase().trim();
+    currentWord = cleanWord;
+
+    const defs = getWordDefs(cleanWord);
+    if (defs) {
+      renderCurrentMeaning(cleanWord, displayWord, x, y);
+    } else {
+      renderCurrentMeaning(cleanWord, displayWord, x, y); // shows loading
+      fetchWordDefs(cleanWord, displayWord, x, y);
+    }
+  }
+
+  function cycleToNextMeaning(el, e) {
+    const cleanWord = (el.getAttribute('data-w') || el.textContent).toLowerCase().trim();
+    const defs = getWordDefs(cleanWord);
+    if (!defs || defs.length <= 1) return;
+
+    // Advance index
+    const currentIdx = wordIndices[cleanWord] || 0;
+    wordIndices[cleanWord] = (currentIdx + 1) % defs.length;
+
+    // Re-render
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX || (rect.left + rect.width / 2);
+    const y = e.clientY || rect.top;
+    renderCurrentMeaning(cleanWord, el.textContent.trim(), x, y);
+  }
+
   function hideTooltip() {
     tooltip.classList.remove('active');
     currentTarget = null;
+    currentWord = '';
   }
 
-  // Desktop Mouseover & Mouseout Event Delegation
+  // Mouse Events: Hover to View
   document.addEventListener('mouseover', (e) => {
     const el = e.target.closest('.vw');
     if (!el) return;
-    clearTimeout(hideTimeout);
-    currentTarget = el;
-    const w = el.getAttribute('data-w') || el.textContent;
-    showTooltip(w, e.clientX, e.clientY);
+    showTooltipForWord(el, e.clientX, e.clientY);
   });
 
   document.addEventListener('mousemove', (e) => {
     if (!currentTarget) return;
-    // Follow cursor slightly or anchor
-    const w = currentTarget.getAttribute('data-w') || currentTarget.textContent;
-    showTooltip(w, e.clientX, e.clientY);
+    const el = e.target.closest('.vw');
+    if (el && el === currentTarget) {
+      positionTooltip(e.clientX, e.clientY);
+    }
   });
 
   document.addEventListener('mouseout', (e) => {
     const el = e.target.closest('.vw');
     if (el) {
-      hideTimeout = setTimeout(hideTooltip, 100);
+      hideTimeout = setTimeout(hideTooltip, 120);
     }
   });
 
-  // Mobile Touch Support: Tap word to toggle definition
+  // Tooltip hover keeps it open
+  tooltip.addEventListener('mouseenter', () => {
+    clearTimeout(hideTimeout);
+  });
+  tooltip.addEventListener('mouseleave', () => {
+    hideTimeout = setTimeout(hideTooltip, 120);
+  });
+
+  // Click on word OR on tooltip cycles to next meaning!
   document.addEventListener('click', (e) => {
     const el = e.target.closest('.vw');
     if (el) {
       e.preventDefault();
-      currentTarget = el;
-      const rect = el.getBoundingClientRect();
-      const w = el.getAttribute('data-w') || el.textContent;
-      showTooltip(w, rect.left + rect.width / 2, rect.top);
-    } else {
-      hideTooltip();
+      cycleToNextMeaning(el, e);
+      return;
     }
+    if (e.target.closest('#vocab-tooltip') && currentTarget) {
+      e.preventDefault();
+      cycleToNextMeaning(currentTarget, e);
+      return;
+    }
+    hideTooltip();
   });
+
 })();
 </script>
 </body>
