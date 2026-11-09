@@ -1,0 +1,16 @@
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Temporary scripts and dumps
+*.log
+*.tmp
+*.bak
+dump_*.txt
+scraped_*.json
+
+# OS files
+Thumbs.db
+.DS_Store

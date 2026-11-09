@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>CBSE Class 12 English Core — Study Manual &amp; Repository</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   MAKINGSOFTWARE.COM MINIMALIST BLACK & WHITE THEME
+   Portal Index for CBSE Class 12 English Core
+   ========================================================================== */
+
+:root {
+  --bg: #ffffff;
+  --text-main: #111111;
+  --text-muted: #555555;
+  --border-light: #e5e5e5;
+  --border-dark: #111111;
+  --panel-bg: #fafafa;
+  --panel-hover: #f3f4f6;
+  --font-sans: "Google Sans", "Google Sans Text", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Georgia", "Cambria", "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  letter-spacing: -0.011em;
+}
+
+.container {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 56px 32px 100px 32px;
+}
+
+/* Header */
+.portal-header {
+  border-bottom: 2px solid var(--border-dark);
+  padding-bottom: 28px;
+  margin-bottom: 40px;
+}
+
+.mono-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  letter-spacing: -0.035em;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+.portal-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.portal-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.spec-pill {
+  border: 1px solid var(--border-dark);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+/* Feature Callout */
+.feature-box {
+  border: 1px solid var(--border-dark);
+  padding: 24px;
+  background: var(--panel-bg);
+  margin-bottom: 48px;
+}
+
+.feature-title {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 8px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  font-size: 0.92rem;
+}
+
+.feature-item strong {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text-main);
+}
+
+/* Chapter Section Headers */
+h2.section-header {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 2px solid var(--border-dark);
+  padding-bottom: 10px;
+  margin-top: 48px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.section-counter {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Chapter Table */
+.chapter-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 32px;
+  font-size: 0.95rem;
+}
+
+.chapter-table th, .chapter-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-light);
+  text-align: left;
+}
+
+.chapter-table th {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--panel-bg);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.chapter-num {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  width: 60px;
+}
+
+.chapter-title {
+  font-weight: 600;
+}
+
+.chapter-title small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.badge-live {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: var(--border-dark);
+  color: var(--bg);
+  padding: 2px 6px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.badge-pending {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  border: 1px dashed var(--text-muted);
+  color: var(--text-muted);
+  padding: 2px 6px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.action-links {
+  display: flex;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.action-links a {
+  color: var(--text-main);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.action-links a:hover {
+  background: var(--border-dark);
+  color: var(--bg);
+  text-decoration: none;
+}
+
+/* Footer */
+.portal-footer {
+  margin-top: 72px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-dark);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.portal-footer a {
+  color: var(--text-main);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 24px 16px 60px 16px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .portal-footer {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <header class="portal-header">
+    <div class="mono-kicker">REPOSITORY // CBSE CLASS 12 ENGLISH CORE (FLAMINGO &amp; VISTAS)</div>
+    <h1>CBSE Class 12 English Mastery</h1>
+    <div class="portal-subtitle">Interactive Study Manuals, Passage-by-Passage Analysis, Instant Word-Hover Definitions, and Board Exam PYQ Compendium.</div>
+    <div class="portal-specs">
+      <span class="spec-pill">SYLLABUS: 2026–27</span>
+      <span class="spec-pill">THEME: MINIMAL B&amp;W</span>
+      <span class="spec-pill">SOURCE: GITHUB PAGES</span>
+      <span class="spec-pill">STATUS: ACTIVE</span>
+    </div>
+  </header>
+
+  <!-- Key Features -->
+  <div class="feature-box">
+    <div class="feature-title">MANUAL FEATURES // BUILT FOR 100/100 BOARD PERFORMANCE</div>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <strong>1. Stanza / Passage Analysis</strong>
+        Every passage kept verbatim, augmented with deep psychological subtext, literary devices, and CBSE marking value points.
+      </div>
+      <div class="feature-item">
+        <strong>2. Hover-to-Define Lexicon</strong>
+        Hover over any non-obvious word across all text to inspect its exact contextual meaning in a clean black &amp; white tooltip.
+      </div>
+      <div class="feature-item">
+        <strong>3. LitCharts &amp; Guide Synthesis</strong>
+        Unified 5-source compilation merging NCERT, SuccessCDs, official CBSE marking criteria, and literary guides.
+      </div>
+      <div class="feature-item">
+        <strong>4. Dual Vector PDF &amp; HTML</strong>
+        Read interactively in your browser on desktop/phone or download publication-grade, print-ready vector PDFs.
+      </div>
+    </div>
+  </div>
+
+  <!-- Book 1: Flamingo Prose -->
+  <section id="flamingo-prose">
+    <h2 class="section-header">
+      <span>1. Flamingo &mdash; Prose</span>
+      <span class="section-counter">[08 CHAPTERS]</span>
+    </h2>
+
+    <table class="chapter-table">
+      <thead>
+        <tr>
+          <th style="width: 10%;">CH</th>
+          <th style="width: 55%;">CHAPTER &amp; AUTHOR</th>
+          <th style="width: 35%;">FORMATS &amp; ACCESS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="chapter-num">01</td>
+          <td class="chapter-title">
+            The Last Lesson
+            <small>Alphonse Daudet</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+        <tr>
+          <td class="chapter-num">02</td>
+          <td class="chapter-title">
+            Lost Spring: Stories of Stolen Childhood
+            <small>Anees Jung</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+        <tr style="background: var(--panel-bg);">
+          <td class="chapter-num">03</td>
+          <td class="chapter-title">
+            <span class="badge-live">LIVE</span>
+            <strong>Deep Water</strong>
+            <small>William Orville Douglas (from <em>'Of Men and Mountains'</em>)</small>
+          </td>
+          <td>
+            <div class="action-links">
+              <a href="HTML/deep_water_cbse_mastery.html">Read Manual (HTML)</a>
+              &bull;
+              <a href="PDF/Deep_Water_CBSE_Guide.pdf" download>Download PDF</a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="chapter-num">04</td>
+          <td class="chapter-title">
+            The Rattrap
+            <small>Selma Lagerlöf</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+        <tr>
+          <td class="chapter-num">05</td>
+          <td class="chapter-title">
+            Indigo
+            <small>Louis Fischer</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+        <tr>
+          <td class="chapter-num">06</td>
+          <td class="chapter-title">
+            Poets and Pancakes
+            <small>Asokamitran</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+        <tr>
+          <td class="chapter-num">07</td>
+          <td class="chapter-title">
+            The Interview
+            <small>Christopher Silvester</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+        <tr>
+          <td class="chapter-num">08</td>
+          <td class="chapter-title">
+            Going Places
+            <small>A. R. Barton</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Book 2: Flamingo Poetry -->
+  <section id="flamingo-poetry">
+    <h2 class="section-header">
+      <span>2. Flamingo &mdash; Poetry</span>
+      <span class="section-counter">[05 POEMS]</span>
+    </h2>
+
+    <table class="chapter-table">
+      <thead>
+        <tr>
+          <th style="width: 10%;">NO</th>
+          <th style="width: 55%;">POEM &amp; POET</th>
+          <th style="width: 35%;">FORMATS &amp; ACCESS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="chapter-num">01</td>
+          <td class="chapter-title">
+            My Mother at Sixty-Six
+            <small>Kamala Das</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+        <tr>
+          <td class="chapter-num">02</td>
+          <td class="chapter-title">
+            Keeping Quiet
+            <small>Pablo Neruda</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+        <tr>
+          <td class="chapter-num">03</td>
+          <td class="chapter-title">
+            A Thing of Beauty
+            <small>John Keats</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+        <tr>
+          <td class="chapter-num">04</td>
+          <td class="chapter-title">
+            A Roadside Stand
+            <small>Robert Frost</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+        <tr>
+          <td class="chapter-num">05</td>
+          <td class="chapter-title">
+            Aunt Jennifer's Tigers
+            <small>Adrienne Rich</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Book 3: Vistas Supplementary -->
+  <section id="vistas">
+    <h2 class="section-header">
+      <span>3. Vistas &mdash; Supplementary Reader</span>
+      <span class="section-counter">[06 CHAPTERS]</span>
+    </h2>
+
+    <table class="chapter-table">
+      <thead>
+        <tr>
+          <th style="width: 10%;">CH</th>
+          <th style="width: 55%;">CHAPTER &amp; AUTHOR</th>
+          <th style="width: 35%;">FORMATS &amp; ACCESS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="chapter-num">01</td>
+          <td class="chapter-title">
+            The Third Level
+            <small>Jack Finney</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+        <tr>
+          <td class="chapter-num">02</td>
+          <td class="chapter-title">
+            The Tiger King
+            <small>Kalki</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+        <tr>
+          <td class="chapter-num">03</td>
+          <td class="chapter-title">
+            Journey to the End of the Earth
+            <small>Tishani Doshi</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+        <tr>
+          <td class="chapter-num">04</td>
+          <td class="chapter-title">
+            The Enemy
+            <small>Pearl S. Buck</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+        <tr>
+          <td class="chapter-num">05</td>
+          <td class="chapter-title">
+            On the Face of It
+            <small>Susan Hill</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+        <tr>
+          <td class="chapter-num">06</td>
+          <td class="chapter-title">
+            Memories of Childhood
+            <small>Zitkala-Sa &amp; Bama</small>
+          </td>
+          <td><span class="badge-pending">Queued</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Footer -->
+  <footer class="portal-footer">
+    <div>CBSE CLASS 12 ENGLISH CORE &bull; REPOSITORY MAINTAINED BY <a href="https://github.com/ostrich2635">@ostrich2635</a></div>
+    <div><a href="https://github.com/ostrich2635/CBSE-English-12">GitHub Repository</a></div>
+  </footer>
+
+</div>
+
+</body>
+</html>
