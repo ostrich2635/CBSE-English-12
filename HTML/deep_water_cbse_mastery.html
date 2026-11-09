@@ -631,16 +631,7 @@ td:last-child, th:last-child { border-right: 0; }
   font-size: 0.85rem;
   min-height: 28px;
 }
-#vocab-tooltip .tt-footer {
-  margin-top: 8px;
-  padding-top: 6px;
-  border-top: 1px dashed #333333;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: #888888;
-  display: flex;
-  justify-content: space-between;
-}
+
 #vocab-tooltip .tt-loading {
   color: #888888;
   font-style: italic;
@@ -2588,7 +2579,7 @@ td:last-child, th:last-child { border-right: 0; }
   const posEl = document.getElementById('tt-pos-el');
   const defEl = document.getElementById('tt-def-el');
   const cycleBtn = document.getElementById('tt-cycle-btn');
-  const indicator = document.getElementById('tt-indicator');
+  const indicator = null;
 
   let currentWord = '';
   let currentTarget = null;
@@ -2627,10 +2618,10 @@ td:last-child, th:last-child { border-right: 0; }
     if (total > 1) {
       cycleBtn.style.display = 'inline-block';
       cycleBtn.textContent = `${idx + 1} of ${total} ↻`;
-      indicator.textContent = `${idx + 1}/${total}`;
+      
     } else {
       cycleBtn.style.display = 'none';
-      indicator.textContent = '•';
+      
     }
 
     positionTooltip(x, y);
