@@ -29,7 +29,7 @@ A curated, high-yield digital study compendium and reference manual for CBSE Cla
 - [ ] Chapter 5: Indigo (Louis Fischer)
 - [ ] Chapter 6: Poets and Pancakes (Asokamitran)
 - [ ] Chapter 7: The Interview (Christopher Silvester)
-- [ ] Chapter 8: Going Places (A. R. Barton)
+- [x] **Chapter 8: Going Places** by A. R. Barton &mdash; [Read HTML](HTML/going_places_cbse_mastery.html) | [Download PDF](PDF/Going_Places_CBSE_Guide.pdf)
 
 ### Flamingo (Poetry)
 - [ ] Poem 1: My Mother at Sixty-Six (Kamala Das)
