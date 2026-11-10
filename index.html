@@ -1,7 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-<script>
+<head><script>
 (function() {
   const saved = localStorage.getItem('cbse_theme');
   if (saved === 'dark') {
@@ -12,12 +12,12 @@
 })();
 </script>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
 <title>CBSE Class 12 English Core — Study Manual &amp; Repository</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&amp;display=swap" rel="stylesheet"/>
 <style>
 /* ==========================================================================
    MAKINGSOFTWARE.COM MINIMALIST BLACK & WHITE THEME
@@ -308,15 +308,18 @@ h2.section-header {
   }
 }
 
-/* Floating Controls (Theme Toggle & Back to Top) */
+/* ==========================================================================
+   FLOATING CONTROLS: THEME TOGGLE & BACK TO TOP (ACTIVE ON SCROLL)
+   ========================================================================== */
+
 .floating-controls {
   position: fixed;
   bottom: 28px;
   right: 28px;
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
-  z-index: 999;
+  z-index: 10000;
   opacity: 0;
   pointer-events: none;
   transform: translateY(12px);
@@ -331,20 +334,21 @@ h2.section-header {
 
 .floating-btn {
   font-family: var(--font-mono);
-  font-size: 0.76rem;
-  letter-spacing: 0.04em;
-  padding: 8px 12px;
-  border: 1px solid var(--border-dark);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  padding: 8px 14px;
+  border: 1.5px solid var(--border-dark);
   background: var(--bg);
   color: var(--text-main);
   text-decoration: none;
   cursor: pointer;
   border-radius: 2px;
   transition: all 0.15s ease;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  user-select: none;
 }
 
 .floating-btn:hover {
@@ -362,7 +366,7 @@ h2.section-header {
   color: var(--border-dark);
 }
 
-@media (max-width: 540px) {
+@media (max-width: 600px) {
   .floating-controls {
     bottom: 16px;
     right: 16px;
@@ -370,7 +374,7 @@ h2.section-header {
   }
   .floating-btn {
     padding: 6px 10px;
-    font-size: 0.7rem;
+    font-size: 0.72rem;
   }
 }
 
@@ -379,310 +383,309 @@ h2.section-header {
     display: none !important;
   }
 }
-
 </style>
 </head>
 <body>
-
 <div class="container" id="top">
-
-  <!-- Header -->
-  <header class="portal-header">
-    <div class="mono-kicker">REPOSITORY // CBSE CLASS 12 ENGLISH CORE (FLAMINGO &amp; VISTAS)</div>
-    <h1>CBSE Class 12 English Mastery</h1>
-    <div class="portal-subtitle">Interactive Study Manuals, Passage-by-Passage Analysis, Instant Word-Hover Definitions, and Board Exam PYQ Compendium.</div>
-    <div class="portal-specs">
-      <span class="spec-pill">SYLLABUS: 2026–27</span>
-      <span class="spec-pill">THEME: MINIMAL B&amp;W</span>
-      <span class="spec-pill">SOURCE: GITHUB PAGES</span>
-      <span class="spec-pill">STATUS: ACTIVE</span>
-    </div>
-  </header>
-
-  <!-- Key Features -->
-  <div class="feature-box">
-    <div class="feature-title">MANUAL FEATURES // BUILT FOR 100/100 BOARD PERFORMANCE</div>
-    <div class="feature-grid">
-      <div class="feature-item">
-        <strong>1. Stanza / Passage Analysis</strong>
+<!-- Header -->
+<header class="portal-header">
+<div class="mono-kicker">REPOSITORY // CBSE CLASS 12 ENGLISH CORE (FLAMINGO &amp; VISTAS)</div>
+<h1>CBSE Class 12 English Mastery</h1>
+<div class="portal-subtitle">Interactive Study Manuals, Passage-by-Passage Analysis, Instant Word-Hover Definitions, and Board Exam PYQ Compendium.</div>
+<div class="portal-specs">
+<span class="spec-pill">SYLLABUS: 2026–27</span>
+<span class="spec-pill">THEME: MINIMAL B&amp;W</span>
+<span class="spec-pill">SOURCE: GITHUB PAGES</span>
+<span class="spec-pill">STATUS: ACTIVE</span>
+</div>
+</header>
+<!-- Key Features -->
+<div class="feature-box">
+<div class="feature-title">MANUAL FEATURES // BUILT FOR 100/100 BOARD PERFORMANCE</div>
+<div class="feature-grid">
+<div class="feature-item">
+<strong>1. Stanza / Passage Analysis</strong>
         Every passage kept verbatim, augmented with deep psychological subtext, literary devices, and CBSE marking value points.
       </div>
-      <div class="feature-item">
-        <strong>2. Hover-to-Define Lexicon</strong>
+<div class="feature-item">
+<strong>2. Hover-to-Define Lexicon</strong>
         Hover over any non-obvious word across all text to inspect its exact contextual meaning in a clean black &amp; white tooltip.
       </div>
-      <div class="feature-item">
-        <strong>3. LitCharts &amp; Guide Synthesis</strong>
+<div class="feature-item">
+<strong>3. LitCharts &amp; Guide Synthesis</strong>
         Unified 5-source compilation merging NCERT, SuccessCDs, official CBSE marking criteria, and literary guides.
       </div>
-      <div class="feature-item">
-        <strong>4. Dual Vector PDF &amp; HTML</strong>
+<div class="feature-item">
+<strong>4. Dual Vector PDF &amp; HTML</strong>
         Read interactively in your browser on desktop/phone or download publication-grade, print-ready vector PDFs.
       </div>
-    </div>
-  </div>
-
-  <!-- Book 1: Flamingo Prose -->
-  <section id="flamingo-prose">
-    <h2 class="section-header">
-      <span>1. Flamingo &mdash; Prose</span>
-      <span class="section-counter">[08 CHAPTERS]</span>
-    </h2>
-
-    <table class="chapter-table">
-      <thead>
-        <tr>
-          <th style="width: 10%;">CH</th>
-          <th style="width: 55%;">CHAPTER &amp; AUTHOR</th>
-          <th style="width: 35%;">FORMATS &amp; ACCESS</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="chapter-num">01</td>
-          <td class="chapter-title">
+</div>
+</div>
+<!-- Book 1: Flamingo Prose -->
+<section id="flamingo-prose">
+<h2 class="section-header">
+<span>1. Flamingo — Prose</span>
+<span class="section-counter">[08 CHAPTERS]</span>
+</h2>
+<table class="chapter-table">
+<thead>
+<tr>
+<th style="width: 10%;">CH</th>
+<th style="width: 55%;">CHAPTER &amp; AUTHOR</th>
+<th style="width: 35%;">FORMATS &amp; ACCESS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="chapter-num">01</td>
+<td class="chapter-title">
             The Last Lesson
             <small>Alphonse Daudet</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-        <tr>
-          <td class="chapter-num">02</td>
-          <td class="chapter-title">
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+<tr>
+<td class="chapter-num">02</td>
+<td class="chapter-title">
             Lost Spring: Stories of Stolen Childhood
             <small>Anees Jung</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-        <tr style="background: var(--panel-bg);">
-          <td class="chapter-num">03</td>
-          <td class="chapter-title">
-            <span class="badge-live">LIVE</span>
-            <strong>Deep Water</strong>
-            <small>William Orville Douglas (from <em>'Of Men and Mountains'</em>)</small>
-          </td>
-          <td>
-            <div class="action-links">
-              <a href="HTML/deep_water_cbse_mastery.html">Read Manual (HTML)</a>
-              &bull;
-              <a href="PDF/Deep_Water_CBSE_Guide.pdf" download>Download PDF</a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="chapter-num">04</td>
-          <td class="chapter-title">
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+<tr style="background: var(--panel-bg);">
+<td class="chapter-num">03</td>
+<td class="chapter-title">
+<span class="badge-live">LIVE</span>
+<strong>Deep Water</strong>
+<small>William Orville Douglas (from <em>'Of Men and Mountains'</em>)</small>
+</td>
+<td>
+<div class="action-links">
+<a href="HTML/deep_water_cbse_mastery.html">Read Manual (HTML)</a>
+              •
+              <a download="" href="PDF/Deep_Water_CBSE_Guide.pdf">Download PDF</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="chapter-num">04</td>
+<td class="chapter-title">
             The Rattrap
             <small>Selma Lagerlöf</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-        <tr>
-          <td class="chapter-num">05</td>
-          <td class="chapter-title">
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+<tr>
+<td class="chapter-num">05</td>
+<td class="chapter-title">
             Indigo
             <small>Louis Fischer</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-        <tr>
-          <td class="chapter-num">06</td>
-          <td class="chapter-title">
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+<tr>
+<td class="chapter-num">06</td>
+<td class="chapter-title">
             Poets and Pancakes
             <small>Asokamitran</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-        <tr>
-          <td class="chapter-num">07</td>
-          <td class="chapter-title">
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+<tr>
+<td class="chapter-num">07</td>
+<td class="chapter-title">
             The Interview
             <small>Christopher Silvester</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-        <tr>
-          <td class="chapter-num">08</td>
-          <td class="chapter-title">
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+<tr>
+<td class="chapter-num">08</td>
+<td class="chapter-title">
             Going Places
             <small>A. R. Barton</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- Book 2: Flamingo Poetry -->
-  <section id="flamingo-poetry">
-    <h2 class="section-header">
-      <span>2. Flamingo &mdash; Poetry</span>
-      <span class="section-counter">[05 POEMS]</span>
-    </h2>
-
-    <table class="chapter-table">
-      <thead>
-        <tr>
-          <th style="width: 10%;">NO</th>
-          <th style="width: 55%;">POEM &amp; POET</th>
-          <th style="width: 35%;">FORMATS &amp; ACCESS</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="chapter-num">01</td>
-          <td class="chapter-title">
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- Book 2: Flamingo Poetry -->
+<section id="flamingo-poetry">
+<h2 class="section-header">
+<span>2. Flamingo — Poetry</span>
+<span class="section-counter">[05 POEMS]</span>
+</h2>
+<table class="chapter-table">
+<thead>
+<tr>
+<th style="width: 10%;">NO</th>
+<th style="width: 55%;">POEM &amp; POET</th>
+<th style="width: 35%;">FORMATS &amp; ACCESS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="chapter-num">01</td>
+<td class="chapter-title">
             My Mother at Sixty-Six
             <small>Kamala Das</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-        <tr>
-          <td class="chapter-num">02</td>
-          <td class="chapter-title">
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+<tr>
+<td class="chapter-num">02</td>
+<td class="chapter-title">
             Keeping Quiet
             <small>Pablo Neruda</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-        <tr>
-          <td class="chapter-num">03</td>
-          <td class="chapter-title">
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+<tr>
+<td class="chapter-num">03</td>
+<td class="chapter-title">
             A Thing of Beauty
             <small>John Keats</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-        <tr>
-          <td class="chapter-num">04</td>
-          <td class="chapter-title">
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+<tr>
+<td class="chapter-num">04</td>
+<td class="chapter-title">
             A Roadside Stand
             <small>Robert Frost</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-        <tr>
-          <td class="chapter-num">05</td>
-          <td class="chapter-title">
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+<tr>
+<td class="chapter-num">05</td>
+<td class="chapter-title">
             Aunt Jennifer's Tigers
             <small>Adrienne Rich</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- Book 3: Vistas Supplementary -->
-  <section id="vistas">
-    <h2 class="section-header">
-      <span>3. Vistas &mdash; Supplementary Reader</span>
-      <span class="section-counter">[06 CHAPTERS]</span>
-    </h2>
-
-    <table class="chapter-table">
-      <thead>
-        <tr>
-          <th style="width: 10%;">CH</th>
-          <th style="width: 55%;">CHAPTER &amp; AUTHOR</th>
-          <th style="width: 35%;">FORMATS &amp; ACCESS</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="chapter-num">01</td>
-          <td class="chapter-title">
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- Book 3: Vistas Supplementary -->
+<section id="vistas">
+<h2 class="section-header">
+<span>3. Vistas — Supplementary Reader</span>
+<span class="section-counter">[06 CHAPTERS]</span>
+</h2>
+<table class="chapter-table">
+<thead>
+<tr>
+<th style="width: 10%;">CH</th>
+<th style="width: 55%;">CHAPTER &amp; AUTHOR</th>
+<th style="width: 35%;">FORMATS &amp; ACCESS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="chapter-num">01</td>
+<td class="chapter-title">
             The Third Level
             <small>Jack Finney</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-        <tr>
-          <td class="chapter-num">02</td>
-          <td class="chapter-title">
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+<tr>
+<td class="chapter-num">02</td>
+<td class="chapter-title">
             The Tiger King
             <small>Kalki</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-        <tr>
-          <td class="chapter-num">03</td>
-          <td class="chapter-title">
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+<tr>
+<td class="chapter-num">03</td>
+<td class="chapter-title">
             Journey to the End of the Earth
             <small>Tishani Doshi</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-        <tr>
-          <td class="chapter-num">04</td>
-          <td class="chapter-title">
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+<tr>
+<td class="chapter-num">04</td>
+<td class="chapter-title">
             The Enemy
             <small>Pearl S. Buck</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-        <tr>
-          <td class="chapter-num">05</td>
-          <td class="chapter-title">
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+<tr>
+<td class="chapter-num">05</td>
+<td class="chapter-title">
             On the Face of It
             <small>Susan Hill</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-        <tr>
-          <td class="chapter-num">06</td>
-          <td class="chapter-title">
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+<tr>
+<td class="chapter-num">06</td>
+<td class="chapter-title">
             Memories of Childhood
             <small>Zitkala-Sa &amp; Bama</small>
-          </td>
-          <td><span class="badge-pending">Queued</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+</td>
+<td><span class="badge-pending">Queued</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- Footer -->
+<footer class="portal-footer">
+<div>CBSE CLASS 12 ENGLISH CORE • REPOSITORY MAINTAINED BY <a href="https://github.com/ostrich2635">@ostrich2635</a></div>
+<div><a href="https://github.com/ostrich2635/CBSE-English-12">GitHub Repository</a></div>
+</footer>
+</div>
 
-  <!-- Footer -->
-  <footer class="portal-footer">
-    <div>CBSE CLASS 12 ENGLISH CORE &bull; REPOSITORY MAINTAINED BY <a href="https://github.com/ostrich2635">@ostrich2635</a></div>
-    <div><a href="https://github.com/ostrich2635/CBSE-English-12">GitHub Repository</a></div>
-  </footer>
 
+<div class="floating-controls" id="floating-controls">
+<button aria-label="Toggle theme" class="floating-btn" id="theme-toggle" title="Toggle Light/Dark Theme">[ ☾ DARK ]</button>
+<a class="floating-btn back-top-btn" href="#top" title="Scroll to top">↑ TOP</a>
 </div>
 
 <script>
 (function() {
-  const floatingControls = document.getElementById('floating-controls');
-  if (floatingControls) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 140) {
-        floatingControls.classList.add('visible');
-      } else {
-        floatingControls.classList.remove('visible');
-      }
-    });
-  }
-
+  const controls = document.getElementById('floating-controls');
   const toggleBtn = document.getElementById('theme-toggle');
-  function updateBtnText() {
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-    if (toggleBtn) {
-      toggleBtn.textContent = currentTheme === 'dark' ? '[ ☼ LIGHT ]' : '[ ☾ DARK ]';
+
+  // Show floating controls when user scrolls down > 80px
+  function checkScroll() {
+    if (window.scrollY > 80) {
+      if (controls) controls.classList.add('visible');
+    } else {
+      if (controls) controls.classList.remove('visible');
     }
   }
 
-  updateBtnText();
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  checkScroll();
+
+  // Theme update function
+  function syncThemeBtn() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (toggleBtn) {
+      toggleBtn.textContent = isDark ? '[ ☼ LIGHT ]' : '[ ☾ DARK ]';
+    }
+  }
+
+  syncThemeBtn();
 
   if (toggleBtn) {
-    toggleBtn.addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', nextTheme);
-      localStorage.setItem('cbse_theme', nextTheme);
-      updateBtnText();
+    toggleBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const newTheme = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('cbse_theme', newTheme);
+      syncThemeBtn();
     });
   }
 })();
 </script>
-
 </body>
 </html>
