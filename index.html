@@ -4,10 +4,10 @@
 <script>
 (function() {
   const saved = localStorage.getItem('cbse_theme');
-  if (saved) {
-    document.documentElement.setAttribute('data-theme', saved);
-  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  if (saved === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
   }
 })();
 </script>
@@ -47,16 +47,7 @@
   --panel-hover: #1f242c;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0d1117;
-    --text-main: #e6edf3;
-    --text-muted: #8b949e;
-    --border-light: #30363d;
-    --border-dark: #e6edf3;
-    --panel-bg: #161b22;
-    --panel-hover: #1f242c;
-  }
+
 }
 
 .theme-toggle-btn {
@@ -316,18 +307,88 @@ h2.section-header {
     flex-direction: column;
   }
 }
+
+/* Floating Controls (Theme Toggle & Back to Top) */
+.floating-controls {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.floating-controls.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.floating-btn {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  padding: 8px 12px;
+  border: 1px solid var(--border-dark);
+  background: var(--bg);
+  color: var(--text-main);
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-btn:hover {
+  background: var(--text-main);
+  color: var(--bg);
+}
+
+.floating-btn.back-top-btn {
+  background: var(--border-dark);
+  color: var(--bg);
+}
+
+.floating-btn.back-top-btn:hover {
+  background: var(--bg);
+  color: var(--border-dark);
+}
+
+@media (max-width: 540px) {
+  .floating-controls {
+    bottom: 16px;
+    right: 16px;
+    gap: 6px;
+  }
+  .floating-btn {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+  }
+}
+
+@media print {
+  .floating-controls {
+    display: none !important;
+  }
+}
+
 </style>
 </head>
 <body>
 
-<div class="container">
+<div class="container" id="top">
 
   <!-- Header -->
   <header class="portal-header">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-      <div class="mono-kicker" style="margin-bottom:0;">REPOSITORY // CBSE CLASS 12 ENGLISH CORE (FLAMINGO &amp; VISTAS)</div>
-      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">[ ☾ DARK ]</button>
-    </div>
+    <div class="mono-kicker">REPOSITORY // CBSE CLASS 12 ENGLISH CORE (FLAMINGO &amp; VISTAS)</div>
     <h1>CBSE Class 12 English Mastery</h1>
     <div class="portal-subtitle">Interactive Study Manuals, Passage-by-Passage Analysis, Instant Word-Hover Definitions, and Board Exam PYQ Compendium.</div>
     <div class="portal-specs">
@@ -590,11 +651,20 @@ h2.section-header {
 
 <script>
 (function() {
+  const floatingControls = document.getElementById('floating-controls');
+  if (floatingControls) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 140) {
+        floatingControls.classList.add('visible');
+      } else {
+        floatingControls.classList.remove('visible');
+      }
+    });
+  }
+
   const toggleBtn = document.getElementById('theme-toggle');
-  
   function updateBtnText() {
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 
-      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
     if (toggleBtn) {
       toggleBtn.textContent = currentTheme === 'dark' ? '[ ☼ LIGHT ]' : '[ ☾ DARK ]';
     }
@@ -604,8 +674,7 @@ h2.section-header {
 
   if (toggleBtn) {
     toggleBtn.addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme') || 
-        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
       const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', nextTheme);
       localStorage.setItem('cbse_theme', nextTheme);
