@@ -2,6 +2,40 @@
 
 <html lang="en">
 <head>
+<script>
+(function() {
+  const saved = localStorage.getItem('cbse_theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+
+  // Theme Toggle Handler
+  const toggleBtn = document.getElementById('theme-toggle');
+  function updateThemeBtn() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (toggleBtn) {
+      toggleBtn.textContent = currentTheme === 'dark' ? '[ ☼ LIGHT ]' : '[ ☾ DARK ]';
+    }
+  }
+  updateThemeBtn();
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', nextTheme);
+      localStorage.setItem('cbse_theme', nextTheme);
+      updateThemeBtn();
+    });
+  }
+
+})();
+</script>
+
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -22,9 +56,60 @@
   --border-dark: #111111;
   --panel-bg: #fafafa;
   --panel-hover: #f3f4f6;
+  --tooltip-bg: #111111;
+  --tooltip-text: #ffffff;
+  --tooltip-border: #333333;
+  --hover-bg: #f0f0f0;
   --font-sans: "Google Sans", "Google Sans Text", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-serif: "Georgia", "Cambria", "Times New Roman", Times, serif;
   --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+}
+
+[data-theme="dark"] {
+  --bg: #0d1117;
+  --text-main: #e6edf3;
+  --text-muted: #8b949e;
+  --border-light: #30363d;
+  --border-dark: #e6edf3;
+  --panel-bg: #161b22;
+  --panel-hover: #1f242c;
+  --tooltip-bg: #161b22;
+  --tooltip-text: #e6edf3;
+  --tooltip-border: #484f58;
+  --hover-bg: #21262d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1117;
+    --text-main: #e6edf3;
+    --text-muted: #8b949e;
+    --border-light: #30363d;
+    --border-dark: #e6edf3;
+    --panel-bg: #161b22;
+    --panel-hover: #1f242c;
+    --tooltip-bg: #161b22;
+    --tooltip-text: #e6edf3;
+    --tooltip-border: #484f58;
+    --hover-bg: #21262d;
+  }
+}
+
+.theme-toggle-btn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border: 1px solid var(--border-dark);
+  background: var(--bg);
+  color: var(--text-main);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+}
+.theme-toggle-btn:hover {
+  background: var(--text-main);
+  color: var(--bg);
 }
 
 *, *::before, *::after {
@@ -289,7 +374,7 @@ a:hover {
   line-height: 1.85;
   font-style: italic;
   margin-bottom: 24px;
-  color: #1a1a1a;
+  color: var(--text-main);
 }
 
 .quote-label {
@@ -555,9 +640,9 @@ td:last-child, th:last-child { border-right: 0; }
   display: inline;
 }
 .vw:hover {
-  border-bottom: 1.5px solid #111111;
-  background-color: #f0f0f0;
-  color: #000000;
+  border-bottom: 1.5px solid var(--border-dark);
+  background-color: var(--hover-bg);
+  color: var(--text-main);
 }
 
 #vocab-tooltip {
@@ -566,9 +651,9 @@ td:last-child, th:last-child { border-right: 0; }
   z-index: 10000;
   max-width: 340px;
   min-width: 240px;
-  background: #111111;
-  color: #ffffff;
-  border: 1px solid #333333;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  border: 1px solid var(--tooltip-border);
   border-radius: 3px;
   padding: 12px 14px;
   font-family: var(--font-sans);
@@ -655,7 +740,10 @@ td:last-child, th:last-child { border-right: 0; }
 <div class="container" id="top">
 <!-- Document Header -->
 <header class="doc-header">
-<div class="mono-kicker">MANUAL // CBSE CLASS 12 ENGLISH CORE (FLAMINGO) // CH-03</div>
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+      <div class="mono-kicker" style="margin-bottom:0;">MANUAL // CBSE CLASS 12 ENGLISH CORE (FLAMINGO) // CH-03</div>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">[ ☾ DARK ]</button>
+    </div>
 <h1>DEEP WATER</h1>
 <div class="doc-subtitle">An Autobiographical Excerpt from <em>‘Of Men and Mountains’</em> (1950) by <strong>William Orville Douglas</strong></div>
 <div class="doc-specs">
@@ -2767,6 +2855,29 @@ td:last-child, th:last-child { border-right: 0; }
     }
     hideTooltip();
   });
+
+
+  // Theme Toggle Handler
+  const toggleBtn = document.getElementById('theme-toggle');
+  function updateThemeBtn() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (toggleBtn) {
+      toggleBtn.textContent = currentTheme === 'dark' ? '[ ☼ LIGHT ]' : '[ ☾ DARK ]';
+    }
+  }
+  updateThemeBtn();
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', nextTheme);
+      localStorage.setItem('cbse_theme', nextTheme);
+      updateThemeBtn();
+    });
+  }
 
 })();
 </script>

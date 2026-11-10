@@ -59,6 +59,9 @@ CBSE-English-12/
 │   └── deep_water_cbse_mastery.html
 ├── PDF/              # Print-ready vector chapter PDFs
 │   └── Deep_Water_CBSE_Guide.pdf
+├── NCERT/            # Official NCERT textbooks (renamed by chapter)
+│   ├── Flamingo/     # Prose (Ch 01-08) & Poetry (Poem 01-05)
+│   └── Vistas/       # Supplementary Reader (Ch 01-06)
 └── litchart/         # Reference LitCharts guides for cross-pollination
 ```
 
