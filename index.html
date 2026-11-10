@@ -47,26 +47,6 @@
   --panel-hover: #1f242c;
 }
 
-
-}
-
-.theme-toggle-btn {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-  padding: 4px 10px;
-  border: 1px solid var(--border-dark);
-  background: var(--bg);
-  color: var(--text-main);
-  cursor: pointer;
-  border-radius: 2px;
-  transition: all 0.15s ease;
-}
-.theme-toggle-btn:hover {
-  background: var(--text-main);
-  color: var(--bg);
-}
-
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -654,7 +634,8 @@ h2.section-header {
 
   // Show floating controls when user scrolls down > 80px
   function checkScroll() {
-    if (window.scrollY > 80) {
+    const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (scrollPos > 80) {
       if (controls) controls.classList.add('visible');
     } else {
       if (controls) controls.classList.remove('visible');
@@ -662,6 +643,9 @@ h2.section-header {
   }
 
   window.addEventListener('scroll', checkScroll, { passive: true });
+  window.addEventListener('load', checkScroll);
+  window.addEventListener('hashchange', checkScroll);
+  setTimeout(checkScroll, 150);
   checkScroll();
 
   // Theme update function
