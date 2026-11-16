@@ -15,5 +15,7 @@ scraped_*.json
 Thumbs.db
 .DS_Store
 
-# Large raw audiobook files
+# Large raw audiobook and model files
 audio/Sapiens*.mp3
+audio/kokoro_model/
+audio/test_tones/
