@@ -684,223 +684,6 @@ td:last-child, th:last-child { border-right: 0; }
   }
 }
 
-
-
-/* Audio Player & Dock System */
-.passage-meta-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.audio-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  color: var(--text-color);
-  border: 1px solid var(--border-color);
-  padding: 3px 9px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  border-radius: 2px;
-  user-select: none;
-}
-
-.audio-btn:hover {
-  background: var(--text-color);
-  color: var(--bg-color);
-  border-color: var(--text-color);
-}
-
-.audio-btn.playing {
-  background: var(--text-color);
-  color: var(--bg-color);
-  border-color: var(--text-color);
-}
-
-.passage-card.audio-active {
-  border-left: 3px solid var(--text-color);
-}
-
-.audio-dock {
-  position: fixed;
-  bottom: 1.5rem;
-  left: 2rem;
-  max-width: 660px;
-  width: calc(100% - 15rem);
-  background: var(--bg-color);
-  color: var(--text-color);
-  border: 2px solid var(--text-color);
-  padding: 10px 16px;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  z-index: 990;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  display: none;
-  flex-direction: column;
-  gap: 8px;
-  border-radius: 2px;
-}
-
-[data-theme="dark"] .audio-dock {
-  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-}
-
-.audio-dock.active {
-  display: flex;
-  animation: dockSlideUp 0.2s ease-out;
-}
-
-@keyframes dockSlideUp {
-  from { transform: translateY(16px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.dock-header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-}
-
-.dock-title-group {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-
-.dock-badge {
-  background: var(--text-color);
-  color: var(--bg-color);
-  padding: 1px 6px;
-  font-size: 0.68rem;
-  border-radius: 2px;
-  flex-shrink: 0;
-}
-
-.dock-title {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.dock-time {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  flex-shrink: 0;
-}
-
-.dock-controls-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.dock-ctrl-btns {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.dock-ctrl-btn {
-  background: transparent;
-  color: var(--text-color);
-  border: 1px solid var(--border-color);
-  padding: 3px 8px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  cursor: pointer;
-  border-radius: 2px;
-  transition: all 0.15s ease;
-}
-
-.dock-ctrl-btn:hover {
-  background: var(--text-color);
-  color: var(--bg-color);
-  border-color: var(--text-color);
-}
-
-.dock-speed-group {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.dock-speed-btn {
-  background: transparent;
-  color: var(--text-muted);
-  border: none;
-  padding: 2px 4px;
-  font-family: var(--font-mono);
-  font-size: 0.70rem;
-  cursor: pointer;
-}
-
-.dock-speed-btn.active {
-  color: var(--text-color);
-  font-weight: 700;
-  text-decoration: underline;
-}
-
-.dock-progress-wrap {
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-
-.dock-seeker {
-  width: 100%;
-  height: 4px;
-  background: var(--border-color);
-  appearance: none;
-  cursor: pointer;
-  border-radius: 2px;
-  outline: none;
-}
-
-.dock-seeker::-webkit-slider-thumb {
-  appearance: none;
-  width: 12px;
-  height: 12px;
-  background: var(--text-color);
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.dock-close-btn {
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 0 4px;
-  line-height: 1;
-}
-
-.dock-close-btn:hover {
-  color: var(--text-color);
-}
-
-@media (max-width: 900px) {
-  .audio-dock {
-    left: 1rem;
-    right: 1rem;
-    bottom: 4.5rem;
-    width: auto;
-    max-width: none;
-  }
-}
 </style>
 </head>
 <body>
@@ -978,8 +761,8 @@ td:last-child, th:last-child { border-right: 0; }
 <article class="passage-card" id="passage-1">
 <div class="passage-meta">
 <span class="passage-num">SECTION 1 OF 16</span>
-
-<div class="passage-meta-right"><button aria-label="Listen to Passage 1" class="audio-btn" data-passage="1" data-src="../audio/going_places/passage_01.mp3" title="Listen to Passage 1">[ ▶ LISTEN ]</button><span>SECTION // STUDY MANUAL</span></div></div>
+<span>SECTION // STUDY MANUAL</span>
+</div>
 <div class="passage-headline">Passage 1: Boutique Dreams &amp; The Biscuit Factory Destiny</div>
 <div class="quote-passage">
 <span class="quote-label">ORIGINAL VERBATIM TEXT</span>
@@ -1007,8 +790,8 @@ td:last-child, th:last-child { border-right: 0; }
 <article class="passage-card" id="passage-2">
 <div class="passage-meta">
 <span class="passage-num">SECTION 2 OF 16</span>
-
-<div class="passage-meta-right"><button aria-label="Listen to Passage 2" class="audio-btn" data-passage="2" data-src="../audio/going_places/passage_02.mp3" title="Listen to Passage 2">[ ▶ LISTEN ]</button><span>SECTION // STUDY MANUAL</span></div></div>
+<span>SECTION // STUDY MANUAL</span>
+</div>
 <div class="passage-headline">Passage 2: Sensibility vs. Sophistication: Standing in the Rain</div>
 <div class="quote-passage">
 <span class="quote-label">ORIGINAL VERBATIM TEXT</span>
@@ -1036,8 +819,8 @@ td:last-child, th:last-child { border-right: 0; }
 <article class="passage-card" id="passage-3">
 <div class="passage-meta">
 <span class="passage-num">SECTION 3 OF 16</span>
-
-<div class="passage-meta-right"><button aria-label="Listen to Passage 3" class="audio-btn" data-passage="3" data-src="../audio/going_places/passage_03.mp3" title="Listen to Passage 3">[ ▶ LISTEN ]</button><span>SECTION // STUDY MANUAL</span></div></div>
+<span>SECTION // STUDY MANUAL</span>
+</div>
 <div class="passage-headline">Passage 3: The Claustrophobic Home &amp; The Delicate Apron Bow</div>
 <div class="quote-passage">
 <span class="quote-label">ORIGINAL VERBATIM TEXT</span>
@@ -1065,8 +848,8 @@ td:last-child, th:last-child { border-right: 0; }
 <article class="passage-card" id="passage-4">
 <div class="passage-meta">
 <span class="passage-num">SECTION 4 OF 16</span>
-
-<div class="passage-meta-right"><button aria-label="Listen to Passage 4" class="audio-btn" data-passage="4" data-src="../audio/going_places/passage_04.mp3" title="Listen to Passage 4">[ ▶ LISTEN ]</button><span>SECTION // STUDY MANUAL</span></div></div>
+<span>SECTION // STUDY MANUAL</span>
+</div>
 <div class="passage-headline">Passage 4: Geoff's Silence: The Allure of the Uncharted World</div>
 <div class="quote-passage">
 <span class="quote-label">ORIGINAL VERBATIM TEXT</span>
@@ -1094,8 +877,8 @@ td:last-child, th:last-child { border-right: 0; }
 <article class="passage-card" id="passage-5">
 <div class="passage-meta">
 <span class="passage-num">SECTION 5 OF 16</span>
-
-<div class="passage-meta-right"><button aria-label="Listen to Passage 5" class="audio-btn" data-passage="5" data-src="../audio/going_places/passage_05.mp3" title="Listen to Passage 5">[ ▶ LISTEN ]</button><span>SECTION // STUDY MANUAL</span></div></div>
+<span>SECTION // STUDY MANUAL</span>
+</div>
 <div class="passage-headline">Passage 5: Shining Black Leathers: Fantasy of Liberation &amp; Applause</div>
 <div class="quote-passage">
 <span class="quote-label">ORIGINAL VERBATIM TEXT</span>
@@ -1123,8 +906,8 @@ td:last-child, th:last-child { border-right: 0; }
 <article class="passage-card" id="passage-6">
 <div class="passage-meta">
 <span class="passage-num">SECTION 6 OF 16</span>
-
-<div class="passage-meta-right"><button aria-label="Listen to Passage 6" class="audio-btn" data-passage="6" data-src="../audio/going_places/passage_06.mp3" title="Listen to Passage 6">[ ▶ LISTEN ]</button><span>SECTION // STUDY MANUAL</span></div></div>
+<span>SECTION // STUDY MANUAL</span>
+</div>
 <div class="passage-headline">Passage 6: The Fabrication: Meeting Danny Casey at Royce's Window</div>
 <div class="quote-passage">
 <span class="quote-label">ORIGINAL VERBATIM TEXT</span>
@@ -1152,8 +935,8 @@ td:last-child, th:last-child { border-right: 0; }
 <article class="passage-card" id="passage-7">
 <div class="passage-meta">
 <span class="passage-num">SECTION 7 OF 16</span>
-
-<div class="passage-meta-right"><button aria-label="Listen to Passage 7" class="audio-btn" data-passage="7" data-src="../audio/going_places/passage_07.mp3" title="Listen to Passage 7">[ ▶ LISTEN ]</button><span>SECTION // STUDY MANUAL</span></div></div>
+<span>SECTION // STUDY MANUAL</span>
+</div>
 <div class="passage-headline">Passage 7: The Father's Disdain &amp; Warning of Trouble</div>
 <div class="quote-passage">
 <span class="quote-label">ORIGINAL VERBATIM TEXT</span>
@@ -1181,8 +964,8 @@ td:last-child, th:last-child { border-right: 0; }
 <article class="passage-card" id="passage-8">
 <div class="passage-meta">
 <span class="passage-num">SECTION 8 OF 16</span>
-
-<div class="passage-meta-right"><button aria-label="Listen to Passage 8" class="audio-btn" data-passage="8" data-src="../audio/going_places/passage_08.mp3" title="Listen to Passage 8">[ ▶ LISTEN ]</button><span>SECTION // STUDY MANUAL</span></div></div>
+<span>SECTION // STUDY MANUAL</span>
+</div>
 <div class="passage-headline">Passage 8: The Amber Glow: Escalating the Fantasy to a Date</div>
 <div class="quote-passage">
 <span class="quote-label">ORIGINAL VERBATIM TEXT</span>
@@ -1210,8 +993,8 @@ td:last-child, th:last-child { border-right: 0; }
 <article class="passage-card" id="passage-9">
 <div class="passage-meta">
 <span class="passage-num">SECTION 9 OF 16</span>
-
-<div class="passage-meta-right"><button aria-label="Listen to Passage 9" class="audio-btn" data-passage="9" data-src="../audio/going_places/passage_09.mp3" title="Listen to Passage 9">[ ▶ LISTEN ]</button><span>SECTION // STUDY MANUAL</span></div></div>
+<span>SECTION // STUDY MANUAL</span>
+</div>
 <div class="passage-headline">Passage 9: The Weekly Pilgrimage: Triumph &amp; Vicarious Pride</div>
 <div class="quote-passage">
 <span class="quote-label">ORIGINAL VERBATIM TEXT</span>
@@ -1239,8 +1022,8 @@ td:last-child, th:last-child { border-right: 0; }
 <article class="passage-card" id="passage-10">
 <div class="passage-meta">
 <span class="passage-num">SECTION 10 OF 16</span>
-
-<div class="passage-meta-right"><button aria-label="Listen to Passage 10" class="audio-btn" data-passage="10" data-src="../audio/going_places/passage_10.mp3" title="Listen to Passage 10">[ ▶ LISTEN ]</button><span>SECTION // STUDY MANUAL</span></div></div>
+<span>SECTION // STUDY MANUAL</span>
+</div>
 <div class="passage-headline">Passage 10: Jansie’s Inquisition: The Terror of Exposure</div>
 <div class="quote-passage">
 <span class="quote-label">ORIGINAL VERBATIM TEXT</span>
@@ -1268,8 +1051,8 @@ td:last-child, th:last-child { border-right: 0; }
 <article class="passage-card" id="passage-11">
 <div class="passage-meta">
 <span class="passage-num">SECTION 11 OF 16</span>
-
-<div class="passage-meta-right"><button aria-label="Listen to Passage 11" class="audio-btn" data-passage="11" data-src="../audio/going_places/passage_11.mp3" title="Listen to Passage 11">[ ▶ LISTEN ]</button><span>SECTION // STUDY MANUAL</span></div></div>
+<span>SECTION // STUDY MANUAL</span>
+</div>
 <div class="passage-headline">Passage 11: A Sacred Fragment &amp; Fear of the Household Row</div>
 <div class="quote-passage">
 <span class="quote-label">ORIGINAL VERBATIM TEXT</span>
@@ -1297,8 +1080,8 @@ td:last-child, th:last-child { border-right: 0; }
 <article class="passage-card" id="passage-12">
 <div class="passage-meta">
 <span class="passage-num">SECTION 12 OF 16</span>
-
-<div class="passage-meta-right"><button aria-label="Listen to Passage 12" class="audio-btn" data-passage="12" data-src="../audio/going_places/passage_12.mp3" title="Listen to Passage 12">[ ▶ LISTEN ]</button><span>SECTION // STUDY MANUAL</span></div></div>
+<span>SECTION // STUDY MANUAL</span>
+</div>
 <div class="passage-headline">Passage 12: The Solitary Elm by the Canal: Waiting for the Phantom</div>
 <div class="quote-passage">
 <span class="quote-label">ORIGINAL VERBATIM TEXT</span>
@@ -1326,8 +1109,8 @@ td:last-child, th:last-child { border-right: 0; }
 <article class="passage-card" id="passage-13">
 <div class="passage-meta">
 <span class="passage-num">SECTION 13 OF 16</span>
-
-<div class="passage-meta-right"><button aria-label="Listen to Passage 13" class="audio-btn" data-passage="13" data-src="../audio/going_places/passage_13.mp3" title="Listen to Passage 13">[ ▶ LISTEN ]</button><span>SECTION // STUDY MANUAL</span></div></div>
+<span>SECTION // STUDY MANUAL</span>
+</div>
 <div class="passage-headline">Passage 13: Pangs of Doubt &amp; The Gradual Weight of Resignation</div>
 <div class="quote-passage">
 <span class="quote-label">ORIGINAL VERBATIM TEXT</span>
@@ -1355,8 +1138,8 @@ td:last-child, th:last-child { border-right: 0; }
 <article class="passage-card" id="passage-14">
 <div class="passage-meta">
 <span class="passage-num">SECTION 14 OF 16</span>
-
-<div class="passage-meta-right"><button aria-label="Listen to Passage 14" class="audio-btn" data-passage="14" data-src="../audio/going_places/passage_14.mp3" title="Listen to Passage 14">[ ▶ LISTEN ]</button><span>SECTION // STUDY MANUAL</span></div></div>
+<span>SECTION // STUDY MANUAL</span>
+</div>
 <div class="passage-headline">Passage 14: The Hard Burden of Sadness &amp; The Bicycle Outside the Pub</div>
 <div class="quote-passage">
 <span class="quote-label">ORIGINAL VERBATIM TEXT</span>
@@ -1384,8 +1167,8 @@ td:last-child, th:last-child { border-right: 0; }
 <article class="passage-card" id="passage-15">
 <div class="passage-meta">
 <span class="passage-num">SECTION 15 OF 16</span>
-
-<div class="passage-meta-right"><button aria-label="Listen to Passage 15" class="audio-btn" data-passage="15" data-src="../audio/going_places/passage_15.mp3" title="Listen to Passage 15">[ ▶ LISTEN ]</button><span>SECTION // STUDY MANUAL</span></div></div>
+<span>SECTION // STUDY MANUAL</span>
+</div>
 <div class="passage-headline">Passage 15: The Second-Person Reverie: Casey as Sophie’s Doppelgänger</div>
 <div class="quote-passage">
 <span class="quote-label">ORIGINAL VERBATIM TEXT</span>
@@ -1413,8 +1196,8 @@ td:last-child, th:last-child { border-right: 0; }
 <article class="passage-card" id="passage-16">
 <div class="passage-meta">
 <span class="passage-num">SECTION 16 OF 16</span>
-
-<div class="passage-meta-right"><button aria-label="Listen to Passage 16" class="audio-btn" data-passage="16" data-src="../audio/going_places/passage_16.mp3" title="Listen to Passage 16">[ ▶ LISTEN ]</button><span>SECTION // STUDY MANUAL</span></div></div>
+<span>SECTION // STUDY MANUAL</span>
+</div>
 <div class="passage-headline">Passage 16: The Climax of Projection: Thunderous Exultant Approbation</div>
 <div class="quote-passage">
 <span class="quote-label">ORIGINAL VERBATIM TEXT</span>
@@ -1670,52 +1453,52 @@ td:last-child, th:last-child { border-right: 0; }
 </thead>
 <tbody>
 <tr>
-<td><strong>2025</strong><br/>(2 Marks)</td>
+<td><strong>2025</strong><br>(2 Marks)</br></td>
 <td>“One of these days you’re <span class="vw" data-w="going">going</span> to <span class="vw" data-w="talk">talk</span> yourself into a <span class="vw" data-w="load">load</span> of <span class="vw" data-w="trouble">trouble</span>.” What do you <span class="vw" data-w="learn">learn</span> about Sophie’s father?</td>
 <td><span class="vw" data-w="blunt">Blunt</span> <span class="vw" data-w="realist">realist</span>; <span class="vw" data-w="impatient">impatient</span> with <span class="vw" data-w="wild">wild</span> <span class="vw" data-w="stories">stories</span>; <span class="vw" data-w="aggressive">aggressive</span> <span class="vw" data-w="temper">temper</span>; <span class="vw" data-w="worried">worried</span> about <span class="vw" data-w="sophie's">Sophie's</span> <span class="vw" data-w="recklessness">recklessness</span>.</td>
 </tr>
 <tr>
-<td><strong>2025</strong><br/>(2 Marks)</td>
+<td><strong>2025</strong><br>(2 Marks)</br></td>
 <td>“<span class="vw" data-w="christ">Christ</span>, Sophie, you’re still at school.” What <span class="vw" data-w="image">image</span> do you <span class="vw" data-w="form">form</span> of Geoff as a <span class="vw" data-w="brother">brother</span> from this <span class="vw" data-w="context">context</span>?</td>
 <td><span class="vw" data-w="protective">Protective</span>, <span class="vw" data-w="grounded">grounded</span> <span class="vw" data-w="elder">elder</span> <span class="vw" data-w="brother">brother</span>; <span class="vw" data-w="cautions">cautions</span> <span class="vw" data-w="young">young</span> Sophie against <span class="vw" data-w="illusions">illusions</span> about <span class="vw" data-w="celebrity">celebrity</span> <span class="vw" data-w="footballers">footballers</span> with "<span class="vw" data-w="strings">strings</span> of <span class="vw" data-w="girls">girls</span>".</td>
 </tr>
 <tr>
-<td><strong>2025</strong><br/>(5 Marks)</td>
+<td><strong>2025</strong><br>(5 Marks)</br></td>
 <td>Sophie is an <span class="vw" data-w="escapist">escapist</span> <span class="vw" data-w="dreamer">dreamer</span>; <span class="vw" data-w="franz">Franz</span> <span class="vw" data-w="loves">loves</span> to <span class="vw" data-w="miss">miss</span> school. <span class="vw" data-w="analyse">Analyse</span> the <span class="vw" data-w="results">results</span> of their <span class="vw" data-w="attitudes">attitudes</span> <span class="vw" data-w="towards">towards</span> <span class="vw" data-w="life">life</span>.</td>
 <td><span class="vw" data-w="comparison">Comparison</span> of <span class="vw" data-w="avoidance">avoidance</span>/<span class="vw" data-w="procrastination">procrastination</span>; <span class="vw" data-w="sophie's">Sophie's</span> <span class="vw" data-w="canal">canal</span> <span class="vw" data-w="disillusionment">disillusionment</span> vs. <span class="vw" data-w="franz's">Franz's</span> <span class="vw" data-w="remorse">remorse</span> at <span class="vw" data-w="losing">losing</span> <span class="vw" data-w="french">French</span> <span class="vw" data-w="lessons">lessons</span>.</td>
 </tr>
 <tr>
-<td><strong>2024</strong><br/>(2 Marks)</td>
+<td><strong>2024</strong><br>(2 Marks)</br></td>
 <td>‘<span class="vw" data-w="resignation">Resignation</span> was no <span class="vw" data-w="sudden">sudden</span> <span class="vw" data-w="thing">thing</span>.’ What is the <span class="vw" data-w="implication">implication</span> of this <span class="vw" data-w="remark">remark</span> in the <span class="vw" data-w="context">context</span> of Sophie’s <span class="vw" data-w="character">character</span>?</td>
 <td><span class="vw" data-w="gradual">Gradual</span>, <span class="vw" data-w="agonizing">agonizing</span> <span class="vw" data-w="collapse">collapse</span> of <span class="vw" data-w="illusion">illusion</span>; <span class="vw" data-w="inner">inner</span> <span class="vw" data-w="conflict">conflict</span> between <span class="vw" data-w="glamour">glamour</span> <span class="vw" data-w="fantasies">fantasies</span> and <span class="vw" data-w="grim">grim</span> <span class="vw" data-w="reality">reality</span>.</td>
 </tr>
 <tr>
-<td><strong>2024</strong><br/>(5 Marks)</td>
+<td><strong>2024</strong><br>(5 Marks)</br></td>
 <td>Sophie <span class="vw" data-w="lives">lives</span> in <span class="vw" data-w="fantasy">fantasy</span>; <span class="vw" data-w="douglas">Douglas</span> (<em><span class="vw" data-w="deep">Deep</span> <span class="vw" data-w="water">Water</span></em>) <span class="vw" data-w="faces">faces</span> <span class="vw" data-w="reality">reality</span>. <span class="vw" data-w="write">Write</span> an <span class="vw" data-w="article">article</span> on <span class="vw" data-w="action">action</span> over <span class="vw" data-w="mere">mere</span> <span class="vw" data-w="dreaming">dreaming</span>.</td>
 <td><span class="vw" data-w="contrast">Contrast</span> <span class="vw" data-w="sophie's">Sophie's</span> <span class="vw" data-w="idle">idle</span> <span class="vw" data-w="escapism">escapism</span> (<span class="vw" data-w="boutique">boutique</span>/Casey) with <span class="vw" data-w="douglas's">Douglas's</span> <span class="vw" data-w="structured">structured</span> <span class="vw" data-w="effort">effort</span> (<span class="vw" data-w="instructor">instructor</span>, <span class="vw" data-w="swimming">swimming</span> <span class="vw" data-w="drills">drills</span>).</td>
 </tr>
 <tr>
-<td><strong>2024</strong><br/>(5 Marks)</td>
+<td><strong>2024</strong><br>(5 Marks)</br></td>
 <td><span class="vw" data-w="aunt">Aunt</span> <span class="vw" data-w="jennifer">Jennifer</span> and Sophie’s mother have been <span class="vw" data-w="subdued">subdued</span> by their <span class="vw" data-w="husbands">husbands</span>. <span class="vw" data-w="write">Write</span> an <span class="vw" data-w="article">article</span> on <span class="vw" data-w="empowering">empowering</span> <span class="vw" data-w="women">women</span>.</td>
 <td><span class="vw" data-w="patriarchal">Patriarchal</span> <span class="vw" data-w="domestic">domestic</span> <span class="vw" data-w="crushing">crushing</span> ('<span class="vw" data-w="crooked">crooked</span> back' vs. '<span class="vw" data-w="wedding">wedding</span> <span class="vw" data-w="band">band</span>'); need for <span class="vw" data-w="economic">economic</span> <span class="vw" data-w="autonomy">autonomy</span> and <span class="vw" data-w="respect">respect</span>.</td>
 </tr>
 <tr>
-<td><strong>2024</strong><br/>(5 Marks)</td>
+<td><strong>2024</strong><br>(5 Marks)</br></td>
 <td><span class="vw" data-w="umberto">Umberto</span> <span class="vw" data-w="eco">Eco</span> (<em>The <span class="vw" data-w="interview">Interview</span></em>) <span class="vw" data-w="advises">advises</span> Danny Casey on <span class="vw" data-w="managing">managing</span> <span class="vw" data-w="sudden">sudden</span> <span class="vw" data-w="popularity">popularity</span> and time <span class="vw" data-w="effectively">effectively</span>.</td>
 <td><span class="vw" data-w="applying">Applying</span> <span class="vw" data-w="eco's">Eco's</span> '<span class="vw" data-w="interstices">interstices</span>' and <span class="vw" data-w="discipline">discipline</span> <span class="vw" data-w="philosophy">philosophy</span> to help Casey <span class="vw" data-w="balance">balance</span> <span class="vw" data-w="football">football</span> <span class="vw" data-w="practice">practice</span> with <span class="vw" data-w="public">public</span> <span class="vw" data-w="fame">fame</span>.</td>
 </tr>
 <tr>
-<td><strong>2023</strong><br/>(Extract 6M)</td>
+<td><strong>2023</strong><br>(Extract 6M)</br></td>
 <td><span class="vw" data-w="read">Read</span> extract: “Or an <span class="vw" data-w="actress">actress</span>. Now there’s <span class="vw" data-w="real">real</span> <span class="vw" data-w="money">money</span> in that…” (<span class="vw" data-w="acting">Acting</span> for <span class="vw" data-w="money">money</span>, house <span class="vw" data-w="priority">priority</span>, <span class="vw" data-w="mother's">mother's</span> <span class="vw" data-w="sigh">sigh</span>).</td>
 <td><span class="vw" data-w="realism">Realism</span> vs. <span class="vw" data-w="fantasy">fantasy</span>; <span class="vw" data-w="mother's">mother's</span> <span class="vw" data-w="sigh">sigh</span> of <span class="vw" data-w="helplessness">helplessness</span>; <span class="vw" data-w="jansie's">Jansie's</span> <span class="vw" data-w="practicality">practicality</span>; <span class="vw" data-w="derek's">Derek's</span> <span class="vw" data-w="parroted">parroted</span> <span class="vw" data-w="cynicism">cynicism</span>.</td>
 </tr>
 <tr>
-<td><strong>2023</strong><br/>(5 Marks)</td>
+<td><strong>2023</strong><br>(5 Marks)</br></td>
 <td><span class="vw" data-w="fantasising">Fantasising</span> and <span class="vw" data-w="unrealistic">unrealistic</span> <span class="vw" data-w="dreams">dreams</span> <span class="vw" data-w="sometimes">sometimes</span> <span class="vw" data-w="lead">lead</span> to <span class="vw" data-w="disappointment">disappointment</span> and <span class="vw" data-w="disillusionment">disillusionment</span>. <span class="vw" data-w="discuss">Discuss</span> with <span class="vw" data-w="reference">reference</span> to Sophie.</td>
 <td><span class="vw" data-w="escalating">Escalating</span> <span class="vw" data-w="lies">lies</span> from <span class="vw" data-w="boutique">boutique</span> to Casey <span class="vw" data-w="date">date</span>; <span class="vw" data-w="heartbreak">heartbreak</span> at <span class="vw" data-w="canal">canal</span> <span class="vw" data-w="bench">bench</span>; <span class="vw" data-w="danger">danger</span> of <span class="vw" data-w="ungrounded">ungrounded</span> <span class="vw" data-w="aspirations">aspirations</span>.</td>
 </tr>
 <tr>
-<td><strong>2020</strong><br/>(Extract 4M)</td>
+<td><strong>2020</strong><br>(Extract 4M)</br></td>
 <td><span class="vw" data-w="read">Read</span> extract: “Here I <span class="vw" data-w="sit">sit</span>, she said to herself, <span class="vw" data-w="wishing">wishing</span> Danny would come…” (<span class="vw" data-w="pangs">Pangs</span> of <span class="vw" data-w="doubt">doubt</span>, <span class="vw" data-w="despondency">despondency</span>).</td>
 <td><span class="vw" data-w="canal">Canal</span> <span class="vw" data-w="wait">wait</span>; '<span class="vw" data-w="pangs">pangs</span> of <span class="vw" data-w="doubt">doubt</span>' vs. <span class="vw" data-w="certainty">certainty</span>; <span class="vw" data-w="despondent">despondent</span> over <span class="vw" data-w="family's">family's</span> <span class="vw" data-w="permanent">permanent</span> <span class="vw" data-w="disbelief">disbelief</span>.</td>
 </tr>
@@ -2496,202 +2279,5 @@ td:last-child, th:last-child { border-right: 0; }
   }
 })();
 </script>
-<div aria-label="Audio Narration Player" class="audio-dock" id="audio-dock" role="region">
-<div class="dock-header-row">
-<div class="dock-title-group">
-<span class="dock-badge">AUDIO</span>
-<span class="dock-title" id="dock-title">Passage 1</span>
-</div>
-<div class="dock-time" id="dock-time">0:00 / 0:00</div>
-<button aria-label="Close" class="dock-close-btn" id="dock-close" title="Close Audio Player">✕</button>
-</div>
-<div class="dock-controls-row">
-<div class="dock-ctrl-btns">
-<button aria-label="Previous" class="dock-ctrl-btn" id="dock-prev" title="Previous Passage">⏮</button>
-<button aria-label="Play" class="dock-ctrl-btn dock-btn-play" id="dock-play" title="Play/Pause">[ ❚❚ PAUSE ]</button>
-<button aria-label="Next" class="dock-ctrl-btn" id="dock-next" title="Next Passage">⏭</button>
-</div>
-<div class="dock-progress-wrap">
-<input aria-label="Audio scrubber" class="dock-seeker" id="dock-seeker" max="100" min="0" step="0.1" type="range" value="0"/>
-</div>
-<div class="dock-speed-group">
-<button aria-label="Normal speed" class="dock-speed-btn active" data-speed="1.0">1.0x</button>
-<button aria-label="1.25x speed" class="dock-speed-btn" data-speed="1.25">1.25x</button>
-<button aria-label="1.5x speed" class="dock-speed-btn" data-speed="1.5">1.5x</button>
-</div>
-</div>
-</div><script>
-/* Minimalist Audio Player Controller */
-(function() {
-  const audio = new Audio();
-  let currentPassage = null;
-  let isSeeking = false;
-  let currentSpeed = 1.0;
-
-  const dock = document.getElementById('audio-dock');
-  const dockTitle = document.getElementById('dock-title');
-  const dockTime = document.getElementById('dock-time');
-  const dockPlay = document.getElementById('dock-play');
-  const dockPrev = document.getElementById('dock-prev');
-  const dockNext = document.getElementById('dock-next');
-  const dockSeeker = document.getElementById('dock-seeker');
-  const dockClose = document.getElementById('dock-close');
-  const speedBtns = document.querySelectorAll('.dock-speed-btn');
-  const audioBtns = document.querySelectorAll('.audio-btn');
-
-  function formatTime(sec) {
-    if (isNaN(sec) || !isFinite(sec)) return "0:00";
-    const m = Math.floor(sec / 60);
-    const s = Math.floor(sec % 60);
-    return m + ":" + (s < 10 ? "0" : "") + s;
-  }
-
-  function getPassageBtn(num) {
-    return document.querySelector('.audio-btn[data-passage="' + num + '"]');
-  }
-
-  function getPassageHeadline(num) {
-    const card = document.getElementById('passage-' + num);
-    if (!card) return 'Passage ' + num;
-    const hl = card.querySelector('.passage-headline');
-    return hl ? hl.textContent.trim() : 'Passage ' + num;
-  }
-
-  function setPlayingState(num, isPlaying) {
-    audioBtns.forEach(b => {
-      b.textContent = '[ ▶ LISTEN ]';
-      b.classList.remove('playing');
-    });
-    document.querySelectorAll('.passage-card').forEach(c => c.classList.remove('audio-active'));
-
-    if (num) {
-      const btn = getPassageBtn(num);
-      const card = document.getElementById('passage-' + num);
-      if (btn && isPlaying) {
-        btn.textContent = '[ ❚❚ PAUSE ]';
-        btn.classList.add('playing');
-      }
-      if (card && isPlaying) {
-        card.classList.add('audio-active');
-      }
-    }
-
-    if (dockPlay) {
-      dockPlay.textContent = isPlaying ? '[ ❚❚ PAUSE ]' : '[ ▶ PLAY ]';
-    }
-  }
-
-  function playPassage(num) {
-    const btn = getPassageBtn(num);
-    if (!btn) return;
-
-    if (currentPassage === num) {
-      if (audio.paused) {
-        audio.play();
-        setPlayingState(num, true);
-      } else {
-        audio.pause();
-        setPlayingState(num, false);
-      }
-      return;
-    }
-
-    currentPassage = num;
-    const src = btn.getAttribute('data-src');
-    audio.src = src;
-    audio.playbackRate = currentSpeed;
-    audio.play().catch(e => console.warn('Audio play error:', e));
-
-    dockTitle.textContent = getPassageHeadline(num);
-    dock.classList.add('active');
-    setPlayingState(num, true);
-  }
-
-  audioBtns.forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      const num = parseInt(this.getAttribute('data-passage'), 10);
-      playPassage(num);
-    });
-  });
-
-  if (dockPlay) {
-    dockPlay.addEventListener('click', function() {
-      if (!currentPassage) return;
-      if (audio.paused) {
-        audio.play();
-        setPlayingState(currentPassage, true);
-      } else {
-        audio.pause();
-        setPlayingState(currentPassage, false);
-      }
-    });
-  }
-
-  if (dockPrev) {
-    dockPrev.addEventListener('click', function() {
-      if (!currentPassage) return;
-      if (currentPassage > 1) {
-        playPassage(currentPassage - 1);
-      }
-    });
-  }
-
-  if (dockNext) {
-    dockNext.addEventListener('click', function() {
-      if (!currentPassage) return;
-      if (currentPassage < audioBtns.length) {
-        playPassage(currentPassage + 1);
-      }
-    });
-  }
-
-  audio.addEventListener('timeupdate', function() {
-    if (!isSeeking && audio.duration) {
-      dockSeeker.value = (audio.currentTime / audio.duration) * 100;
-      dockTime.textContent = formatTime(audio.currentTime) + ' / ' + formatTime(audio.duration);
-    }
-  });
-
-  audio.addEventListener('loadedmetadata', function() {
-    dockTime.textContent = formatTime(audio.currentTime) + ' / ' + formatTime(audio.duration);
-  });
-
-  audio.addEventListener('ended', function() {
-    setPlayingState(currentPassage, false);
-    if (currentPassage < audioBtns.length) {
-      playPassage(currentPassage + 1);
-    }
-  });
-
-  if (dockSeeker) {
-    dockSeeker.addEventListener('input', function() {
-      isSeeking = true;
-    });
-    dockSeeker.addEventListener('change', function() {
-      if (audio.duration) {
-        audio.currentTime = (dockSeeker.value / 100) * audio.duration;
-      }
-      isSeeking = false;
-    });
-  }
-
-  speedBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      speedBtns.forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      currentSpeed = parseFloat(this.getAttribute('data-speed'));
-      audio.playbackRate = currentSpeed;
-    });
-  });
-
-  if (dockClose) {
-    dockClose.addEventListener('click', function() {
-      audio.pause();
-      setPlayingState(currentPassage, false);
-      dock.classList.remove('active');
-    });
-  }
-})();
-</script></body>
+</body>
 </html>
