@@ -14,3 +14,6 @@ scraped_*.json
 # OS files
 Thumbs.db
 .DS_Store
+
+# Large raw audiobook files
+audio/Sapiens*.mp3
