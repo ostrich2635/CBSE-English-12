@@ -62,12 +62,18 @@ CBSE-English-12/
 │   ├── lost_spring_cbse_mastery.html
 │   ├── deep_water_cbse_mastery.html
 │   ├── the_rattrap_cbse_mastery.html
+│   ├── indigo_cbse_mastery.html
+│   ├── poets_and_pancakes_cbse_mastery.html
+│   ├── the_interview_cbse_mastery.html
 │   └── going_places_cbse_mastery.html
 ├── PDF/              # Print-ready vector chapter PDFs
 │   ├── The_Last_Lesson_CBSE_Guide.pdf
 │   ├── Lost_Spring_CBSE_Guide.pdf
 │   ├── Deep_Water_CBSE_Guide.pdf
 │   ├── The_Rattrap_CBSE_Guide.pdf
+│   ├── Indigo_CBSE_Guide.pdf
+│   ├── Poets_and_Pancakes_CBSE_Guide.pdf
+│   ├── The_Interview_CBSE_Guide.pdf
 │   └── Going_Places_CBSE_Guide.pdf
 ├── NCERT/            # Official NCERT textbooks (renamed by chapter)
 │   ├── Flamingo/     # Prose (Ch 01-08) & Poetry (Poem 01-05)

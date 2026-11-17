@@ -124,14 +124,21 @@
 
 | Section | ID | Direct Header Element | Interior Layout / Grid Requirement |
 | :--- | :--- | :--- | :--- |
-| **01** | `overview` | `<h2 class="section-header">01. Executive Exam Compass & Themes</h2>` | `<div class="desktop-grid-2">` wrapping thematic cards; optional `<div class="table-wrapper">` for motifs |
+| **01** | `overview` | `<h2 class="section-header">01. Executive Exam Compass & Themes</h2>` | `<div class="desktop-grid-2">` wrapping thematic cards (`.bw-card.accent` and `.bw-card`); optional `<div class="table-wrapper">` for motifs |
 | **02** | `keywords` | `<h2 class="section-header">02. CBSE Golden Keywords Bank</h2>` | `<div class="keyword-cloud">` with `<span class="keyword-tag">` items |
-| **03** | `passages` | `<h2 class="section-header">03. Passage-by-Passage Breakdown (01 to {N})</h2>` | Sequence of `<article class="passage-card" id="passage-1">` through `passage-{N}` |
-| **04** | `characters` | `<h2 class="section-header">04. Master Character Sketches & Psychological Profiles</h2>` | `<div class="desktop-grid-2">` wrapping character cards |
-| **05** | `rtc` | `<h2 class="section-header">05. Reference to Context (Extract-Based Questions & Answers)</h2>` | `<div class="qa-card">` wrapping extract quote and 4-tier Q&A |
-| **06** | `short-qa` | `<h2 class="section-header">06. High-Yield Short Answer Qs (2 Marks / 40–50 Words)</h2>` | `<div class="desktop-grid-2">` wrapping 2M `<div class="qa-card">` |
-| **07** | `long-qa` | `<h2 class="section-header">07. High-Scoring Long Answer & Comparative Questions (CBSE 5 Marks / 120–150 Words)</h2>` | Sequence of 5M `<div class="qa-card">` with thesis box and value points |
+| **03** | `passages` | `<h2 class="section-header">03. Passage-by-Passage Breakdown (01 to {N})</h2>` | Sequence of `<article class="passage-card" id="passage-1">` through `passage-{N}` with exact sub-modules (see below) |
+| **04** | `characters` | `<h2 class="section-header">04. Master Character Sketches & Psychological Profiles</h2>` | `<div class="desktop-grid-2">` wrapping character cards (`.bw-card.accent` and `.bw-card`) |
+| **05** | `rtc` | `<h2 class="section-header">05. Reference to Context (Extract-Based Questions & Answers)</h2>` | Sequence of `<div class="qa-card">` with `.quote-passage` (`<span class="quote-label">EXTRACT</span>`), `.qa-card-q`, and `.qa-card-a` |
+| **06** | `short-qa` | `<h2 class="section-header">06. High-Yield Short Answer Qs (2 Marks / 40–50 Words)</h2>` | `<div class="desktop-grid-2">` wrapping 2M `<div class="qa-card">` with `<div class="qa-card-vp"><strong>Value Points:</strong> ...</div>` |
+| **07** | `long-qa` | `<h2 class="section-header">07. High-Scoring Long Answer & Comparative Questions (CBSE 5 Marks / 120–150 Words)</h2>` | Sequence of 5M `<div class="qa-card">` with `<div class="qa-card-vp"><strong>CBSE Value Points:</strong> ...</div>` |
 | **08** | `pyq-vault` | `<h2 class="section-header">08. Previous Years' Question Vault (2019–2025)</h2>` | `<div class="table-wrapper">` with 3 columns (`Year / Marks`, `Question Asked in Board Exam`, `Key Scoring Criteria`) |
+
+### Section 03 Sub-Module Exact Labels
+Every `<article class="passage-card">` MUST contain the four sub-modules with these exact labels:
+1. Vocabulary: `<div class="sub-module"><div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>...</div>`
+2. Literary Devices: `<div class="sub-module"><div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>...</div>`
+3. Psychological Analysis: `<div class="sub-module"><div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>...</div>`
+4. Exam Value Box: `<div class="exam-value-box"><div class="sub-label" style="margin-bottom:6px;">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>...</div>`
 
 ---
 
@@ -145,6 +152,15 @@
   </div>
 </footer>
 ```
+
+---
+
+## 7. Mandatory 15-Point Benchmark Verification Engine
+Before finalizing any chapter (existing or coming), the automated benchmark verification script MUST be executed and pass 15/15 checks:
+```bash
+python compare_chapters_to_gp.py
+```
+If any check fails, the chapter must NOT be compiled to PDF or committed to git until resolved.
 
 ---
 
