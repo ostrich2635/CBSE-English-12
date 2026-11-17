@@ -26,7 +26,7 @@ A curated, high-yield digital study compendium and reference manual for CBSE Cla
 - [x] **Chapter 2: Lost Spring: Stories of Stolen Childhood** by Anees Jung &mdash; [Read HTML](HTML/lost_spring_cbse_mastery.html) | [Download PDF](PDF/Lost_Spring_CBSE_Guide.pdf)
 - [x] **Chapter 3: Deep Water** by William Orville Douglas &mdash; [Read HTML](HTML/deep_water_cbse_mastery.html) | [Download PDF](PDF/Deep_Water_CBSE_Guide.pdf)
 - [x] **Chapter 4: The Rattrap** by Selma Lagerlöf &mdash; [Read HTML](HTML/the_rattrap_cbse_mastery.html) | [Download PDF](PDF/The_Rattrap_CBSE_Guide.pdf)
-- [ ] Chapter 5: Indigo (Louis Fischer)
+- [x] **Chapter 5: Indigo** by Louis Fischer &mdash; [Read HTML](HTML/indigo_cbse_mastery.html) | [Download PDF](PDF/Indigo_CBSE_Guide.pdf)
 - [ ] Chapter 6: Poets and Pancakes (Asokamitran)
 - [ ] Chapter 7: The Interview (Christopher Silvester)
 - [x] **Chapter 8: Going Places** by A. R. Barton &mdash; [Read HTML](HTML/going_places_cbse_mastery.html) | [Download PDF](PDF/Going_Places_CBSE_Guide.pdf)
