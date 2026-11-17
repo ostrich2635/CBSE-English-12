@@ -23,7 +23,7 @@ A curated, high-yield digital study compendium and reference manual for CBSE Cla
 
 ### Flamingo (Prose)
 - [x] **Chapter 1: The Last Lesson** by Alphonse Daudet &mdash; [Read HTML](HTML/the_last_lesson_cbse_mastery.html) | [Download PDF](PDF/The_Last_Lesson_CBSE_Guide.pdf)
-- [ ] Chapter 2: Lost Spring (Anees Jung)
+- [x] **Chapter 2: Lost Spring: Stories of Stolen Childhood** by Anees Jung &mdash; [Read HTML](HTML/lost_spring_cbse_mastery.html) | [Download PDF](PDF/Lost_Spring_CBSE_Guide.pdf)
 - [x] **Chapter 3: Deep Water** by William Orville Douglas &mdash; [Read HTML](HTML/deep_water_cbse_mastery.html) | [Download PDF](PDF/Deep_Water_CBSE_Guide.pdf)
 - [ ] Chapter 4: The Rattrap (Selma Lagerlöf)
 - [ ] Chapter 5: Indigo (Louis Fischer)
@@ -57,10 +57,12 @@ CBSE-English-12/
 ├── .gitignore        # Clean workspace git configuration
 ├── HTML/             # Standalone interactive chapter HTML manuals
 │   ├── the_last_lesson_cbse_mastery.html
+│   ├── lost_spring_cbse_mastery.html
 │   ├── deep_water_cbse_mastery.html
 │   └── going_places_cbse_mastery.html
 ├── PDF/              # Print-ready vector chapter PDFs
 │   ├── The_Last_Lesson_CBSE_Guide.pdf
+│   ├── Lost_Spring_CBSE_Guide.pdf
 │   ├── Deep_Water_CBSE_Guide.pdf
 │   └── Going_Places_CBSE_Guide.pdf
 ├── NCERT/            # Official NCERT textbooks (renamed by chapter)
