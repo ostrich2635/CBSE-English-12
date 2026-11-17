@@ -1,0 +1,1989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<script>
+(function() {
+  const saved = localStorage.getItem('cbse_theme');
+  if (saved === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+<style>
+:root {
+  --bg: #ffffff;
+  --text-main: #111111;
+  --text-muted: #555555;
+  --border-light: #e5e5e5;
+  --border-dark: #111111;
+  --panel-bg: #fafafa;
+  --panel-hover: #f3f4f6;
+  --tooltip-bg: #111111;
+  --tooltip-text: #ffffff;
+  --tooltip-border: #333333;
+  --hover-bg: #f0f0f0;
+  --font-sans: "Google Sans", "Google Sans Text", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Georgia", "Cambria", "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+}
+
+[data-theme="dark"] {
+  --bg: #0d1117;
+  --text-main: #e6edf3;
+  --text-muted: #8b949e;
+  --border-light: #30363d;
+  --border-dark: #e6edf3;
+  --panel-bg: #161b22;
+  --panel-hover: #1f242c;
+  --tooltip-bg: #161b22;
+  --tooltip-text: #e6edf3;
+  --tooltip-border: #484f58;
+  --hover-bg: #21262d;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.75;
+  letter-spacing: -0.011em;
+}
+
+.container {
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 56px 40px 100px 40px;
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 0;
+}
+
+h1 {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  letter-spacing: -0.035em;
+  margin-bottom: 12px;
+}
+
+h2.section-header {
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 2px solid var(--border-dark);
+  padding-bottom: 12px;
+  margin-top: 64px;
+  margin-bottom: 28px;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+p {
+  margin: 0 0 1.25rem 0;
+}
+
+a {
+  color: var(--text-main);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+a:hover {
+  background: var(--text-main);
+  color: var(--bg);
+  text-decoration: none;
+}
+
+.desktop-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.desktop-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.doc-header {
+  margin-bottom: 48px;
+  border-bottom: 2px solid var(--border-dark);
+  padding-bottom: 32px;
+}
+
+.mono-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.doc-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.doc-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.spec-pill {
+  border: 1px solid var(--border-dark);
+  padding: 4px 10px;
+  border-radius: 2px;
+  background: transparent;
+}
+
+.toc-box {
+  border: 1px solid var(--border-dark);
+  padding: 28px 32px;
+  margin: 36px 0 56px 0;
+  background: var(--panel-bg);
+}
+
+.toc-title {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 10px;
+}
+
+.toc-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 28px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+}
+
+.toc-list li {
+  display: flex;
+  align-items: baseline;
+}
+
+.toc-list a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 3px 6px;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+}
+.toc-list a:hover {
+  background: var(--border-dark);
+  color: var(--bg);
+  text-decoration: none;
+}
+
+.keyword-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.keyword-tag {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  border: 1px solid var(--border-dark);
+  padding: 4px 10px;
+  background: var(--bg);
+  color: var(--text-main);
+}
+
+.bw-card {
+  border: 1px solid var(--border-light);
+  padding: 24px;
+  background: var(--panel-bg);
+  height: 100%;
+}
+
+.bw-card.accent {
+  border-left: 3px solid var(--border-dark);
+}
+
+.bw-card h4 {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+.passage-card {
+  border: 1px solid var(--border-light);
+  padding: 32px;
+  margin-bottom: 48px;
+  background: var(--bg);
+  page-break-inside: avoid;
+}
+
+.passage-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.passage-num {
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.passage-headline {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin-bottom: 22px;
+  color: var(--text-main);
+}
+
+.quote-passage {
+  border-left: 3px solid var(--border-dark);
+  padding: 18px 24px;
+  background: var(--panel-bg);
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  line-height: 1.85;
+  font-style: italic;
+  margin-bottom: 24px;
+  color: var(--text-main);
+}
+
+.quote-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.sub-module {
+  border-top: 1px dashed var(--border-light);
+  padding-top: 16px;
+  margin-top: 18px;
+  font-size: 0.98rem;
+}
+
+.sub-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 10px;
+}
+
+.sub-module ul {
+  margin: 6px 0 0 20px;
+  padding: 0;
+}
+
+.sub-module li {
+  margin-bottom: 8px;
+}
+
+.exam-value-box {
+  background: var(--panel-bg);
+  border: 1px solid var(--border-dark);
+  padding: 18px 22px;
+  margin-top: 18px;
+  font-size: 0.95rem;
+}
+
+.highlight {
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin: 24px 0;
+  border: 1px solid var(--border-dark);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  text-align: left;
+}
+
+th, td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-light);
+}
+
+th {
+  background: var(--panel-bg);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+tr:last-child td { border-bottom: 0; }
+td:last-child, th:last-child { border-right: 0; }
+
+.qa-card {
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--border-dark);
+  padding: 24px;
+  margin-bottom: 24px;
+  background: var(--bg);
+  page-break-inside: avoid;
+}
+
+.qa-card-meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.qa-card-q {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  line-height: 1.45;
+}
+
+.qa-card-a {
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.qa-card-vp {
+  margin-top: 14px;
+  padding: 12px 16px;
+  background: var(--panel-bg);
+  border: 1px solid var(--border-light);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.qa-card-vp strong {
+  color: var(--text-main);
+}
+
+.doc-footer {
+  margin-top: 80px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-dark);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .container {
+    padding: 32px 20px 72px 20px;
+  }
+  .desktop-grid-2, .desktop-grid-3, .toc-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .passage-card {
+    padding: 22px 18px;
+  }
+  .passage-headline {
+    font-size: 1.25rem;
+  }
+  h1 {
+    font-size: 2.2rem;
+  }
+  .doc-subtitle {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .container {
+    padding: 20px 14px 60px 14px;
+  }
+  h1 {
+    font-size: 1.85rem;
+  }
+  .quote-passage {
+    font-size: 0.98rem;
+    padding: 14px 16px;
+  }
+}
+
+/* ==========================================================================
+   FLOATING CONTROLS: THEME TOGGLE & BACK TO TOP (ACTIVE ON SCROLL)
+   ========================================================================== */
+
+.floating-controls {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.floating-controls.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.floating-btn {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  padding: 8px 14px;
+  border: 1.5px solid var(--border-dark);
+  background: var(--bg);
+  color: var(--text-main);
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.floating-btn:hover {
+  background: var(--text-main);
+  color: var(--bg);
+}
+
+.floating-btn.back-top-btn {
+  background: var(--border-dark);
+  color: var(--bg);
+}
+
+.floating-btn.back-top-btn:hover {
+  background: var(--bg);
+  color: var(--border-dark);
+}
+
+@media (max-width: 600px) {
+  .floating-controls {
+    bottom: 16px;
+    right: 16px;
+    gap: 6px;
+  }
+  .floating-btn {
+    padding: 6px 10px;
+    font-size: 0.72rem;
+  }
+}
+
+/* ==========================================================================
+   TOOLTIP & WORD-HOVER SYSTEM (DARK & LIGHT THEME COMPATIBLE)
+   ========================================================================== */
+
+.vw {
+  cursor: pointer;
+  transition: all 0.12s ease;
+  border-bottom: none;
+  display: inline;
+}
+
+.vw:hover {
+  border-bottom: 1.5px solid var(--border-dark);
+  background-color: var(--hover-bg);
+  color: var(--text-main);
+}
+
+#vocab-tooltip {
+  position: fixed;
+  display: none;
+  z-index: 10000;
+  max-width: 340px;
+  min-width: 220px;
+  background: var(--tooltip-bg, #111111);
+  color: var(--tooltip-text, #ffffff);
+  border: 1.5px solid var(--tooltip-border, #333333);
+  border-radius: 3px;
+  padding: 12px 14px;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  pointer-events: auto;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.12s ease, transform 0.12s ease;
+  transform: translateY(-4px);
+  opacity: 0;
+}
+
+#vocab-tooltip.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#vocab-tooltip .tt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--tooltip-border, #333333);
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+}
+
+#vocab-tooltip .tt-word {
+  font-weight: 700;
+  font-size: 0.96rem;
+  color: var(--tooltip-text, #ffffff);
+  text-transform: capitalize;
+}
+
+#vocab-tooltip .tt-meta {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+#vocab-tooltip .tt-pos {
+  font-size: 0.72rem;
+  color: var(--text-muted, #aaaaaa);
+  font-style: italic;
+}
+
+#vocab-tooltip .tt-cycle-badge {
+  font-size: 0.68rem;
+  border: 1px solid var(--tooltip-border, #555555);
+  padding: 1px 6px;
+  border-radius: 2px;
+  color: var(--tooltip-text, #dddddd);
+  cursor: pointer;
+  background: transparent;
+  display: none;
+}
+
+#vocab-tooltip .tt-cycle-badge:hover {
+  background: var(--border-dark);
+  color: var(--bg);
+}
+
+#vocab-tooltip .tt-def {
+  color: var(--tooltip-text, #f1f1f1);
+  font-size: 0.85rem;
+  min-height: 28px;
+}
+
+#vocab-tooltip .tt-loading {
+  color: var(--text-muted, #888888);
+  font-style: italic;
+  font-size: 0.78rem;
+}
+
+@media print {
+  body {
+    background: #ffffff;
+    color: #000000;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+  .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .floating-controls, .toc-box, #vocab-tooltip {
+    display: none !important;
+  }
+  .vw {
+    border-bottom: none !important;
+    cursor: default !important;
+    background: transparent !important;
+  }
+  .passage-card, .qa-card, .bw-card {
+    border: 1px solid #cccccc !important;
+    page-break-inside: avoid;
+    margin-bottom: 24pt;
+  }
+  h2.section-header {
+    page-break-before: always;
+    border-bottom: 1pt solid #000000;
+    margin-top: 24pt;
+  }
+  .quote-passage {
+    border-left: 2pt solid #000000 !important;
+    background: #f7f7f7 !important;
+  }
+  .desktop-grid-2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 12pt;
+  }
+}
+</style>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&amp;display=swap" rel="stylesheet"/>
+<title>Keeping Quiet — Pablo Neruda | CBSE Class 12 English Study Manual</title>
+</head>
+<body>
+<div class="container" id="top">
+<header class="doc-header">
+<div class="mono-kicker">MANUAL // CBSE CLASS 12 ENGLISH CORE (FLAMINGO) // CH-10</div>
+<h1>KEEPING QUIET</h1>
+<div class="doc-subtitle">Introspection, Universal Fraternity, Ecological Harmony &amp; The Resurgence of Life by <strong>Pablo Neruda</strong></div>
+<div class="doc-specs">
+<span class="spec-pill">SYLLABUS: 2026–27</span>
+<span class="spec-pill">FORMAT: PASSAGE-BY-PASSAGE MANUAL</span>
+<span class="spec-pill">SOURCES: NCERT + LITCHART + CBSE PYQS</span>
+<span class="spec-pill">TARGET: 100/100 BOARDS</span>
+</div>
+</header>
+<nav class="toc-box">
+<div class="toc-title">
+<span>INDEX // QUICK NAVIGATION</span>
+<span>[8 SECTIONS]</span>
+</div>
+<ul class="toc-list">
+<li><a href="#overview">01. EXECUTIVE EXAM COMPASS &amp; THEMES</a></li>
+<li><a href="#keywords">02. CBSE GOLDEN KEYWORDS BANK</a></li>
+<li><a href="#passages">03. PASSAGE-BY-PASSAGE BREAKDOWN</a></li>
+<li><a href="#characters">04. MASTER CHARACTER SKETCHES &amp; PROFILES</a></li>
+<li><a href="#rtc">05. REFERENCE TO CONTEXT (RTC)</a></li>
+<li><a href="#short-qa">06. HIGH-YIELD SHORT ANSWER QS</a></li>
+<li><a href="#long-qa">07. LONG ANSWER &amp; EVALUATIVE QS</a></li>
+<li><a href="#pyq-vault">08. PREVIOUS YEARS' QUESTION VAULT</a></li>
+</ul>
+</nav>
+
+<section id="overview">
+<h2 class="section-header">01. Executive Exam Compass &amp; Themes</h2>
+<div class="desktop-grid-2">
+<div class="bw-card accent">
+<h4>1. CORE PHILOSOPHICAL THESIS: QUIET INTROSPECTION OVER MECHANICAL FRENZY</h4>
+<p>Pablo Neruda's Nobel Prize-winning masterpiece is an impassioned appeal for universal self-examination. In a world consumed by hyper-capitalist speed, destructive technology, and divisive ideological conflicts, Neruda proposes a radical remedy: a synchronized global pause of twelve seconds. This collective suspension of motion is not passive escapism, but an active, conscious recalibration of humanity's moral compass.</p>
+</div>
+<div class="bw-card">
+<h4>2. UNIVERSAL BROTHERHOOD: TRANSCENDING LINGUISTIC &amp; NATIONAL BARRIERS</h4>
+<p>By urging humanity to "not speak in any language," the poet targets the root cause of historical chauvinism, xenophobia, and sectarian discrimination. Silence functions as the ultimate egalitarian equalizer: when verbal rhetoric ceases, superficial boundaries collapse, allowing humankind to recognize their shared fraternity and walk together as brothers "in the shade."</p>
+</div>
+<div class="bw-card">
+<h4>3. ECOLOGICAL RECONCILIATION: HALTING MAN'S PREDATORY CRUELTY</h4>
+<p>The poem explicitly links human warmongering to ecocide. When stillness reigns, fishermen in the cold sea cease slaughtering endangered whales, and salt-gatherers pause to tend their bleeding, calloused hands. Stillness brings an immediate armistice between man and nature, as well as between man and his own self-destructive economic exploitation.</p>
+</div>
+<div class="bw-card accent">
+<h4>4. CRITICAL THEORETICAL CLARIFICATION: STILLNESS VS. TOTAL INACTIVITY</h4>
+<p>Neruda anticipates and aggressively refutes misinterpretations: "What I want should not be confused with total inactivity." The poet cherishes vibrant life ("Life is what it is about; I want no truck with death"). Stillness is not deathly inertia or nihilistic stagnation; rather, it is the fertile seedbed from which ethical, constructive, and compassionate action is reborn.</p>
+</div>
+<div class="bw-card">
+<h4>5. THE PSYCHOANALYTIC MALADY: THE 'SADNESS' OF SELF-ALIENATION</h4>
+<p>Modern humans suffer from a chronic existential malaise—a deep "sadness of never understanding ourselves and of threatening ourselves with death." Obsessed with single-minded momentum and perpetual motion, humanity has lost its capacity for self-reflection, hurtling blindly toward nuclear annihilation. A "huge silence" is the only shock therapy capable of interrupting this collective death drive.</p>
+</div>
+<div class="bw-card accent">
+<h4>6. NATURE'S SUPREME PARADOX: DORMANCY AS THE CRADLE OF REBIRTH</h4>
+<p>Neruda presents Mother Earth as the ultimate spiritual and ecological mentor. In winter, the soil appears dormant, frozen, and dead; yet beneath the silent surface, seeds are quietly germinating, preparing for the glorious explosion of spring. True stillness is therefore not the cessation of life, but the silent, indispensable precondition for renewal and rebirth.</p>
+</div>
+</div>
+
+<div class="table-wrapper" style="margin-top:24px;">
+<table>
+<thead>
+<tr>
+<th style="width: 20%;">Core Motif / Symbol</th>
+<th style="width: 40%;">Textual Evidence &amp; Vehicle</th>
+<th style="width: 40%;">Deeper Thematic &amp; Psychological Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Counting to Twelve</strong></td>
+<td><em>"Now we will count to twelve / and we will all keep still."</em></td>
+<td>Universal measure of temporal completion (12 clock hours, 12 zodiacs, 12 months); a deliberate, unified countdown into meditative stillness.</td>
+</tr>
+<tr>
+<td><strong>Silence of Languages</strong></td>
+<td><em>"let’s not speak in any language"</em></td>
+<td>Elimination of verbal barriers, tribalism, political propaganda, and hate speech; establishing silence as universal lingua franca.</td>
+</tr>
+<tr>
+<td><strong>Arrested Arms</strong></td>
+<td><em>"and not move our arms so much"</em></td>
+<td>Pun (double entendre): cessation of relentless physical toil and laying down of military armaments/weapons.</td>
+</tr>
+<tr>
+<td><strong>Fishermen &amp; Whales</strong></td>
+<td><em>"Fishermen in the cold sea / would not harm whales"</em></td>
+<td>Ecological truce; cessation of predatory human cruelty against endangered non-human species.</td>
+</tr>
+<tr>
+<td><strong>Salt Gatherer's Hands</strong></td>
+<td><em>"man gathering salt / would look at his hurt hands"</em></td>
+<td>Introspective realization of self-inflicted wounds caused by blind, grueling socio-economic exploitation.</td>
+</tr>
+<tr>
+<td><strong>Clean Clothes in Shade</strong></td>
+<td><em>"put on clean clothes / and walk about with their brothers / in the shade"</em></td>
+<td>Discarding blood-stained military uniforms; spiritual purification; reconciliation under the protective canopy of peace.</td>
+</tr>
+<tr>
+<td><strong>The Earth's Rebirth</strong></td>
+<td><em>"when everything seems dead / and later proves to be alive"</em></td>
+<td>Supreme natural paradox: apparent winter dormancy nurturing vibrant spring regeneration; active tranquility over static death.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section id="keywords">
+<h2 class="section-header">02. CBSE Golden Keywords Bank</h2>
+<p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:12px;">Incorporate these examiner-targeted keywords, literary terms, and critical phrasal markers directly into your answers to guarantee maximum score boundaries.</p>
+<div class="keyword-cloud">
+<span class="keyword-tag"><span class="vw" data-w="still">Stillness</span>: Meditative physical and mental quietude</span>
+<span class="keyword-tag"><span class="vw" data-w="introspection">Introspection</span>: Conscious self-examination of motives and actions</span>
+<span class="keyword-tag"><span class="vw" data-w="exotic">Exotic Moment</span>: Rare, sublime state of universal tranquility</span>
+<span class="keyword-tag"><span class="vw" data-w="strangeness">Sudden Strangeness</span>: Unprecedented harmony arising from global quiet</span>
+<span class="keyword-tag"><span class="vw" data-w="green">Green Wars</span>: Environmental degradation and chemical warfare on nature</span>
+<span class="keyword-tag"><span class="vw" data-w="pyrrhic">Victory with No Survivors</span>: Pyrrhic, self-defeating modern warfare</span>
+<span class="keyword-tag"><span class="vw" data-w="clean">Clean Clothes</span>: Purified conscience, discarding uniforms of conflict</span>
+<span class="keyword-tag"><span class="vw" data-w="shade">In the Shade</span>: Protected, harmonious space of peaceful fellowship</span>
+<span class="keyword-tag"><span class="vw" data-w="inactivity">Total Inactivity</span>: Deathly inertia, explicitly disowned by Neruda</span>
+<span class="keyword-tag"><span class="vw" data-w="truck">No Truck with Death</span>: Refusal to negotiate with or advocate mortality</span>
+<span class="keyword-tag"><span class="vw" data-w="single-minded">Single-Minded</span>: Toxic obsession with constant mechanical progression</span>
+<span class="keyword-tag"><span class="vw" data-w="silence">Huge Silence</span>: Healing pause capable of interrupting spiritual sadness</span>
+<span class="keyword-tag"><span class="vw" data-w="sadness">Sadness of Self-Alienation</span>: Existential void born from lack of reflection</span>
+<span class="keyword-tag"><span class="vw" data-w="earth">Earth as Mentor</span>: Natural cycle of apparent death yielding vibrant life</span>
+<span class="keyword-tag"><span class="vw" data-w="pun">Pun on Arms</span>: Double meaning: physical limbs and military weaponry</span>
+<span class="keyword-tag"><span class="vw" data-w="brotherhood">Universal Brotherhood</span>: Transcending linguistic and national divides</span>
+<span class="keyword-tag">Ecological Truce: Halting exploitation of whales and nature</span>
+<span class="keyword-tag">Thanatological Dread: Fear of mutual assured nuclear destruction</span>
+<span class="keyword-tag">Enjambment: Flowing, pause-less verse structure mimicking thought</span>
+<span class="keyword-tag">Antithesis: Contrast between death-like stillness and deep life</span>
+</div>
+</section>
+
+<section id="passages">
+<h2 class="section-header">03. Passage-by-Passage Breakdown (01 to 07)</h2>
+<p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:28px;">Complete, unabridged textual sequence analyzed with line-by-line context, vocabulary definitions, literary devices, critical commentary, and CBSE Board focus points.</p>
+
+<article class="passage-card" id="passage-1">
+<div class="passage-meta">
+<span class="passage-num">SECTION 1 OF 7</span>
+<span>SECTION // STUDY MANUAL</span>
+</div>
+<div class="passage-headline">Passage 1: The Call to Stillness &amp; Cessation of Physical/Linguistic Friction</div>
+<div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+Now we will count to <span class="vw" data-w="twelve">twelve</span> 
+and we will all keep <span class="vw" data-w="still">still</span>.
+For once on the face of the <span class="vw" data-w="earth">Earth</span> 
+let’s not speak in any <span class="vw" data-w="language">language</span>, 
+let’s stop for one second,
+and not move our <span class="vw" data-w="arms">arms</span> so much.
+</div>
+<div class="sub-module">
+<div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+<ul>
+<li><strong>count to <span class="vw" data-w="twelve">twelve</span></strong>: A measured temporal countdown invoking cosmic and daily completeness (12 hours of the clock, 12 months of the year, 12 zodiac constellations), allowing sufficient time to achieve meditative equilibrium.</li>
+<li><strong>all keep <span class="vw" data-w="still">still</span></strong>: A collective, universal pledge of physical quietude and mental calm, uniting all humanity in shared tranquility.</li>
+<li><strong>face of the <span class="vw" data-w="earth">Earth</span></strong>: Personification of the planet; emphasizes the planetary, borderless scale of the poet's appeal across all continents.</li>
+<li><strong>not speak in any <span class="vw" data-w="language">language</span></strong>: A temporary ban on verbal utterances; targets language as a historical instrument of division, nationalist jingoism, and interpersonal conflict.</li>
+<li><strong>not move our <span class="vw" data-w="arms">arms</span> so much</strong>: Brilliant pun (double entendre); refers simultaneously to human bodily limbs (halting frenzied physical toil) and weapons/armaments (halting military violence).</li>
+</ul>
+</div>
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+<ul>
+<li><strong>Pun / Double Entendre</strong>: <em>"arms"</em> operates on two distinct semantic planes: human biological limbs and lethal military weapons.</li>
+<li><strong>Anaphora</strong>: Repetition of the inclusive cohortative <em>"let’s"</em> (<em>"let’s not speak"</em>, <em>"let’s stop"</em>), fostering democratic unity and egalitarian brotherhood.</li>
+<li><strong>Personification</strong>: <em>"on the face of the Earth"</em> envisions the planet as a living sentient entity observing human folly.</li>
+<li><strong>Universal Synecdoche</strong>: The twelve-second pause represents a micro-interval capable of initiating an epochal transformation.</li>
+</ul>
+</div>
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+<div style="font-size:0.92rem; line-height:1.7;">
+<p>Neruda initiates his poetic manifesto not with aggressive political rhetoric, but with an inclusive communal invitation: "Now we will count to twelve." The number twelve is richly evocative: it marks the cyclical completion of the clock face and the annual calendar, suggesting that humanity has completed one full era of destructive frenzy and must now pause before embarking on the next.</p>
+<p>The prohibition against spoken language is philosophically profound. Language, while facilitating communication, has historically served as the supreme vehicle of tribal separation, chauvinism, xenophobia, and war propaganda. By proposing a temporary global silence, Neruda disarms verbal aggression. Furthermore, the injunction to "not move our arms so much" ingeniously fuses the cessation of grueling industrial exploitation with nuclear disarmament. For one brief second, human bodies cease their predatory labor, and human armies lower their lethal weapons.</p>
+</div>
+</div>
+<div class="exam-value-box">
+<div class="sub-label" style="margin-bottom:6px;">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+<p><strong>Examiner Focus:</strong> (1) What is the significance of counting up to twelve? (Twelve represents completeness—twelve hours of the clock / twelve months of the year; it provides a sufficient micro-duration for collective mental and physical calm). (2) Why does the poet advocate not speaking in any language? (Language creates artificial divisions, chauvinism, and disputes among communities; silence creates universal unity). (3) Explain the pun on the word 'arms'. ('Arms' denotes both human limbs used for restless labor and military weapons used for mutual destruction).</p>
+</div>
+</article>
+
+<article class="passage-card" id="passage-2">
+<div class="passage-meta">
+<span class="passage-num">SECTION 2 OF 7</span>
+<span>SECTION // STUDY MANUAL</span>
+</div>
+<div class="passage-headline">Passage 2: The Exotic Moment &amp; The Miracle of Sudden Strangeness</div>
+<div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+It would be an <span class="vw" data-w="exotic">exotic</span> moment 
+without <span class="vw" data-w="rush">rush</span>, without <span class="vw" data-w="engines">engines</span>, 
+we would all be together
+in a sudden <span class="vw" data-w="strangeness">strangeness</span>.
+</div>
+<div class="sub-module">
+<div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+<ul>
+<li><strong><span class="vw" data-w="exotic">exotic</span> moment</strong>: A rare, mystical, and enchanting interval characterized by bliss, free from the mechanical banality and noise of daily existence.</li>
+<li><strong>without <span class="vw" data-w="rush">rush</span>, without <span class="vw" data-w="engines">engines</span></strong>: Total cessation of capitalist frenzy, hyperactive commuting, factory assembly lines, and vehicular exhaust.</li>
+<li><strong>all be together</strong>: True communal solidarity and global bonding achieved when competitive individual rat-races are neutralized.</li>
+<li><strong>sudden <span class="vw" data-w="strangeness">strangeness</span></strong>: The surreal, unearthly sensation of tranquility experienced when an intensely noisy civilization suddenly falls utterly silent.</li>
+</ul>
+</div>
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+<ul>
+<li><strong>Repetition</strong>: <em>"without rush, without engines"</em>—the repeated preposition 'without' emphasizes the deliberate stripping away of industrial neurosis.</li>
+<li><strong>Alliteration</strong>: <em>"sudden strangeness"</em> (repetition of sibilant 's' sound), creating an acoustic whispering hush that mirrors peaceful silence.</li>
+<li><strong>Oxymoron / Paradox</strong>: <em>"sudden strangeness"</em> leading to being <em>"all together"</em>—unfamiliar silence brings about intimate human solidarity.</li>
+<li><strong>Sensory Contrast</strong>: Contrast between deafening industrial racket and sublime, therapeutic stillness.</li>
+</ul>
+</div>
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+<div style="font-size:0.92rem; line-height:1.7;">
+<p>Neruda characterizes the proposed cessation of movement as an "exotic moment." Why exotic? Because in the modern industrialized era, silence has become the rarest luxury. The human race is perpetually caught in a relentless stampede—commuting, manufacturing, consuming, and competing. By eliminating "rush" and silencing "engines" (a metonymy for factories, vehicles, planes, and weapons), humanity is liberated from the tyrannous tyranny of mechanical time.</p>
+<p>The resulting psychological atmosphere is one of "sudden strangeness." Modern humans are so thoroughly conditioned by noise, stress, and conflict that absolute silence initially feels alien, mysterious, and uncanny. Yet, within this very strangeness lies salvation: stripped of their competitive roles, tribal identities, and mechanical obligations, human beings across all continents will experience an unprecedented epiphany of togetherness—a profound realization of shared cosmic existence.</p>
+</div>
+</div>
+<div class="exam-value-box">
+<div class="sub-label" style="margin-bottom:6px;">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+<p><strong>Examiner Focus:</strong> (1) Why does the poet call this moment 'exotic'? (It would be an extraordinary, rare, and blissful experience free from the noise, competition, and mechanical rush of modern life). (2) What does 'without rush, without engines' imply? (Cessation of industrial haste, traffic, machinery, and commercial rat-races). (3) Explain the poetic effect of 'sudden strangeness'. (Alliteration creating an acoustic hush; reflects the unfamiliar yet miraculous feeling of global unity and peace).</p>
+</div>
+</article>
+
+<article class="passage-card" id="passage-3">
+<div class="passage-meta">
+<span class="passage-num">SECTION 3 OF 7</span>
+<span>SECTION // STUDY MANUAL</span>
+</div>
+<div class="passage-headline">Passage 3: Ecological Truce &amp; Confrontation of Self-Harm</div>
+<div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+<span class="vw" data-w="fishermen">Fishermen</span> in the cold sea 
+would not harm <span class="vw" data-w="whales">whales</span>
+and the man gathering <span class="vw" data-w="salt">salt</span> 
+would look at his <span class="vw" data-w="hurt">hurt</span> hands.
+</div>
+<div class="sub-module">
+<div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+<ul>
+<li><strong><span class="vw" data-w="fishermen">Fishermen</span> in the cold sea</strong>: Representatives of predatory human enterprise exploiting natural marine resources in harsh, frigid environments.</li>
+<li><strong>not harm <span class="vw" data-w="whales">whales</span></strong>: Immediate ecological armistice; whales represent endangered biodiversity and the majestic sanctity of wildlife spared from harpoons.</li>
+<li><strong>man gathering <span class="vw" data-w="salt">salt</span></strong>: Representative of the impoverished, unorganized working class subjected to grueling, repetitive physical exploitation.</li>
+<li><strong>look at his <span class="vw" data-w="hurt">hurt</span> hands</strong>: The transformative moment of self-reflection, where the laborer finally inspects the physical wounds, corrosion, and cost of endless toil.</li>
+</ul>
+</div>
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+<ul>
+<li><strong>Synecdoche</strong>: The <em>"fishermen"</em> represent human exploitation of the natural world, while the <em>"man gathering salt"</em> represents human self-exploitation in the economic machinery.</li>
+<li><strong>Symbolic Contrast</strong>: The external predator (fisherman vs. whale) juxtaposed against internal self-destruction (laborer vs. his own hurt hands).</li>
+<li><strong>Kinesthetic &amp; Visual Imagery</strong>: The frigid waters of the "cold sea" paired with the raw, stinging tactile agony of "hurt hands" coated in abrasive salt.</li>
+<li><strong>Alliteration</strong>: <em>"cold sea"</em> and <em>"hurt hands"</em> (aspirated 'h' sound evoking pain and weariness).</li>
+</ul>
+</div>
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+<div style="font-size:0.92rem; line-height:1.7;">
+<p>In this stanza, Neruda moves from the abstract global landscape to concrete, vivid human vignettes, highlighting two distinct dimensions of human violence: violence inflicted outward upon nature, and violence inflicted inward upon oneself.</p>
+<p>The "fishermen in the cold sea" symbolize mankind's predatory, hubristic dominion over the biosphere. Driven by commercial greed, humans hunt majestic leviathans like whales to the brink of extinction. A moment of quiet reflection halts this environmental assault, giving nature breathing room to heal. Concurrently, the "man gathering salt" represents the dehumanizing economic rat-race. In his frantic drive to earn a subsistence wage, the salt worker has no time to pause and realize that the crystalline salt is literally corroding and lacerating the flesh of his hands. Quiet introspection forces the laborer to look down, acknowledge his own suffering, and question whether the relentless pursuit of material accumulation is worth self-mutilation.</p>
+</div>
+</div>
+<div class="exam-value-box">
+<div class="sub-label" style="margin-bottom:6px;">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+<p><strong>Examiner Focus:</strong> (1) What does the poet expect the fishermen to do? (To stop hunting and harming whales, establishing an ecological truce with nature). (2) What does the image of the salt gatherer's 'hurt hands' signify? (The self-inflicted physical and psychological harm caused by relentless, unthinking economic labor). (3) How do these two images represent the twin themes of the poem? (Fishermen represent cruelty to nature; salt gatherer represents neglect and cruelty to one's own self).</p>
+</div>
+</article>
+
+<article class="passage-card" id="passage-4">
+<div class="passage-meta">
+<span class="passage-num">SECTION 4 OF 7</span>
+<span>SECTION // STUDY MANUAL</span>
+</div>
+<div class="passage-headline">Passage 4: The Folly of Toxic Wars &amp; The Fraternity of Clean Clothes</div>
+<div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+Those who prepare <span class="vw" data-w="green">green</span> wars, 
+wars with <span class="vw" data-w="gas">gas</span>, wars with <span class="vw" data-w="fire">fire</span>, 
+<span class="vw" data-w="victory">victory</span> with no <span class="vw" data-w="survivors">survivors</span>, 
+would put on <span class="vw" data-w="clean">clean</span> <span class="vw" data-w="clothes">clothes</span> 
+and walk about with their 
+<span class="vw" data-w="brothers">brothers</span> 
+in the <span class="vw" data-w="shade">shade</span>, doing nothing.
+</div>
+<div class="sub-module">
+<div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+<ul>
+<li><strong><span class="vw" data-w="green">green</span> wars</strong>: Warfare waged against the natural biosphere—deforestation, strip-mining, chemical contamination, and agricultural devastation.</li>
+<li><strong>wars with <span class="vw" data-w="gas">gas</span>, wars with <span class="vw" data-w="fire">fire</span></strong>: Modern technological warfare utilizing chemical asphyxiation, mustard gas, nerve agents, and combustible incendiary/nuclear weapons.</li>
+<li><strong><span class="vw" data-w="victory">victory</span> with no <span class="vw" data-w="survivors">survivors</span></strong>: A devastating oxymoron encapsulating pyrrhic victory; a war won upon ashes where nobody remains alive to celebrate triumph.</li>
+<li><strong>put on <span class="vw" data-w="clean">clean</span> <span class="vw" data-w="clothes">clothes</span></strong>: Metaphor for moral purification, spiritual rehabilitation, and discarding the blood-soaked uniforms of militarism.</li>
+<li><strong>in the <span class="vw" data-w="shade">shade</span>, doing nothing</strong>: Idyllic symbol of peaceful coexistence, protection, leisure, and fraternity under nature's protective canopy.</li>
+</ul>
+</div>
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+<ul>
+<li><strong>Oxymoron / Paradox</strong>: <em>"victory with no survivors"</em>—highlights the absolute futility and absurdity of modern chemical and nuclear warfare.</li>
+<li><strong>Metaphor</strong>: <em>"clean clothes"</em>—symbolizes a cleansed conscience and a peaceful civilian state of mind replacing military hostility.</li>
+<li><strong>Repetition</strong>: <em>"wars with gas, wars with fire"</em> emphasizes the escalating variety and ferocity of human killing machines.</li>
+<li><strong>Symbolism</strong>: <em>"in the shade"</em> symbolizes peace, shelter, and protective fellowship; <em>"doing nothing"</em> symbolizes non-violence and ethical stillness.</li>
+</ul>
+</div>
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+<div style="font-size:0.92rem; line-height:1.7;">
+<p>Neruda delivers his fiercest anti-war polemic against the architects of modern conflict: politicians, arms manufacturers, and military strategists who orchestrate "green wars" (ecocide), chemical gas attacks, and nuclear/fire bombings. The poet exposes the supreme philosophical bankruptcy of modern warmongering through an unforgettable oxymoron: "victory with no survivors." In an age of weapons of mass destruction, military triumph is an illusion; victory won over a radioactive or poisoned wasteland leaves no one alive to inherit the spoils.</p>
+<p>The antidote to this insanity is both radical and tender: the warmongers must "put on clean clothes." This is not a superficial wardrobe change, but an ontological conversion. Stripping off their blood-stained, soot-blackened military uniforms, former adversaries put on the clean garments of civilian peace. Walking hand in hand with their erstwhile enemies as "brothers" in the cooling shade, they engage in "doing nothing"—deliberately abstaining from aggression, hostility, and imperialist schemes.</p>
+</div>
+</div>
+<div class="exam-value-box">
+<div class="sub-label" style="margin-bottom:6px;">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+<p><strong>Examiner Focus:</strong> (1) What are 'green wars, wars with gas, wars with fire'? (Wars against the environment through ecocide/deforestation, and chemical and nuclear warfare). (2) Explain the irony in 'victory with no survivors'. (Oxymoron/Irony: modern wars cause total annihilation; winning a war where everyone is dead makes victory meaningless and pyrrhic). (3) What does 'putting on clean clothes and walking in the shade' symbolize? (Spiritual renewal, shedding hatred/bloodlust, and embracing universal brotherhood and peaceful coexistence).</p>
+</div>
+</article>
+
+<article class="passage-card" id="passage-5">
+<div class="passage-meta">
+<span class="passage-num">SECTION 5 OF 7</span>
+<span>SECTION // STUDY MANUAL</span>
+</div>
+<div class="passage-headline">Passage 5: The Vital Distinction: Dynamic Stillness vs. Inert Death</div>
+<div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+What I want should not be 
+confused
+with total <span class="vw" data-w="inactivity">inactivity</span>.
+Life is what it is about;
+I want no <span class="vw" data-w="truck">truck</span> with death.
+</div>
+<div class="sub-module">
+<div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+<ul>
+<li><strong>not be confused with total <span class="vw" data-w="inactivity">inactivity</span></strong>: Crucial philosophical disclaimer; clarifies that the poet is advocating conscious meditative stillness, not passive inertia or spiritual lethargy.</li>
+<li><strong>Life is what it is about</strong>: Affirmation of the intrinsic, vibrant dynamism of human living; the ultimate goal of stillness is to enrich and preserve life, not extinguish it.</li>
+<li><strong>no <span class="vw" data-w="truck">truck</span> with death</strong>: An idiomatic assertion meaning to refuse association, transaction, compromise, or alliance with mortality, lifelessness, or fatalism.</li>
+</ul>
+</div>
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+<ul>
+<li><strong>Idiom</strong>: <em>"have no truck with"</em>—colloquial expression emphasizing resolute rejection of deathly passivity.</li>
+<li><strong>Aphorism</strong>: <em>"Life is what it is about"</em>—a direct, powerful, unequivocal maxim affirming existential vitality.</li>
+<li><strong>Antithesis</strong>: Stillness (conscious, reflective, life-affirming) sharply contrasted with total inactivity (paralysis, decay, death).</li>
+</ul>
+</div>
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+<div style="font-size:0.92rem; line-height:1.7;">
+<p>Here Neruda steps forward as a lucid philosophical teacher to prevent a dangerous misreading of his message. Cynics and superficial readers might equate his call for stillness with nihilism, lethargy, or death. Neruda emphatically repudiates this: "What I want should not be confused with total inactivity."</p>
+<p>Total inactivity is the hallmark of the graveyard; it implies the permanent cessation of breathing, growth, and consciousness. Neruda declares with passionate conviction: "Life is what it is about; I want no truck with death." The poet is in love with life—with its colors, passions, and human solidarity. Stillness is not an end in itself, but a therapeutic tool. Just as an archer must pull the bowstring back and hold it completely still for a second to aim accurately at the target, so too must humanity pause its blind physical motion to redirect its energies toward creative and ethical living.</p>
+</div>
+</div>
+<div class="exam-value-box">
+<div class="sub-label" style="margin-bottom:6px;">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+<p><strong>Examiner Focus:</strong> (1) Why does the poet clarify that his wish should not be confused with total inactivity? (To prevent the misconception that he is advocating death, laziness, or absolute stagnation; stillness is active introspection). (2) What is the meaning of the idiom 'to have no truck with death'? (To refuse to associate with, tolerate, or deal with death/destruction). (3) What is the poet's core philosophy regarding life? (Life is meant to be lived actively, vibrantly, and meaningfully; stillness is meant to revitalize life, not extinguish it).</p>
+</div>
+</article>
+
+<article class="passage-card" id="passage-6">
+<div class="passage-meta">
+<span class="passage-num">SECTION 6 OF 7</span>
+<span>SECTION // STUDY MANUAL</span>
+</div>
+<div class="passage-headline">Passage 6: The Existential Tragedy: Self-Destructive Momentum &amp; The Healing Silence</div>
+<div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+If we were not so <span class="vw" data-w="single-minded">single-minded</span> 
+about keeping our lives moving, 
+and for once could do nothing, 
+perhaps a huge <span class="vw" data-w="silence">silence</span>
+might interrupt this <span class="vw" data-w="sadness">sadness</span>
+of never understanding ourselves 
+and of <span class="vw" data-w="threatening">threatening</span> ourselves with
+death.
+</div>
+<div class="sub-module">
+<div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+<ul>
+<li><strong><span class="vw" data-w="single-minded">single-minded</span> about keeping our lives moving</strong>: Toxic tunnel vision; the frantic, uncritical obsession with constant activity, economic survival, and mechanical productivity.</li>
+<li><strong>for once could do nothing</strong>: The revolutionary act of stepping off the capitalist treadmill to experience pure, unburdened existence.</li>
+<li><strong>huge <span class="vw" data-w="silence">silence</span></strong>: An expansive, cosmic, therapeutic quiet capable of soothing bruised human psyches and drowning out ideological noise.</li>
+<li><strong>this <span class="vw" data-w="sadness">sadness</span></strong>: The pervasive existential dread arising from two interconnected human failures: a total lack of self-understanding, and the constant threat of mutual nuclear/ecological suicide.</li>
+<li><strong><span class="vw" data-w="threatening">threatening</span> ourselves with death</strong>: The supreme folly of the arms race, where humanity stockpiles lethal weapons capable of exterminating its own species.</li>
+</ul>
+</div>
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+<ul>
+<li><strong>Enjambment</strong>: Lines run seamlessly across syntactic boundaries, mimicking the deep, uninterrupted meditation described.</li>
+<li><strong>Personification &amp; Metaphor</strong>: <em>"huge silence might interrupt this sadness"</em>—silence is personified as a compassionate healer or mediator stepping into a violent household to stop a fight.</li>
+<li><strong>Existential Paradox</strong>: Humans keep their lives moving frantically in order to survive, yet this very unthinking momentum drives them straight into mutual extinction and death.</li>
+</ul>
+</div>
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+<div style="font-size:0.92rem; line-height:1.7;">
+<p>This stanza penetrates the psychological root of modern human despair. Neruda diagnoses humanity's spiritual sickness as "single-mindedness"—a blind, frantic obsession with keeping lives in motion at all costs. Modern society measures worth solely through velocity, output, and accumulation. People run so fast in their commercial and professional lanes that they never pause to ask why they are running, where they are going, or what truly matters.</p>
+<p>This perpetual motion produces a chronic existential "sadness." We are strangers to our own inner souls ("never understanding ourselves"), and out of that deep spiritual vacuum arises fear, paranoia, and militarism ("threatening ourselves with death"). By stockpiling nuclear and chemical arsenals, modern civilization holds a gun to its own head. Neruda asserts that only a "huge silence"—a profound, collective pause—can shock humanity out of this suicidal trance, allowing self-knowledge and compassion to heal the wounded global psyche.</p>
+</div>
+</div>
+<div class="exam-value-box">
+<div class="sub-label" style="margin-bottom:6px;">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+<p><strong>Examiner Focus:</strong> (1) What is humanity 'single-minded' about? (About keeping their lives continuously moving, obsessed with relentless work, survival, and material progress). (2) What is the 'sadness' that haunts human beings? (The existential sadness of never understanding ourselves, living alienated lives, and constantly threatening ourselves with mutual destruction/death). (3) How can a 'huge silence' help humanity? (It can break the toxic cycle of blind momentum, allow quiet introspection, and heal spiritual alienation).</p>
+</div>
+</article>
+
+<article class="passage-card" id="passage-7">
+<div class="passage-meta">
+<span class="passage-num">SECTION 7 OF 7</span>
+<span>SECTION // STUDY MANUAL</span>
+</div>
+<div class="passage-headline">Passage 7: Nature’s Eternal Lesson of Rebirth &amp; The Poet’s Quiet Exit</div>
+<div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+Perhaps the <span class="vw" data-w="earth">Earth</span> can teach us 
+as when everything seems dead 
+and later proves to be <span class="vw" data-w="alive">alive</span>.
+Now I’ll count up to <span class="vw" data-w="twelve">twelve</span> 
+and you keep quiet and I will go.
+</div>
+<div class="sub-module">
+<div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+<ul>
+<li><strong>the <span class="vw" data-w="earth">Earth</span> can teach us</strong>: Reverent invocation of the natural world as humanity's supreme philosophical and ecological guru.</li>
+<li><strong>everything seems dead and later proves to be <span class="vw" data-w="alive">alive</span></strong>: The biological mystery of winter dormancy; beneath the frozen, barren soil, life is quietly conserving energy, preparing to burst forth as vibrant spring.</li>
+<li><strong>Now I’ll count up to <span class="vw" data-w="twelve">twelve</span></strong>: The shift from collective pronoun "we" to individual "I", showing the poet initiating the countdown for the reader.</li>
+<li><strong>you keep quiet and I will go</strong>: The poet's graceful, unobtrusive withdrawal; having delivered his spiritual message, he steps aside so the reader can independently practice quiet contemplation.</li>
+</ul>
+</div>
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+<ul>
+<li><strong>Personification</strong>: <em>"the Earth can teach us"</em>—the planet is personified as a wise, ancient mentor possessing the secret of regeneration.</li>
+<li><strong>Antithesis / Paradox</strong>: <em>"seems dead"</em> juxtaposed against <em>"proves to be alive"</em>—demonstrates that true stillness conceals dynamic, creative life.</li>
+<li><strong>Shift in Perspective</strong>: The opening <em>"we will count"</em> transitions into <em>"I'll count... and you keep quiet and I will go"</em>, passing the torch of quietude directly to the reader.</li>
+</ul>
+</div>
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+<div style="font-size:0.92rem; line-height:1.7;">
+<p>The poem concludes with an exquisite lesson drawn from nature's seasonal cycle. Neruda points to Mother Earth as the living proof of his thesis. During autumn and winter, trees shed their leaves, streams freeze, and the landscape appears desolate, inert, and lifeless. Yet, this death is only apparent. Beneath the snow-covered earth, root systems are active, seeds are germinating, and biological energy is being conserved. When spring arrives, that apparent stillness erupts into lush, radiant life.</p>
+<p>Thus, Neruda proves that stillness is not the enemy of life, but its greatest ally. Human beings, too, must enter temporary periods of dormancy to renew their ethical vision and spiritual stamina. Having shared this profound realization, the poet initiates a final count: "Now I’ll count up to twelve / and you keep quiet and I will go." Neruda refuses to remain as a noisy preacher or dogmatic ideologue. A true poet of peace steps away into silence, leaving his readers alone in the quiet sanctuary of their own awakened consciousness.</p>
+</div>
+</div>
+<div class="exam-value-box">
+<div class="sub-label" style="margin-bottom:6px;">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+<p><strong>Examiner Focus:</strong> (1) What lesson does the Earth teach us? (That apparent stillness and dormancy is not death; nature appears lifeless in winter but bursts into vibrant life in spring; stillness nurtures rebirth). (2) Why does the poet say 'and I will go'? (He has delivered his transformative message and now steps aside quietly, allowing the reader to experience self-introspection independently). (3) How does the ending contrast with the beginning? (Begins with collective 'we will count' and ends with individual 'I will count... and you keep quiet', transferring responsibility to the reader).</p>
+</div>
+</article>
+
+</section>
+
+<section id="characters">
+<h2 class="section-header">04. Master Character Sketches &amp; Psychological Profiles</h2>
+<div class="desktop-grid-2">
+<div class="bw-card accent">
+<h4>1. PABLO NERUDA / THE POETIC ADVOCATE (The Prophetic Visionary of Peace)</h4>
+<p><strong>Archetype:</strong> The Humane Peacemaker / The Philosophical Guide</p>
+<ul>
+<li><strong>Universal Humanist:</strong> Addresses the entirety of humankind across national, political, and racial boundaries, speaking as a global citizen rather than a partisan ideologue.</li>
+<li><strong>Champion of Introspection:</strong> Recognizes that institutional peace treaties are useless without inward psychological transformation and quiet self-examination.</li>
+<li><strong>Anti-Militarist &amp; Ecologist:</strong> Vehemently denounces chemical, fire, and green wars, advocating for the protection of whales, nature, and vulnerable laborers.</li>
+<li><strong>Humble Teacher:</strong> Refuses to dictate or dominate; steps aside gracefully at the poem's end ("and I will go"), entrusting the practice of peace to the individual reader.</li>
+</ul>
+</div>
+
+<div class="bw-card">
+<h4>2. MODERN HUMANITY (The Single-Minded, Self-Alienated Race)</h4>
+<p><strong>Archetype:</strong> The Frantic Species Hurrying Toward Mutual Destruction</p>
+<ul>
+<li><strong>Obsessed with Velocity:</strong> Trapped in the relentless "rush" of engines, deadlines, and competitive rat-races, equating speed with success and stillness with death.</li>
+<li><strong>Linguistically Divided:</strong> Fractured by thousands of languages, national borders, and political dogmas that breed suspicion and violence.</li>
+<li><strong>Exploitative of Nature &amp; Self:</strong> Inflicts ruthless cruelty on marine life while ignoring its own bleeding, calloused hands in the pursuit of wealth.</li>
+<li><strong>Haunted by Existential Dread:</strong> Suffers from a pervasive inner sadness born of profound self-alienation and the constant threat of nuclear annihilation.</li>
+</ul>
+</div>
+
+<div class="bw-card">
+<h4>3. THE WARMONGERS &amp; INDUSTRIALISTS (The Agents of Toxic Conflict)</h4>
+<p><strong>Archetype:</strong> The Blind Perpetrators of Pyrrhic Conquest</p>
+<ul>
+<li><strong>Architects of Ruin:</strong> Design and execute "green wars" against the environment, as well as chemical gas and incendiary fire bombardments.</li>
+<li><strong>Deluded by False Victory:</strong> Pursue "victory with no survivors," failing to realize that military triumph over an exterminated world is meaningless defeat.</li>
+<li><strong>Capable of Moral Redemption:</strong> Neruda optimistically believes even warmongers can undergo moral purification—putting on clean clothes and walking hand in hand with their brothers in the shade.</li>
+</ul>
+</div>
+
+<div class="bw-card accent">
+<h4>4. MOTHER EARTH (The Supreme Cosmic Mentor of Dynamic Regeneration)</h4>
+<p><strong>Archetype:</strong> The Eternal Matrix of Rest, Survival &amp; Rebirth</p>
+<ul>
+<li><strong>Embodiment of Paradox:</strong> Demonstrates that what appears completely dead and frozen in winter is actually teeming with silent, germinating life.</li>
+<li><strong>Patient Teacher of Humanity:</strong> Silently endures human pollution and violence, offering an enduring masterclass in cyclical renewal and resilience.</li>
+<li><strong>Proof of Active Stillness:</strong> Validates Neruda's thesis that stillness is not inert death, but the fertile, indispensable cradle of vibrant life.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="rtc">
+<h2 class="section-header">05. Reference to Context (Extract-Based Questions &amp; Answers)</h2>
+
+<div class="qa-card">
+<div class="qa-card-meta">CBSE 2024 &amp; 2020 BOARD EXAM EXTRACT // EXTRACT 1 OF 4</div>
+<div class="quote-passage" style="font-size:0.96rem;">
+<span class="quote-label">EXTRACT</span>
+“Now we will count to twelve
+and we will all keep still.
+For once on the face of the Earth
+let’s not speak in any language,
+let’s stop for one second,
+and not move our arms so much.”
+</div>
+<div class="qa-card-q">Questions &amp; Model CBSE Answers:</div>
+<div class="qa-card-a">
+<p><strong>(i) What is the significance of counting up to 'twelve'?</strong><br/>
+<em>Ans:</em> The number twelve symbolizes temporal and cosmic completion—representing the twelve hours on a clock face, the twelve months of the year, and the twelve zodiac signs. It provides a measured, unified interval for collective introspection.</p>
+<p><strong>(ii) Why does the poet ask humanity not to speak in any language?</strong><br/>
+<em>Ans:</em> Language has historically created barriers, misunderstandings, nationalist rivalries, and communal disputes. Silence acts as a universal equalizer, dissolving linguistic and cultural divides.</p>
+<p><strong>(iii) Identify and explain the poetic device in the line 'and not move our arms so much'.</strong><br/>
+<em>Ans:</em> The poetic device is a <strong>Pun (double entendre)</strong>. 'Arms' refers both to human biological limbs (halting relentless physical labor) and military weapons/armaments (halting warfare and aggression).</p>
+<p><strong>(iv) What does the poet mean by 'on the face of the Earth'?</strong><br/>
+<em>Ans:</em> It personifies the Earth and emphasizes the universal, global scope of the poet's appeal, transcending all artificial national borders and geographical continents.</p>
+</div>
+</div>
+
+<div class="qa-card">
+<div class="qa-card-meta">CBSE 2023 &amp; 2022 BOARD EXAM EXTRACT // EXTRACT 2 OF 4</div>
+<div class="quote-passage" style="font-size:0.96rem;">
+<span class="quote-label">EXTRACT</span>
+“It would be an exotic moment
+without rush, without engines,
+we would all be together
+in a sudden strangeness.
+Fishermen in the cold sea
+would not harm whales
+and the man gathering salt
+would look at his hurt hands.”
+</div>
+<div class="qa-card-q">Questions &amp; Model CBSE Answers:</div>
+<div class="qa-card-a">
+<p><strong>(i) Why does the poet refer to this moment as 'exotic'?</strong><br/>
+<em>Ans:</em> Because a synchronized global silence free from industrial noise, vehicular rush, and competitive hurry is an unprecedented, extraordinary, and enchanting experience in modern history.</p>
+<p><strong>(ii) Explain the phrase 'sudden strangeness'. What poetic device is used?</strong><br/>
+<em>Ans:</em> The poetic device is <strong>Alliteration</strong> (repetition of the 's' sound). It describes the uncanny, unfamiliar, yet wondrous sensation of collective quietude that binds all humanity together.</p>
+<p><strong>(iii) What environmental message is conveyed through the reference to 'fishermen' and 'whales'?</strong><br/>
+<em>Ans:</em> It advocates an immediate ecological truce, demanding that humanity halt its predatory, commercial exploitation and cruel slaughter of endangered marine wildlife.</p>
+<p><strong>(iv) What realization will dawn upon the 'man gathering salt' when he keeps still?</strong><br/>
+<em>Ans:</em> He will finally have the time to inspect his 'hurt hands', realizing the painful physical and psychological cost of his endless, exhausting economic toil.</p>
+</div>
+</div>
+
+<div class="qa-card">
+<div class="qa-card-meta">CBSE 2024 &amp; 2021 BOARD EXAM EXTRACT // EXTRACT 3 OF 4</div>
+<div class="quote-passage" style="font-size:0.96rem;">
+<span class="quote-label">EXTRACT</span>
+“Those who prepare green wars,
+wars with gas, wars with fire,
+victory with no survivors,
+would put on clean clothes
+and walk about with their brothers
+in the shade, doing nothing.”
+</div>
+<div class="qa-card-q">Questions &amp; Model CBSE Answers:</div>
+<div class="qa-card-a">
+<p><strong>(i) What does the poet mean by 'green wars, wars with gas, wars with fire'?</strong><br/>
+<em>Ans:</em> 'Green wars' refers to environmental ecocide—deforestation, pollution, and exploitation of nature. 'Wars with gas and fire' refers to modern chemical, incendiary, and nuclear warfare.</p>
+<p><strong>(ii) Explain the paradox/irony in 'victory with no survivors'.</strong><br/>
+<em>Ans:</em> It is a powerful <strong>Oxymoron / Irony</strong>. A military victory won through weapons of mass destruction that annihilate the entire human population is meaningless and pyrrhic, as no one remains alive to celebrate triumph.</p>
+<p><strong>(iii) What does 'putting on clean clothes' symbolize?</strong><br/>
+<em>Ans:</em> It symbolizes spiritual cleansing, ethical rebirth, and discarding the blood-stained, hatred-filled uniforms of war in favor of peaceful civilian coexistence.</p>
+<p><strong>(iv) What is the significance of walking 'with their brothers in the shade, doing nothing'?</strong><br/>
+<em>Ans:</em> It represents universal fraternity, where former enemies stroll together under the protective canopy of peace, actively abstaining ('doing nothing') from violence and hostility.</p>
+</div>
+</div>
+
+<div class="qa-card">
+<div class="qa-card-meta">CBSE 2023 &amp; 2019 BOARD EXAM EXTRACT // EXTRACT 4 OF 4</div>
+<div class="quote-passage" style="font-size:0.96rem;">
+<span class="quote-label">EXTRACT</span>
+“Perhaps the Earth can teach us
+as when everything seems dead
+and later proves to be alive.
+Now I’ll count up to twelve
+and you keep quiet and I will go.”
+</div>
+<div class="qa-card-q">Questions &amp; Model CBSE Answers:</div>
+<div class="qa-card-a">
+<p><strong>(i) What profound lesson does the Earth impart to humanity?</strong><br/>
+<em>Ans:</em> The Earth teaches us that apparent stillness and dormancy is not death. In winter, nature appears lifeless, but beneath the frozen soil, seeds are quietly germinating to burst forth into vibrant life in spring.</p>
+<p><strong>(ii) How does this lesson refute the idea of 'total inactivity'?</strong><br/>
+<em>Ans:</em> It demonstrates that quiet stillness is not sterile inertia or death, but a necessary period of underground rejuvenation and conservation of energy that sustains dynamic life.</p>
+<p><strong>(iii) Why does the poet say 'and I will go' at the end of the poem?</strong><br/>
+<em>Ans:</em> Having delivered his philosophical message of peace and self-reflection, the poet humbly steps aside, leaving humanity alone to experience the transformative power of silence.</p>
+<p><strong>(iv) Notice the shift from 'we will count' in stanza 1 to 'I’ll count... and you keep quiet' in the final lines. Explain its significance.</strong><br/>
+<em>Ans:</em> The opening was a collective invitation ('we will count'); the conclusion is an individual initiation where the poet conducts the countdown and entrusts the reader with the responsibility of practicing stillness.</p>
+</div>
+</div>
+
+</section>
+
+<section id="short-qa">
+<h2 class="section-header">06. High-Yield Short Answer Qs (2 Marks / 40–50 Words)</h2>
+<div class="desktop-grid-2">
+<div class="qa-card">
+<div class="qa-card-meta">NCERT &amp; CBSE 2024 // 2 MARKS</div>
+<div class="qa-card-q">Q1. What will counting up to twelve and keeping still help us achieve?</div>
+<div class="qa-card-a">
+<p>Counting to twelve and keeping still provides a brief, focused interval to suspend our frantic rat-race. It enables deep self-introspection, dissolves linguistic and national animosities, and fosters a profound sense of universal brotherhood and mutual understanding.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Suspension of mechanical rush | Quiet self-introspection | Fostering universal brotherhood and mutual harmony.</div>
+</div>
+
+<div class="qa-card">
+<div class="qa-card-meta">NCERT &amp; CBSE 2023 // 2 MARKS</div>
+<div class="qa-card-q">Q2. Do you think the poet advocates total inactivity and death? Elaborate.</div>
+<div class="qa-card-a">
+<p>No, the poet explicitly states: "What I want should not be confused with total inactivity. Life is what it is about; I want no truck with death." He advocates conscious meditative stillness to revitalize and preserve life, rejecting deathly stagnation or fatalism.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Explicit rejection of total inactivity | Reaffirmation that life is dynamic | Stillness as rejuvenation, not death.</div>
+</div>
+
+<div class="qa-card">
+<div class="qa-card-meta">NCERT &amp; CBSE 2022 // 2 MARKS</div>
+<div class="qa-card-q">Q3. What is the 'sadness' that the poet refers to in the poem?</div>
+<div class="qa-card-a">
+<p>The 'sadness' is the chronic existential grief of modern humans who are alienated from their own souls through constant rush. Never understanding themselves, they live in perpetual fear and continuously threaten their own survival with destructive wars.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Existential sadness of self-alienation | Lack of spiritual self-understanding | Constant fear of mutual annihilation.</div>
+</div>
+
+<div class="qa-card">
+<div class="qa-card-meta">NCERT &amp; CBSE 2024 // 2 MARKS</div>
+<div class="qa-card-q">Q4. What symbol from Nature does the poet invoke to prove that stillness is not death?</div>
+<div class="qa-card-a">
+<p>The poet invokes Mother Earth as the supreme symbol. During winter, the Earth appears dormant, barren, and dead; yet beneath the snow, seeds are silently germinating, later proving to be teeming with vibrant spring life.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Symbol of Mother Earth | Winter dormancy yielding spring vitality | Proof that apparent stillness conceals active life.</div>
+</div>
+
+<div class="qa-card">
+<div class="qa-card-meta">CBSE 2020 // 2 MARKS</div>
+<div class="qa-card-q">Q5. Explain the poet's critique of modern warfare in 'Keeping Quiet'.</div>
+<div class="qa-card-a">
+<p>Neruda condemns environmental ecocide ('green wars'), chemical warfare ('wars with gas'), and nuclear fire. He exposes their ultimate folly through the paradox "victory with no survivors"—proving that modern technological conflict leads only to collective suicide.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Condemnation of green, gas, and fire wars | Irony of 'victory with no survivors' | Exposing the futility of pyrrhic conquest.</div>
+</div>
+
+<div class="qa-card">
+<div class="qa-card-meta">CBSE 2021 // 2 MARKS</div>
+<div class="qa-card-q">Q6. How will keeping quiet affect the fishermen and the man gathering salt?</div>
+<div class="qa-card-a">
+<p>Fishermen will halt their predatory hunting of endangered whales, establishing an ecological truce. Meanwhile, the exhausted salt-gatherer will pause his relentless toil to examine his stinging, hurt hands, recognizing the self-destructive cost of his labor.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Fishermen cease harming whales (ecological peace) | Salt gatherer inspects hurt hands (self-care and reflection).</div>
+</div>
+
+<div class="qa-card">
+<div class="qa-card-meta">CBSE 2023 // 2 MARKS</div>
+<div class="qa-card-q">Q7. What does the poet mean by 'put on clean clothes'?</div>
+<div class="qa-card-a">
+<p>It metaphorically signifies a complete transformation of character and mindset. It means shedding the blood-stained garments of hatred, war, and political enmity, and adopting the clean, unstained robes of peace, moral purity, and brotherhood.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Metaphor for ethical transformation | Discarding blood-stained uniforms of war | Embracing clean garments of peace and purity.</div>
+</div>
+
+<div class="qa-card">
+<div class="qa-card-meta">CBSE 2022 // 2 MARKS</div>
+<div class="qa-card-q">Q8. Why does the poet ask us not to speak in any language?</div>
+<div class="qa-card-a">
+<p>Language often serves as an instrument of division, nationalist chauvinism, and ideological conflict. By asking humanity to remain silent for a moment, Neruda creates a universal, egalitarian space where artificial human barriers dissolve.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Language creates tribal and national divisions | Silence acts as a universal equalizer | Promotes universal unity and peace.</div>
+</div>
+
+<div class="qa-card">
+<div class="qa-card-meta">CBSE 2024 // 2 MARKS</div>
+<div class="qa-card-q">Q9. How does Neruda distinguish between 'quietness' and 'death'?</div>
+<div class="qa-card-a">
+<p>Quietness is a conscious, restorative pause that nurtures deep reflection and revitalizes action, just like winter nurtures spring. Death, however, is permanent stagnation and the absence of life, with which Neruda wants 'no truck'.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Quietness is restorative and life-affirming | Death is permanent stagnation and decay | No truck with death.</div>
+</div>
+
+<div class="qa-card">
+<div class="qa-card-meta">CBSE 2025 SAMPLE PAPER // 2 MARKS</div>
+<div class="qa-card-q">Q10. Why does the poet conclude with 'and I will go'?</div>
+<div class="qa-card-a">
+<p>Having delivered his transformative message, Neruda gracefully steps aside. He refuses to dominate the silence with preachiness, allowing the reader to experience the healing power of personal quietude independently.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Graceful withdrawal of the poet | Avoidance of dogmatic preachiness | Entrusting the reader with independent practice.</div>
+</div>
+</div>
+</section>
+
+<section id="long-qa">
+<h2 class="section-header">07. High-Scoring Long Answer &amp; Comparative Questions (CBSE 5 Marks / 120–150 Words)</h2>
+
+<div class="qa-card">
+<div class="qa-card-meta">CBSE EVALUATIVE QUESTION // 5 MARKS</div>
+<div class="qa-card-q">Q1. Discuss the central message of Pablo Neruda’s 'Keeping Quiet'. How does the poet advocate for a harmonious balance between human society, individual consciousness, and the natural ecosystem?</div>
+<div class="qa-card-a">
+<p>Pablo Neruda’s <em>'Keeping Quiet'</em> is a visionary philosophical manifesto that diagnoses the core pathology of the modern world: frantic, unthinking momentum leading to self-alienation, social conflict, and ecological catastrophe. Neruda’s proposed antidote is deceptively simple yet profoundly radical: a collective, twelve-second pause in physical movement and spoken language.</p>
+<p>At the individual level, this pause interrupts the "sadness of never understanding ourselves." Modern humans, obsessed with keeping their lives moving in competitive economic rat-races, neglect self-care—symbolized by the salt-gatherer who never inspects his "hurt hands." At the societal level, suspending language and mechanical engines dissolves tribal chauvinism and halts war machines. Warmongers are urged to abandon pyrrhic conquests ("victory with no survivors"), put on clean clothes, and walk with their enemies as brothers in the shade.</p>
+<p>Finally, at the ecological level, the pause establishes an armistice with nature: fishermen cease hunting endangered whales. Crucially, Neruda clarifies that stillness is not death; drawing on the supreme metaphor of Mother Earth, he demonstrates that apparent dormancy is the secret source of vibrant rebirth. The poem thus provides an integrated blueprint for spiritual, social, and planetary survival.</p>
+</div>
+<div class="qa-card-vp"><strong>CBSE Value Points:</strong> Diagnosis of modern pathology (frantic rush and self-alienation) | Individual healing through self-reflection (salt gatherer's hurt hands) | Societal armistice and brotherhood (clean clothes in the shade) | Ecological truce (fishermen halting whale hunts) | Earth's lesson of dormancy yielding vibrant life.</div>
+</div>
+
+<div class="qa-card">
+<div class="qa-card-meta">CBSE EVALUATIVE QUESTION // 5 MARKS</div>
+<div class="qa-card-q">Q2. "Stillness is not death; rather, it is the highest form of dynamic preparation for life." Analyze how Neruda refutes the charge of fatalism and inactivity using imagery, aphorisms, and natural symbolism.</div>
+<div class="qa-card-a">
+<p>In <em>'Keeping Quiet'</em>, Pablo Neruda takes meticulous care to distinguish his philosophy of conscious stillness from nihilistic fatalism or physical stagnation. Anticipating that critics might misread his call for silence as an embrace of lethargy or defeat, he explicitly intervenes with a vigorous disclaimer: "What I want should not be confused with total inactivity. Life is what it is about; I want no truck with death."</p>
+<p>Neruda’s worldview is passionately life-affirming. Total inactivity belongs to corpses in the cemetery; it represents decay, paralysis, and absolute termination. The poet wants nothing to do with such morbid finality. Instead, he conceptualizes stillness as a dynamic, restorative pause—a conscious gathering of energy akin to an archer pausing before releasing an arrow.</p>
+<p>To substantiate this thesis, Neruda invokes the ultimate natural mentor: Mother Earth. During the winter freeze, the landscape appears dead, silent, and desolate. Yet, this stillness is not death; it is gestation. Underground, roots and seeds are quietly absorbing nourishment and conserving energy. When the cycle turns, that apparent death explodes into the radiant, blooming vitality of spring. Through this sublime symbol, Neruda proves that quietude is the indispensable foundation of creative life.</p>
+</div>
+<div class="qa-card-vp"><strong>CBSE Value Points:</strong> Explicit disclaimer against total inactivity | Aphorism: 'Life is what it is about' & idiom: 'no truck with death' | Distinction between morbid paralysis and conscious meditative quietude | Natural symbolism of Earth in winter (dormancy vs rebirth) | Stillness as dynamic gestation and moral renewal.</div>
+</div>
+
+<div class="qa-card">
+<div class="qa-card-meta">CBSE COMPARATIVE QUESTION // 5 MARKS</div>
+<div class="qa-card-q">Q3. Comparative Study: Compare the healing and restorative power of quiet contemplation in Pablo Neruda’s 'Keeping Quiet' with John Keats’s philosophy of nature and permanence in 'A Thing of Beauty'.</div>
+<div class="qa-card-a">
+<p>Both Pablo Neruda in <em>'Keeping Quiet'</em> and John Keats in <em>'A Thing of Beauty'</em> address the pervasive existential despondency, gloom, and spiritual exhaustion that afflict human life, offering profound aesthetic and meditative remedies.</p>
+<p>In <em>'Keeping Quiet'</em>, Neruda diagnoses the human malady as a frantic, single-minded obsession with speed, war, and material productivity, which generates a chronic "sadness of never understanding ourselves." His solution is active, communal introspection: a twelve-second global silence that silences engines, disarms warmongers, halts ecocide, and reunites humanity with Mother Earth's regenerative rhythms.</p>
+<p>Similarly, in <em>'A Thing of Beauty'</em>, Keats laments the "inhuman dearth of noble natures," the "gloomy days," and the "unhealthy and o'er-darkened ways" of human existence. However, while Neruda seeks salvation through the conscious cessation of human action, Keats finds it through contemplation of eternal natural beauty—the sun, the moon, old trees providing shade, clear rills, and musk-rose blooms. For Keats, beauty acts as an endless fountain of immortal nectar that removes the pall of sorrow from our dark spirits. Both poets ultimately converge on the conviction that reconnecting with nature's quiet, enduring majesty is essential to heal the fractured human soul.</p>
+</div>
+<div class="qa-card-vp"><strong>CBSE Value Points:</strong> Shared recognition of human gloom, despondency, and existential sadness | Neruda: healing through conscious stillness, halting engines, and universal brotherhood | Keats: healing through contemplation of eternal, beautiful natural forms | Contrast between collective socio-political pause (Neruda) and sensory aesthetic communion (Keats) | Shared conviction in nature as the ultimate spiritual restorative.</div>
+</div>
+
+<div class="qa-card">
+<div class="qa-card-meta">CBSE COMPARATIVE QUESTION // 5 MARKS</div>
+<div class="qa-card-q">Q4. Cross-Textual Synthesis: Compare the theme of stopping the destructive cycle of life in Selma Lagerlöf's 'The Rattrap' (the peddler escaping the world's bait through compassion) with Pablo Neruda’s 'Keeping Quiet' (humanity escaping the trap of blind momentum through stillness).</div>
+<div class="qa-card-a">
+<p>Both Selma Lagerlöf’s narrative masterpiece <em>'The Rattrap'</em> and Pablo Neruda’s philosophical poem <em>'Keeping Quiet'</em> explore the entrapment of human beings within destructive cycles of their own making, and the transformative power of a conscious pause to achieve redemption.</p>
+<p>In <em>'The Rattrap'</em>, the peddler views the entire world as a gigantic trap setting baits of riches, food, and shelter to ensnare greedy souls. Trapped in cynicism and petty theft, the peddler runs frantically in the dark forest, unable to find an exit. His salvation comes when Edla Willmansson offers him unconditional kindness and dignity, allowing him to rest quietly on Christmas Eve. In that tranquil domestic space, free from fear and pursuit, the peddler pauses, reflects, and raises himself to the stature of a noble 'Captain', returning the stolen thirty kronor.</p>
+<p>Similarly, in <em>'Keeping Quiet'</em>, modern humanity is trapped in the rattrap of "single-minded" momentum, environmental destruction, and toxic wars ("victory with no survivors"). Neruda urges humanity to step off this suicidal wheel by keeping still for twelve seconds. Just as the peddler’s transformation required a pause in the ironmaster's quiet manor, humanity’s salvation requires a "huge silence" to interrupt its self-destructive madness. Both works affirm that when human beings pause their predatory pursuits and reflect, essential human goodness and fraternity are restored.</p>
+</div>
+<div class="qa-card-vp"><strong>CBSE Value Points:</strong> Shared motif of human entrapment in destructive cycles | Peddler trapped by greed/cynicism vs humanity trapped by speed/war | Role of quiet pause: Edla's sanctuary allowing moral reflection vs Neruda's twelve-second global stillness | Moral elevation: peddler returning stolen money vs warmongers walking as brothers | Restoration of essential human goodness through tranquil reflection.</div>
+</div>
+
+<div class="qa-card">
+<div class="qa-card-meta">CBSE EVALUATIVE QUESTION // 5 MARKS</div>
+<div class="qa-card-q">Q5. "Wars are the ultimate failure of human communication; silence is its ultimate restoration." Elucidate this statement in light of Pablo Neruda's anti-war imagery in 'Keeping Quiet'.</div>
+<div class="qa-card-a">
+<p>In <em>'Keeping Quiet'</em>, Pablo Neruda offers a brilliant philosophical paradox: human speech often leads to violence, whereas global silence possesses the power to restore universal peace. The poet astutely identifies language and verbal rhetoric as historical drivers of tribal animosity, nationalistic chauvinism, and war propaganda. When leaders and nations speak, they frequently construct walls of enmity, hurling ideological threats that culminate in "green wars," "wars with gas," and "wars with fire."</p>
+<p>Neruda exposes the criminal insanity of modern warfare through the haunting oxymoron "victory with no survivors." In an era of chemical and nuclear armaments, military victory is an illusion—a pyrrhic tragedy where the victor rules over a graveyard. War represents the total breakdown of genuine communication, as dialogue is replaced by missile strikes and ecocide.</p>
+<p>Conversely, Neruda proposes that silence is the ultimate restoration of human communication. When humans refrain from speaking in any language and keep their arms still, the noise of hatred ceases. In this profound quietude, warmongers are able to "put on clean clothes" and walk with their former adversaries as "brothers in the shade, doing nothing." Silence strips away superficial political labels, allowing human beings to communicate through the universal, uncorrupted language of shared presence, mutual empathy, and brotherhood.</p>
+</div>
+<div class="qa-card-vp"><strong>CBSE Value Points:</strong> Language as an instrument of division, political propaganda, and war | Critique of modern wars (green, gas, fire) & oxymoron 'victory with no survivors' | War as total collapse of human empathy and dialogue | Silence as universal equalizer transcending linguistic boundaries | 'Clean clothes in the shade' symbolizing restored fraternity and moral reconciliation.</div>
+</div>
+</div>
+</section>
+
+<section id="pyq-vault">
+<h2 class="section-header">08. Previous Years' Question Vault (2019–2025)</h2>
+<p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:18px;">Complete historical repository of questions extracted from CBSE Board Examinations, compartment papers, and sample question frameworks with official marking keys.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th style="width: 15%;">Year / Marks</th>
+<th style="width: 50%;">Question Asked in Board Exam</th>
+<th style="width: 35%;">Key Scoring Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2025</strong><br/>(2 Marks)</td>
+<td>Why does Pablo Neruda emphasize that his message should not be confused with 'total inactivity'?</td>
+<td>Total inactivity means death and stagnation; Neruda advocates conscious stillness to rejuvenate life.</td>
+</tr>
+<tr>
+<td><strong>2024</strong><br/>(2 Marks)</td>
+<td>Explain the paradox in the expression 'victory with no survivors'.</td>
+<td>Oxymoron/Irony: modern wars of mass destruction leave no one alive; a victory over dead bodies is pyrrhic.</td>
+</tr>
+<tr>
+<td><strong>2024</strong><br/>(Extract 4M)</td>
+<td>“Perhaps the Earth can teach us as when everything seems dead…” What natural phenomenon is referenced and what does it signify?</td>
+<td>Winter dormancy followed by spring rebirth; signifies that apparent stillness conceals dynamic regeneration.</td>
+</tr>
+<tr>
+<td><strong>2023</strong><br/>(2 Marks)</td>
+<td>What will happen if for once we 'not speak in any language'?</td>
+<td>Linguistic barriers and arguments will collapse; an egalitarian sense of universal unity and peace will prevail.</td>
+</tr>
+<tr>
+<td><strong>2023</strong><br/>(Extract 4M)</td>
+<td>“It would be an exotic moment without rush, without engines…” Identify the poetic device in 'sudden strangeness' and explain its impact.</td>
+<td>Alliteration; creates an acoustic hush mirroring the peaceful, rare unity experienced when industrial noise halts.</td>
+</tr>
+<tr>
+<td><strong>2022</strong><br/>(Term 1 / 2M)</td>
+<td>What are the two meanings of the word 'arms' in the first stanza of 'Keeping Quiet'?</td>
+<td>Human upper limbs (halting frantic physical labor) and military weapons (halting war and aggression).</td>
+</tr>
+<tr>
+<td><strong>2022</strong><br/>(2 Marks)</td>
+<td>What does the poet mean by the 'sadness' that plagues modern civilization?</td>
+<td>Existential grief caused by lack of self-understanding, frantic momentum, and mutual threats of death.</td>
+</tr>
+<tr>
+<td><strong>2021</strong><br/>(2 Marks)</td>
+<td>How can silence help the salt gatherer and the fishermen?</td>
+<td>Fishermen will stop slaughtering whales (ecological truce); salt gatherers will examine and heal their hurt hands.</td>
+</tr>
+<tr>
+<td><strong>2020</strong><br/>(2 Marks)</td>
+<td>What does 'putting on clean clothes and walking in the shade' symbolize in 'Keeping Quiet'?</td>
+<td>Spiritual renewal, shedding bloodstained military uniforms, and embracing universal brotherhood in peace.</td>
+</tr>
+<tr>
+<td><strong>2020</strong><br/>(Extract 4M)</td>
+<td>“…and you keep quiet and I will go.” Why does the poet conclude by saying 'I will go'?</td>
+<td>Having delivered his message of peace, he steps aside to let the reader practice quiet introspection independently.</td>
+</tr>
+<tr>
+<td><strong>2019</strong><br/>(2 Marks)</td>
+<td>How does Pablo Neruda establish that life is dynamic even in stillness?</td>
+<td>By citing the Earth, which appears dormant in winter but later proves to burst into vibrant life in spring.</td>
+</tr>
+<tr>
+<td><strong>2019</strong><br/>(2 Marks)</td>
+<td>What is the significance of the number 'twelve' in the opening line?</td>
+<td>Represents temporal completeness (12 hours on clock, 12 months in year, 12 zodiacs); a universal countdown into calm.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<footer class="doc-footer">
+<div>END OF MANUAL // CBSE CLASS 12 ENGLISH CORE // POEM 02: KEEPING QUIET</div>
+<div style="margin-top:6px; font-size:0.75rem;">Synthesized from Official NCERT Text, LitCharts Analysis, SuccessCDs, and CBSE Board Marking Schemes.</div>
+</footer>
+</div>
+
+<div class="floating-controls" id="floating-controls">
+<button aria-label="Toggle theme" class="floating-btn" id="theme-toggle" title="Toggle Light/Dark Theme">[ ☾ DARK ]</button>
+<a class="floating-btn back-top-btn" href="#top" title="Scroll to top">↑ TOP</a>
+</div>
+
+<div id="vocab-tooltip">
+<div class="tt-header">
+<span class="tt-word" id="tt-word-el"></span>
+<div class="tt-meta">
+<span class="tt-pos" id="tt-pos-el"></span>
+<span class="tt-cycle-badge" id="tt-cycle-btn" title="Click to see another meaning">1 of 1 ↻</span>
+</div>
+</div>
+<div class="tt-def" id="tt-def-el"></div>
+</div>
+
+<script>
+(function() {
+  const DICT = {
+  "twelve": [
+    {
+      "pos": "num.",
+      "def": "Symbolic numeral representing totality: twelve hours on a clock dial, twelve months in a solar year, or the twelve signs of the zodiac."
+    }
+  ],
+  "still": [
+    {
+      "pos": "adj./adv.",
+      "def": "Deeply motionless, peaceful, silent; refraining from physical movement, verbal noise, and mental agitation."
+    }
+  ],
+  "earth": [
+    {
+      "pos": "prop. n.",
+      "def": "Our shared planet and supreme natural teacher, embodying cyclical rebirth, resilience, and living tranquility."
+    }
+  ],
+  "language": [
+    {
+      "pos": "n.",
+      "def": "Human verbal communication; paradoxically serving historically as a source of tribal division, prejudice, and conflict."
+    }
+  ],
+  "arms": [
+    {
+      "pos": "n.",
+      "def": "Double entendre (pun): physically human upper limbs engaged in restless toil, and metaphorically military weaponry/armaments."
+    }
+  ],
+  "exotic": [
+    {
+      "pos": "adj.",
+      "def": "Unusually rare, fascinating, marvelous, and enchanting; existing outside mundane industrial experience."
+    }
+  ],
+  "rush": [
+    {
+      "pos": "n./v.",
+      "def": "The frantic, relentless hurry and competitive speed of modern civilization that alienates humanity from its soul."
+    }
+  ],
+  "engines": [
+    {
+      "pos": "n.",
+      "def": "Machines, factories, vehicular motors; metonymy for industrial noise, technological exploitation, and mechanical hubbub."
+    }
+  ],
+  "strangeness": [
+    {
+      "pos": "n.",
+      "def": "An extraordinary, unprecedented sense of novelty, wonder, and collective harmony born from sudden global silence."
+    }
+  ],
+  "fishermen": [
+    {
+      "pos": "n.",
+      "def": "Representing humanity's extractive, exploitative relationship with nature and marine ecosystems."
+    }
+  ],
+  "whales": [
+    {
+      "pos": "n.",
+      "def": "Magnificent marine mammals facing extinction, symbolizing nature wounded by man's predatory greed."
+    }
+  ],
+  "salt": [
+    {
+      "pos": "n.",
+      "def": "Essential mineral gathered through harsh physical labor; symbol of the relentless socio-economic grind harming the laborer."
+    }
+  ],
+  "hurt": [
+    {
+      "pos": "adj.",
+      "def": "Physically bruised, calloused, wounded; reflecting the self-inflicted toll of ruthless commercial exploitation."
+    }
+  ],
+  "green": [
+    {
+      "pos": "adj.",
+      "def": "Pertaining to the environment; 'green wars' signifies human warfare against nature via deforestation, pollution, and ecocide."
+    }
+  ],
+  "gas": [
+    {
+      "pos": "n.",
+      "def": "Poisonous chemical weapons used in modern mechanized warfare, evoking apocalyptic destruction."
+    }
+  ],
+  "fire": [
+    {
+      "pos": "n.",
+      "def": "Incendiary, combustible ordnance and nuclear weapons that incinerate civilization."
+    }
+  ],
+  "victory": [
+    {
+      "pos": "n.",
+      "def": "Military triumph; here rendered brutally pyrrhic and meaningless through the caveat 'with no survivors'."
+    }
+  ],
+  "survivors": [
+    {
+      "pos": "n.",
+      "def": "People who remain alive after a catastrophe; their absence in nuclear/chemical war proves the absurdity of conflict."
+    }
+  ],
+  "clean": [
+    {
+      "pos": "adj.",
+      "def": "Free of bloodstains, soot, gunpowder, and ideological hatred; symbolizing ethical renewal and spiritual rebirth."
+    }
+  ],
+  "clothes": [
+    {
+      "pos": "n.",
+      "def": "Garments; changing into 'clean clothes' signifies a fundamental transformation of mindset, discarding bloodied uniforms of war."
+    }
+  ],
+  "brothers": [
+    {
+      "pos": "n.",
+      "def": "Fellow human beings recognized through universal fraternity, dissolving political, racial, and national hostilities."
+    }
+  ],
+  "shade": [
+    {
+      "pos": "n.",
+      "def": "Shelter from scorching sunlight; metaphorical sanctuary of peace, contemplation, protection, and mutual harmony."
+    }
+  ],
+  "inactivity": [
+    {
+      "pos": "n.",
+      "def": "Complete inertia, stagnation, and paralysis; the poet explicitly denies advocating death-like cessation of life."
+    }
+  ],
+  "truck": [
+    {
+      "pos": "n./idiom",
+      "def": "'To have no truck with' \u2014 an established idiom meaning to refuse association, negotiation, or complicity with death."
+    }
+  ],
+  "single-minded": [
+    {
+      "pos": "adj.",
+      "def": "Obsessively fixated on narrow mechanical goals; human tunnel vision dedicated solely to speed and survival."
+    }
+  ],
+  "silence": [
+    {
+      "pos": "n.",
+      "def": "The deep, restorative absence of noise and verbal strife, functioning as a therapeutic space for self-healing."
+    }
+  ],
+  "sadness": [
+    {
+      "pos": "n.",
+      "def": "Chronic existential malaise born of self-alienation, lack of mutual understanding, and the subconscious dread of nuclear annihilation."
+    }
+  ],
+  "threatening": [
+    {
+      "pos": "v.",
+      "def": "Endangering oneself or others with lethal destruction through stockpiled weapons and spiritual neglect."
+    }
+  ],
+  "alive": [
+    {
+      "pos": "adj.",
+      "def": "Possessing dynamic vitality, creative growth, and spiritual consciousness beneath the surface of apparent rest."
+    }
+  ],
+  "introspection": [
+    {
+      "pos": "n.",
+      "def": "The examination of one's own conscious thoughts, psychological motives, and spiritual feelings in tranquil silence."
+    }
+  ],
+  "pyrrhic": [
+    {
+      "pos": "adj.",
+      "def": "Describing a victory won at such devastating cost that it is tantamount to defeat ('victory with no survivors')."
+    }
+  ],
+  "pun": [
+    {
+      "pos": "n.",
+      "def": "A play on words with multiple meanings; here exemplified by 'arms' (limbs vs. weapons)."
+    }
+  ],
+  "brotherhood": [
+    {
+      "pos": "n.",
+      "def": "Universal fellowship and solidarity uniting all humankind across artificial geographic borders."
+    }
+  ]
+};
+  const defsCache = {};
+  const wordIndices = {};
+
+  const tooltip = document.getElementById('vocab-tooltip');
+  const wordEl = document.getElementById('tt-word-el');
+  const posEl = document.getElementById('tt-pos-el');
+  const defEl = document.getElementById('tt-def-el');
+  const cycleBtn = document.getElementById('tt-cycle-btn');
+
+  let currentWord = '';
+  let currentTarget = null;
+  let hideTimeout = null;
+
+  function getWordDefs(cleanWord) {
+    if (DICT[cleanWord]) {
+      return Array.isArray(DICT[cleanWord]) ? DICT[cleanWord] : [DICT[cleanWord]];
+    }
+    if (defsCache[cleanWord]) {
+      return defsCache[cleanWord];
+    }
+    return null;
+  }
+
+  function renderCurrentMeaning(cleanWord, displayWord, x, y) {
+    const defs = getWordDefs(cleanWord);
+    wordEl.textContent = displayWord;
+
+    if (!defs || defs.length === 0) {
+      posEl.textContent = '';
+      cycleBtn.style.display = 'none';
+      defEl.innerHTML = '<span class="tt-loading">Looking up definition...</span>';
+      return;
+    }
+
+    const total = defs.length;
+    let idx = wordIndices[cleanWord] || 0;
+    if (idx >= total) idx = 0;
+    wordIndices[cleanWord] = idx;
+
+    const curr = defs[idx];
+    posEl.textContent = curr.pos || '';
+    defEl.textContent = curr.def || '';
+
+    if (total > 1) {
+      cycleBtn.style.display = 'inline-block';
+      cycleBtn.textContent = `${idx + 1} of ${total} ↻`;
+    } else {
+      cycleBtn.style.display = 'none';
+    }
+
+    positionTooltip(x, y);
+  }
+
+  function fetchWordDefs(cleanWord, displayWord, x, y) {
+    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${cleanWord}`)
+      .then(r => r.json())
+      .then(data => {
+        const defs = [];
+        const seen = new Set();
+        if (Array.isArray(data)) {
+          data.forEach(entry => {
+            (entry.meanings || []).forEach(m => {
+              const pos = m.partOfSpeech ? `${m.partOfSpeech}.` : '';
+              (m.definitions || []).forEach(d => {
+                const defText = d.definition?.trim();
+                if (defText && !seen.has(defText.toLowerCase())) {
+                  seen.add(defText.toLowerCase());
+                  defs.push({ pos: pos, def: defText });
+                }
+              });
+            });
+          });
+        }
+
+        if (defs.length > 0) {
+          defsCache[cleanWord] = defs;
+        } else {
+          defsCache[cleanWord] = [{ pos: 'term.', def: 'Contextual term used in Going Places study manual.' }];
+        }
+
+        if (currentWord === cleanWord) {
+          renderCurrentMeaning(cleanWord, displayWord, x, y);
+        }
+      })
+      .catch(() => {
+        defsCache[cleanWord] = [{ pos: '', def: 'Definition unavailable offline.' }];
+        if (currentWord === cleanWord) {
+          renderCurrentMeaning(cleanWord, displayWord, x, y);
+        }
+      });
+  }
+
+  function positionTooltip(x, y) {
+    tooltip.classList.add('active');
+    const tipWidth = 320;
+    const tipHeight = tooltip.offsetHeight || 90;
+
+    let posX = x + 12;
+    let posY = y - tipHeight - 12;
+
+    if (posX + tipWidth > window.innerWidth - 12) {
+      posX = window.innerWidth - tipWidth - 14;
+    }
+    if (posX < 10) posX = 10;
+
+    if (posY < 10) {
+      posY = y + 24;
+    }
+
+    tooltip.style.left = `${posX}px`;
+    tooltip.style.top = `${posY}px`;
+  }
+
+  function showTooltipForWord(el, x, y) {
+    clearTimeout(hideTimeout);
+    currentTarget = el;
+    const displayWord = el.textContent.trim();
+    const cleanWord = (el.getAttribute('data-w') || displayWord).toLowerCase().trim();
+    currentWord = cleanWord;
+
+    const defs = getWordDefs(cleanWord);
+    if (defs) {
+      renderCurrentMeaning(cleanWord, displayWord, x, y);
+    } else {
+      renderCurrentMeaning(cleanWord, displayWord, x, y);
+      fetchWordDefs(cleanWord, displayWord, x, y);
+    }
+  }
+
+  function cycleToNextMeaning(el, e) {
+    const cleanWord = (el.getAttribute('data-w') || el.textContent).toLowerCase().trim();
+    const defs = getWordDefs(cleanWord);
+    if (!defs || defs.length <= 1) return;
+
+    const currentIdx = wordIndices[cleanWord] || 0;
+    wordIndices[cleanWord] = (currentIdx + 1) % defs.length;
+
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX || (rect.left + rect.width / 2);
+    const y = e.clientY || rect.top;
+    renderCurrentMeaning(cleanWord, el.textContent.trim(), x, y);
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove('active');
+    currentTarget = null;
+    currentWord = '';
+  }
+
+  document.addEventListener('mouseover', (e) => {
+    if (e.target.closest('h1, h2, h3, h4, h5, .doc-header, .toc-box, .section-header, .passage-headline, .passage-meta, .sub-label, .floating-controls')) {
+      hideTooltip();
+      return;
+    }
+    const el = e.target.closest('.vw');
+    if (!el) return;
+    showTooltipForWord(el, e.clientX, e.clientY);
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!currentTarget) return;
+    const el = e.target.closest('.vw');
+    if (el && el === currentTarget) {
+      positionTooltip(e.clientX, e.clientY);
+    }
+  });
+
+  document.addEventListener('mouseout', (e) => {
+    const el = e.target.closest('.vw');
+    if (el) {
+      hideTimeout = setTimeout(hideTooltip, 120);
+    }
+  });
+
+  tooltip.addEventListener('mouseenter', () => {
+    clearTimeout(hideTimeout);
+  });
+  tooltip.addEventListener('mouseleave', () => {
+    hideTimeout = setTimeout(hideTooltip, 120);
+  });
+
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('.vw');
+    if (el) {
+      e.preventDefault();
+      cycleToNextMeaning(el, e);
+      return;
+    }
+    if (e.target.closest('#vocab-tooltip') && currentTarget) {
+      e.preventDefault();
+      cycleToNextMeaning(currentTarget, e);
+      return;
+    }
+    hideTooltip();
+  });
+
+  const controls = document.getElementById('floating-controls');
+  const toggleBtn = document.getElementById('theme-toggle');
+
+  function checkScroll() {
+    const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (scrollPos > 80) {
+      if (controls) controls.classList.add('visible');
+    } else {
+      if (controls) controls.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  window.addEventListener('load', checkScroll);
+  window.addEventListener('hashchange', checkScroll);
+  setTimeout(checkScroll, 150);
+  checkScroll();
+
+  function syncThemeBtn() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (toggleBtn) {
+      toggleBtn.textContent = isDark ? '[ ☼ LIGHT ]' : '[ ☾ DARK ]';
+    }
+  }
+
+  syncThemeBtn();
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const newTheme = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('cbse_theme', newTheme);
+      syncThemeBtn();
+    });
+  }
+})();
+</script>
+</body>
+</html>
