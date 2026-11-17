@@ -35,7 +35,7 @@ A curated, high-yield digital study compendium and reference manual for CBSE Cla
 - [x] **Poem 1: My Mother at Sixty-Six** by Kamala Das &mdash; [Read HTML](HTML/my_mother_at_sixty_six_cbse_mastery.html) | [Download PDF](PDF/My_Mother_at_Sixty_Six_CBSE_Guide.pdf)
 - [x] **Poem 2: Keeping Quiet** by Pablo Neruda &mdash; [Read HTML](HTML/keeping_quiet_cbse_mastery.html) | [Download PDF](PDF/Keeping_Quiet_CBSE_Guide.pdf)
 - [x] **Poem 3: A Thing of Beauty** by John Keats &mdash; [Read HTML](HTML/a_thing_of_beauty_cbse_mastery.html) | [Download PDF](PDF/A_Thing_of_Beauty_CBSE_Guide.pdf)
-- [ ] Poem 4: A Roadside Stand (Robert Frost)
+- [x] **Poem 4: A Roadside Stand** by Robert Frost &mdash; [Read HTML](HTML/a_roadside_stand_cbse_mastery.html) | [Download PDF](PDF/A_Roadside_Stand_CBSE_Guide.pdf)
 - [ ] Poem 5: Aunt Jennifer's Tigers (Adrienne Rich)
 
 ### Vistas (Supplementary Reader)
@@ -68,7 +68,8 @@ CBSE-English-12/
 │   ├── going_places_cbse_mastery.html
 │   ├── my_mother_at_sixty_six_cbse_mastery.html
 │   ├── keeping_quiet_cbse_mastery.html
-│   └── a_thing_of_beauty_cbse_mastery.html
+│   ├── a_thing_of_beauty_cbse_mastery.html
+│   └── a_roadside_stand_cbse_mastery.html
 ├── PDF/              # Print-ready vector chapter PDFs
 │   ├── The_Last_Lesson_CBSE_Guide.pdf
 │   ├── Lost_Spring_CBSE_Guide.pdf
@@ -80,7 +81,8 @@ CBSE-English-12/
 │   ├── Going_Places_CBSE_Guide.pdf
 │   ├── My_Mother_at_Sixty_Six_CBSE_Guide.pdf
 │   ├── Keeping_Quiet_CBSE_Guide.pdf
-│   └── A_Thing_of_Beauty_CBSE_Guide.pdf
+│   ├── A_Thing_of_Beauty_CBSE_Guide.pdf
+│   └── A_Roadside_Stand_CBSE_Guide.pdf
 ├── NCERT/            # Official NCERT textbooks (renamed by chapter)
 │   ├── Flamingo/     # Prose (Ch 01-08) & Poetry (Poem 01-05)
 │   └── Vistas/       # Supplementary Reader (Ch 01-06)

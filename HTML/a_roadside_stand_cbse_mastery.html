@@ -1,0 +1,2560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<script>
+(function() {
+  const saved = localStorage.getItem('cbse_theme');
+  if (saved === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+<style>
+:root {
+  --bg: #ffffff;
+  --text-main: #111111;
+  --text-muted: #555555;
+  --border-light: #e5e5e5;
+  --border-dark: #111111;
+  --panel-bg: #fafafa;
+  --panel-hover: #f3f4f6;
+  --tooltip-bg: #111111;
+  --tooltip-text: #ffffff;
+  --tooltip-border: #333333;
+  --hover-bg: #f0f0f0;
+  --font-sans: "Google Sans", "Google Sans Text", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Georgia", "Cambria", "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+}
+
+[data-theme="dark"] {
+  --bg: #0d1117;
+  --text-main: #e6edf3;
+  --text-muted: #8b949e;
+  --border-light: #30363d;
+  --border-dark: #e6edf3;
+  --panel-bg: #161b22;
+  --panel-hover: #1f242c;
+  --tooltip-bg: #161b22;
+  --tooltip-text: #e6edf3;
+  --tooltip-border: #484f58;
+  --hover-bg: #21262d;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.75;
+  letter-spacing: -0.011em;
+}
+
+.container {
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 56px 40px 100px 40px;
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 0;
+}
+
+h1 {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  letter-spacing: -0.035em;
+  margin-bottom: 12px;
+}
+
+h2.section-header {
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 2px solid var(--border-dark);
+  padding-bottom: 12px;
+  margin-top: 64px;
+  margin-bottom: 28px;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+p {
+  margin: 0 0 1.25rem 0;
+}
+
+a {
+  color: var(--text-main);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+a:hover {
+  background: var(--text-main);
+  color: var(--bg);
+  text-decoration: none;
+}
+
+.desktop-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.desktop-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.doc-header {
+  margin-bottom: 48px;
+  border-bottom: 2px solid var(--border-dark);
+  padding-bottom: 32px;
+}
+
+.mono-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.doc-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.doc-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.spec-pill {
+  border: 1px solid var(--border-dark);
+  padding: 4px 10px;
+  border-radius: 2px;
+  background: transparent;
+}
+
+.toc-box {
+  border: 1px solid var(--border-dark);
+  padding: 28px 32px;
+  margin: 36px 0 56px 0;
+  background: var(--panel-bg);
+}
+
+.toc-title {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 10px;
+}
+
+.toc-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 28px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+}
+
+.toc-list li {
+  display: flex;
+  align-items: baseline;
+}
+
+.toc-list a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 3px 6px;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+}
+.toc-list a:hover {
+  background: var(--border-dark);
+  color: var(--bg);
+  text-decoration: none;
+}
+
+.keyword-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.keyword-tag {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  border: 1px solid var(--border-dark);
+  padding: 4px 10px;
+  background: var(--bg);
+  color: var(--text-main);
+}
+
+.bw-card {
+  border: 1px solid var(--border-light);
+  padding: 24px;
+  background: var(--panel-bg);
+  height: 100%;
+}
+
+.bw-card.accent {
+  border-left: 3px solid var(--border-dark);
+}
+
+.bw-card h4 {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+.passage-card {
+  border: 1px solid var(--border-light);
+  padding: 32px;
+  margin-bottom: 48px;
+  background: var(--bg);
+  page-break-inside: avoid;
+}
+
+.passage-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.passage-num {
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.passage-headline {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin-bottom: 22px;
+  color: var(--text-main);
+}
+
+.quote-passage {
+  border-left: 3px solid var(--border-dark);
+  padding: 18px 24px;
+  background: var(--panel-bg);
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  line-height: 1.85;
+  font-style: italic;
+  margin-bottom: 24px;
+  color: var(--text-main);
+}
+
+.quote-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.sub-module {
+  border-top: 1px dashed var(--border-light);
+  padding-top: 16px;
+  margin-top: 18px;
+  font-size: 0.98rem;
+}
+
+.sub-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 10px;
+}
+
+.sub-module ul {
+  margin: 6px 0 0 20px;
+  padding: 0;
+}
+
+.sub-module li {
+  margin-bottom: 8px;
+}
+
+.exam-value-box {
+  background: var(--panel-bg);
+  border: 1px solid var(--border-dark);
+  padding: 18px 22px;
+  margin-top: 18px;
+  font-size: 0.95rem;
+}
+
+.highlight {
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin: 24px 0;
+  border: 1px solid var(--border-dark);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  text-align: left;
+}
+
+th, td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-light);
+}
+
+th {
+  background: var(--panel-bg);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+tr:last-child td { border-bottom: 0; }
+td:last-child, th:last-child { border-right: 0; }
+
+.qa-card {
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--border-dark);
+  padding: 24px;
+  margin-bottom: 24px;
+  background: var(--bg);
+  page-break-inside: avoid;
+}
+
+.qa-card-meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.qa-card-q {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  line-height: 1.45;
+}
+
+.qa-card-a {
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.qa-card-vp {
+  margin-top: 14px;
+  padding: 12px 16px;
+  background: var(--panel-bg);
+  border: 1px solid var(--border-light);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.qa-card-vp strong {
+  color: var(--text-main);
+}
+
+.doc-footer {
+  margin-top: 80px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-dark);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .container {
+    padding: 32px 20px 72px 20px;
+  }
+  .desktop-grid-2, .desktop-grid-3, .toc-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .passage-card {
+    padding: 22px 18px;
+  }
+  .passage-headline {
+    font-size: 1.25rem;
+  }
+  h1 {
+    font-size: 2.2rem;
+  }
+  .doc-subtitle {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .container {
+    padding: 20px 14px 60px 14px;
+  }
+  h1 {
+    font-size: 1.85rem;
+  }
+  .quote-passage {
+    font-size: 0.98rem;
+    padding: 14px 16px;
+  }
+}
+
+/* ==========================================================================
+   FLOATING CONTROLS: THEME TOGGLE & BACK TO TOP (ACTIVE ON SCROLL)
+   ========================================================================== */
+
+.floating-controls {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.floating-controls.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.floating-btn {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  padding: 8px 14px;
+  border: 1.5px solid var(--border-dark);
+  background: var(--bg);
+  color: var(--text-main);
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.floating-btn:hover {
+  background: var(--text-main);
+  color: var(--bg);
+}
+
+.floating-btn.back-top-btn {
+  background: var(--border-dark);
+  color: var(--bg);
+}
+
+.floating-btn.back-top-btn:hover {
+  background: var(--bg);
+  color: var(--border-dark);
+}
+
+@media (max-width: 600px) {
+  .floating-controls {
+    bottom: 16px;
+    right: 16px;
+    gap: 6px;
+  }
+  .floating-btn {
+    padding: 6px 10px;
+    font-size: 0.72rem;
+  }
+}
+
+/* ==========================================================================
+   TOOLTIP & WORD-HOVER SYSTEM (DARK & LIGHT THEME COMPATIBLE)
+   ========================================================================== */
+
+.vw {
+  cursor: pointer;
+  transition: all 0.12s ease;
+  border-bottom: none;
+  display: inline;
+}
+
+.vw:hover {
+  border-bottom: 1.5px solid var(--border-dark);
+  background-color: var(--hover-bg);
+  color: var(--text-main);
+}
+
+#vocab-tooltip {
+  position: fixed;
+  display: none;
+  z-index: 10000;
+  max-width: 340px;
+  min-width: 220px;
+  background: var(--tooltip-bg, #111111);
+  color: var(--tooltip-text, #ffffff);
+  border: 1.5px solid var(--tooltip-border, #333333);
+  border-radius: 3px;
+  padding: 12px 14px;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  pointer-events: auto;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.12s ease, transform 0.12s ease;
+  transform: translateY(-4px);
+  opacity: 0;
+}
+
+#vocab-tooltip.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#vocab-tooltip .tt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--tooltip-border, #333333);
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+}
+
+#vocab-tooltip .tt-word {
+  font-weight: 700;
+  font-size: 0.96rem;
+  color: var(--tooltip-text, #ffffff);
+  text-transform: capitalize;
+}
+
+#vocab-tooltip .tt-meta {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+#vocab-tooltip .tt-pos {
+  font-size: 0.72rem;
+  color: var(--text-muted, #aaaaaa);
+  font-style: italic;
+}
+
+#vocab-tooltip .tt-cycle-badge {
+  font-size: 0.68rem;
+  border: 1px solid var(--tooltip-border, #555555);
+  padding: 1px 6px;
+  border-radius: 2px;
+  color: var(--tooltip-text, #dddddd);
+  cursor: pointer;
+  background: transparent;
+  display: none;
+}
+
+#vocab-tooltip .tt-cycle-badge:hover {
+  background: var(--border-dark);
+  color: var(--bg);
+}
+
+#vocab-tooltip .tt-def {
+  color: var(--tooltip-text, #f1f1f1);
+  font-size: 0.85rem;
+  min-height: 28px;
+}
+
+#vocab-tooltip .tt-loading {
+  color: var(--text-muted, #888888);
+  font-style: italic;
+  font-size: 0.78rem;
+}
+
+@media print {
+  body {
+    background: #ffffff;
+    color: #000000;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+  .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .floating-controls, .toc-box, #vocab-tooltip {
+    display: none !important;
+  }
+  .vw {
+    border-bottom: none !important;
+    cursor: default !important;
+    background: transparent !important;
+  }
+  .passage-card, .qa-card, .bw-card {
+    border: 1px solid #cccccc !important;
+    page-break-inside: avoid;
+    margin-bottom: 24pt;
+  }
+  h2.section-header {
+    page-break-before: always;
+    border-bottom: 1pt solid #000000;
+    margin-top: 24pt;
+  }
+  .quote-passage {
+    border-left: 2pt solid #000000 !important;
+    background: #f7f7f7 !important;
+  }
+  .desktop-grid-2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 12pt;
+  }
+}
+</style>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&amp;display=swap" rel="stylesheet"/>
+<title>A Roadside Stand — Robert Frost | CBSE Class 12 English Study Manual</title>
+</head>
+<body>
+<div class="container" id="top">
+<header class="doc-header">
+<div class="mono-kicker">MANUAL // CBSE CLASS 12 ENGLISH CORE (FLAMINGO) // CH-12</div>
+<h1>A ROADSIDE STAND</h1>
+<div class="doc-subtitle">Rural Deprivation, Capitalist Callousness, False Philanthropy &amp; Frost’s Radical Empathy by <strong>Robert Frost</strong></div>
+<div class="doc-specs">
+<span class="spec-pill">SYLLABUS: 2026–27</span>
+<span class="spec-pill">FORMAT: PASSAGE-BY-PASSAGE MANUAL</span>
+<span class="spec-pill">SOURCES: NCERT + LITCHART + CBSE PYQS</span>
+<span class="spec-pill">TARGET: 100/100 BOARDS</span>
+</div>
+</header>
+<nav class="toc-box">
+<div class="toc-title">
+<span>INDEX // QUICK NAVIGATION</span>
+<span>[8 SECTIONS]</span>
+</div>
+<ul class="toc-list">
+<li><a href="#overview">01. EXECUTIVE EXAM COMPASS &amp; THEMES</a></li>
+<li><a href="#keywords">02. CBSE GOLDEN KEYWORDS BANK</a></li>
+<li><a href="#passages">03. PASSAGE-BY-PASSAGE BREAKDOWN</a></li>
+<li><a href="#characters">04. MASTER CHARACTER SKETCHES &amp; PROFILES</a></li>
+<li><a href="#rtc">05. REFERENCE TO CONTEXT (RTC)</a></li>
+<li><a href="#short-qa">06. HIGH-YIELD SHORT ANSWER QS</a></li>
+<li><a href="#long-qa">07. LONG ANSWER &amp; EVALUATIVE QS</a></li>
+<li><a href="#pyq-vault">08. PREVIOUS YEARS' QUESTION VAULT</a></li>
+</ul>
+</nav>
+
+<section id="overview">
+<h2 class="section-header">01. Executive Exam Compass &amp; Themes</h2>
+<div class="desktop-grid-2">
+<div class="bw-card accent">
+<h4>1. THE ECONOMIC CHASM &amp; CAPITALIST ASYMMETRY</h4>
+<p>Robert Frost examines the unbridgeable gulf dividing the hyper-prosperous urban metropolis from the destitute rural periphery. Liquid currency—<em>"the cash, whose flow supports / The flower of cities from sinking and withering faint"</em>—nourishes the cultural opulence of cities while bypassing the countryside. Rural producers remain starved of capital, trapped in a non-monetized subsistence economy where the <em>"country scale of gain"</em> can never provide the essential psychological and social elevation required for human dignity.</p>
+</div>
+<div class="bw-card">
+<h4>2. DIGNITY OVER CHARITY: "NOT FOR A DOLE OF BREAD"</h4>
+<p>Frost emphatically clarifies that the rural homesteaders are not begging for alms, handouts, or humiliating charity: <em>"It would not be fair to say for a dole of bread"</em>. They demand legitimate market integration and commercial respect. By offering the honest fruits of their manual labor (wild berries, squash), they seek to earn city cash to expand their standard of living, asserting their agency as self-respecting economic participants rather than passive welfare recipients.</p>
+</div>
+<div class="bw-card">
+<h4>3. URBAN AESTHETIC SNOBBERY VS. RURAL SUBSISTENCE</h4>
+<p>The city motorists (<em>"the polished traffic"</em>) are insulated within their high-speed machines, oblivious to human misery. When they do cast an eye aside, their reaction is not compassion but aesthetic indignation: they complain that the crude wooden shed and handmade signs with <em>"N turned wrong and S turned wrong"</em> have <em>"marred"</em> the scenic mountain landscape. Urban environmental and aesthetic sensibilities are revealed as elitist luxuries that criminalize rural survival efforts.</p>
+</div>
+<div class="bw-card accent">
+<h4>4. THE ILLUSION OF UPLIFT: "THE MOVING-PICTURES' PROMISE"</h4>
+<p>Mass culture and cinema project seductive visions of modern luxury and effortless prosperity (<em>"the life of the moving-pictures' promise"</em>). This media-induced aspiration intensifies rural disenfranchisement, as the rural poor realize that the ruling political establishment (<em>"the party in power"</em>) deliberately withholds the infrastructure, capital, and policies necessary to transform this cinematic dream into rural reality.</p>
+</div>
+<div class="bw-card">
+<h4>5. PREDATORY PHILANTHROPY: "GREEDY GOOD-DOERS"</h4>
+<p>Frost crafts a ferocious political critique of welfare capitalism and opportunistic social reformers (<em>"greedy good-doers, beneficent beasts of prey"</em>). Proposed state relocation schemes gather the rural poor into peri-urban settlements near stores and theaters, ostensibly for their comfort, but functionally stripping them of self-reliance, land ownership, and traditional lifeways. By enforcing calculated benefits that <em>"soothe them out of their wits"</em>, these predatory benefactors pacify resistance and destroy natural human rhythms.</p>
+</div>
+<div class="bw-card accent">
+<h4>6. RADICAL EMPATHY &amp; THE SOBER RETRACTION</h4>
+<p>The speaker experiences excruciating mental distress witnessing the unheeded <em>"childish longing in vain"</em> of the roadside folk. In an agonizing spasm of empathetic despair, Frost confesses that it would be a mercy to put these suffering people <em>"at one stroke out of their pain"</em>. However, upon returning to rational moral equilibrium (<em>"as I come back into the sane"</em>), he retracts this nihilistic impulse, recognizing that true ethical solidarity requires sustained social justice rather than comfortable, violent closure.</p>
+</div>
+</div>
+
+<div class="table-wrapper" style="margin-top:24px;">
+<table>
+<thead>
+<tr>
+<th style="width: 20%;">Core Motif / Symbol</th>
+<th style="width: 40%;">Textual Evidence &amp; Vehicle</th>
+<th style="width: 40%;">Socio-Political &amp; Philosophical Tenor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>The Roadside Stand</strong></td>
+<td><em>"The little old house was out with a little new shed / In front at the edge of the road"</em></td>
+<td>A pathetic, fragile bridge between rural isolation and urban capital; embodies the rural poor's desperate quest for market inclusion and self-reliant dignity.</td>
+</tr>
+<tr>
+<td><strong>The Polished Traffic</strong></td>
+<td><em>"The polished traffic passed with a mind ahead / Or if ever aside a moment, then out of sorts"</em></td>
+<td>Transferred epithet symbolizing the sleek, hyper-modern, self-absorbed urban bourgeoisie whose speed and wealth insulate them from human solidarity.</td>
+</tr>
+<tr>
+<td><strong>Inverted Letters ('N' &amp; 'S')</strong></td>
+<td><em>"Of signs that with N turned wrong and S turned wrong"</em></td>
+<td>Rustic illiteracy and authentic provincial labor mocked by city travelers; exposes the hollow superficiality of urban aesthetic standards.</td>
+</tr>
+<tr>
+<td><strong>Wild Berries &amp; Squash</strong></td>
+<td><em>"Offered for sale wild berries in wooden quarts, / Or crook-necked golden squash with silver warts"</em></td>
+<td>Raw, organic, imperfect gifts of the earth; represents honest rural livelihood standing in stark contrast to synthetic urban luxury commodities.</td>
+</tr>
+<tr>
+<td><strong>Flower of Cities</strong></td>
+<td><em>"The cash, whose flow supports / The flower of cities from sinking and withering faint"</em></td>
+<td>Metaphor equating metropolitan prosperity and fine arts to delicate blossoms that thrive exclusively because money continuously circulates through their roots.</td>
+</tr>
+<tr>
+<td><strong>Greedy Good-Doers</strong></td>
+<td><em>"While greedy good-doers, beneficent beasts of prey, / Swarm over their lives enforcing benefits"</em></td>
+<td>Oxymoronic indictments of opportunistic politicians, paternalistic bureaucrats, and predatory developers who commodify and destroy rural autonomy.</td>
+</tr>
+<tr>
+<td><strong>Destruction of Ancient Sleep</strong></td>
+<td><em>"And by teaching them how to sleep they sleep all day, / Destroy their sleeping at night the ancient way"</em></td>
+<td>The eradication of agrarian biorhythms and physical self-sufficiency through forced dependency, narcotic complacency, and commercial pacification.</td>
+</tr>
+<tr>
+<td><strong>Squeal of Brakes</strong></td>
+<td><em>"That waits all day in almost open prayer / For the squeal of brakes, the sound of a stopping car"</em></td>
+<td>Auditory symbol of desperate hope; represents the brief, agonizing illusion of potential trade immediately crushed by utilitarian indifference.</td>
+</tr>
+<tr>
+<td><strong>At One Stroke Out of Their Pain</strong></td>
+<td><em>"I can't help owning the great relief it would be / To put these people at one stroke out of their pain"</em></td>
+<td>Shocking visceral confession of despair; an instinctive wish for merciful euthanasia that exposes the speaker's unbearable empathetic torment.</td>
+</tr>
+<tr>
+<td><strong>Return to the Sane</strong></td>
+<td><em>"And then next day as I come back into the sane, / I wonder how I should like you to come to me"</em></td>
+<td>Moral palinode and ethical recovery; Frost rejects radical nihilism in favor of mutual vulnerability, radical empathy, and shared human accountability.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section id="keywords">
+<h2 class="section-header">02. CBSE Golden Keywords Bank</h2>
+<p style="font-size:0.95rem; color:var(--text-muted); margin-bottom:16px;">
+High-impact terminology, rhetorical devices, and analytical phrases required for 100/100 marks in CBSE Class 12 English Core examinations.
+</p>
+<div class="keyword-cloud">
+<span class="keyword-tag">Economic Asymmetry</span>
+<span class="keyword-tag">Cash Nexus</span>
+<span class="keyword-tag">Market Inclusion</span>
+<span class="keyword-tag">Dole of Bread</span>
+<span class="keyword-tag">Polished Traffic</span>
+<span class="keyword-tag">Transferred Epithet</span>
+<span class="keyword-tag">Aesthetic Indignation</span>
+<span class="keyword-tag">Artless Paint</span>
+<span class="keyword-tag">Trusting Sorrow</span>
+<span class="keyword-tag">Moving-Pictures' Promise</span>
+<span class="keyword-tag">Party in Power</span>
+<span class="keyword-tag">Pitiful Kin</span>
+<span class="keyword-tag">Greedy Good-Doers</span>
+<span class="keyword-tag">Beneficent Beasts of Prey</span>
+<span class="keyword-tag">Oxymoronic Critique</span>
+<span class="keyword-tag">Forced Resettlement</span>
+<span class="keyword-tag">Paternalistic Welfare</span>
+<span class="keyword-tag">Enforcing Benefits</span>
+<span class="keyword-tag">Calculated Stupefaction</span>
+<span class="keyword-tag">Ancient Sleep Cycle</span>
+<span class="keyword-tag">Childish Longing in Vain</span>
+<span class="keyword-tag">Lurking Sadness</span>
+<span class="keyword-tag">Open Prayer</span>
+<span class="keyword-tag">Selfish Cars</span>
+<span class="keyword-tag">Utilitarian Callousness</span>
+<span class="keyword-tag">Country Scale of Gain</span>
+<span class="keyword-tag">Requisite Lift of Spirit</span>
+<span class="keyword-tag">Merciful Euthanasia</span>
+<span class="keyword-tag">At One Stroke</span>
+<span class="keyword-tag">Return to the Sane</span>
+<span class="keyword-tag">Moral Palinode</span>
+<span class="keyword-tag">Radical Solidarity</span>
+</div>
+
+<div class="table-wrapper" style="margin-top:20px;">
+<table>
+<thead>
+<tr>
+<th style="width: 25%;">Analytical Category</th>
+<th style="width: 35%;">Essential Golden Keywords</th>
+<th style="width: 40%;">CBSE Exam Operational Context</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Socio-Economic &amp; Ideological Concepts</strong></td>
+<td>Economic asymmetry, monetized capitalism, cash nexus, market inclusion, rural marginalization, paternalistic welfare, suburban resettlement, dependency trap.</td>
+<td>Used in Section 06 &amp; 07 to contrast the liquid wealth supporting urban civilization with the currency-starved countryside.</td>
+</tr>
+<tr>
+<td><strong>Literary &amp; Rhetorical Devices</strong></td>
+<td>Transferred epithet (<em>"polished traffic"</em>, <em>"selfish cars"</em>), oxymoron (<em>"greedy good-doers"</em>, <em>"beneficent beasts of prey"</em>), personification (<em>"roadside stand that too pathetically pled"</em>), metaphor (<em>"flower of cities"</em>, <em>"open prayer"</em>).</td>
+<td>Directly assessed in RTC extract questions (1-mark device identification and functional explanation).</td>
+</tr>
+<tr>
+<td><strong>Psychological &amp; Affective States</strong></td>
+<td>Trusting sorrow, childish longing in vain, lurking sadness, open prayer, unbearable anguish, visceral exasperation, sober sanity, mutual vulnerability.</td>
+<td>Crucial for characterizing both the stoic rural vendors waiting at the window and the emotional trajectory of the speaker.</td>
+</tr>
+<tr>
+<td><strong>Ethical &amp; Political Critique</strong></td>
+<td>Calculated benefits, soothing out of wits, destruction of ancient sleep, broken cinematic promises, party in power, commodification of rural lives.</td>
+<td>High-yield points for questions evaluating Frost's indictment of politicians, real-estate speculators, and self-serving social reformers.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section id="passages">
+<h2 class="section-header">03. Passage-by-Passage Breakdown (01 to 05)</h2>
+
+<!-- PASSAGE 1 -->
+<article class="passage-card" id="passage-1">
+<div class="passage-meta">
+<span>STANZA 1 // LINES 1–15</span>
+<span class="passage-num">PASSAGE 01 OF 05</span>
+</div>
+<div class="passage-headline">Passage 1: The Roadside Stand &amp; The Indifferent Polished Traffic (Lines 1–15)</div>
+<div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+The little old house was out with a little new <span class="vw" data-w="shed">shed</span><br/>
+In front at the edge of the road where the <span class="vw" data-w="traffic">traffic</span> <span class="vw" data-w="sped">sped</span>,<br/>
+A roadside stand that too <span class="vw" data-w="pathetically">pathetically</span> <span class="vw" data-w="pled">pled</span>,<br/>
+It would not be fair to say for a <span class="vw" data-w="dole">dole</span> of <span class="vw" data-w="bread">bread</span>,<br/>
+But for some of the money, the <span class="vw" data-w="cash">cash</span>, whose <span class="vw" data-w="flow">flow</span> <span class="vw" data-w="supports">supports</span><br/>
+The <span class="vw" data-w="flower">flower</span> of cities from <span class="vw" data-w="sinking">sinking</span> and <span class="vw" data-w="withering">withering</span> <span class="vw" data-w="faint">faint</span>.<br/>
+The <span class="vw" data-w="polished">polished</span> traffic passed with a mind ahead,<br/>
+Or if ever <span class="vw" data-w="aside">aside</span> a moment, then out of <span class="vw" data-w="sorts">sorts</span><br/>
+At having the landscape <span class="vw" data-w="marred">marred</span> with the <span class="vw" data-w="artless">artless</span> <span class="vw" data-w="paint">paint</span><br/>
+Of signs that with N turned wrong and S turned wrong<br/>
+Offered for sale wild berries in wooden <span class="vw" data-w="quarts">quarts</span>,<br/>
+Or <span class="vw" data-w="crook-necked">crook-necked</span> golden <span class="vw" data-w="squash">squash</span> with silver <span class="vw" data-w="warts">warts</span>,<br/>
+Or beauty rest in a beautiful mountain scene,<br/>
+You have the money, but if you want to be mean,<br/>
+Why keep your money (this <span class="vw" data-w="crossly">crossly</span>) and go along.
+</div>
+
+<div class="sub-module">
+<div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+<ul>
+<li><strong>Roadside Stand:</strong> A modest, improvised wooden stall set up beside a busy highway to sell farm produce to passing urban motorists.</li>
+<li><strong>Pathetically pled:</strong> Begged with heartbreaking humility and earnestness for commercial exchange and recognition.</li>
+<li><strong>Dole of bread:</strong> A charitable handout or unearned welfare ration of food given to beggars; rejected here in favor of dignified commerce.</li>
+<li><strong>Cash whose flow supports:</strong> The continuous liquid circulation of currency that fuels metropolitan luxury and prevents urban collapse.</li>
+<li><strong>Flower of cities:</strong> A poetic metaphor for the flourishing, wealthy urban elite and their sophisticated, prosperous way of life.</li>
+<li><strong>Polished traffic:</strong> A transferred epithet representing the gleaming, high-end motor vehicles and their wealthy, cultured, self-absorbed drivers.</li>
+<li><strong>Out of sorts:</strong> Irritated, disgruntled, and offended that rustic human survival intrudes upon scenic vistas.</li>
+<li><strong>Artless paint:</strong> Crude, unrefined homemade paint applied clumsily by uneducated rural hands.</li>
+<li><strong>Wooden quarts:</strong> Traditional rustic wooden containers holding a dry quart of freshly picked wild berries.</li>
+<li><strong>Crook-necked golden squash with silver warts:</strong> Edible yellow gourds with naturally curved stems and glistening, rough bumps.</li>
+<li><strong>This crossly:</strong> Spoken in an indignant, irritated tone by the rural vendors reacting to urban stinginess and disdain.</li>
+</ul>
+</div>
+
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+<ul>
+<li><strong>Personification:</strong> <em>"A roadside stand that too pathetically pled"</em> — The inanimate wooden stand is endowed with human anguish, pleading for economic sustenance.</li>
+<li><strong>Metaphor:</strong> <em>"The flower of cities"</em> — The prosperity and refined lifestyle of the urban elite is compared to a fragile, delicate blossom nourished by the flow of capital.</li>
+<li><strong>Transferred Epithet:</strong> <em>"The polished traffic"</em> — The adjective "polished" grammatically modifies the cars, but psychologically describes the refined, sophisticated, yet emotionally cold and callous urban travelers.</li>
+<li><strong>Synecdoche:</strong> <em>"Traffic passed with a mind ahead"</em> — The vehicles and minds represent the hurried, self-absorbed urban population rushing past rural misery.</li>
+<li><strong>Alliteration:</strong> <em>"pathetically pled"</em> (/p/), <em>"flower of cities from sinking... faint"</em> (/f/), <em>"polished traffic passed"</em> (/p/).</li>
+<li><strong>Visual &amp; Tactile Imagery:</strong> <em>"crook-necked golden squash with silver warts"</em>, <em>"wild berries in wooden quarts"</em> — Evokes tactile rustic textures and vibrant agrarian colors.</li>
+</ul>
+</div>
+
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+<div style="font-size:0.92rem; line-height:1.7;">
+Frost sets up the core economic and psychological tension of the poem. The <em>"little old house"</em> with its newly extended shed represents rural enterprise—a desperate attempt by an impoverished farming family to tap into the highway economy. Crucially, Frost defends the vendors against the stigma of mendicancy: they do not want a <em>"dole of bread"</em>. They possess self-respect; they seek participation in the monetized economy that enriches the city. However, the speeding city motorists are completely detached. When they occasionally glance out their car windows, they feel aesthetic irritation rather than empathy, complaining that handmade rustic signs with backward letters ('N' and 'S') disfigure the natural landscape. This reveals the callousness of bourgeois aestheticism, which values scenic purity over human survival. The passage ends with the rural vendors' justified resentment: <em>"Why keep your money (this crossly) and go along."</em>
+</div>
+</div>
+
+<div class="exam-value-box">
+<div class="sub-label" style="margin-bottom:6px;">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+<ul>
+<li>The roadside stand was erected to attract passing urban travelers and earn liquid city cash, not to beg for charitable handouts.</li>
+<li>The phrase <em>"flower of cities"</em> proves that metropolitan civilization flourishes only because economic wealth continuously circulates into urban coffers.</li>
+<li>The urban travelers exhibit complete emotional indifference; their sole engagement with the stand is complaining about its crude aesthetic appearance.</li>
+<li>The inverted 'N' and 'S' symbolize authentic rural rusticity and lack of formal schooling, contrasting sharply with the polished exterior of the city elite.</li>
+</ul>
+</div>
+</article>
+
+<!-- PASSAGE 2 -->
+<article class="passage-card" id="passage-2">
+<div class="passage-meta">
+<span>STANZA 2 // LINES 16–22</span>
+<span class="passage-num">PASSAGE 02 OF 05</span>
+</div>
+<div class="passage-headline">Passage 2: The Trusting Sorrow &amp; The Moving-Pictures' Promise (Lines 16–22)</div>
+<div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+The hurt to the scenery wouldn’t be my <span class="vw" data-w="complaint">complaint</span><br/>
+So much as the <span class="vw" data-w="trusting">trusting</span> <span class="vw" data-w="sorrow">sorrow</span> of what is <span class="vw" data-w="unsaid">unsaid</span>:<br/>
+Here far from the city we make our roadside stand<br/>
+And ask for some city money to feel in hand<br/>
+To try if it will not make our being <span class="vw" data-w="expand">expand</span>,<br/>
+And give us the life of the <span class="vw" data-w="moving-pictures">moving-pictures’</span> <span class="vw" data-w="promise">promise</span><br/>
+That the <span class="vw" data-w="party">party</span> in power is said to be keeping from us.
+</div>
+
+<div class="sub-module">
+<div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+<ul>
+<li><strong>Hurt to the scenery:</strong> The superficial aesthetic blemish that city motorists complain about.</li>
+<li><strong>Trusting sorrow:</strong> The deep, unvoiced grief of the rural poor who innocently trusted that their fellow human beings would stop and buy their goods.</li>
+<li><strong>What is unsaid:</strong> The silent heartbreak, unexpressed aspirations, and quiet dignity of the stallholders.</li>
+<li><strong>City money to feel in hand:</strong> Tangible currency and cash liquidity, which confers economic autonomy and self-determination.</li>
+<li><strong>Make our being expand:</strong> Elevate living standards, broaden life experiences, and foster psychological growth beyond bare survival.</li>
+<li><strong>Moving-pictures' promise:</strong> The glamorous, prosperous, comfortable lifestyle popularized by cinema and modern media.</li>
+<li><strong>Party in power:</strong> The ruling political party or administrative government, responsible for neglecting rural development.</li>
+</ul>
+</div>
+
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+<ul>
+<li><strong>Oxymoron / Paradox:</strong> <em>"Trusting sorrow"</em> — Combines the childlike faith of the rural poor with the painful, inevitable sorrow of their betrayal.</li>
+<li><strong>Understatement &amp; Contrast:</strong> <em>"The hurt to the scenery wouldn't be my complaint / So much as the trusting sorrow..."</em> — Dismisses elite aesthetic grievances to prioritize profound human suffering.</li>
+<li><strong>Metaphor:</strong> <em>"Make our being expand"</em> — Spiritual and psychological development envisioned as physical expansion fueled by financial stability.</li>
+<li><strong>Alliteration:</strong> <em>"party in power... promise"</em> (/p/).</li>
+<li><strong>Irony:</strong> The cinema promises upward mobility to all citizens, yet the political leaders actively withhold the basic economic means to achieve it.</li>
+</ul>
+</div>
+
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+<div style="font-size:0.92rem; line-height:1.7;">
+Frost pivots from external observation to intimate psychological diagnosis. The real tragedy is not the disfigured scenery that urban tourists decry; it is the <em>"trusting sorrow of what is unsaid"</em>. The rural folk placed innocent faith in the promises of modern society, hoping that by working hard and setting up a stand, they could earn cash to expand their standard of living. Frost highlights the sociological influence of cinema (<em>"the moving-pictures' promise"</em>). Through films, rural people have glimpsed modern comforts, consumer abundance, and leisure. However, this democratic promise is withheld by the <em>"party in power"</em>, exposing political negligence and the systemic exclusion of the rural working class from national prosperity.
+</div>
+</div>
+
+<div class="exam-value-box">
+<div class="sub-label" style="margin-bottom:6px;">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+<ul>
+<li>The speaker dismisses complaints about landscape aesthetics as trivial when weighed against the profound, silent heartbreak of the rural poor.</li>
+<li><em>"City money to feel in hand"</em> represents economic empowerment and security, allowing rural lives to experience genuine human flourishing.</li>
+<li>The <em>"moving-pictures' promise"</em> refers to the idealized, glamorous lifestyle portrayed by mass cinema that remains completely unattainable for the villagers.</li>
+<li>The phrase <em>"party in power is said to be keeping from us"</em> exposes political betrayal and the structural denial of rural welfare.</li>
+</ul>
+</div>
+</article>
+
+<!-- PASSAGE 3 -->
+<article class="passage-card" id="passage-3">
+<div class="passage-meta">
+<span>STANZA 3 // LINES 23–31</span>
+<span class="passage-num">PASSAGE 03 OF 05</span>
+</div>
+<div class="passage-headline">Passage 3: The Corrupt Benefactors &amp; The Forced Relocation (Lines 23–31)</div>
+<div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+It is in the news that all these <span class="vw" data-w="pitiful">pitiful</span> <span class="vw" data-w="kin">kin</span><br/>
+Are to be bought out and <span class="vw" data-w="mercifully">mercifully</span> <span class="vw" data-w="gathered">gathered</span> in<br/>
+To live in villages, next to the theatre and the store,<br/>
+Where they won’t have to think for themselves anymore,<br/>
+While <span class="vw" data-w="greedy">greedy</span> <span class="vw" data-w="good-doers">good-doers</span>, <span class="vw" data-w="beneficent">beneficent</span> <span class="vw" data-w="beasts">beasts</span> of <span class="vw" data-w="prey">prey</span>,<br/>
+<span class="vw" data-w="swarm">Swarm</span> over their lives <span class="vw" data-w="enforcing">enforcing</span> <span class="vw" data-w="benefits">benefits</span><br/>
+That are <span class="vw" data-w="calculated">calculated</span> to <span class="vw" data-w="soothe">soothe</span> them out of their <span class="vw" data-w="wits">wits</span>,<br/>
+And by teaching them how to sleep they sleep all day,<br/>
+Destroy their sleeping at night the <span class="vw" data-w="ancient">ancient</span> way.
+</div>
+
+<div class="sub-module">
+<div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+<ul>
+<li><strong>Pitiful kin:</strong> The unfortunate, impoverished rural people, affectionately acknowledged by the speaker as extended human family.</li>
+<li><strong>Bought out:</strong> Compulsorily acquired or bought out from their ancestral lands by commercial developers and the government.</li>
+<li><strong>Mercifully gathered in:</strong> Used sarcastically; herded together into urbanized settlements under the pretext of benevolent rehabilitation.</li>
+<li><strong>Greedy good-doers:</strong> An oxymoron describing hypocritical social reformers, politicians, and developers who enrich themselves under the banner of philanthropy.</li>
+<li><strong>Beneficent beasts of prey:</strong> An oxymoron depicting predatory institutional exploiters disguised as generous benefactors.</li>
+<li><strong>Enforcing benefits:</strong> Paternalistically imposing top-down welfare programs that deprive recipients of free will and personal agency.</li>
+<li><strong>Calculated to soothe them out of their wits:</strong> Shrewdly engineered to drug their critical faculties, making them passive and docile.</li>
+<li><strong>Sleep the ancient way:</strong> The wholesome, peaceful sleep earned through a hard day's physical toil in tune with nature.</li>
+</ul>
+</div>
+
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+<ul>
+<li><strong>Oxymoron:</strong> <em>"greedy good-doers"</em> and <em>"beneficent beasts of prey"</em> — Masterful pairings of contradictory terms exposing the predatory greed lurking beneath charitable rhetoric.</li>
+<li><strong>Sarcasm / Sarcastic Irony:</strong> <em>"mercifully gathered in"</em> and <em>"won't have to think for themselves anymore"</em> — The apparent advantages are actually instruments of intellectual enslavement and displacement.</li>
+<li><strong>Metaphor:</strong> <em>"Swarm over their lives"</em> — Compares opportunistic social planners to parasitic insects infesting and consuming rural autonomy.</li>
+<li><strong>Chiasmus &amp; Antithesis:</strong> <em>"teaching them how to sleep they sleep all day, / Destroy their sleeping at night the ancient way"</em> — Juxtaposes unnatural daytime lethargy with the loss of natural nighttime rest.</li>
+<li><strong>Alliteration:</strong> <em>"greedy good-doers"</em> (/g/), <em>"beneficent beasts"</em> (/b/).</li>
+</ul>
+</div>
+
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+<div style="font-size:0.92rem; line-height:1.7;">
+This stanza delivers Frost’s most biting social and political satire. News media report that the rural poor will be relocated into newly built suburban tracts next to commercial theaters and retail stores. While packaged as humanitarian progress, Frost unmasks this as predatory land acquisition and paternalistic subjugation. The so-called reformers (<em>"greedy good-doers, beneficent beasts of prey"</em>) gain political capital and commercial real estate, while reducing independent farmers to passive, dependent consumers who <em>"won’t have to think for themselves anymore"</em>. The state benefits are calculated to pacify their discontent (<em>"soothe them out of their wits"</em>). In doing so, modern urban planning destroys their ancestral rhythm of honest manual toil and restorative natural sleep, substituting artificial daytime laziness and perpetual nighttime anxiety.
+</div>
+</div>
+
+<div class="exam-value-box">
+<div class="sub-label" style="margin-bottom:6px;">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+<ul>
+<li>The relocation of rural folk to peri-urban clusters near commercial amenities is a manipulative scheme that strips them of ancestral land and self-reliance.</li>
+<li>The oxymorons <em>"greedy good-doers"</em> and <em>"beneficent beasts of prey"</em> characterize self-serving politicians and corporate developers who profit from social welfare.</li>
+<li>The phrase <em>"soothe them out of their wits"</em> indicates that government amenities are designed to numb the critical thinking and independence of the rural populace.</li>
+<li>The destruction of <em>"sleeping at night the ancient way"</em> symbolizes the rupture of traditional agrarian life, circadian peace, and spiritual autonomy.</li>
+</ul>
+</div>
+</article>
+
+<!-- PASSAGE 4 -->
+<article class="passage-card" id="passage-4">
+<div class="passage-meta">
+<span>STANZA 4 // LINES 32–43</span>
+<span class="passage-num">PASSAGE 04 OF 05</span>
+</div>
+<div class="passage-headline">Passage 4: Childish Longing in Vain &amp; The Selfish Cars (Lines 32–43)</div>
+<div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+Sometimes I feel myself I can hardly bear<br/>
+The thought of so much <span class="vw" data-w="childish">childish</span> <span class="vw" data-w="longing">longing</span> <span class="vw" data-w="in vain">in vain</span>,<br/>
+The <span class="vw" data-w="sadness">sadness</span> that <span class="vw" data-w="lurks">lurks</span> near the open window there,<br/>
+That waits all day in almost open <span class="vw" data-w="prayer">prayer</span><br/>
+For the <span class="vw" data-w="squeal">squeal</span> of brakes, the sound of a stopping car,<br/>
+Of all the thousand <span class="vw" data-w="selfish">selfish</span> cars that pass,<br/>
+Just one to <span class="vw" data-w="inquire">inquire</span> what a farmer’s prices are.<br/>
+And one did stop, but only to <span class="vw" data-w="plow">plow</span> up grass<br/>
+In using the yard to back and turn around;<br/>
+And another to ask the way to where it was <span class="vw" data-w="bound">bound</span>;<br/>
+And another to ask could they sell it a <span class="vw" data-w="gallon">gallon</span> of <span class="vw" data-w="gas">gas</span><br/>
+They couldn’t (this <span class="vw" data-w="crossly">crossly</span>); they had none, didn’t it see?
+</div>
+
+<div class="sub-module">
+<div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+<ul>
+<li><strong>Childish longing in vain:</strong> An innocent, naive yearning for customers that is doomed to perpetual futility and disappointment.</li>
+<li><strong>Sadness that lurks:</strong> The persistent, lingering grief haunting the roadside stand window, waiting for customers who never come.</li>
+<li><strong>Open prayer:</strong> A continuous, visible, and deeply earnest supplication for commercial patronage.</li>
+<li><strong>Squeal of brakes:</strong> The mechanical screech of decelerating automotive tires, awakening a fleeting, false surge of rural hope.</li>
+<li><strong>Selfish cars:</strong> A transferred epithet describing the self-centered, hurried motorists who care nothing for the stallholders.</li>
+<li><strong>Plow up grass:</strong> Carelessly tearing up and damaging the rustic front lawn while using the yard as a turning circle.</li>
+<li><strong>Gallon of gas:</strong> Petrol fuel demanded inappropriately at a rustic agricultural fruit stall, showing total urban blindness.</li>
+</ul>
+</div>
+
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+<ul>
+<li><strong>Personification:</strong> <em>"The sadness that lurks near the open window there, / That waits all day in almost open prayer"</em> — Sadness is personified as a mournful figure keeping vigil at the window.</li>
+<li><strong>Transferred Epithet:</strong> <em>"thousand selfish cars"</em> — The epithet "selfish" belongs to the indifferent drivers, but is transferred to their automobiles.</li>
+<li><strong>Auditory Imagery:</strong> <em>"squeal of brakes, the sound of a stopping car"</em> — Heightens dramatic tension and auditory expectation.</li>
+<li><strong>Situational Irony:</strong> Out of thousands of cars, the three or four that stop do not stop to help or buy produce, but only to exploit the property (turning around, asking directions, demanding fuel).</li>
+<li><strong>Hyperbole:</strong> <em>"all the thousand selfish cars that pass"</em> — Emphasizes the staggering volume of traffic juxtaposed against complete human isolation.</li>
+</ul>
+</div>
+
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+<div style="font-size:0.92rem; line-height:1.7;">
+Frost articulates his deep personal anguish at the unrewarded patience of the stallholders. The yearning of the vendors is described as <em>"childish"</em> because of its raw, trusting innocence, and <em>"in vain"</em> because it meets only cold indifference. The poem details the excruciating ritual of waiting: every day, the vendor sits by the open window, praying for the <em>"squeal of brakes"</em>. Frost catalogs the four heartbreaking encounters when cars actually do pull over: one merely tears up the lawn grass to reverse; another asks directions to its own destination; a third absurdly demands petrol from a roadside fruit stall. None of them show any interest in the farmer’s produce. This devastating sequence illustrates the utter disconnect between the utilitarian demands of city travelers and the existential survival of the rural poor.
+</div>
+</div>
+
+<div class="exam-value-box">
+<div class="sub-label" style="margin-bottom:6px;">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+<ul>
+<li>The poet describes the vendors' yearning as <em>"childish longing in vain"</em> because it is pure and innocent, yet doomed to continuous disappointment.</li>
+<li>The phrase <em>"sadness that lurks near the open window"</em> captures the silent, agonizing vigil kept by the family hoping for a customer.</li>
+<li>The motorists who stop do so solely for selfish utility: to turn around (damaging the lawn), ask for travel directions, or demand petrol.</li>
+<li>The sharp retort <em>"They couldn't (this crossly); they had none, didn't it see?"</em> underscores the absurdity and blindness of urban travelers.</li>
+</ul>
+</div>
+</article>
+
+<!-- PASSAGE 5 -->
+<article class="passage-card" id="passage-5">
+<div class="passage-meta">
+<span>STANZA 5 // LINES 44–52</span>
+<span class="passage-num">PASSAGE 05 OF 05</span>
+</div>
+<div class="passage-headline">Passage 5: Country Scale of Gain, Existential Agony &amp; The Plea for Relief (Lines 44–52)</div>
+<div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+No, in country money, the country scale of gain,<br/>
+The <span class="vw" data-w="requisite">requisite</span> <span class="vw" data-w="lift of spirit">lift of spirit</span> has never been found,<br/>
+Or so the voice of the country seems to <span class="vw" data-w="complain">complain</span>,<br/>
+I can’t help owning the great <span class="vw" data-w="relief">relief</span> it would be<br/>
+To put these people at <span class="vw" data-w="one stroke">one stroke</span> out of their <span class="vw" data-w="pain">pain</span>.<br/>
+And then next day as I come back into the <span class="vw" data-w="sane">sane</span>,<br/>
+I wonder how I should like you to come to me<br/>
+And offer to put me gently out of my pain.
+</div>
+
+<div class="sub-module">
+<div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+<ul>
+<li><strong>Country money:</strong> The meager, non-accumulative barter or pennies circulating in rural subsistence agriculture.</li>
+<li><strong>Country scale of gain:</strong> The severely limited margin of profit attainable within rural trade.</li>
+<li><strong>Requisite lift of spirit:</strong> The necessary economic security and social dignity required to elevate human morale and mental well-being.</li>
+<li><strong>Voice of the country:</strong> The collective, unspoken grievance of neglected rural communities embodied in their suffering.</li>
+<li><strong>At one stroke:</strong> Instantly, decisively, and completely; a sudden merciful end or euthanasia.</li>
+<li><strong>Put out of their pain:</strong> Deliverance from unbearable deprivation, poverty, and systemic neglect.</li>
+<li><strong>Come back into the sane:</strong> Returning to rational, clear-headed moral consciousness after an episode of emotional despair.</li>
+</ul>
+</div>
+
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+<ul>
+<li><strong>Personification:</strong> <em>"the voice of the country seems to complain"</em> — The entire rural landscape and agrarian community are given a collective voice of protest.</li>
+<li><strong>Palinode / Retraction:</strong> The sudden, dramatic reversal of thought from lines 47–48 (wishing for sudden merciful release) to lines 49–52 (renouncing the thought upon returning to moral sanity).</li>
+<li><strong>Alliteration:</strong> <em>"country money, the country scale"</em> (/k/), <em>"put these people... pain"</em> (/p/).</li>
+<li><strong>Direct Address &amp; Empathy:</strong> <em>"I wonder how I should like you to come to me / And offer to put me gently out of my pain"</em> — Transfers the moral question directly to the reader, establishing radical human solidarity.</li>
+<li><strong>Tone Shift:</strong> Moves from quiet despair to shocking violent frustration, culminating in philosophical introspection and sober humanist empathy.</li>
+</ul>
+</div>
+
+<div class="sub-module">
+<div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+<div style="font-size:0.92rem; line-height:1.7;">
+The concluding stanza reaches an extraordinary emotional and ethical climax. Frost observes that within the rural economic framework (<em>"country money, the country scale of gain"</em>), human lives are denied the basic material foundation needed for spiritual elevation. The collective misery of the countryside becomes an insufferable emotional weight on the poet. In an agonizing spasm of empathetic exasperation, Frost admits a dark, radical impulse: it would be an immense relief to terminate their suffering <em>"at one stroke"</em>—a shocking thought of merciful annihilation. However, Frost does not leave us in nihilistic despair. The following morning, as he returns to moral sanity (<em>"as I come back into the sane"</em>), he recognizes the dangerous arrogance of such thoughts. He realizes that wishing death upon the suffering is a selfish desire to relieve his own emotional discomfort. By imagining someone offering to put <em>him</em> out of his pain, Frost establishes reciprocal vulnerability, asserting that what the poor need is not death or patronizing pity, but genuine economic justice, shared human dignity, and persistent ethical solidarity.
+</div>
+</div>
+
+<div class="exam-value-box">
+<div class="sub-label" style="margin-bottom:6px;">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+<ul>
+<li>The rural economy lacks sufficient monetary circulation to provide the <em>"requisite lift of spirit"</em> essential for self-actualization and dignity.</li>
+<li>The speaker's confession of wanting to put these people <em>"at one stroke out of their pain"</em> expresses his acute emotional torment and sense of helplessness.</li>
+<li>The phrase <em>"come back into the sane"</em> marks a vital ethical correction, where the poet renounces nihilistic solutions and returns to rational compassion.</li>
+<li>The final lines assert mutual human responsibility: true empathy requires standing with the vulnerable rather than seeking hasty, violent closure.</li>
+</ul>
+</div>
+</article>
+
+</section>
+
+<section id="characters">
+<h2 class="section-header">04. Master Character Sketches &amp; Psychological Profiles</h2>
+<div class="desktop-grid-2">
+
+<!-- CARD 1 -->
+<div class="bw-card accent">
+<h4>1. THE RURAL HOMESTEADERS // ROADSIDE STALLHOLDERS</h4>
+<p><strong>Sociological Identity:</strong> Small-scale subsistence farmers and rural family members who have erected an improvised wooden stall (<em>"a little new shed"</em>) along the national highway to sell homegrown agricultural produce (wild berries, crook-necked squash).</p>
+<p><strong>Psychological &amp; Emotional Profile:</strong> Marked by quiet dignity, perseverance, and painful vulnerability. They are neither beggars nor political agitators; their plea is characterized by <em>"trusting sorrow"</em> and an innocent, childlike yearning (<em>"childish longing in vain"</em>) for fair economic inclusion. When repeatedly insulted or misunderstood, they display justified moral indignation (<em>"this crossly"</em>), asserting their self-respect against urban condescension.</p>
+<div class="qa-card-vp" style="margin-top:12px;"><strong>CBSE Exam Value Points:</strong>
+<ul>
+<li>Adamantly refuse mendicancy: they seek trade, not a <em>"dole of bread"</em>.</li>
+<li>Yearn for liquid currency (<em>"city money to feel in hand"</em>) to expand their human potential and elevate living standards.</li>
+<li>Victimized by structural capitalist inequality and political abandonment (<em>"party in power is said to be keeping from us"</em>).</li>
+<li>Patiently endure hours of agonizing silence beside the open window, praying for the <em>"squeal of brakes"</em>.</li>
+</ul>
+</div>
+</div>
+
+<!-- CARD 2 -->
+<div class="bw-card">
+<h4>2. THE URBAN MOTORISTS // "THE POLISHED TRAFFIC"</h4>
+<p><strong>Sociological Identity:</strong> The affluent, motorized urban bourgeoisie traveling at high speed between metropolitan commercial centers, insulated behind glass windows and metal bodywork.</p>
+<p><strong>Psychological &amp; Emotional Profile:</strong> Self-absorbed, impatient, and utilitarian. Their minds are constantly focused on future destinations and financial gains (<em>"with a mind ahead"</em>). They possess a hyper-aestheticized, superficial sensibility that views nature purely as a leisure backdrop. When their gaze is diverted, they experience irritation (<em>"out of sorts"</em>) rather than empathy, complaining that handmade signs have <em>"marred"</em> the landscape.</p>
+<div class="qa-card-vp" style="margin-top:12px;"><strong>CBSE Exam Value Points:</strong>
+<ul>
+<li>Exemplified through the transferred epithets <em>"polished traffic"</em> and <em>"thousand selfish cars"</em>.</li>
+<li>Exhibit complete emotional detachment and callous indifference to human suffering.</li>
+<li>Engage with the roadside stand only for selfish convenience: reversing cars (plowing grass), asking directions, or absurdly demanding motor fuel.</li>
+<li>Prioritize landscape aesthetics over the existential survival of fellow human beings.</li>
+</ul>
+</div>
+</div>
+
+<!-- CARD 3 -->
+<div class="bw-card">
+<h4>3. THE "GREEDY GOOD-DOERS" &amp; "BENEFICENT BEASTS OF PREY"</h4>
+<p><strong>Sociological Identity:</strong> Corrupt politicians, commercial real-estate speculators, paternalistic bureaucrats, and opportunistic social reformers who exploit rural distress under the guise of modernization.</p>
+<p><strong>Psychological &amp; Emotional Profile:</strong> Calculating, deceitful, and predatory. They weaponize the language of philanthropy and social welfare to achieve political dominance and corporate profit. They view the rural poor not as sovereign citizens, but as <em>"pitiful kin"</em> to be herded, managed, and neutralized.</p>
+<div class="qa-card-vp" style="margin-top:12px;"><strong>CBSE Exam Value Points:</strong>
+<ul>
+<li>Defined through biting oxymorons: <em>"greedy good-doers"</em> and <em>"beneficent beasts of prey"</em>.</li>
+<li>Plan forced relocation schemes that gather rural populations into peri-urban clusters near retail stores and movie theaters.</li>
+<li>Enforce calculated benefits designed to <em>"soothe them out of their wits"</em>, extinguishing critical thinking and traditional self-reliance.</li>
+<li>Destroy the ancestral circadian rhythm of honest manual labor and restful nighttime sleep (<em>"destroy their sleeping at night the ancient way"</em>).</li>
+</ul>
+</div>
+</div>
+
+<!-- CARD 4 -->
+<div class="bw-card accent">
+<h4>4. THE POETIC PERSONA // ROBERT FROST</h4>
+<p><strong>Sociological Identity:</strong> The sensitive, critically conscious rural observer and moral chronicler whose voice bridges the divide between countryside suffering and urban readers.</p>
+<p><strong>Psychological &amp; Emotional Profile:</strong> Deeply compassionate, emotionally raw, and morally rigorous. Frost suffers from radical empathy; the prolonged, unheeded waiting of the roadside folk causes him personal, almost physical torment (<em>"I can hardly bear / The thought of so much childish longing in vain"</em>). This intense anguish drives him to a momentary, shocking fantasy of merciful euthanasia, which he swiftly retracts upon regaining moral equilibrium.</p>
+<div class="qa-card-vp" style="margin-top:12px;"><strong>CBSE Exam Value Points:</strong>
+<ul>
+<li>Acts as the ethical conscience of the poem, articulating the <em>"voice of the country"</em>.</li>
+<li>Candidly confesses a momentary wish to put the rural poor <em>"at one stroke out of their pain"</em> to end their agony.</li>
+<li>Undergoes a moral palinode (retraction) the following day: <em>"as I come back into the sane"</em>.</li>
+<li>Concludes with an appeal for mutual human vulnerability, reciprocal empathy, and structural economic justice.</li>
+</ul>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="rtc">
+<h2 class="section-header">05. Reference to Context (Extract-Based Questions &amp; Answers)</h2>
+
+<!-- RTC 1 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>EXTRACT 01 // LINES 1–6</span>
+<span>CBSE BOARD RTC</span>
+</div>
+<div class="quote-passage" style="font-size:0.96rem;">
+<span class="quote-label">EXTRACT</span>
+The little old house was out with a little new shed<br/>
+In front at the edge of the road where the traffic sped,<br/>
+A roadside stand that too pathetically pled,<br/>
+It would not be fair to say for a dole of bread,<br/>
+But for some of the money, the cash, whose flow supports<br/>
+The flower of cities from sinking and withering faint.
+</div>
+<div class="qa-card-q">Questions &amp; Model CBSE Answers:</div>
+<div class="qa-card-a">
+<p><strong>(i) Where was the new shed constructed, and what was its immediate purpose?</strong><br/>
+<strong>Answer:</strong> The little new shed was set up in front of an old farmhouse right at the edge of a busy highway. Its purpose was to catch the attention of speeding city motorists and sell farm produce to earn liquid city cash.</p>
+
+<p><strong>(ii) Identify and explain the poetic device in line 3: <em>"A roadside stand that too pathetically pled"</em>.</strong><br/>
+<strong>Answer:</strong> The poetic device is <strong>Personification</strong>. The inanimate wooden roadside stand is portrayed as a living, desperate human being pleading with profound pathos for customer attention and commercial exchange.</p>
+
+<p><strong>(iii) Why does the poet clarify that the stand did not plead for a <em>"dole of bread"</em>?</strong><br/>
+<strong>Answer:</strong> Frost clarifies this to preserve the dignity and self-respect of the rural stallholders. They were not begging for charitable handouts or alms; rather, they sought legitimate, self-reliant commercial trade and market inclusion.</p>
+
+<p><strong>(iv) Explain the metaphor: <em>"The flower of cities from sinking and withering faint"</em>.</strong><br/>
+<strong>Answer:</strong> The prosperity, refinement, and cultural flourishing of metropolitan life are compared to delicate blossoms. Just as flowers require continuous water to prevent wilting, city civilization relies on the continuous inflow of capital and currency to prevent financial collapse.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Roadside location for commercial visibility; personification of stand pleading for sustenance; defense of rural dignity (commerce vs charity); metaphor of city prosperity as cash-nourished blossom.
+</div>
+</div>
+
+<!-- RTC 2 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>EXTRACT 02 // LINES 7–15</span>
+<span>CBSE BOARD RTC</span>
+</div>
+<div class="quote-passage" style="font-size:0.96rem;">
+<span class="quote-label">EXTRACT</span>
+The polished traffic passed with a mind ahead,<br/>
+Or if ever aside a moment, then out of sorts<br/>
+At having the landscape marred with the artless paint<br/>
+Of signs that with N turned wrong and S turned wrong<br/>
+Offered for sale wild berries in wooden quarts,<br/>
+Or crook-necked golden squash with silver warts,<br/>
+Or beauty rest in a beautiful mountain scene,<br/>
+You have the money, but if you want to be mean,<br/>
+Why keep your money (this crossly) and go along.
+</div>
+<div class="qa-card-q">Questions &amp; Model CBSE Answers:</div>
+<div class="qa-card-a">
+<p><strong>(i) What is meant by <em>"polished traffic"</em>? Identify the literary device.</strong><br/>
+<strong>Answer:</strong> <em>"Polished traffic"</em> refers to the gleaming, expensive motor vehicles driven by affluent, sophisticated, and cultured city dwellers. The poetic device is a <strong>Transferred Epithet</strong> (the adjective 'polished' applies to the refined urban drivers rather than the metal automobiles).</p>
+
+<p><strong>(ii) Why were the passing motorists <em>"out of sorts"</em> when they looked aside?</strong><br/>
+<strong>Answer:</strong> They were irritated and annoyed because they believed the rustic, clumsily painted wooden stall and inverted direction signs ('N' and 'S' written backward) had ruined and disfigured the natural scenic beauty of the mountain landscape.</p>
+
+<p><strong>(iii) What commodities were offered for sale at the roadside stand?</strong><br/>
+<strong>Answer:</strong> The stall offered wholesome, natural agricultural produce: freshly picked wild berries in wooden quart containers and crook-necked golden squash with silvery warts.</p>
+
+<p><strong>(iv) What justified anger is expressed in the phrase <em>"Why keep your money (this crossly) and go along"</em>?</strong><br/>
+<strong>Answer:</strong> The rural vendors voice sharp resentment at the city motorists who possess plenty of wealth but display mean-spiritedness and arrogance, choosing to criticize rustic signboards rather than spending a few pennies to support starving fellow citizens.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Transferred epithet 'polished traffic'; elitist aesthetic annoyance at marred landscape; rustic produce (wild berries, squash); rural indignation at urban stinginess and vanity.
+</div>
+</div>
+
+<!-- RTC 3 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>EXTRACT 03 // LINES 16–22</span>
+<span>CBSE BOARD RTC</span>
+</div>
+<div class="quote-passage" style="font-size:0.96rem;">
+<span class="quote-label">EXTRACT</span>
+The hurt to the scenery wouldn’t be my complaint<br/>
+So much as the trusting sorrow of what is unsaid:<br/>
+Here far from the city we make our roadside stand<br/>
+And ask for some city money to feel in hand<br/>
+To try if it will not make our being expand,<br/>
+And give us the life of the moving-pictures’ promise<br/>
+That the party in power is said to be keeping from us.
+</div>
+<div class="qa-card-q">Questions &amp; Model CBSE Answers:</div>
+<div class="qa-card-a">
+<p><strong>(i) Contrast the poet’s complaint with that of the city travelers.</strong><br/>
+<strong>Answer:</strong> While the city travelers complain superficially about the aesthetic damage to the landscape, the poet looks beyond physical scenery to the profound human agony—the unvoiced, heartbreaking disappointment of the rural poor whose innocent trust has been shattered.</p>
+
+<p><strong>(ii) What is the significance of the phrase <em>"city money to feel in hand"</em>?</strong><br/>
+<strong>Answer:</strong> It signifies tangible liquid cash and economic empowerment. In a rural economy dominated by subsistence farming and debt, holding cash represents independence, security, and the ability to purchase goods and services.</p>
+
+<p><strong>(iii) What is meant by <em>"the moving-pictures' promise"</em>?</strong><br/>
+<strong>Answer:</strong> It refers to the glamorous, luxurious, and comfortable lifestyle depicted in films and popular cinema, which creates intense aspirations of upward mobility among rural youth and families.</p>
+
+<p><strong>(iv) Whom does the poet hold accountable for depriving the rural poor of this promise?</strong><br/>
+<strong>Answer:</strong> The poet holds the <em>"party in power"</em> (the ruling political government and administrative authorities) accountable for failing to deliver basic rural infrastructure, equitable wealth distribution, and promised developmental benefits.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Human grief prioritized over aesthetic complaints; 'city money' as economic liberation; cinematic glamour fueling rural aspirations; political betrayal by ruling authorities.
+</div>
+</div>
+
+<!-- RTC 4 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>EXTRACT 04 // LINES 23–31</span>
+<span>CBSE BOARD RTC</span>
+</div>
+<div class="quote-passage" style="font-size:0.96rem;">
+<span class="quote-label">EXTRACT</span>
+It is in the news that all these pitiful kin<br/>
+Are to be bought out and mercifully gathered in<br/>
+To live in villages, next to the theatre and the store,<br/>
+Where they won’t have to think for themselves anymore,<br/>
+While greedy good-doers, beneficent beasts of prey,<br/>
+Swarm over their lives enforcing benefits<br/>
+That are calculated to soothe them out of their wits,<br/>
+And by teaching them how to sleep they sleep all day,<br/>
+Destroy their sleeping at night the ancient way.
+</div>
+<div class="qa-card-q">Questions &amp; Model CBSE Answers:</div>
+<div class="qa-card-a">
+<p><strong>(i) What resettlement scheme is reported in the news? How is it portrayed sarcastically?</strong><br/>
+<strong>Answer:</strong> News reports announce that the rural poor (<em>"pitiful kin"</em>) are to have their lands purchased and be relocated into planned settlements near shopping centers and movie theaters. The poet sarcastically describes this forced displacement as being <em>"mercifully gathered in"</em> where they <em>"won't have to think for themselves anymore"</em>, unmasking it as pacification and loss of autonomy.</p>
+
+<p><strong>(ii) Identify the two oxymorons used in line 27 and explain their critical meaning.</strong><br/>
+<strong>Answer:</strong> The oxymorons are <strong>"greedy good-doers"</strong> and <strong>"beneficent beasts of prey"</strong>. They expose the hypocrisy of politicians, real-estate tycoons, and self-serving social reformers who pose as charitable benefactors while preying upon the vulnerability and land rights of the rural poor for personal gain.</p>
+
+<p><strong>(iii) What is the psychological effect of the <em>"calculated benefits"</em> enforced on the villagers?</strong><br/>
+<strong>Answer:</strong> The welfare benefits are cold-bloodedly planned to drug and numb the critical faculties of the villagers (<em>"soothe them out of their wits"</em>), rendering them passive, docile, and completely dependent on institutional handouts.</p>
+
+<p><strong>(iv) How do these reformers <em>"destroy their sleeping at night the ancient way"</em>?</strong><br/>
+<strong>Answer:</strong> By displacing them from their agrarian land and depriving them of meaningful manual labor, they foster artificial daytime lethargy. This robs the villagers of the peaceful, natural, and restorative night sleep earned through honest toil that has sustained peasant societies for centuries.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Sarcastic relocation scheme stripping autonomy; double oxymoron exposing predatory philanthropy; calculated welfare pacifying critical faculties; destruction of natural agrarian sleep rhythms.
+</div>
+</div>
+
+<!-- RTC 5 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>EXTRACT 05 // LINES 32–38</span>
+<span>CBSE BOARD RTC</span>
+</div>
+<div class="quote-passage" style="font-size:0.96rem;">
+<span class="quote-label">EXTRACT</span>
+Sometimes I feel myself I can hardly bear<br/>
+The thought of so much childish longing in vain,<br/>
+The sadness that lurks near the open window there,<br/>
+That waits all day in almost open prayer<br/>
+For the squeal of brakes, the sound of a stopping car,<br/>
+Of all the thousand selfish cars that pass,<br/>
+Just one to inquire what a farmer’s prices are.
+</div>
+<div class="qa-card-q">Questions &amp; Model CBSE Answers:</div>
+<div class="qa-card-a">
+<p><strong>(i) Why does the speaker find the situation <em>"hardly bear[able]"</em>?</strong><br/>
+<strong>Answer:</strong> The speaker experiences deep vicarious anguish witnessing the rural vendors' endless, futile hope. Their day-long wait beside the window meets nothing but callous indifference, which causes the poet acute psychological heartbreak.</p>
+
+<p><strong>(ii) Why is the longing of the vendors characterized as <em>"childish"</em> and <em>"in vain"</em>?</strong><br/>
+<strong>Answer:</strong> It is <em>"childish"</em> because it is pure, trusting, and naive, like a child waiting for a promised gift. It is <em>"in vain"</em> because out of thousands of speeding vehicles, virtually none ever stop to patronize the stall.</p>
+
+<p><strong>(iii) Explain the personification in <em>"The sadness that lurks near the open window there"</em>.</strong><br/>
+<strong>Answer:</strong> Sadness is personified as a mournful, shadowy entity that hovers constantly around the open window of the shed, keeping an agonizing and prayerful vigil for customers.</p>
+
+<p><strong>(iv) What does the <em>"squeal of brakes"</em> represent to the people in the stand?</strong><br/>
+<strong>Answer:</strong> The sound of screeching brakes represents a sudden, thrilling surge of hope—a potential customer whose purchase might provide food, cash, and validation for their honest labor.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Unbearable empathetic pain of poet; naive longing doomed to disappointment; personification of lingering sadness at window; squeal of brakes as fleeting auditory symbol of hope.
+</div>
+</div>
+
+<!-- RTC 6 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>EXTRACT 06 // LINES 39–43</span>
+<span>CBSE BOARD RTC</span>
+</div>
+<div class="quote-passage" style="font-size:0.96rem;">
+<span class="quote-label">EXTRACT</span>
+And one did stop, but only to plow up grass<br/>
+In using the yard to back and turn around;<br/>
+And another to ask the way to where it was bound;<br/>
+And another to ask could they sell it a gallon of gas<br/>
+They couldn’t (this crossly); they had none, didn’t it see?
+</div>
+<div class="qa-card-q">Questions &amp; Model CBSE Answers:</div>
+<div class="qa-card-a">
+<p><strong>(i) For what specific reasons did cars occasionally stop at the roadside stand?</strong><br/>
+<strong>Answer:</strong> Cars stopped solely for selfish convenience: (1) to use the private yard to reverse and turn around, tearing up the grass; (2) to ask travel directions; and (3) to demand motor fuel (petrol/gas) at a fruit stall.</p>
+
+<p><strong>(ii) How did one car physically damage the property of the stallholder?</strong><br/>
+<strong>Answer:</strong> The driver carelessly backed into the private front yard to turn around, churned up the soil, and plowed up the lawn grass without showing any remorse or consideration.</p>
+
+<p><strong>(iii) What does the inquiry for a <em>"gallon of gas"</em> demonstrate about the urban motorists?</strong><br/>
+<strong>Answer:</strong> It demonstrates their complete blindness, absurdity, and disconnection from rural reality. Expecting a humble roadside fruit and vegetable shed to function as a modern commercial petrol filling station shows total lack of observation and respect.</p>
+
+<p><strong>(iv) Why does the speaker insert the parenthetical remark <em>"(this crossly)"</em>?</strong><br/>
+<strong>Answer:</strong> It reflects the justified irritation and exasperation of the stallholders, who are tired of being treated as mindless, utilitarian fixtures by oblivious and rude city drivers.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Three selfish reasons for stopping; physical damage to lawn; absurd demand for fuel highlighting urban blindness; parenthetical 'crossly' capturing rural exasperation.
+</div>
+</div>
+
+<!-- RTC 7 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>EXTRACT 07 // LINES 44–52</span>
+<span>CBSE BOARD RTC</span>
+</div>
+<div class="quote-passage" style="font-size:0.96rem;">
+<span class="quote-label">EXTRACT</span>
+No, in country money, the country scale of gain,<br/>
+The requisite lift of spirit has never been found,<br/>
+Or so the voice of the country seems to complain,<br/>
+I can’t help owning the great relief it would be<br/>
+To put these people at one stroke out of their pain.<br/>
+And then next day as I come back into the sane,<br/>
+I wonder how I should like you to come to me<br/>
+And offer to put me gently out of my pain.
+</div>
+<div class="qa-card-q">Questions &amp; Model CBSE Answers:</div>
+<div class="qa-card-a">
+<p><strong>(i) What fundamental economic shortcoming is identified in <em>"the country scale of gain"</em>?</strong><br/>
+<strong>Answer:</strong> Within the rural economy, profits are meager, non-accumulative, and restricted to bare subsistence. They completely fail to provide the <em>"requisite lift of spirit"</em>—the economic security and social dignity necessary to elevate human morale and quality of life.</p>
+
+<p><strong>(ii) What shocking confession does the speaker make in lines 47–48? What motivates it?</strong><br/>
+<strong>Answer:</strong> The speaker confesses that it would be a great relief to put these suffering people <em>"at one stroke out of their pain"</em>. This dark fantasy of merciful death is motivated not by cruelty, but by his overwhelming, unbearable empathetic torment at witnessing their unending misery.</p>
+
+<p><strong>(iii) What does the speaker mean by coming <em>"back into the sane"</em>?</strong><br/>
+<strong>Answer:</strong> It signifies a return to sober, rational moral consciousness. The poet realizes that wishing for sudden death is an emotional surrender and an evasion of responsibility, which must be replaced by sound ethical reflection.</p>
+
+<p><strong>(iv) How do the final two lines establish radical human empathy and solidarity?</strong><br/>
+<strong>Answer:</strong> By imagining someone offering to put <em>him</em> out of his pain, the poet places himself in the shoes of the rural poor. He recognizes our shared human vulnerability, demonstrating that what the marginalized need is genuine respect, understanding, and justice, rather than patronizing pity or terminal violence.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Meager rural profits unable to elevate spirit; shocking confession of merciful euthanasia born of intense anguish; moral return to sanity; concluding reversal establishing universal human solidarity.
+</div>
+</div>
+
+</section>
+
+<section id="short-qa">
+<h2 class="section-header">06. High-Yield Short Answer Qs (2 Marks / 40–50 Words)</h2>
+<div class="desktop-grid-2">
+
+<!-- Q1 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>Q01 // 2 MARKS // 40–50 WORDS</span>
+<span>CBSE 2023, 2020</span>
+</div>
+<div class="qa-card-q">Why was the roadside stand set up? Why does the poet clarify that it was not for a "dole of bread"?</div>
+<div class="qa-card-a">
+<p>The roadside stand was set up by impoverished rural folk at the highway edge to attract passing city motorists and earn liquid city cash. Frost emphasizes that it was not for a "dole of bread" to affirm their dignity: they were not begging for charitable handouts or alms, but seeking legitimate commercial exchange through the sale of honest produce.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Set up beside highway to earn city cash; rejects mendicancy/alms; preserves rural dignity; demands legitimate commercial trade.
+</div>
+</div>
+
+<!-- Q2 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>Q02 // 2 MARKS // 40–50 WORDS</span>
+<span>CBSE 2024, 2019</span>
+</div>
+<div class="qa-card-q">What is the significance of the expression "the flower of cities from sinking and withering faint"?</div>
+<div class="qa-card-a">
+<p>The metaphor compares the prosperity, luxury, and cultured elegance of metropolitan cities to delicate blossoms. Just as flowers wither without continuous water, urban civilization thrives solely because money and capital continuously circulate through its economy, preventing it from financial decay and collapse.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Metaphor comparing city culture to flowers; highlights dependency on capital circulation; contrast with currency-starved countryside.
+</div>
+</div>
+
+<!-- Q3 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>Q03 // 2 MARKS // 40–50 WORDS</span>
+<span>CBSE 2022, 2020</span>
+</div>
+<div class="qa-card-q">What was the primary complaint of the passing city motorists regarding the roadside stand?</div>
+<div class="qa-card-a">
+<p>The passing city motorists felt irritated ("out of sorts") because they believed the clumsy, handmade wooden shed and crude signs with backward letters ('N' and 'S' turned wrong) disfigured and marred the scenic aesthetic harmony of the mountain landscape.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Motorists irritated by aesthetic blemish; crude wooden stand and artless paint; inverted direction signs; insensitivity to human survival.
+</div>
+</div>
+
+<!-- Q4 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>Q04 // 2 MARKS // 40–50 WORDS</span>
+<span>CBSE 2023, 2021</span>
+</div>
+<div class="qa-card-q">What does Frost mean by "the trusting sorrow of what is unsaid"?</div>
+<div class="qa-card-a">
+<p>Frost refers to the silent, unexpressed grief of the rural poor. They innocently placed their faith in fellow human beings, believing that passing motorists would stop and trade with them. The sorrow of having their trust repeatedly shattered by cold indifference remains unspoken because they suffer with quiet dignity.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Silent heartbreak of rural vendors; innocent trust placed in urban travelers; disappointment of repeated neglect; stoic, uncomplaining dignity.
+</div>
+</div>
+
+<!-- Q5 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>Q05 // 2 MARKS // 40–50 WORDS</span>
+<span>CBSE 2024, 2022</span>
+</div>
+<div class="qa-card-q">Explain the phrase "the life of the moving-pictures' promise" in the context of rural aspirations.</div>
+<div class="qa-card-a">
+<p>Mass cinema and films portray glamorous, comfortable, and affluent lifestyles filled with modern amenities. This creates intense aspirations of upward mobility among the rural folk, who hope that earning city money will allow them to achieve the comfortable life depicted on the silver screen.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Cinematic portrayal of luxury and comfort; fuels aspirations of upward mobility; stark contrast with bleak rural reality.
+</div>
+</div>
+
+<!-- Q6 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>Q06 // 2 MARKS // 40–50 WORDS</span>
+<span>CBSE 2023, 2020</span>
+</div>
+<div class="qa-card-q">Who are the "greedy good-doers" and "beneficent beasts of prey"? Why are they described using oxymorons?</div>
+<div class="qa-card-a">
+<p>They are hypocritical politicians, real-estate speculators, and self-serving social reformers. Frost uses oxymorons because while they project an outward image of charitable benevolence ("good-doers", "beneficent"), their true motive is predatory greed—exploiting rural land, votes, and resources for their own selfish enrichment.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Refers to corrupt politicians, developers, and social reformers; oxymorons expose conflict between philanthropic facade and predatory exploitation.
+</div>
+</div>
+
+<!-- Q7 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>Q07 // 2 MARKS // 40–50 WORDS</span>
+<span>CBSE 2024, 2021</span>
+</div>
+<div class="qa-card-q">How do the proposed government resettlement schemes "destroy their sleeping at night the ancient way"?</div>
+<div class="qa-card-a">
+<p>By relocating the rural poor into suburban clusters near commercial centers and giving them calculated handouts, these schemes strip them of productive manual work. This induces daytime lethargy and destroys their ancestral rhythm of peaceful, restorative nighttime sleep earned through honest physical toil.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Relocation near stores/cinemas; replaces hard toil with passive dependence; induces daytime laziness; eradicates traditional restful night sleep.
+</div>
+</div>
+
+<!-- Q8 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>Q08 // 2 MARKS // 40–50 WORDS</span>
+<span>CBSE 2023, 2019</span>
+</div>
+<div class="qa-card-q">Why does the poet characterize the vendors' yearning as "childish longing in vain"?</div>
+<div class="qa-card-a">
+<p>Their yearning is "childish" because of its naive, pure innocence—like children eagerly waiting for an expected gift. It is "in vain" because their hopes are doomed to perpetual disappointment; despite sitting beside the window all day, the thousands of passing cars almost never stop to purchase anything.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Childish denotes pure, naive vulnerability; in vain highlights perpetual fruitlessness; painful contrast with callous urban indifference.
+</div>
+</div>
+
+<!-- Q9 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>Q09 // 2 MARKS // 40–50 WORDS</span>
+<span>CBSE 2024, 2020</span>
+</div>
+<div class="qa-card-q">Mention any two reasons for which cars actually stopped at the roadside stand.</div>
+<div class="qa-card-a">
+<p>Motorists stopped solely for selfish convenience: one car pulled into the yard only to reverse and turn around, tearing up the grass; another stopped to ask travel directions; and a third stopped to absurdly demand a gallon of gas at a humble fruit stall.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Selfish utility; turning car around (damaging lawn); asking directions; demanding fuel at a produce stall.
+</div>
+</div>
+
+<!-- Q10 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>Q10 // 2 MARKS // 40–50 WORDS</span>
+<span>CBSE 2022, 2019</span>
+</div>
+<div class="qa-card-q">What does the poet mean by "country money" and "the country scale of gain"?</div>
+<div class="qa-card-a">
+<p>"Country money" refers to the meager, non-accumulative cash circulating in isolated rural hamlets. The "country scale of gain" signifies the severely limited profit margins of subsistence farming, which are fundamentally inadequate to provide economic security or elevate human morale.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Meager rural currency circulation; subsistence profit margins; inability to generate financial security or spirit-lifting prosperity.
+</div>
+</div>
+
+<!-- Q11 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>Q11 // 2 MARKS // 40–50 WORDS</span>
+<span>CBSE 2023, 2021</span>
+</div>
+<div class="qa-card-q">What extreme, momentary thought crosses the poet’s mind regarding the rural sufferers?</div>
+<div class="qa-card-a">
+<p>Overcome by intense vicarious anguish at their unceasing misery, the poet momentarily feels that it would be an immense relief to terminate their lives "at one stroke out of their pain." This radical impulse reflects his profound exasperation and emotional helplessness.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Fleeting desire for sudden merciful death/euthanasia; motivated by overwhelming emotional torment; expression of empathetic despair.
+</div>
+</div>
+
+<!-- Q12 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>Q12 // 2 MARKS // 40–50 WORDS</span>
+<span>CBSE 2024, 2023</span>
+</div>
+<div class="qa-card-q">Why does the poet retract his radical thought upon coming "back into the sane"?</div>
+<div class="qa-card-a">
+<p>Upon returning to rational moral consciousness the next day, the poet realizes that wishing death upon the suffering is a dangerous evasion. He recognizes shared human vulnerability, asking how he would feel if someone offered to kill him, and reaffirms that justice and compassion are required instead.</p>
+</div>
+<div class="qa-card-vp"><strong>Value Points:</strong> Moral palinode/retraction; recognition of shared vulnerability; rejection of nihilism; reaffirmation of rational empathy and social justice.
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="long-qa">
+<h2 class="section-header">07. High-Scoring Long Answer &amp; Comparative Questions (CBSE 5 Marks / 120–150 Words)</h2>
+
+<!-- LA 1 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>LONG ANSWER Q01 // 5 MARKS // 120–150 WORDS</span>
+<span>THEMATIC ESSAY // CBSE 2023, 2020</span>
+</div>
+<div class="qa-card-q">Robert Frost presents the lives of poor, deprived people with pitiless clarity and deep humanity. Elaborate on the socio-economic critique of capitalist urbanization and false philanthropy in "A Roadside Stand".</div>
+<div class="qa-card-a">
+<p>In <em>"A Roadside Stand"</em>, Robert Frost crafts an incisive sociological critique of the widening divide between urban capitalism and rural deprivation. He portrays the roadside stall not as an eyesore, but as a poignant emblem of rural entrepreneurship. The rural poor are not begging for a "dole of bread"; they seek legitimate inclusion in the monetized economy fueled by the continuous flow of city cash that sustains the "flower of cities".</p>
+<p>However, the speeding urban motorists embody capitalist self-absorption. Insulated within their "polished traffic", their only response to rural enterprise is aesthetic indignation over "marred" scenery and inverted lettering. Frost further exposes the predatory hypocrisy of modern welfare schemes. Under the guise of rehabilitation, "greedy good-doers" and "beneficent beasts of prey" orchestrate forced resettlements that displace peasants from their ancestral lands. These calculated benefits soothe them into dependency and destroy their ancient, restful sleep rhythms. Frost’s poem is a powerful denunciation of an economic system that commodifies beauty, ignores human destitution, and replaces genuine economic justice with narcotic social control.</p>
+</div>
+<div class="qa-card-vp"><strong>CBSE Value Points:</strong>
+<ul>
+<li>Contrasts liquid urban capital ("flower of cities") with rural currency starvation.</li>
+<li>Preserves rural dignity: seeks market trade rather than charitable handouts.</li>
+<li>Exposes urban callousness: aesthetic complaints regarding scenery mask social indifference.</li>
+<li>Unmasks predatory philanthropy: "greedy good-doers" displace peasants and destroy self-reliance.</li>
+<li>Critiques state welfare as calculated sedation extinguishing critical thinking and ancient biorhythms.</li>
+</ul>
+</div>
+</div>
+
+<!-- LA 2 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>LONG ANSWER Q02 // 5 MARKS // 120–150 WORDS</span>
+<span>PSYCHOLOGICAL &amp; ETHICAL EVALUATION // CBSE 2024, 2022</span>
+</div>
+<div class="qa-card-q">Trace the emotional trajectory of the poetic speaker in "A Roadside Stand", from quiet observation to visceral rage, radical despair, and finally sober moral restoration.</div>
+<div class="qa-card-a">
+<p>The speaker’s psychological journey forms the emotional core of <em>"A Roadside Stand"</em>. The poem begins with quiet, objective observation of the humble shed and the speeding cars. This detached sympathy quickly deepens into moral anger as Frost defends the vendors' dignity against mendicancy and rebukes the aesthetic arrogance of the "polished traffic".</p>
+<p>As the poem progresses, the speaker’s empathy becomes overwhelmingly intense. Witnessing the "childish longing in vain" and the agonizing day-long vigil by the window causes him insufferable mental torment. Pushed to the brink of despair by the repeated futility and systemic political neglect, Frost experiences a shocking impulse of nihilistic mercy—wishing he could put these people "at one stroke out of their pain". Yet, Frost demonstrates supreme ethical maturity through his palinode: the following morning, coming "back into the sane", he retracts this dark fantasy. By imagining someone offering to put <em>him</em> out of his pain, he establishes radical reciprocal vulnerability, reaffirming that genuine compassion requires persistent solidarity, moral sanity, and structural justice.</p>
+</div>
+<div class="qa-card-vp"><strong>CBSE Value Points:</strong>
+<ul>
+<li>Objective observation transitions into righteous indignation against urban elitism.</li>
+<li>Intense, radical empathy makes rural waiting personally unbearable for the poet.</li>
+<li>Despair culminates in a shocking fantasy of merciful euthanasia ("at one stroke").</li>
+<li>Moral palinode the following day: return to rationality and ethical conscience ("back into the sane").</li>
+<li>Affirmation of mutual human vulnerability and rejection of violent or patronizing escapism.</li>
+</ul>
+</div>
+</div>
+
+<!-- LA 3 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>LONG ANSWER Q03 // 5 MARKS // 120–150 WORDS</span>
+<span>CROSS-TEXTUAL COMPARATIVE STUDY // CBSE 2024 SAMPLE PAPER</span>
+</div>
+<div class="qa-card-q">Compare and contrast the theme of systemic marginalization and the callousness of the privileged classes in Robert Frost's "A Roadside Stand" and Anees Jung's "Lost Spring".</div>
+<div class="qa-card-a">
+<p>Both Robert Frost’s <em>"A Roadside Stand"</em> and Anees Jung’s <em>"Lost Spring"</em> are blistering indictments of systemic economic marginalization and privileged apathy. In <em>"Lost Spring"</em>, ragpickers like Saheb and bangle-makers like Mukesh are trapped in an inescapable web of generational poverty, exploited by sahukars, middlemen, policemen, and politicians who enforce a vicious cycle of child labor.</p>
+<p>Similarly, Frost depicts rural stallholders marginalized by the urban capitalist elite. Both texts highlight how the privileged classes remain insulated from the misery of the underclass: city travelers in <em>"A Roadside Stand"</em> complain about ruined scenery, just as the visitors in Firozabad ignore the blistering heat and blinded eyes of child workers. Furthermore, both authors expose the cynicism of political authorities: in Frost, the "party in power" withholds the promised cinematic dream and deploys "greedy good-doers" to pacify dissent; in Jung, political promises of schools and reform remain hollow and unfulfilled. Ultimately, both masterpieces champion the human dignity of the poor, showing that their humble aspirations are crushed not by lack of effort, but by structural exploitation and societal indifference.</p>
+</div>
+<div class="qa-card-vp"><strong>CBSE Value Points:</strong>
+<ul>
+<li>Both texts indict the unbridgeable chasm between affluent elites and marginalized underclasses.</li>
+<li>Insulation of the privileged: aesthetic complaints in Frost parallel societal blindness in Jung.</li>
+<li>Political exploitation: "party in power" and "greedy good-doers" echo corrupt sahukars and politicians.</li>
+<li>Crushed aspirations: "moving-pictures' promise" parallels Saheb's lost shoes and Mukesh's car-driving dream.</li>
+<li>Strong advocacy for human dignity, agency, and equitable structural reform across both works.</li>
+</ul>
+</div>
+</div>
+
+<!-- LA 4 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>LONG ANSWER Q04 // 5 MARKS // 120–150 WORDS</span>
+<span>LITERARY CRAFT &amp; RHETORICAL ANALYSIS // CBSE 2023</span>
+</div>
+<div class="qa-card-q">Discuss Robert Frost's poetic craftsmanship in "A Roadside Stand", focusing on his use of irony, transferred epithets, oxymorons, and symbolism to heighten emotional pathos.</div>
+<div class="qa-card-a">
+<p>In <em>"A Roadside Stand"</em>, Robert Frost demonstrates masterly poetic craftsmanship, employing a complex array of rhetorical devices to intensify social critique and emotional pathos. Central to his technique is the <strong>transferred epithet</strong>: phrases like <em>"polished traffic"</em> and <em>"thousand selfish cars"</em> transfer the cold, rushed self-absorption of urban motorists onto their mechanical vehicles, highlighting their dehumanized nature.</p>
+<p>Frost’s use of <strong>oxymorons</strong> is devastatingly incisive. By branding reformers as <em>"greedy good-doers"</em> and <em>"beneficent beasts of prey"</em>, he exposes the predatory exploitation masked by philanthropic rhetoric. <strong>Personification</strong> elevates the rural struggle into existential tragedy: the stall <em>"pathetically pled"</em>, sadness <em>"lurks near the open window"</em>, and the <em>"voice of the country"</em> complains. <strong>Irony</strong> permeates every encounter—cars stop not to buy, but to plow grass, ask directions, or demand petrol. Through these literary devices, Frost transforms a simple roadside encounter into a profound moral indictment of modern society.</p>
+</div>
+<div class="qa-card-vp"><strong>CBSE Value Points:</strong>
+<ul>
+<li>Transferred epithets ("polished traffic", "selfish cars") emphasize urban callousness and mechanical speed.</li>
+<li>Oxymorons ("greedy good-doers", "beneficent beasts of prey") dismantle hypocritical philanthropy.</li>
+<li>Personification of the stand, lurking sadness, and the voice of the country heightens tragic pathos.</li>
+<li>Situational irony in the reasons cars stop: utilitarian exploitation rather than commercial trade.</li>
+<li>Symbolic contrast between organic produce (berries, squash) and artificial urban vanity.</li>
+</ul>
+</div>
+</div>
+
+<!-- LA 5 -->
+<div class="qa-card">
+<div class="qa-card-meta">
+<span>LONG ANSWER Q05 // 5 MARKS // 120–150 WORDS</span>
+<span>COMPARATIVE PHILOSOPHICAL ANALYSIS // CBSE 2024</span>
+</div>
+<div class="qa-card-q">Examine the themes of frantic modern speed and the yearning for genuine human connection in Robert Frost's "A Roadside Stand" and Pablo Neruda's "Keeping Quiet".</div>
+<div class="qa-card-a">
+<p>Both Robert Frost’s <em>"A Roadside Stand"</em> and Pablo Neruda’s <em>"Keeping Quiet"</em> critique the frantic, destructive pace of modern civilization and plead for a transformative pause to re-establish human solidarity. In <em>"Keeping Quiet"</em>, Neruda warns against the "rush" and "engines" of a mechanized world that breeds alienation, environmental devastation, and warfare, advocating twelve seconds of universal stillness to cultivate mutual brotherhood.</p>
+<p>In <em>"A Roadside Stand"</em>, Frost exposes the tangible victims of this unceasing rush. The "polished traffic" speeds by "with a mind ahead", blinded by mechanical hurry and unable to connect with fellow human beings in distress. Where Neruda identifies the crisis philosophically as a "huge silence" needed to interrupt human loneliness, Frost grounds this silence in the literal, painful vigil of the rural poor waiting beside an open window. Both poets converge on the imperative of ethical consciousness: while Neruda envisions humanity pausing to look at its hurt hands, Frost demands that city motorists stop their cars, look into the faces of the rural poor, and recognize their shared humanity and economic interdependence.</p>
+</div>
+<div class="qa-card-vp"><strong>CBSE Value Points:</strong>
+<ul>
+<li>Both poets critique the mindless, alienated acceleration of modern industrial society.</li>
+<li>Neruda's warning against "rush" and "engines" mirrors Frost's indictment of the speeding "polished traffic".</li>
+<li>Neruda offers a philosophical antidote (stillness and introspection); Frost highlights socio-economic consequences.</li>
+<li>Both emphasize the urgent necessity of breaking human isolation through empathy and mutual recognition.</li>
+<li>Urge humanity to pause, reflect, and rebuild fraternal solidarity across social divides.</li>
+</ul>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="pyq-vault">
+<h2 class="section-header">08. Previous Years' Question Vault (2019–2025)</h2>
+<p style="font-size:0.95rem; color:var(--text-muted); margin-bottom:16px;">
+Comprehensive archive of actual CBSE Class 12 English Core Board Examination questions with examiner-approved solutions.
+</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th style="width: 10%;">Year &amp; Exam</th>
+<th style="width: 10%;">Q. Type</th>
+<th style="width: 35%;">Exact CBSE Board Question</th>
+<th style="width: 45%;">Model Answer &amp; CBSE Value Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2024 Main</strong><br/>Set 1</td>
+<td>RTC (1M)</td>
+<td><em>"The polished traffic passed with a mind ahead..."</em> What does the expression 'polished traffic' imply?</td>
+<td>It implies the affluent, sophisticated, and cultured urban population traveling in sleek motorcars, whose minds are solely focused on personal destinations, exhibiting cold indifference toward the rural poor.<br/><strong>VP:</strong> Wealthy urban travelers; sleek automobiles; cold emotional detachment.</td>
+</tr>
+<tr>
+<td><strong>2024 Main</strong><br/>Set 2</td>
+<td>SA (2M)</td>
+<td>Why do the people running the roadside stand look out for the 'squeal of brakes'?</td>
+<td>The squeal of brakes signifies that a motorcar is decelerating and pulling over. To the impoverished stallholders, this auditory signal represents a thrilling surge of hope that a customer might inquire about prices and buy produce.<br/><strong>VP:</strong> Decelerating motorcar; surge of commercial hope; opportunity to earn liquid cash.</td>
+</tr>
+<tr>
+<td><strong>2023 Main</strong><br/>Set 1</td>
+<td>RTC (1M)</td>
+<td>Identify the figure of speech in <em>"greedy good-doers, beneficent beasts of prey"</em>.</td>
+<td><strong>Oxymoron.</strong> Contradictory terms are paired to unmask predatory exploitation concealed beneath the guise of charity and public welfare.<br/><strong>VP:</strong> Oxymoron; contrast between benevolent facade and predatory greed.</td>
+</tr>
+<tr>
+<td><strong>2023 Main</strong><br/>Set 3</td>
+<td>SA (2M)</td>
+<td>What is the 'childish longing' of the rural folk? Why does the poet call it 'vain'?</td>
+<td>The childish longing is their pure, naive hope that passing motorists will stop and buy their goods. It is 'vain' because it is doomed to fruitlessness; thousands of cars rush past without anyone bothering to trade.<br/><strong>VP:</strong> Naive, childlike hope for trade; doomed to futility by urban indifference.</td>
+</tr>
+<tr>
+<td><strong>2022 Term-2</strong></td>
+<td>SA (2M)</td>
+<td>How does Robert Frost depict the double standards of social service agencies?</td>
+<td>Frost labels them 'greedy good-doers' who pretend to rehabilitate the poor by moving them into peri-urban tracts. In reality, they calculate benefits to pacify their minds, seize land, and render them docile and dependent.<br/><strong>VP:</strong> Self-serving philanthropy; pacification of critical thinking; destruction of self-reliance.</td>
+</tr>
+<tr>
+<td><strong>2020 Main</strong><br/>Delhi</td>
+<td>LA (5M)</td>
+<td>The rural-urban divide is vividly brought out in 'A Roadside Stand'. Discuss the attitude of the city folk towards the rural poor.</td>
+<td>City folk display absolute apathy and elitist arrogance. When they look at the stand, they complain that it ruins the mountain scenery with artless paint. They stop only to use the yard for reversing, ask directions, or demand gas, treating the rural folk as utility tools rather than fellow humans.<br/><strong>VP:</strong> Apathy; aesthetic elitism; viewing humans as scenery blemishes; utilitarian exploitation.</td>
+</tr>
+<tr>
+<td><strong>2020 Main</strong><br/>All India</td>
+<td>SA (2M)</td>
+<td>Why does the poet say that 'it would not be fair to say for a dole of bread'?</td>
+<td>The poet defends the dignity of the rural folk. They are not mendicants seeking charitable alms; they have invested labor in growing produce and want legitimate trade and market inclusion.<br/><strong>VP:</strong> Defense of rural dignity; rejection of charity/alms; demand for fair commercial trade.</td>
+</tr>
+<tr>
+<td><strong>2019 Main</strong><br/>Set 1</td>
+<td>SA (2M)</td>
+<td>What relief does the poet momentarily contemplate for the rural poor? Why does he step back from it?</td>
+<td>Overwhelmed by empathetic agony, the poet momentarily wishes they could be put out of their pain at one stroke. He steps back because returning to sanity makes him realize that violent death is an evasion of ethical responsibility.<br/><strong>VP:</strong> Merciful euthanasia to end suffering; retraction upon moral sanity; commitment to justice.</td>
+</tr>
+<tr>
+<td><strong>2025 SP</strong><br/>CBSE Sample</td>
+<td>RTC (1M)</td>
+<td>What does the phrase 'trusting sorrow' reflect about the mindset of the rural poor?</td>
+<td>It reflects their tragic vulnerability: despite having their hopes crushed repeatedly, they maintain an innocent, enduring faith in humanity, bearing their disappointment in silence without bitter rebellion.<br/><strong>VP:</strong> Vulnerability; enduring innocent faith; silent, dignified disappointment.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- Floating Controls -->
+<div class="floating-controls" id="floating-controls">
+<button class="floating-btn" id="theme-toggle">[ ☾ DARK ]</button>
+<a class="floating-btn back-top-btn" href="#top">↑ TOP</a>
+</div>
+
+<!-- Vocab Tooltip Element -->
+<div id="vocab-tooltip">
+<div class="tt-header">
+<span class="tt-word" id="tt-word-el"></span>
+<div class="tt-meta">
+<span class="tt-pos" id="tt-pos-el"></span>
+<span class="tt-cycle-badge" id="tt-cycle-btn">1 of 1 ↻</span>
+</div>
+</div>
+<div class="tt-def" id="tt-def-el"></div>
+</div>
+
+</div><!-- /.container -->
+
+<!-- Dictionary & Theme Engine Scripts -->
+<script>
+(function() {
+  const DICT = {
+  "shed": [
+    {
+      "pos": "n.",
+      "def": "A small, simple rustic structure built on the roadside as an improvised market stall."
+    }
+  ],
+  "sped": [
+    {
+      "pos": "v.",
+      "def": "Past tense of speed; moving along rapidly and thoughtlessly without pausing."
+    }
+  ],
+  "pathetically": [
+    {
+      "pos": "adv.",
+      "def": "In a manner evoking deep sympathy, sorrow, and pity due to obvious distress."
+    }
+  ],
+  "pled": [
+    {
+      "pos": "v.",
+      "def": "Past tense of plead; earnestly requested, implored, or appealed for commercial exchange."
+    }
+  ],
+  "dole": [
+    {
+      "pos": "n.",
+      "def": "Charitable handout of money or food given to the destitute; alms or welfare relief."
+    }
+  ],
+  "bread": [
+    {
+      "pos": "n.",
+      "def": "Basic nutritional sustenance; here symbolic of humiliating charitable handouts."
+    }
+  ],
+  "cash": [
+    {
+      "pos": "n.",
+      "def": "Circulating currency and liquid capital that powers the urban economy and enables autonomy."
+    }
+  ],
+  "flow": [
+    {
+      "pos": "n.",
+      "def": "The continuous monetary movement and circulation of capital sustaining the metropolis."
+    }
+  ],
+  "supports": [
+    {
+      "pos": "v.",
+      "def": "Maintains, sustains, and prevents from collapsing into financial decay."
+    }
+  ],
+  "flower": [
+    {
+      "pos": "n. / metaphor",
+      "def": "The refined, prosperous elite civilization and cultural grandeur of modern cities."
+    }
+  ],
+  "sinking": [
+    {
+      "pos": "v.",
+      "def": "Declining into financial ruin, economic impoverishment, or spiritual insolvency."
+    }
+  ],
+  "withering": [
+    {
+      "pos": "v.",
+      "def": "Drying up, decaying, or losing vitality due to deprivation of essential resources."
+    }
+  ],
+  "faint": [
+    {
+      "pos": "adj.",
+      "def": "Weak, languid, or swooning from exhaustion and monetary starvation."
+    }
+  ],
+  "polished": [
+    {
+      "pos": "adj. / transferred epithet",
+      "def": "Gleaming, sophisticated motorcars reflecting the smooth arrogance of the urban rich."
+    }
+  ],
+  "traffic": [
+    {
+      "pos": "n.",
+      "def": "The collective stream of speeding vehicles carrying indifferent city commuters."
+    }
+  ],
+  "aside": [
+    {
+      "pos": "adv.",
+      "def": "To one side; turning glance away from the main road for a brief instant."
+    }
+  ],
+  "sorts": [
+    {
+      "pos": "n. phrase",
+      "def": "Out of sorts: irritable, disgruntled, and annoyed by a disruption to expectations."
+    }
+  ],
+  "marred": [
+    {
+      "pos": "v.",
+      "def": "Disfigured, ruined, or spoiled the pristine aesthetic composition of the landscape."
+    }
+  ],
+  "artless": [
+    {
+      "pos": "adj.",
+      "def": "Crude, unrefined, and lacking formal artistic training or sophisticated polish."
+    }
+  ],
+  "paint": [
+    {
+      "pos": "n.",
+      "def": "Rustic handmade coloration used on wooden roadside commercial signs."
+    }
+  ],
+  "quarts": [
+    {
+      "pos": "n.",
+      "def": "Traditional wooden quarter-gallon container units used for measuring and selling wild berries."
+    }
+  ],
+  "crook-necked": [
+    {
+      "pos": "adj.",
+      "def": "Having a curved or bent neck, typical of rustic agricultural summer squash varieties."
+    }
+  ],
+  "squash": [
+    {
+      "pos": "n.",
+      "def": "A wholesome edible marrow or gourd cultivated by rural homesteaders."
+    }
+  ],
+  "warts": [
+    {
+      "pos": "n.",
+      "def": "Silvery, glistening natural bumps or textural protrusions upon the skin of ripe squash."
+    }
+  ],
+  "crossly": [
+    {
+      "pos": "adv.",
+      "def": "In an angry, irritated, and testy tone reflecting pent-up indignation."
+    }
+  ],
+  "complaint": [
+    {
+      "pos": "n.",
+      "def": "An expression of grievance, dissatisfaction, or fault-finding judgment."
+    }
+  ],
+  "trusting": [
+    {
+      "pos": "adj.",
+      "def": "Innocently placing faith in the humanity and benevolence of urban passersby."
+    }
+  ],
+  "sorrow": [
+    {
+      "pos": "n.",
+      "def": "Deep distress, heartbreak, and unexpressed mental grief born of repeated neglect."
+    }
+  ],
+  "unsaid": [
+    {
+      "pos": "adj.",
+      "def": "Tacit, unvoiced; suppressed longing and quiet agony that words fail to express."
+    }
+  ],
+  "expand": [
+    {
+      "pos": "v.",
+      "def": "Grow, elevate, and flourish beyond bare physical survival into genuine self-actualization."
+    }
+  ],
+  "moving-pictures": [
+    {
+      "pos": "n.",
+      "def": "Cinema and films presenting idealized images of wealth, romance, and comfort."
+    }
+  ],
+  "promise": [
+    {
+      "pos": "n.",
+      "def": "The glamorous vision of material abundance portrayed by cinema and modern media."
+    }
+  ],
+  "party": [
+    {
+      "pos": "n.",
+      "def": "The political faction or governmental regime currently in administrative power."
+    }
+  ],
+  "pitiful": [
+    {
+      "pos": "adj.",
+      "def": "Deserving profound compassion, commiseration, and protective sorrow."
+    }
+  ],
+  "kin": [
+    {
+      "pos": "n.",
+      "def": "Extended family, fellow countrymen, and brethren bound by rural kinship."
+    }
+  ],
+  "gathered": [
+    {
+      "pos": "v.",
+      "def": "Assembled and systematically rounded up for resettlement in controlled urban fringes."
+    }
+  ],
+  "greedy": [
+    {
+      "pos": "adj.",
+      "def": "Driven by insatiable selfish appetite for land, votes, capital, and exploitation."
+    }
+  ],
+  "good-doers": [
+    {
+      "pos": "oxymoron",
+      "def": "Ostensible philanthropists and social reformers whose altruism masks selfish exploitation."
+    }
+  ],
+  "beneficent": [
+    {
+      "pos": "adj.",
+      "def": "Performing acts of charity or social welfare ostensibly intended for public good."
+    }
+  ],
+  "beasts": [
+    {
+      "pos": "n. / oxymoron",
+      "def": "Fierce, predatory creatures disguised as humanitarian benefactors ('beneficent beasts of prey')."
+    }
+  ],
+  "prey": [
+    {
+      "pos": "n.",
+      "def": "Victims targeted for economic extraction, displacement, and political manipulation."
+    }
+  ],
+  "swarm": [
+    {
+      "pos": "v.",
+      "def": "To crowd, invade, and hover over rural communities like parasitic predatory insects."
+    }
+  ],
+  "enforcing": [
+    {
+      "pos": "v.",
+      "def": "Imposing top-down paternalistic policies and regulations by administrative coercion."
+    }
+  ],
+  "benefits": [
+    {
+      "pos": "n.",
+      "def": "Superficial welfare handouts designed to pacify discontent and engineer political compliance."
+    }
+  ],
+  "calculated": [
+    {
+      "pos": "adj.",
+      "def": "Deliberately and shrewdly devised to achieve political subordination and profit."
+    }
+  ],
+  "soothe": [
+    {
+      "pos": "v.",
+      "def": "Pacify, tranquilize, and numb into uncritical, passive stupor."
+    }
+  ],
+  "wits": [
+    {
+      "pos": "n.",
+      "def": "Mental faculties, self-reliance, critical alertness, and intellectual autonomy."
+    }
+  ],
+  "ancient": [
+    {
+      "pos": "adj.",
+      "def": "Time-honored and immemorial; referring to natural agrarian sleep cycles earned through honest toil."
+    }
+  ],
+  "childish": [
+    {
+      "pos": "adj.",
+      "def": "Innocently naive, vulnerable, and guileless like a hopeful child awaiting a promised gift."
+    }
+  ],
+  "longing": [
+    {
+      "pos": "n.",
+      "def": "An intense, persistent yearning for economic dignity, connection, and customer exchange."
+    }
+  ],
+  "vain": [
+    {
+      "pos": "adj.",
+      "def": "Futile, unfulfilled, and producing no tangible economic return or patron interest."
+    }
+  ],
+  "sadness": [
+    {
+      "pos": "n.",
+      "def": "Profound melancholy resulting from perpetual disappointment and social rejection."
+    }
+  ],
+  "lurks": [
+    {
+      "pos": "v. / personification",
+      "def": "Waits in concealed, persistent ambush near the open roadside stall window."
+    }
+  ],
+  "prayer": [
+    {
+      "pos": "n.",
+      "def": "Earnest, continuous silent plea for a passing motorcar to halt and purchase goods."
+    }
+  ],
+  "squeal": [
+    {
+      "pos": "n. / auditory imagery",
+      "def": "The sharp, friction-screech of automotive brakes signaling deceleration."
+    }
+  ],
+  "selfish": [
+    {
+      "pos": "adj. / transferred epithet",
+      "def": "Preoccupied exclusively with personal speed, convenience, and self-gratification."
+    }
+  ],
+  "inquire": [
+    {
+      "pos": "v.",
+      "def": "To ask respectfully about commodity prices and engage in legitimate commerce."
+    }
+  ],
+  "plow": [
+    {
+      "pos": "v.",
+      "def": "To tear up, churn, and destroy green lawn grass during careless automotive reversing."
+    }
+  ],
+  "bound": [
+    {
+      "pos": "adj.",
+      "def": "Headed or directed toward a specific geographical destination."
+    }
+  ],
+  "gallon": [
+    {
+      "pos": "n.",
+      "def": "A unit of volume for liquids, specifically fuel requested inappropriately at a fruit stall."
+    }
+  ],
+  "gas": [
+    {
+      "pos": "n.",
+      "def": "Gasoline/petrol motor vehicle fuel, demonstrating urban disconnect from rural reality."
+    }
+  ],
+  "requisite": [
+    {
+      "pos": "adj.",
+      "def": "Indispensable, essential, and fundamentally required for psychological and economic health."
+    }
+  ],
+  "spirit": [
+    {
+      "pos": "n.",
+      "def": "The inner vitality, morale, self-esteem, and buoyant optimism of the rural soul."
+    }
+  ],
+  "complain": [
+    {
+      "pos": "v.",
+      "def": "To express collective lamentation, hardship, and neglect through the landscape."
+    }
+  ],
+  "relief": [
+    {
+      "pos": "n.",
+      "def": "Liberation from unbearable emotional distress, agonizing sympathy, and existential helplessness."
+    }
+  ],
+  "stroke": [
+    {
+      "pos": "n.",
+      "def": "A single decisive, instantaneous action or terminal intervention putting an end to misery."
+    }
+  ],
+  "pain": [
+    {
+      "pos": "n.",
+      "def": "The excruciating socio-economic agony and prolonged deprivation suffered by rural folk."
+    }
+  ],
+  "sane": [
+    {
+      "pos": "n. / adj.",
+      "def": "State of mental rationality, sober moral balance, and empathetic responsibility."
+    }
+  ]
+};
+  const defsCache = {};
+  const wordIndices = {};
+
+  const tooltip = document.getElementById('vocab-tooltip');
+  const wordEl = document.getElementById('tt-word-el');
+  const posEl = document.getElementById('tt-pos-el');
+  const defEl = document.getElementById('tt-def-el');
+  const cycleBtn = document.getElementById('tt-cycle-btn');
+
+  let currentWord = '';
+  let currentTarget = null;
+  let hideTimeout = null;
+
+  function getWordDefs(cleanWord) {
+    if (DICT[cleanWord]) {
+      return Array.isArray(DICT[cleanWord]) ? DICT[cleanWord] : [DICT[cleanWord]];
+    }
+    if (defsCache[cleanWord]) {
+      return defsCache[cleanWord];
+    }
+    return null;
+  }
+
+  function renderCurrentMeaning(cleanWord, displayWord, x, y) {
+    const defs = getWordDefs(cleanWord);
+    wordEl.textContent = displayWord;
+
+    if (!defs || defs.length === 0) {
+      posEl.textContent = '';
+      cycleBtn.style.display = 'none';
+      defEl.innerHTML = '<span class="tt-loading">Looking up definition...</span>';
+      return;
+    }
+
+    const total = defs.length;
+    let idx = wordIndices[cleanWord] || 0;
+    if (idx >= total) idx = 0;
+    wordIndices[cleanWord] = idx;
+
+    const curr = defs[idx];
+    posEl.textContent = curr.pos || '';
+    defEl.textContent = curr.def || '';
+
+    if (total > 1) {
+      cycleBtn.style.display = 'inline-block';
+      cycleBtn.textContent = `${idx + 1} of ${total} ↻`;
+    } else {
+      cycleBtn.style.display = 'none';
+    }
+
+    positionTooltip(x, y);
+  }
+
+  function fetchWordDefs(cleanWord, displayWord, x, y) {
+    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${cleanWord}`)
+      .then(r => r.json())
+      .then(data => {
+        const defs = [];
+        const seen = new Set();
+        if (Array.isArray(data)) {
+          data.forEach(entry => {
+            (entry.meanings || []).forEach(m => {
+              const pos = m.partOfSpeech ? `${m.partOfSpeech}.` : '';
+              (m.definitions || []).forEach(d => {
+                const defText = d.definition?.trim();
+                if (defText && !seen.has(defText.toLowerCase())) {
+                  seen.add(defText.toLowerCase());
+                  defs.push({ pos: pos, def: defText });
+                }
+              });
+            });
+          });
+        }
+
+        if (defs.length > 0) {
+          defsCache[cleanWord] = defs;
+        } else {
+          defsCache[cleanWord] = [{ pos: 'term.', def: 'Contextual term used in Going Places study manual.' }];
+        }
+
+        if (currentWord === cleanWord) {
+          renderCurrentMeaning(cleanWord, displayWord, x, y);
+        }
+      })
+      .catch(() => {
+        defsCache[cleanWord] = [{ pos: '', def: 'Definition unavailable offline.' }];
+        if (currentWord === cleanWord) {
+          renderCurrentMeaning(cleanWord, displayWord, x, y);
+        }
+      });
+  }
+
+  function positionTooltip(x, y) {
+    tooltip.classList.add('active');
+    const tipWidth = 320;
+    const tipHeight = tooltip.offsetHeight || 90;
+
+    let posX = x + 12;
+    let posY = y - tipHeight - 12;
+
+    if (posX + tipWidth > window.innerWidth - 12) {
+      posX = window.innerWidth - tipWidth - 14;
+    }
+    if (posX < 10) posX = 10;
+
+    if (posY < 10) {
+      posY = y + 24;
+    }
+
+    tooltip.style.left = `${posX}px`;
+    tooltip.style.top = `${posY}px`;
+  }
+
+  function showTooltipForWord(el, x, y) {
+    clearTimeout(hideTimeout);
+    currentTarget = el;
+    const displayWord = el.textContent.trim();
+    const cleanWord = (el.getAttribute('data-w') || displayWord).toLowerCase().trim();
+    currentWord = cleanWord;
+
+    const defs = getWordDefs(cleanWord);
+    if (defs) {
+      renderCurrentMeaning(cleanWord, displayWord, x, y);
+    } else {
+      renderCurrentMeaning(cleanWord, displayWord, x, y);
+      fetchWordDefs(cleanWord, displayWord, x, y);
+    }
+  }
+
+  function cycleToNextMeaning(el, e) {
+    const cleanWord = (el.getAttribute('data-w') || el.textContent).toLowerCase().trim();
+    const defs = getWordDefs(cleanWord);
+    if (!defs || defs.length <= 1) return;
+
+    const currentIdx = wordIndices[cleanWord] || 0;
+    wordIndices[cleanWord] = (currentIdx + 1) % defs.length;
+
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX || (rect.left + rect.width / 2);
+    const y = e.clientY || rect.top;
+    renderCurrentMeaning(cleanWord, el.textContent.trim(), x, y);
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove('active');
+    currentTarget = null;
+    currentWord = '';
+  }
+
+  document.addEventListener('mouseover', (e) => {
+    if (e.target.closest('h1, h2, h3, h4, h5, .doc-header, .toc-box, .section-header, .passage-headline, .passage-meta, .sub-label, .floating-controls')) {
+      hideTooltip();
+      return;
+    }
+    const el = e.target.closest('.vw');
+    if (!el) return;
+    showTooltipForWord(el, e.clientX, e.clientY);
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!currentTarget) return;
+    const el = e.target.closest('.vw');
+    if (el && el === currentTarget) {
+      positionTooltip(e.clientX, e.clientY);
+    }
+  });
+
+  document.addEventListener('mouseout', (e) => {
+    const el = e.target.closest('.vw');
+    if (el) {
+      hideTimeout = setTimeout(hideTooltip, 120);
+    }
+  });
+
+  tooltip.addEventListener('mouseenter', () => {
+    clearTimeout(hideTimeout);
+  });
+  tooltip.addEventListener('mouseleave', () => {
+    hideTimeout = setTimeout(hideTooltip, 120);
+  });
+
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('.vw');
+    if (el) {
+      e.preventDefault();
+      cycleToNextMeaning(el, e);
+      return;
+    }
+    if (e.target.closest('#vocab-tooltip') && currentTarget) {
+      e.preventDefault();
+      cycleToNextMeaning(currentTarget, e);
+      return;
+    }
+    hideTooltip();
+  });
+
+  const controls = document.getElementById('floating-controls');
+  const toggleBtn = document.getElementById('theme-toggle');
+
+  function checkScroll() {
+    const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (scrollPos > 80) {
+      if (controls) controls.classList.add('visible');
+    } else {
+      if (controls) controls.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  window.addEventListener('load', checkScroll);
+  window.addEventListener('hashchange', checkScroll);
+  setTimeout(checkScroll, 150);
+  checkScroll();
+
+  function syncThemeBtn() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (toggleBtn) {
+      toggleBtn.textContent = isDark ? '[ ☼ LIGHT ]' : '[ ☾ DARK ]';
+    }
+  }
+
+  syncThemeBtn();
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const newTheme = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('cbse_theme', newTheme);
+      syncThemeBtn();
+    });
+  }
+})();
+</script>
+</body>
+</html>
