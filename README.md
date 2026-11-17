@@ -28,7 +28,7 @@ A curated, high-yield digital study compendium and reference manual for CBSE Cla
 - [x] **Chapter 4: The Rattrap** by Selma Lagerlöf &mdash; [Read HTML](HTML/the_rattrap_cbse_mastery.html) | [Download PDF](PDF/The_Rattrap_CBSE_Guide.pdf)
 - [x] **Chapter 5: Indigo** by Louis Fischer &mdash; [Read HTML](HTML/indigo_cbse_mastery.html) | [Download PDF](PDF/Indigo_CBSE_Guide.pdf)
 - [x] **Chapter 6: Poets and Pancakes** by Asokamitran &mdash; [Read HTML](HTML/poets_and_pancakes_cbse_mastery.html) | [Download PDF](PDF/Poets_and_Pancakes_CBSE_Guide.pdf)
-- [ ] Chapter 7: The Interview (Christopher Silvester)
+- [x] **Chapter 7: The Interview** by Christopher Silvester &mdash; [Read HTML](HTML/the_interview_cbse_mastery.html) | [Download PDF](PDF/The_Interview_CBSE_Guide.pdf)
 - [x] **Chapter 8: Going Places** by A. R. Barton &mdash; [Read HTML](HTML/going_places_cbse_mastery.html) | [Download PDF](PDF/Going_Places_CBSE_Guide.pdf)
 
 ### Flamingo (Poetry)
