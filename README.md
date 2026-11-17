@@ -9,12 +9,12 @@ A curated, high-yield digital study compendium and reference manual for CBSE Cla
 ## 📖 Key Features
 
 - **Passage-by-Passage / Stanza-by-Stanza Breakdown**: Retains original text verbatim, accompanied by enriched literal and psychological subtext.
-- **Universal Hover-to-Define Lexicon**: Move your cursor over any non-obvious word in any text to see its exact contextual definition in a clean black & white tooltip.
+- **Universal Hover-to-Define Lexicon**: Move your cursor over any non-obvious word in any text to see its exact contextual definition in a clean black & white tooltip with click-to-cycle multi-meanings.
 - **CBSE Golden Keyword Bank**: Highlights exact marking scheme buzzwords examiners look for in 2-mark and 5-mark answers.
 - **Literary & Poetic Devices**: Detailed breakdowns of figures of speech (metaphors, similes, personification, anaphora, irony, etc.).
 - **Board Exam Question Vault (2019–2025)**: Includes Reference to Context (RTC) extracts, short-answer value points, and comparative long questions.
 - **Dual Formats**:
-  - **Interactive HTML**: Responsive on desktops, laptops, and mobile phones.
+  - **Interactive HTML**: Responsive on desktops, laptops, and mobile phones with Light/Dark theme toggle.
   - **Vector PDFs**: Clean, print-ready, high-contrast PDFs with zero ink waste.
 
 ---
@@ -22,9 +22,9 @@ A curated, high-yield digital study compendium and reference manual for CBSE Cla
 ## 📚 Syllabus & Chapter Coverage
 
 ### Flamingo (Prose)
-- [x] **Chapter 3: Deep Water** by William Orville Douglas &mdash; [Read HTML](HTML/deep_water_cbse_mastery.html) | [Download PDF](PDF/Deep_Water_CBSE_Guide.pdf)
-- [ ] Chapter 1: The Last Lesson (Alphonse Daudet)
+- [x] **Chapter 1: The Last Lesson** by Alphonse Daudet &mdash; [Read HTML](HTML/the_last_lesson_cbse_mastery.html) | [Download PDF](PDF/The_Last_Lesson_CBSE_Guide.pdf)
 - [ ] Chapter 2: Lost Spring (Anees Jung)
+- [x] **Chapter 3: Deep Water** by William Orville Douglas &mdash; [Read HTML](HTML/deep_water_cbse_mastery.html) | [Download PDF](PDF/Deep_Water_CBSE_Guide.pdf)
 - [ ] Chapter 4: The Rattrap (Selma Lagerlöf)
 - [ ] Chapter 5: Indigo (Louis Fischer)
 - [ ] Chapter 6: Poets and Pancakes (Asokamitran)
@@ -56,9 +56,13 @@ CBSE-English-12/
 ├── README.md         # Documentation & guide
 ├── .gitignore        # Clean workspace git configuration
 ├── HTML/             # Standalone interactive chapter HTML manuals
-│   └── deep_water_cbse_mastery.html
+│   ├── the_last_lesson_cbse_mastery.html
+│   ├── deep_water_cbse_mastery.html
+│   └── going_places_cbse_mastery.html
 ├── PDF/              # Print-ready vector chapter PDFs
-│   └── Deep_Water_CBSE_Guide.pdf
+│   ├── The_Last_Lesson_CBSE_Guide.pdf
+│   ├── Deep_Water_CBSE_Guide.pdf
+│   └── Going_Places_CBSE_Guide.pdf
 ├── NCERT/            # Official NCERT textbooks (renamed by chapter)
 │   ├── Flamingo/     # Prose (Ch 01-08) & Poetry (Poem 01-05)
 │   └── Vistas/       # Supplementary Reader (Ch 01-06)
