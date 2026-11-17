@@ -18,10 +18,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&amp;display=swap" rel="stylesheet"/>
 <title>Deep Water — William Douglas | CBSE Class 12 English Study Manual</title>
 <style>
-/* ==========================================================================
-   MAKINGSOFTWARE.COM BLACK & WHITE THEME (DESKTOP + MOBILE BALANCED)
-   Generous Desktop Architecture • Multi-Column Grids • Fluid Mobile Adaptation
-   ========================================================================== */
+
 
 :root {
   --bg: #ffffff;
@@ -74,9 +71,6 @@ body {
   letter-spacing: -0.011em;
 }
 
-/* ==========================================================================
-   DESKTOP CONTAINER (EXPANSIVE & STRUCTURED)
-   ========================================================================== */
 .container {
   width: 100%;
   max-width: 1060px;
@@ -84,7 +78,6 @@ body {
   padding: 56px 40px 100px 40px;
 }
 
-/* Headings */
 h1, h2, h3, h4, h5 {
   color: var(--text-main);
   font-family: var(--font-sans);
@@ -131,9 +124,6 @@ a:hover {
   text-decoration: none;
 }
 
-/* ==========================================================================
-   DESKTOP MULTI-COLUMN GRIDS
-   ========================================================================== */
 .desktop-grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -148,7 +138,6 @@ a:hover {
   margin-bottom: 24px;
 }
 
-/* Header */
 .doc-header {
   margin-bottom: 48px;
   border-bottom: 2px solid var(--border-dark);
@@ -186,7 +175,6 @@ a:hover {
   background: transparent;
 }
 
-/* Table of Contents - Desktop Multi-column */
 .toc-box {
   border: 1px solid var(--border-dark);
   padding: 28px 32px;
@@ -236,7 +224,6 @@ a:hover {
   text-decoration: none;
 }
 
-/* Keyword Cloud */
 .keyword-cloud {
   display: flex;
   flex-wrap: wrap;
@@ -253,7 +240,6 @@ a:hover {
   color: var(--text-main);
 }
 
-/* Cards */
 .bw-card {
   border: 1px solid var(--border-light);
   padding: 24px;
@@ -273,7 +259,6 @@ a:hover {
   margin-bottom: 14px;
 }
 
-/* Passage Card */
 .passage-card {
   border: 1px solid var(--border-light);
   padding: 32px;
@@ -306,7 +291,6 @@ a:hover {
   color: var(--text-main);
 }
 
-/* Verbatim Original Quote Box */
 .quote-passage {
   border-left: 3px solid var(--border-dark);
   padding: 18px 24px;
@@ -330,20 +314,11 @@ a:hover {
   margin-bottom: 8px;
 }
 
-/* Sub-Module Boxes */
 .sub-module {
   border-top: 1px dashed var(--border-light);
   padding-top: 16px;
   margin-top: 18px;
   font-size: 0.98rem;
-}
-
-.desktop-grid-2 .sub-module {
-  margin-top: 0;
-  border-top: 1px solid var(--border-light);
-  background: var(--panel-bg);
-  padding: 16px 20px;
-  border-radius: 2px;
 }
 
 .sub-label {
@@ -373,7 +348,11 @@ a:hover {
   font-size: 0.95rem;
 }
 
-/* Tables */
+.highlight {
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-dark);
+}
+
 .table-wrapper {
   overflow-x: auto;
   margin: 24px 0;
@@ -405,7 +384,6 @@ th {
 tr:last-child td { border-bottom: 0; }
 td:last-child, th:last-child { border-right: 0; }
 
-/* QA Cards */
 .qa-card {
   border: 1px solid var(--border-light);
   border-left: 3px solid var(--border-dark);
@@ -448,7 +426,6 @@ td:last-child, th:last-child { border-right: 0; }
   color: var(--text-main);
 }
 
-/* Footer */
 .doc-footer {
   margin-top: 80px;
   padding-top: 32px;
@@ -458,13 +435,6 @@ td:last-child, th:last-child { border-right: 0; }
   color: var(--text-muted);
   text-align: center;
 }
-
-
-
-/* ==========================================================================
-   MOBILE & TABLET RESPONSIVENESS (GRACEFUL COLLAPSE)
-   Desktop layout seamlessly downscales without compromising mobile
-   ========================================================================== */
 
 @media (max-width: 860px) {
   .container {
@@ -499,54 +469,75 @@ td:last-child, th:last-child { border-right: 0; }
     font-size: 0.98rem;
     padding: 14px 16px;
   }
-  .back-top {
-    bottom: 16px;
-    right: 16px;
-    padding: 6px 10px;
-    font-size: 0.7rem;
-  }
 }
 
 /* ==========================================================================
-   PRINT STYLESHEET (PERFECT VECTOR PDF EXPORT)
+   FLOATING CONTROLS: THEME TOGGLE & BACK TO TOP (ACTIVE ON SCROLL)
    ========================================================================== */
 
-@media print {
-  body {
-    background: #ffffff;
-    color: #000000;
-    font-size: 10pt;
-    line-height: 1.5;
+.floating-controls {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.floating-controls.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.floating-btn {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  padding: 8px 14px;
+  border: 1.5px solid var(--border-dark);
+  background: var(--bg);
+  color: var(--text-main);
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.floating-btn:hover {
+  background: var(--text-main);
+  color: var(--bg);
+}
+
+.floating-btn.back-top-btn {
+  background: var(--border-dark);
+  color: var(--bg);
+}
+
+.floating-btn.back-top-btn:hover {
+  background: var(--bg);
+  color: var(--border-dark);
+}
+
+@media (max-width: 600px) {
+  .floating-controls {
+    bottom: 16px;
+    right: 16px;
+    gap: 6px;
   }
-  .container {
-    max-width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-  .back-top, .toc-box {
-    display: none !important;
-  }
-  .passage-card, .qa-card, .bw-card {
-    border: 1px solid #cccccc !important;
-    page-break-inside: avoid;
-    margin-bottom: 24pt;
-  }
-  h2.section-header {
-    page-break-before: always;
-    border-bottom: 1pt solid #000000;
-    margin-top: 24pt;
-  }
-  .quote-passage {
-    border-left: 2pt solid #000000 !important;
-    background: #f7f7f7 !important;
-  }
-  .desktop-grid-2 {
-    grid-template-columns: 1fr 1fr;
-    gap: 12pt;
-  }
-  .desktop-grid-3 {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 12pt;
+  .floating-btn {
+    padding: 6px 10px;
+    font-size: 0.72rem;
   }
 }
 
@@ -654,91 +645,46 @@ td:last-child, th:last-child { border-right: 0; }
 }
 
 @media print {
+  body {
+    background: #ffffff;
+    color: #000000;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+  .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .floating-controls, .toc-box, #vocab-tooltip {
+    display: none !important;
+  }
   .vw {
     border-bottom: none !important;
     cursor: default !important;
     background: transparent !important;
   }
-  #vocab-tooltip {
-    display: none !important;
+  .passage-card, .qa-card, .bw-card {
+    border: 1px solid #cccccc !important;
+    page-break-inside: avoid;
+    margin-bottom: 24pt;
+  }
+  h2.section-header {
+    page-break-before: always;
+    border-bottom: 1pt solid #000000;
+    margin-top: 24pt;
+  }
+  .quote-passage {
+    border-left: 2pt solid #000000 !important;
+    background: #f7f7f7 !important;
+  }
+  .desktop-grid-2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 12pt;
   }
 }
 
-/* ==========================================================================
-   FLOATING CONTROLS: THEME TOGGLE & BACK TO TOP (ACTIVE ON SCROLL)
-   ========================================================================== */
 
-.floating-controls {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  z-index: 10000;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(12px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.floating-controls.visible {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-.floating-btn {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.05em;
-  padding: 8px 14px;
-  border: 1.5px solid var(--border-dark);
-  background: var(--bg);
-  color: var(--text-main);
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: 2px;
-  transition: all 0.15s ease;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-}
-
-.floating-btn:hover {
-  background: var(--text-main);
-  color: var(--bg);
-}
-
-.floating-btn.back-top-btn {
-  background: var(--border-dark);
-  color: var(--bg);
-}
-
-.floating-btn.back-top-btn:hover {
-  background: var(--bg);
-  color: var(--border-dark);
-}
-
-@media (max-width: 600px) {
-  .floating-controls {
-    bottom: 16px;
-    right: 16px;
-    gap: 6px;
-  }
-  .floating-btn {
-    padding: 6px 10px;
-    font-size: 0.72rem;
-  }
-}
-
-@media print {
-  .floating-controls {
-    display: none !important;
-  }
-}
 </style>
 </head>
 <body>
@@ -1434,8 +1380,7 @@ td:last-child, th:last-child { border-right: 0; }
 </section>
 <!-- Section 4: Characters -->
 <section id="characters">
-<h2 class="section-header">04. Master Character Sketches</h2>
-<div class="bw-card accent">
+<h2 class="section-header">04. Master Character Sketches</h2><div class="desktop-grid-2"><div class="bw-card accent">
 <h4>1. William Orville Douglas (The Protagonist &amp; Narrator)</h4>
 <p><strong><span class="vw" data-w="archetype">Archetype</span>:</strong> The <span class="vw" data-w="resilient">Resilient</span> <span class="vw" data-w="seeker">Seeker</span> / The <span class="vw" data-w="self-liberated">Self-Liberated</span> <span class="vw" data-w="mind">Mind</span></p><ul>
 <li><strong><span class="vw" data-w="traumatized">Traumatized</span> yet <span class="vw" data-w="tenacious">Tenacious</span>:</strong> <span class="vw" data-w="subjected">Subjected</span> to <span class="vw" data-w="dual">dual</span> <span class="vw" data-w="childhood">childhood</span> <span class="vw" data-w="trauma">trauma</span> (<span class="vw" data-w="california">California</span> <span class="vw" data-w="beach">beach</span> <span class="vw" data-w="wave">wave</span> <span class="vw" data-w="sweep">sweep</span> at <span class="vw" data-w="age">age</span> 3–4 and <span class="vw" data-w="near-drowning">near-drowning</span> at <span class="vw" data-w="age">age</span> 10–11), Douglas <span class="vw" data-w="suffers">suffers</span> from <span class="vw" data-w="debilitating">debilitating</span> <span class="vw" data-w="ptsd">PTSD</span> and <span class="vw" data-w="hydrophobia">hydrophobia</span>. Yet, he <span class="vw" data-w="refuses">refuses</span> to <span class="vw" data-w="surrender">surrender</span> his <span class="vw" data-w="identity">identity</span> to <span class="vw" data-w="passive">passive</span> <span class="vw" data-w="victimhood">victimhood</span>.</li>
@@ -1445,8 +1390,7 @@ td:last-child, th:last-child { border-right: 0; }
 <li><strong><span class="vw" data-w="autonomous">Autonomous</span> &amp; <span class="vw" data-w="uncompromising">Uncompromising</span>:</strong> <span class="vw" data-w="refuses">Refuses</span> to <span class="vw" data-w="accept">accept</span> <span class="vw" data-w="superficial">superficial</span> <span class="vw" data-w="external">external</span> <span class="vw" data-w="completion">completion</span> ("The <span class="vw" data-w="instructor">instructor</span> was <span class="vw" data-w="finished">finished</span>. But I was not <span class="vw" data-w="finished">finished</span>"). He <span class="vw" data-w="tests">tests</span> himself in <span class="vw" data-w="solitary">solitary</span>, <span class="vw" data-w="extreme">extreme</span> <span class="vw" data-w="wilderness">wilderness</span> <span class="vw" data-w="conditions">conditions</span> (Lake Wentworth, Warm Lake) to <span class="vw" data-w="eradicate">eradicate</span> all "<span class="vw" data-w="residual">residual</span> <span class="vw" data-w="doubts">doubts</span>."</li>
 <li><strong><span class="vw" data-w="philosophical">Philosophical</span> <span class="vw" data-w="visionary">Visionary</span>:</strong> <span class="vw" data-w="transforms">Transforms</span> a <span class="vw" data-w="near-fatal">near-fatal</span> <span class="vw" data-w="private">private</span> <span class="vw" data-w="ordeal">ordeal</span> into a <span class="vw" data-w="universal">universal</span> <span class="vw" data-w="metaphysical">metaphysical</span> <span class="vw" data-w="truth">truth</span>, <span class="vw" data-w="internalizing">internalizing</span> <span class="vw" data-w="roosevelt's">Roosevelt's</span> <span class="vw" data-w="dictum">dictum</span> that "the only <span class="vw" data-w="thing">thing</span> we have to <span class="vw" data-w="fear">fear</span> is <span class="vw" data-w="fear">fear</span> itself."</li>
 </ul>
-</div>
-<div class="bw-card accent">
+</div><div class="bw-card accent">
 <h4>2. Mr. Ross (The Swimming Instructor)</h4>
 <p><strong><span class="vw" data-w="archetype">Archetype</span>:</strong> The <span class="vw" data-w="patient">Patient</span> <span class="vw" data-w="pedagogue">Pedagogue</span> / The <span class="vw" data-w="master">Master</span> <span class="vw" data-w="craftsman">Craftsman</span></p><ul>
 <li><strong><span class="vw" data-w="methodical">Methodical</span> &amp; <span class="vw" data-w="patient">Patient</span> <span class="vw" data-w="pedagogy">Pedagogy</span>:</strong> <span class="vw" data-w="rather">Rather</span> than <span class="vw" data-w="overwhelming">overwhelming</span> Douglas, he <span class="vw" data-w="deconstructs">deconstructs</span> <span class="vw" data-w="swimming">swimming</span> into <span class="vw" data-w="modular">modular</span> <span class="vw" data-w="components">components</span>, <span class="vw" data-w="building">building</span> the <span class="vw" data-w="swimmer">swimmer</span> "<span class="vw" data-w="piece">piece</span> by <span class="vw" data-w="piece">piece</span>" over six <span class="vw" data-w="months">months</span>.</li>
@@ -1454,15 +1398,17 @@ td:last-child, th:last-child { border-right: 0; }
 <li><strong><span class="vw" data-w="progressive">Progressive</span> <span class="vw" data-w="desensitization">Desensitization</span>:</strong> <span class="vw" data-w="systematically">Systematically</span> <span class="vw" data-w="sequences">sequences</span> the <span class="vw" data-w="training">training</span>: (1) <span class="vw" data-w="controlled">Controlled</span> <span class="vw" data-w="buoyancy">buoyancy</span> <span class="vw" data-w="exposure">exposure</span>, (2) <span class="vw" data-w="respiratory">Respiratory</span> <span class="vw" data-w="retraining">retraining</span> (<span class="vw" data-w="exhaling">exhaling</span> <span class="vw" data-w="underwater">underwater</span>, <span class="vw" data-w="inhaling">inhaling</span> above), (3) <span class="vw" data-w="locomotor">Locomotor</span> <span class="vw" data-w="restoration">restoration</span> (<span class="vw" data-w="poolside">poolside</span> <span class="vw" data-w="leg">leg</span> <span class="vw" data-w="kicking">kicking</span>), and (4) <span class="vw" data-w="integrated">Integrated</span> <span class="vw" data-w="crawl">crawl</span> <span class="vw" data-w="strokes">strokes</span>.</li>
 <li><strong><span class="vw" data-w="knowing">Knowing</span> When to <span class="vw" data-w="step">Step</span> Back:</strong> In <span class="vw" data-w="april">April</span>, after <span class="vw" data-w="assembling">assembling</span> the "<span class="vw" data-w="integrated">integrated</span> <span class="vw" data-w="whole">whole</span>," he <span class="vw" data-w="declares">declares</span> his <span class="vw" data-w="task">task</span> <span class="vw" data-w="complete">complete</span>, <span class="vw" data-w="giving">giving</span> Douglas the <span class="vw" data-w="foundation">foundation</span> to <span class="vw" data-w="achieve">achieve</span> <span class="vw" data-w="psychological">psychological</span> <span class="vw" data-w="autonomy">autonomy</span>.</li>
 </ul>
-</div>
-<div class="bw-card accent">
+</div><div class="bw-card accent">
 <h4>3. The Eighteen-Year-Old Bully</h4>
 <p><strong><span class="vw" data-w="archetype">Archetype</span>:</strong> The <span class="vw" data-w="thoughtless">Thoughtless</span> <span class="vw" data-w="agitator">Agitator</span> / <span class="vw" data-w="toxic">Toxic</span> <span class="vw" data-w="physicality">Physicality</span></p><ul>
 <li><strong><span class="vw" data-w="physical">Physical</span> <span class="vw" data-w="specimen">Specimen</span> without <span class="vw" data-w="empathy">Empathy</span>:</strong> <span class="vw" data-w="described">Described</span> as a "<span class="vw" data-w="big">big</span> <span class="vw" data-w="bruiser">bruiser</span> of a boy" with <span class="vw" data-w="rippling">rippling</span> <span class="vw" data-w="muscles">muscles</span> and <span class="vw" data-w="thick">thick</span> <span class="vw" data-w="chest">chest</span> <span class="vw" data-w="hair">hair</span>. His <span class="vw" data-w="athletic">athletic</span> <span class="vw" data-w="physique">physique</span> <span class="vw" data-w="masks">masks</span> a <span class="vw" data-w="dangerous">dangerous</span> <span class="vw" data-w="moral">moral</span> <span class="vw" data-w="shallowness">shallowness</span> and <span class="vw" data-w="reckless">reckless</span> <span class="vw" data-w="disregard">disregard</span> for <span class="vw" data-w="human">human</span> <span class="vw" data-w="life">life</span>.</li>
 <li><strong><span class="vw" data-w="casual">Casual</span> <span class="vw" data-w="cruelty">Cruelty</span> &amp; <span class="vw" data-w="mockery">Mockery</span>:</strong> <span class="vw" data-w="targets">Targets</span> <span class="vw" data-w="douglas's">Douglas's</span> <span class="vw" data-w="physical">physical</span> <span class="vw" data-w="vulnerability">vulnerability</span> by <span class="vw" data-w="mocking">mocking</span> him ("Hi, <span class="vw" data-w="skinny">Skinny</span>!") and <span class="vw" data-w="hurling">hurling</span> him into the <span class="vw" data-w="nine-foot">nine-foot</span> <span class="vw" data-w="deep">deep</span> <span class="vw" data-w="end">end</span> without <span class="vw" data-w="checking">checking</span> if he can <span class="vw" data-w="swim">swim</span>.</li>
 <li><strong><span class="vw" data-w="cowardly">Cowardly</span> <span class="vw" data-w="evasion">Evasion</span> of <span class="vw" data-w="responsibility">Responsibility</span>:</strong> When <span class="vw" data-w="confronted">confronted</span> with the <span class="vw" data-w="boy's">boy's</span> <span class="vw" data-w="near-death">near-death</span> at the <span class="vw" data-w="poolside">poolside</span>, he <span class="vw" data-w="offers">offers</span> the <span class="vw" data-w="pathetic">pathetic</span> <span class="vw" data-w="excuse">excuse</span>: "But I was only <span class="vw" data-w="fooling">fooling</span>." He <span class="vw" data-w="represents">represents</span> the <span class="vw" data-w="thoughtless">thoughtless</span> <span class="vw" data-w="societal">societal</span> <span class="vw" data-w="cruelty">cruelty</span> that can <span class="vw" data-w="involuntarily">involuntarily</span> <span class="vw" data-w="scar">scar</span> a <span class="vw" data-w="person's">person's</span> <span class="vw" data-w="psyche">psyche</span>.</li>
 </ul>
-</div>
+</div></div>
+
+
+
 </section>
 <!-- Section 5: RTC -->
 <section id="rtc">
@@ -1521,37 +1467,37 @@ td:last-child, th:last-child { border-right: 0; }
 </section>
 <!-- Section 6: Short QA -->
 <section id="short-qa">
-<h2 class="section-header">06. High-Yield Short Answer Qs (2 Marks)</h2>
-<div class="qa-card">
+<h2 class="section-header">06. High-Yield Short Answer Qs (2 Marks)</h2><div class="desktop-grid-2"><div class="qa-card">
 <div class="qa-card-meta">CBSE <span class="vw" data-w="short">SHORT</span> ANSWER // 2 MARKS</div>
 <div class="qa-card-q">Q1. How did <span class="vw" data-w="douglas's">Douglas's</span> <span class="vw" data-w="introduction">introduction</span> to the Y.M.C.A. pool <span class="vw" data-w="stir">stir</span> <span class="vw" data-w="childish">childish</span> <span class="vw" data-w="fears">fears</span>?</div>
 <div class="qa-card-a"><p>Douglas had <span class="vw" data-w="developed">developed</span> an <span class="vw" data-w="intense">intense</span> <span class="vw" data-w="aversion">aversion</span> to water at the <span class="vw" data-w="age">age</span> of three or four when <span class="vw" data-w="gigantic">gigantic</span> <span class="vw" data-w="ocean">ocean</span> <span class="vw" data-w="surf">surf</span> <span class="vw" data-w="knocked">knocked</span> him down and <span class="vw" data-w="swept">swept</span> over him at a <span class="vw" data-w="california">California</span> <span class="vw" data-w="beach">beach</span>. <span class="vw" data-w="stepping">Stepping</span> into the Y.M.C.A. pool <span class="vw" data-w="revived">revived</span> those <span class="vw" data-w="latent">latent</span> <span class="vw" data-w="memories">memories</span> of <span class="vw" data-w="breathlessness">breathlessness</span> and <span class="vw" data-w="helplessness">helplessness</span>, <span class="vw" data-w="temporarily">temporarily</span> <span class="vw" data-w="unsettling">unsettling</span> his <span class="vw" data-w="confidence">confidence</span>.</p></div>
 <div class="qa-card-vp"><strong>CBSE <span class="vw" data-w="value">Value</span> <span class="vw" data-w="points">Points</span>:</strong> <span class="vw" data-w="california">California</span> <span class="vw" data-w="beach">beach</span> <span class="vw" data-w="incident">incident</span> at <span class="vw" data-w="age">age</span> 3–4 | <span class="vw" data-w="knocked">Knocked</span> down by <span class="vw" data-w="surf">surf</span> and <span class="vw" data-w="lost">lost</span> <span class="vw" data-w="breath">breath</span> | Father <span class="vw" data-w="laughed">laughed</span>, but <span class="vw" data-w="child">child</span> felt <span class="vw" data-w="terror">terror</span> | <span class="vw" data-w="unpleasant">Unpleasant</span> <span class="vw" data-w="memories">memories</span> <span class="vw" data-w="resurfaced">resurfaced</span> <span class="vw" data-w="upon">upon</span> <span class="vw" data-w="entering">entering</span> pool.</div>
-</div>
-<div class="qa-card">
+</div><div class="qa-card">
 <div class="qa-card-meta">CBSE <span class="vw" data-w="short">SHORT</span> ANSWER // 2 MARKS</div>
 <div class="qa-card-q">Q2. What <span class="vw" data-w="makes">makes</span> Douglas say, 'I was <span class="vw" data-w="frightened">frightened</span>, but not yet <span class="vw" data-w="frightened">frightened</span> out of my <span class="vw" data-w="wits">wits</span>'?</div>
 <div class="qa-card-a"><p><span class="vw" data-w="although">Although</span> <span class="vw" data-w="abruptly">abruptly</span> <span class="vw" data-w="hurled">hurled</span> into the <span class="vw" data-w="nine-foot">nine-foot</span> <span class="vw" data-w="deep">deep</span> <span class="vw" data-w="end">end</span> by a <span class="vw" data-w="bully">bully</span>, Douglas did not <span class="vw" data-w="succumb">succumb</span> to <span class="vw" data-w="blinding">blinding</span> <span class="vw" data-w="paralysis">paralysis</span> <span class="vw" data-w="immediately">immediately</span>. In the <span class="vw" data-w="midst">midst</span> of <span class="vw" data-w="plummeting">plummeting</span>, his <span class="vw" data-w="rational">rational</span> <span class="vw" data-w="faculties">faculties</span> <span class="vw" data-w="remained">remained</span> <span class="vw" data-w="functional">functional</span>, <span class="vw" data-w="allowing">allowing</span> him to <span class="vw" data-w="devise">devise</span> a <span class="vw" data-w="lucid">lucid</span> <span class="vw" data-w="survival">survival</span> <span class="vw" data-w="strategy">strategy</span> to <span class="vw" data-w="spring">spring</span> from the <span class="vw" data-w="bottom">bottom</span> and <span class="vw" data-w="paddle">paddle</span> to <span class="vw" data-w="safety">safety</span>.</p></div>
 <div class="qa-card-vp"><strong>CBSE <span class="vw" data-w="value">Value</span> <span class="vw" data-w="points">Points</span>:</strong> <span class="vw" data-w="sudden">Sudden</span> <span class="vw" data-w="shock">shock</span> of being <span class="vw" data-w="thrown">thrown</span> | <span class="vw" data-w="cognitive">Cognitive</span> <span class="vw" data-w="faculties">faculties</span> <span class="vw" data-w="intact">intact</span> | <span class="vw" data-w="formulated">Formulated</span> <span class="vw" data-w="rational">rational</span> <span class="vw" data-w="jump">jump</span> <span class="vw" data-w="strategy">strategy</span> on the <span class="vw" data-w="descent">descent</span> | <span class="vw" data-w="maintained">Maintained</span> <span class="vw" data-w="composure">composure</span> under <span class="vw" data-w="initial">initial</span> <span class="vw" data-w="mortal">mortal</span> <span class="vw" data-w="peril">peril</span>.</div>
-</div>
-<div class="qa-card">
+</div><div class="qa-card">
 <div class="qa-card-meta">CBSE <span class="vw" data-w="short">SHORT</span> ANSWER // 2 MARKS</div>
 <div class="qa-card-q">Q3. Why did <span class="vw" data-w="douglas's">Douglas's</span> <span class="vw" data-w="plan">plan</span> of <span class="vw" data-w="springing">springing</span> <span class="vw" data-w="upward">upward</span> from the pool <span class="vw" data-w="floor">floor</span> <span class="vw" data-w="fail">fail</span>?</div>
 <div class="qa-card-a"><p>Douglas <span class="vw" data-w="anticipated">anticipated</span> <span class="vw" data-w="bobbing">bobbing</span> <span class="vw" data-w="effortlessly">effortlessly</span> to the <span class="vw" data-w="surface">surface</span> <span class="vw" data-w="like">like</span> a <span class="vw" data-w="cork">cork</span>. <span class="vw" data-w="however">However</span>, the <span class="vw" data-w="immense">immense</span> <span class="vw" data-w="hydrostatic">hydrostatic</span> <span class="vw" data-w="pressure">pressure</span> and <span class="vw" data-w="weight">weight</span> of nine <span class="vw" data-w="feet">feet</span> of water <span class="vw" data-w="dissipated">dissipated</span> his <span class="vw" data-w="upward">upward</span> <span class="vw" data-w="momentum">momentum</span>. <span class="vw" data-w="furthermore">Furthermore</span>, <span class="vw" data-w="physical">physical</span> <span class="vw" data-w="exhaustion">exhaustion</span>, <span class="vw" data-w="oxygen">oxygen</span> <span class="vw" data-w="depletion">depletion</span>, and <span class="vw" data-w="lack">lack</span> of <span class="vw" data-w="swimming">swimming</span> <span class="vw" data-w="leverage">leverage</span> <span class="vw" data-w="caused">caused</span> him to <span class="vw" data-w="rise">rise</span> <span class="vw" data-w="agonizingly">agonizingly</span> <span class="vw" data-w="slowly">slowly</span>, <span class="vw" data-w="suffocating">suffocating</span> on <span class="vw" data-w="murky">murky</span> <span class="vw" data-w="yellow">yellow</span> water.</p></div>
 <div class="qa-card-vp"><strong>CBSE <span class="vw" data-w="value">Value</span> <span class="vw" data-w="points">Points</span>:</strong> Water <span class="vw" data-w="resistance">resistance</span> and <span class="vw" data-w="hydrostatic">hydrostatic</span> <span class="vw" data-w="pressure">pressure</span> | <span class="vw" data-w="insufficient">Insufficient</span> <span class="vw" data-w="buoyancy">buoyancy</span> without <span class="vw" data-w="swimming">swimming</span> <span class="vw" data-w="technique">technique</span> | <span class="vw" data-w="lungs">Lungs</span> <span class="vw" data-w="exhausted">exhausted</span>, came up <span class="vw" data-w="slowly">slowly</span> | <span class="vw" data-w="mouth">Mouth</span> <span class="vw" data-w="remained">remained</span> <span class="vw" data-w="underwater">underwater</span>, <span class="vw" data-w="ingesting">ingesting</span> <span class="vw" data-w="chlorinated">chlorinated</span> water.</div>
-</div>
-<div class="qa-card">
+</div><div class="qa-card">
 <div class="qa-card-meta">CBSE <span class="vw" data-w="short">SHORT</span> ANSWER // 2 MARKS</div>
 <div class="qa-card-q">Q4. How did the <span class="vw" data-w="swimming">swimming</span> <span class="vw" data-w="instructor">instructor</span> <span class="vw" data-w="transform">transform</span> Douglas into a <span class="vw" data-w="swimmer">swimmer</span> '<span class="vw" data-w="piece">piece</span> by <span class="vw" data-w="piece">piece</span>'?</div>
 <div class="qa-card-a"><p>The <span class="vw" data-w="instructor">instructor</span> <span class="vw" data-w="adopted">adopted</span> a <span class="vw" data-w="modular">modular</span> <span class="vw" data-w="pedagogy">pedagogy</span>: first, he <span class="vw" data-w="used">used</span> a <span class="vw" data-w="belt-and-pulley">belt-and-pulley</span> <span class="vw" data-w="safety">safety</span> <span class="vw" data-w="rig">rig</span> to <span class="vw" data-w="desensitize">desensitize</span> Douglas over three <span class="vw" data-w="months">months</span>; second, he <span class="vw" data-w="trained">trained</span> him to <span class="vw" data-w="exhale">exhale</span> <span class="vw" data-w="underwater">underwater</span> and <span class="vw" data-w="inhale">inhale</span> above; third, he had him <span class="vw" data-w="kick">kick</span> <span class="vw" data-w="repeatedly">repeatedly</span> at the <span class="vw" data-w="poolside">poolside</span> to <span class="vw" data-w="command">command</span> his <span class="vw" data-w="legs">legs</span>; <span class="vw" data-w="finally">finally</span>, he <span class="vw" data-w="integrated">integrated</span> these <span class="vw" data-w="skills">skills</span> into <span class="vw" data-w="fluid">fluid</span> <span class="vw" data-w="strokes">strokes</span>.</p></div>
 <div class="qa-card-vp"><strong>CBSE <span class="vw" data-w="value">Value</span> <span class="vw" data-w="points">Points</span>:</strong> <span class="vw" data-w="overhead">Overhead</span> <span class="vw" data-w="belt-and-pulley">belt-and-pulley</span> <span class="vw" data-w="cable">cable</span> <span class="vw" data-w="system">system</span> (3 <span class="vw" data-w="months">months</span>) | <span class="vw" data-w="controlled">Controlled</span> <span class="vw" data-w="underwater">underwater</span> <span class="vw" data-w="inhalation">inhalation</span>/<span class="vw" data-w="exhalation">exhalation</span> <span class="vw" data-w="drills">drills</span> | <span class="vw" data-w="leg-kicking">Leg-kicking</span> <span class="vw" data-w="drills">drills</span> at <span class="vw" data-w="poolside">poolside</span> | <span class="vw" data-w="integrated">Integrated</span> <span class="vw" data-w="modular">modular</span> <span class="vw" data-w="skills">skills</span> into a <span class="vw" data-w="cohesive">cohesive</span> <span class="vw" data-w="whole">whole</span>.</div>
-</div>
-<div class="qa-card">
+</div><div class="qa-card">
 <div class="qa-card-meta">CBSE <span class="vw" data-w="short">SHORT</span> ANSWER // 2 MARKS</div>
 <div class="qa-card-q">Q5. Why did Douglas <span class="vw" data-w="visit">visit</span> Lake Wentworth in New Hampshire and Warm Lake?</div>
 <div class="qa-card-a"><p>Douglas was <span class="vw" data-w="unwilling">unwilling</span> to <span class="vw" data-w="settle">settle</span> for <span class="vw" data-w="simulated">simulated</span> pool <span class="vw" data-w="safety">safety</span>. To <span class="vw" data-w="confirm">confirm</span> that no "<span class="vw" data-w="residual">residual</span> <span class="vw" data-w="doubts">doubts</span>" or <span class="vw" data-w="subconscious">subconscious</span> <span class="vw" data-w="fears">fears</span> <span class="vw" data-w="lingered">lingered</span>, he <span class="vw" data-w="tested">tested</span> his <span class="vw" data-w="endurance">endurance</span> <span class="vw" data-w="across">across</span> a <span class="vw" data-w="two-mile">two-mile</span> <span class="vw" data-w="expanse">expanse</span> at Lake Wentworth and the <span class="vw" data-w="frigid">frigid</span> <span class="vw" data-w="alpine">alpine</span> <span class="vw" data-w="waters">waters</span> of Warm Lake, <span class="vw" data-w="successfully">successfully</span> <span class="vw" data-w="banishing">banishing</span> "Mr. <span class="vw" data-w="terror">Terror</span>" in <span class="vw" data-w="open">open</span> <span class="vw" data-w="nature">nature</span>.</p></div>
 <div class="qa-card-vp"><strong>CBSE <span class="vw" data-w="value">Value</span> <span class="vw" data-w="points">Points</span>:</strong> <span class="vw" data-w="refusal">Refusal</span> to <span class="vw" data-w="rely">rely</span> on <span class="vw" data-w="artificial">artificial</span> pool <span class="vw" data-w="security">security</span> | <span class="vw" data-w="two-mile">Two-mile</span> <span class="vw" data-w="swim">swim</span> at Lake Wentworth (Triggs to Stamp Act Island) | <span class="vw" data-w="alpine">Alpine</span> <span class="vw" data-w="swim">swim</span> <span class="vw" data-w="across">across</span> Warm Lake | <span class="vw" data-w="complete">Complete</span> <span class="vw" data-w="eradication">eradication</span> of <span class="vw" data-w="residual">residual</span> <span class="vw" data-w="subconscious">subconscious</span> <span class="vw" data-w="terror">terror</span>.</div>
-</div>
+</div></div>
+
+
+
+
+
 </section>
 <!-- Section 7: Long QA -->
 <section id="long-qa">

@@ -54,7 +54,9 @@ A curated, high-yield digital study compendium and reference manual for CBSE Cla
 CBSE-English-12/
 ├── index.html        # GitHub Pages portal and chapter catalog
 ├── README.md         # Documentation & guide
+├── FORMATTING_STANDARD.md # Canonical formatting specifications (anchor: Going Places)
 ├── .gitignore        # Clean workspace git configuration
+├── scripts/          # Master stylesheets and PDF compiler tools
 ├── HTML/             # Standalone interactive chapter HTML manuals
 │   ├── the_last_lesson_cbse_mastery.html
 │   ├── lost_spring_cbse_mastery.html
