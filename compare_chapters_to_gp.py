@@ -12,6 +12,7 @@ chapters = [
     ('Ch 08: Going Places (BENCHMARK)', 'HTML/going_places_cbse_mastery.html'),
     ('Poem 01: My Mother at Sixty-Six', 'HTML/my_mother_at_sixty_six_cbse_mastery.html'),
     ('Poem 02: Keeping Quiet', 'HTML/keeping_quiet_cbse_mastery.html'),
+    ('Poem 03: A Thing of Beauty', 'HTML/a_thing_of_beauty_cbse_mastery.html'),
 ]
 
 # Canonical patterns from Going Places:
