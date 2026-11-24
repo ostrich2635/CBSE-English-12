@@ -1,0 +1,2653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>On the Face of It — CBSE Class 12 English Core Mastery Manual</title>
+<script>
+(function() {
+  const saved = localStorage.getItem('cbse_theme');
+  if (saved === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+<style>
+:root {
+  --bg: #ffffff;
+  --text-main: #111111;
+  --text-muted: #555555;
+  --border-light: #e5e5e5;
+  --border-dark: #111111;
+  --panel-bg: #fafafa;
+  --panel-hover: #f3f4f6;
+  --tooltip-bg: #111111;
+  --tooltip-text: #ffffff;
+  --tooltip-border: #333333;
+  --hover-bg: #f0f0f0;
+  --font-sans: "Google Sans", "Google Sans Text", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Georgia", "Cambria", "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+}
+
+[data-theme="dark"] {
+  --bg: #0d1117;
+  --text-main: #e6edf3;
+  --text-muted: #8b949e;
+  --border-light: #30363d;
+  --border-dark: #e6edf3;
+  --panel-bg: #161b22;
+  --panel-hover: #1f242c;
+  --tooltip-bg: #161b22;
+  --tooltip-text: #e6edf3;
+  --tooltip-border: #6e7681;
+  --hover-bg: #21262d;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.68;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 100px 24px;
+}
+
+.mono-kicker {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 6px;
+}
+
+.doc-title {
+  font-family: var(--font-serif);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.doc-subtitle {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+}
+
+.doc-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.spec-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border: 1px solid var(--border-light);
+  background: var(--panel-bg);
+  color: var(--text-main);
+}
+
+.toc-box {
+  background: var(--panel-bg);
+  border: 1px solid var(--border-dark);
+  padding: 20px 24px;
+  margin-bottom: 48px;
+}
+
+.toc-title {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 8px;
+}
+
+.toc-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.toc-list li a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  display: block;
+  padding: 4px 0;
+  transition: color 0.15s;
+}
+
+.toc-list li a:hover {
+  text-decoration: underline;
+}
+
+.section-header {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 700;
+  margin: 56px 0 20px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border-dark);
+}
+
+.content-block {
+  margin-bottom: 24px;
+  text-align: justify;
+}
+
+.theme-card {
+  border: 1px solid var(--border-light);
+  background: var(--panel-bg);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+.theme-card-title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.clean-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 13.5px;
+}
+
+.clean-table th, .clean-table td {
+  border: 1px solid var(--border-light);
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.clean-table th {
+  background: var(--panel-bg);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.keyword-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 24px 0;
+}
+
+.kw-chip {
+  border: 1px solid var(--border-light);
+  background: var(--panel-bg);
+  padding: 6px 10px;
+  font-size: 12.5px;
+  font-family: var(--font-mono);
+}
+
+.passage-block {
+  border: 1px solid var(--border-light);
+  background: var(--bg);
+  margin-bottom: 40px;
+  padding: 24px;
+}
+
+.passage-headline {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--text-main);
+  border-bottom: 1px dashed var(--border-light);
+  padding-bottom: 6px;
+}
+
+.quote-passage {
+  background: var(--panel-bg);
+  border-left: 3px solid var(--border-dark);
+  padding: 18px 20px;
+  margin: 16px 0 24px 0;
+  font-family: var(--font-serif);
+  font-size: 14.5px;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  position: relative;
+}
+
+.quote-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.sub-module {
+  margin: 20px 0;
+  padding: 16px;
+  border: 1px solid var(--border-light);
+  background: var(--panel-bg);
+}
+
+.sub-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+  color: var(--text-muted);
+}
+
+.exam-value-box {
+  background: var(--panel-bg);
+  border: 1px solid var(--border-dark);
+  padding: 18px 20px;
+  margin: 20px 0;
+}
+
+.qa-card {
+  border: 1px solid var(--border-light);
+  background: var(--panel-bg);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.qa-card-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.qa-card-q {
+  font-family: var(--font-serif);
+  font-size: 15.5px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.45;
+}
+
+.qa-card-a {
+  font-size: 14.5px;
+  margin-bottom: 14px;
+  text-align: justify;
+}
+
+.qa-card-vp {
+  background: var(--bg);
+  border-left: 2px solid var(--border-dark);
+  padding: 10px 14px;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  line-height: 1.55;
+}
+
+.vw {
+  cursor: pointer;
+  border-bottom: 1px dashed var(--text-muted);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.vw:hover {
+  background: var(--hover-bg);
+  border-bottom: 1px solid var(--text-main);
+}
+
+#vocab-tooltip {
+  position: absolute;
+  display: none;
+  z-index: 9999;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  border: 1px solid var(--tooltip-border);
+  padding: 12px 14px;
+  max-width: 320px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  border-radius: 4px;
+}
+
+.tt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding-bottom: 4px;
+  margin-bottom: 6px;
+}
+
+.tt-word {
+  font-weight: 700;
+  font-size: 14px;
+  font-family: var(--font-mono);
+}
+
+.tt-phonetic {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.tt-pos {
+  font-style: italic;
+  font-size: 11px;
+  margin-bottom: 4px;
+  opacity: 0.85;
+}
+
+.tt-def {
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.tt-cbse {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  border-top: 1px dashed rgba(255,255,255,0.2);
+  padding-top: 4px;
+  opacity: 0.9;
+}
+
+.floating-controls {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  gap: 8px;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.floating-controls.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.control-btn {
+  background: var(--panel-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-dark);
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.15s;
+}
+
+.control-btn:hover {
+  background: var(--panel-hover);
+}
+
+.doc-footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+</style>
+</head>
+<body>
+<div class="container" id="top">
+  <div class="mono-kicker">MANUAL // CBSE CLASS 12 ENGLISH CORE (VISTAS) // CH-05</div>
+  <h1 class="doc-title">ON THE FACE OF IT</h1>
+  <div class="doc-subtitle">SUSAN HILL // COMPLETE CBSE BOARD MASTERY MANUAL</div>
+
+  <div class="doc-specs">
+    <span class="spec-pill">SYLLABUS: 2026–27</span>
+    <span class="spec-pill">CORE: VISTAS (SUPPLEMENTARY)</span>
+    <span class="spec-pill">GENRE: ONE-ACT DRAMA</span>
+    <span class="spec-pill">WEIGHTAGE: 4–7 MARKS</span>
+    <span class="spec-pill">BENCHMARK: GOING PLACES PARITY</span>
+  </div>
+
+  <nav class="toc-box">
+    <div class="toc-title">
+      <span>INDEX // QUICK NAVIGATION</span>
+      <span>[8 SECTIONS]</span>
+    </div>
+    <ul class="toc-list">
+      <li><a href="#overview">01. EXECUTIVE EXAM COMPASS &amp; THEMES</a></li>
+      <li><a href="#keywords">02. CBSE GOLDEN KEYWORDS BANK</a></li>
+      <li><a href="#passages">03. PASSAGE-BY-PASSAGE BREAKDOWN (01 TO 10)</a></li>
+      <li><a href="#characters">04. MASTER CHARACTER SKETCHES</a></li>
+      <li><a href="#rtc">05. REFERENCE TO CONTEXT (EXTRACT-BASED QS)</a></li>
+      <li><a href="#short-qa">06. HIGH-YIELD SHORT ANSWER QS (2 MARKS)</a></li>
+      <li><a href="#long-qa">07. HIGH-SCORING LONG ANSWER QS (5 MARKS)</a></li>
+      <li><a href="#pyq-vault">08. PREVIOUS YEARS' QUESTION VAULT (2019–2025)</a></li>
+    </ul>
+  </nav>
+
+  <!-- SECTION 01 -->
+  <section id="overview">
+    <h2 class="section-header">01. Executive Exam Compass &amp; Themes</h2>
+    <div class="content-block">
+      <p>Susan Hill's <em>On the Face of It</em> is an acutely perceptive, emotionally resonant one-act play that explores the agonizing psychological alienation experienced by individuals with physical impairments. Rather than focusing merely on physical disability, the drama dramatizes the destructive impact of societal cruelty, patronizing pity, and the self-erected emotional fortresses of those who suffer. Through the chance encounter between Derry, a bitter fourteen-year-old boy whose face was disfigured by acid, and Mr. Lamb, an eccentric, lonely elderly veteran with a prosthetic tin leg, Hill crafts a profound dialectic on human perception, resilience, and the healing power of non-judgmental companionship.</p>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-card-title">1. The Psychology of Impairment vs. Societal Gaze</div>
+      <p>The play distinguishes between physical pain and psychological agony. While Derry's acid burn and Lamb's tin leg are permanent physical realities, their true torment stems from how society regards them. Strangers gawk, recoil in disgust, or mouth condescending platitudes ('Look at all those worse off than you'). Derry internalizes this hostility, viewing his face as a repulsive monstrosity that repels even his mother. Susan Hill exposes how unthinking societal cruelty forces the disabled into defensive misanthropy and voluntary exile.</p>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-card-title">2. Appearance vs. Reality ("On the Face of It")</div>
+      <p>The idiom 'on the face of it' signifies superficial, outward appearances that deceive observers. On the surface, Derry appears angry, rude, and defiant, but inwardly he is a frightened child starved of love and acceptance. Similarly, Mr. Lamb appears to be a cheerful, carefree eccentric surrounded by friends, yet beneath his jovial hospitality lies deep-seated existential loneliness. The play asserts that true human worth cannot be evaluated by facial symmetry or bodily integrity, but by inward vision, empathy, and intellectual vitality.</p>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-card-title">3. Radical Acceptance, Nature &amp; Perspective</div>
+      <p>Mr. Lamb serves as an apostle of sensory and philosophical openness. He dismantles Derry's binary worldview by questioning why humans celebrate a poppy as a flower while despising a dandelion as a weed, when both share the exact same life-force. Where others hear buzzing pests, Lamb hears bees humming a song. His house has no curtains because he refuses to shut out either light or wind. Lamb models an epistemology of radical acceptance: life must be embraced in its unvarnished entirety.</p>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-card-title">4. The Destructive Poison of Bitterness vs. Human Agency</div>
+      <p>Lamb offers Derry a vital moral distinction: acid only burns physical skin, but hatred and bitterness burn the soul away from the inside. Lamb reminds Derry of his intact faculties—two arms, two legs, eyes, ears, tongue, and intellect. With these resources, Derry possesses the agency to carve out an extraordinary life if he chooses courage over despair. The play culminates in Derry's triumphant rebellion against maternal fear, demonstrating that emotional liberation is an active, courageous choice.</p>
+    </div>
+
+    <table class="clean-table">
+      <thead>
+        <tr>
+          <th>DRAMATIC DIMENSION</th>
+          <th>TEXTUAL EVIDENCE &amp; CHARACTER DYNAMICS</th>
+          <th>CBSE EXAM IMPLICATION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Central Dramatic Conflict</strong></td>
+          <td>Derry's hypersensitive defensive isolation vs. Mr. Lamb's open-hearted philosophical hospitality.</td>
+          <td>Core focus of 5-mark comparative character and theme questions.</td>
+        </tr>
+        <tr>
+          <td><strong>Spatial Symbolism</strong></td>
+          <td>Lamb's unfenced garden with unlatched gates vs. Derry's shuttered domestic home.</td>
+          <td>Contrasts the liberation of nature with suffocating societal paranoia.</td>
+        </tr>
+        <tr>
+          <td><strong>Key Symbolic Motifs</strong></td>
+          <td>Crab apples / Windfalls, Weeds vs Flowers, Curtains, Bees Singing, The Tin Leg, The Broken Ladder.</td>
+          <td>Essential recurring imagery required for RTCs and full-mark answers.</td>
+        </tr>
+        <tr>
+          <td><strong>Tragicomic Climax</strong></td>
+          <td>Mr. Lamb's fatal fall from the apple tree just as Derry returns breathless across three miles.</td>
+          <td>Highlights bittersweet triumph: Lamb dies, but his philosophy lives on in Derry.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SECTION 02 -->
+  <section id="keywords">
+    <h2 class="section-header">02. CBSE Golden Keywords Bank</h2>
+    <p class="content-block">Incorporate these exact psychological, literary, and thematic terms in your board answers to earn maximum marks under the CBSE marking criteria:</p>
+
+    <div class="keyword-cloud">
+      <span class="kw-chip">ACID CORROSION</span>
+      <span class="kw-chip">LAMEY-LAMB</span>
+      <span class="kw-chip">CRAB APPLES</span>
+      <span class="kw-chip">WINDFALLS</span>
+      <span class="kw-chip">WEEDS VS FLOWERS</span>
+      <span class="kw-chip">BEES SINGING</span>
+      <span class="kw-chip">OPEN GATES</span>
+      <span class="kw-chip">NO CURTAINS</span>
+      <span class="kw-chip">BEAUTY AND THE BEAST</span>
+      <span class="kw-chip">RELATIVE PERCEPTION</span>
+      <span class="kw-chip">PSYCHOLOGICAL ISOLATION</span>
+      <span class="kw-chip">DEFENSIVE MISANTHROPY</span>
+      <span class="kw-chip">INTERNALIZED STIGMA</span>
+      <span class="kw-chip">PATRONIZING PITY</span>
+      <span class="kw-chip">TRANSFORMATIVE MENTORSHIP</span>
+      <span class="kw-chip">RADICAL AGENCY</span>
+      <span class="kw-chip">SOCIETAL CRUELTY</span>
+      <span class="kw-chip">MATERNAL OVERPROTECTION</span>
+      <span class="kw-chip">FALLEN LADDER</span>
+      <span class="kw-chip">CATHARTIC TEARS</span>
+    </div>
+
+    <table class="clean-table">
+      <thead>
+        <tr>
+          <th>KEYWORD / CONCEPT</th>
+          <th>CBSE CONTEXTUAL MEANING</th>
+          <th>MODEL BOARD SENTENCE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Acid Corrosion vs. Bitterness</strong></td>
+          <td>Physical trauma of skin burning contrasted with moral/spiritual destruction of internal hatred.</td>
+          <td><em>Mr. Lamb warns Derry that while acid merely corrodes physical skin, lingering bitterness burns the inside of a person completely away.</em></td>
+        </tr>
+        <tr>
+          <td><strong>Relative Perception</strong></td>
+          <td>The philosophical doctrine that aesthetic value and social judgments are entirely subjective.</td>
+          <td><em>Through the analogy of weeds and flowering plants, Lamb illustrates that beauty and deformity are matters of relative perception.</em></td>
+        </tr>
+        <tr>
+          <td><strong>Defensive Misanthropy</strong></td>
+          <td>Cultivating hatred and avoidance of humanity as a preemptive psychological shield against rejection.</td>
+          <td><em>Derry’s hostile defiance is not innate cruelty but a defensive misanthropy designed to ward off the agonizing pity of strangers.</em></td>
+        </tr>
+        <tr>
+          <td><strong>No Curtains / Open Gate</strong></td>
+          <td>Symbol of absolute mental receptivity, refusal to exclude life, light, wind, or human companionship.</td>
+          <td><em>Mr. Lamb’s refusal to hang curtains reflects his philosophical determination never to shut life out nor shut himself in.</em></td>
+        </tr>
+        <tr>
+          <td><strong>Fallen Ladder &amp; Catharsis</strong></td>
+          <td>The tragic physical accident that triggers Derry's emotional rebirth through selfless grief.</td>
+          <td><em>The shattered ladder claims Lamb’s life, yet Derry’s cathartic tears symbolize his permanent rebirth into an empathetic, courageous human being.</em></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SECTION 03 -->
+  <section id="passages">
+    <h2 class="section-header">03. Passage-by-Passage Breakdown (01 to 10)</h2>
+
+    <div class="passage-block" id="p01">
+      <div class="passage-headline">Passage 1: Scene One — Intrusion, Startlement &amp; The Crab Apple Warning</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> Derry&#x27;s cautious breach of the garden wall and his first startling encounter with Mr. Lamb amidst the rustling leaves and crab apples.</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+Scene One
+Mr Lamb’s garden [There is the occasional sound of birdsong and of 
+tree leaves rustling. Derry’s footsteps are heard as he walks slowly and 
+<span class="vw" data-w="tentatively">tentatively</span> through the long grass. He pauses, then walks on again. 
+He comes round a screen of bushes, so that when Mr Lamb speaks 
+to him he is close at hand and Derry is startled]
+Mr LaMb:  Mind the apples!
+Derry: What? Who’s that? Who’s there?
+Mr LaMb:  Lamb’s my name. Mind the apples. 
+Crab apples those are. <span class="vw" data-w="windfalls">Windfalls</span> in 
+the long grass. You could trip.
+Derry: I....there....I thought this was an 
+empty place. I didn’t know ther
+e was 
+anybody here....
+Mr LaMb: That’s all right. I’m here. What are 
+you afraid of, boy? That’s all right.
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>tentatively</strong></td>
+              <td><code>/ˈten.tə.tɪv.li/</code><br><em>adverb</em></td>
+              <td>Hesitantly, cautiously, without conviction or firmness.</td>
+              <td>Captures Derry&#x27;s initial fear and distrust as he enters the garden.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>windfalls</strong></td>
+              <td><code>/ˈwɪnd.fɔːlz/</code><br><em>noun (plural)</em></td>
+              <td>Apples or fruit blown down from a tree by the wind.</td>
+              <td>Symbol of unintended fortune or natural vulnerability in Lamb&#x27;s garden.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>scrumping</strong></td>
+              <td><code>/ˈskrʌm.pɪŋ/</code><br><em>verb (gerund)</em></td>
+              <td>Stealing fruit from an orchard or garden without permission.</td>
+              <td>Differentiates mischievous young thieves from Derry&#x27;s innocent intrusion.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Auditory Imagery &amp; Stage Directions</strong></td>
+              <td><em>"Sound of birdsong, rustling leaves, slow footsteps"</em></td>
+              <td>Establishes pastoral tranquility sharply contrasted with Derry&#x27;s nervous, defensive agitation.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Dramatic In medias res</strong></td>
+              <td><em>"Mr. Lamb&#x27;s abrupt &#x27;Mind the apples!&#x27;"</em></td>
+              <td>Immediately disrupts Derry&#x27;s assumption of solitude, throwing him into acute psychological vulnerability.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Symbolism of Crab Apples</strong></td>
+              <td><em>"Wild, tart, fallen fruit (&#x27;windfalls&#x27;)"</em></td>
+              <td>Mirrors imperfect, wounded outcasts who are discarded by society yet ripe for creative use (jelly).</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>Susan Hill opens the play by immersing the audience in an auditory landscape. Derry climbs over the boundary wall rather than using the open gate, symbolizing his habitual avoidance of conventional human contact and his unconscious need to hide. Mr. Lamb’s gentle warning about &#x27;windfalls&#x27; does not condemn the trespass; instead, it establishes his non-confrontational, accommodating ethos. Derry&#x27;s immediate panic exposes his deeply conditioned fear of surveillance, judgment, and discovery.</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: Why does Derry enter Mr. Lamb&#x27;s garden by climbing the wall instead of coming in through the open gate?</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> Derry enters by climbing the wall because he assumed the house and garden were completely deserted and sought a secluded, isolated sanctuary away from human sight. He avoids open gates and formal entrances due to his intense paranoia, self-consciousness about his acid-burned face, and habitual aversion to encountering other people.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Assumed property was uninhabited; desires complete isolation from the public gaze; hypersensitive fear of confrontation; wall climbing reflects instinctive evasiveness.</div>
+      </div>
+    </div>
+    
+    <div class="passage-block" id="p02">
+      <div class="passage-headline">Passage 2: Defensive Walls, Panic &amp; The Terrifying Mirror</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> Derry&#x27;s acute terror of being observed, his assumption that Mr. Lamb finds him monstrous, and the revelation of his profound self-hatred when looking in mirrors.</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+Derry: I thought it was empty....an empty house.
+Mr LaMb: So it is. Since I’m out here in the garden. It is empty. 
+Until I go back inside. In the meantime, I’m out here and 
+likely to stop. A day like this. Beautiful day. Not a day to
+ 
+be indoors.
+Derry: [Panic] I’ve got to go.
+Mr LaMb:  Not on my account. I don’t mind who comes into the 
+garden. The gate’s always open. Only you climbed the 
+garden wall.
+Derry: [Angry] You were watching me.
+Mr LaMb:  I saw you. But the gate’s open. All welcome. You’re 
+welcome. I sit here. I like sitting.
+Derry: I’d not come to steal anything.
+Mr LaMb:  No, no. The young lads steal....scrump the apples. You’re 
+not so young.
+Derry:  I just....wanted to come in. Into the garden.
+Mr LaMb: So you did. Here we are, then.
+Derry:  You don’t know who I am.
+Mr LaMb: A boy. Thirteen or so.
+Derry: Fourteen. [Pause] But I’ve got to go now. Good-bye.
+Mr LaMb: Nothing to be afraid of. Just a garden. Just me.
+Derry: But I’m not....I’m not afraid. [Pause] People are afraid of  
+me.
+Mr LaMb:  Why should that be?
+Derry: Everyone is. It doesn’t matter who they are, or what they 
+say, or how they look. How they pretend. I know. I can
+ 
+see.
+Mr LaMb:  See what?
+Derry:  What they think.
+Mr LaMb:  What do they think, then?
+Derry: You think.... ‘Here’s a boy.’ You look at me...and  then you 
+see my face and you think. ‘That’s bad. That’s a terrible 
+thing. That’s the ugliest thing I ever saw.’ Y
+ou think, ‘Poor 
+boy.’ But I’m not. Not poor. Underneath, you are afraid. 
+
+Anybody would be. I am. When I look in the mirror, and 
+see it, I’m afraid of me.
+Mr LaMb:  No, Not the whole of you. Not of you.
+Derry:  Yes! 
+ [Pause]
+Mr LaMb:  Later on, when it’s a bit cooler, I’ll get the ladder and a 
+stick, and pull down those crab apples. They’re ripe for 
+it. I make jelly. It’s a good time of year
+, September. Look 
+at them....orange and golden. That’s magic fruit. I often 
+say. But it’s best picked and made into jelly. You could 
+give me a hand.
+Derry:  What have you changed the subject for? People always do 
+that. Why don’t you ask me? Why do you do what they all 
+do and pretend it isn’t true and isn’t there? In case I see
+ 
+you looking and mind and get upset? I’ll tell....you don’t 
+ask me because you’re afraid to.
+Mr LaMb:  You want me to ask....say so, then.
+Derry:  I don’t like being with people. Any people.
+Mr LaMb:  I should say....to look at it.... I should say, you got burned 
+in a fire.
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>monstrous</strong></td>
+              <td><code>/ˈmɒn.strəs/</code><br><em>adjective</em></td>
+              <td>Hideously unnatural, shocking, or grotesque.</td>
+              <td>Derry&#x27;s projected self-hatred and fear of society&#x27;s recoil.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>alienation</strong></td>
+              <td><code>/ˌeɪ.li.əˈneɪ.ʃən/</code><br><em>noun</em></td>
+              <td>The state of feeling isolated, estranged, or excluded from society.</td>
+              <td>The central psychological condition afflicting Derry prior to meeting Lamb.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>daft</strong></td>
+              <td><code>/dɑːft/</code><br><em>adjective</em></td>
+              <td>Silly, foolish, or mentally eccentric.</td>
+              <td>Mr. Lamb&#x27;s affectionate self-deprecation and colloquial warmth.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Psychological Projection</strong></td>
+              <td><em>"&#x27;You think... Here&#x27;s a boy... what a terrible thing...&#x27;"</em></td>
+              <td>Derry projects his own internalized disgust onto Mr. Lamb before Lamb has spoken a single critical word.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Motif of the Mirror</strong></td>
+              <td><em>"&#x27;When I look in the mirror, and see it, I&#x27;m afraid of me.&#x27;"</em></td>
+              <td>The mirror functions as an instrument of psychological self-torture rather than vanity.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Antithesis / Foil Dynamics</strong></td>
+              <td><em>"Derry&#x27;s defensive panic vs. Mr. Lamb&#x27;s serene hospitality"</em></td>
+              <td>Lamb&#x27;s unruffled calm highlights Derry&#x27;s hyper-vigilant emotional volatility.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>In this passage, Derry articulates the agonizing core of his emotional wound. His disfigurement is not merely an aesthetic burden; it is an omnipresent psychological barrier that distorts every social interaction. Derry has preemptively internalized society’s revulsion, believing that anyone looking at his face will instinctively experience fear and disgust. Mr. Lamb’s refusal to react with either horror or patronizing pity completely destabilizes Derry’s defensive paradigm.</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: How does Derry describe his own reaction upon looking into a mirror?</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> Derry confesses with visceral honesty that he is terrified of his own reflection. He states that anybody would be frightened of his burned face, and when he gazes into the mirror, he experiences acute dread and self-hatred, validating why strangers recoil from him.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Internalized self-repulsion; mirrors reflect existential terror; validates external societal revulsion; reveals deeply rooted childhood psychological trauma.</div>
+      </div>
+    </div>
+    
+    <div class="passage-block" id="p03">
+      <div class="passage-headline">Passage 3: Acid, Fire &amp; The Tin Leg — Divergent Scars</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> Derry&#x27;s bitter recounting of how acid destroyed his face and his soul, juxtaposed against Mr. Lamb&#x27;s casual acceptance of his prosthetic tin leg (&#x27;Lamey-Lamb&#x27;).</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+Derry:  Not in a fire. I got acid all down that side of my face and 
+it burned it all away. It ate my face up. It ate me up. And 
+now it’s like this and it won’t ever be any dif
+ferent.
+Mr LaMb:  No.
+Derry: Aren’t you interested?
+Mr LaMb:  You’re a boy who came into the garden. Plenty do. I’m 
+interested in anybody. Anything. There’s nothing God 
+made that doesn’t inter
+est me. Look over there....over 
+beside the far wall. What can you see?
+Derry:  <span class="vw" data-w="rubbish">Rubbish</span>.
+Mr LaMb: <span class="vw" data-w="rubbish">Rubbish</span> ? Look, boy, look....what do you see?
+Derry:  Just....grass and stuff. Weeds.
+Mr LaMb:  Some call them weeds. If you like, then....a weed garden, 
+that. There’s fruit and ther
+e are flowers, and trees and 
+herbs. All sorts. But over there....weeds. I grow weeds 
+there. Why is one green, growing plant called a weed and 
+another ‘flower’? Where’s the difference. It’s all life.... 
+growing. Same as you and me.
+Derry:  We’re not the same.
+Mr LaMb: I’m old. You’re young. You’ve got a burned face, I’ve got a  
+tin leg. Not important. You’re standing there.... I’m sitting 
+here. Where’s the difference?
+Derry:  Why have you got a tin leg?
+Mr LaMb:  Real one got blown off, years back. Lamey-Lamb, some 
+kids say. Haven’t you heard them? You will. Lamey-Lamb. 
+It fits. Doesn’t tr
+ouble me.
+Derry:  But you can put on trousers and cover it up and no one 
+sees, they don’t have to notice and stare.
+Mr LaMb:  Some do. Some don’t. They get tired of it, in the end. 
+There’s plenty of other things to stare at.
+Derry:  Like my face.
+Mr LaMb: Like crab apples or the weeds or a spider climbing up a 
+silken ladder, or my tall sun-flowers.
+Derry:  Things.
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>resilience</strong></td>
+              <td><code>/rɪˈzɪl.jəns/</code><br><em>noun</em></td>
+              <td>The capacity to recover quickly from illness, trauma, or emotional hardship.</td>
+              <td>Embodied by Lamb&#x27;s tin leg and open-hearted engagement with life.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>bitterness</strong></td>
+              <td><code>/ˈbɪt.ər.nəs/</code><br><em>noun</em></td>
+              <td>Deep resentment, cynicism, or grievance resulting from unfair treatment.</td>
+              <td>Worse than acid: Lamb warns that internal bitterness destroys a soul.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>peculiar</strong></td>
+              <td><code>/pɪˈkjuː.li.ər/</code><br><em>adjective</em></td>
+              <td>Strange, unusual, distinctive, or eccentric.</td>
+              <td>Describes Lamb&#x27;s unorthodox philosophies and non-conformist lifestyle.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Metaphor of Consumption</strong></td>
+              <td><em>"&#x27;Acid ate my face up. It ate me up.&#x27;"</em></td>
+              <td>The acid is metaphorically personified as an insatiable predator that devours both physical tissue and internal self-worth.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Contrast of Disabilities</strong></td>
+              <td><em>"Visible, unmaskable facial burn vs. concealable tin leg (trousers)"</em></td>
+              <td>Derry envies Lamb&#x27;s ability to hide his tin leg beneath trousers, whereas Derry&#x27;s facial disfigurement is mercilessly exposed.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Epithet Acceptance</strong></td>
+              <td><em>"&#x27;Lamey-Lamb. It fits me doesn&#x27;t it?&#x27;"</em></td>
+              <td>Lamb robs the derogatory street name of its cruelty by willingly embracing it as harmless nomenclature.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>This exchange is central to the thematic contrast between physical handicap and mental attitude. Derry sees his disfigurement as an all-consuming devastation that froze his future. In contrast, Mr. Lamb treats his war injury with pragmatic, stoic detachment. When children taunt him as &#x27;Lamey-Lamb&#x27;, he does not sulk or lash out; he accepts the nickname because &#x27;it fits.&#x27; Derry is baffled by this emotional resilience, as he has weaponized his own scars into a fortress of self-imposed solitude.</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: Explain the significance of Derry’s remark: &#x27;It ate my face up. It ate me up.&#x27;</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> Derry’s statement underscores that the acid did not merely burn away the epidermal tissue on one side of his face; it devoured his childhood innocence, happiness, social confidence, and sense of personal identity. The chemical burn became an emotional cancer that poisoned his entire psyche.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Dual destruction (physical and psychological); erosion of identity and agency; absolute despair; highlights how traumatic physical changes consume mental well-being.</div>
+      </div>
+    </div>
+    
+    <div class="passage-block" id="p04">
+      <div class="passage-headline">Passage 4: Relativity of Beauty, Weeds &amp; The Unified Pulse of Life</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> Mr. Lamb’s philosophical exposition on &#x27;Beauty and the Beast&#x27;, weeds versus green plants, and the essential unity of all growing life.</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+Mr LaMb:  It’s all <span class="vw" data-w="relative">relative</span>. Beauty and the beast.
+Derry:  What’s that supposed to mean?
+Mr LaMb:  You tell me.
+Derry:  You needn’t think they haven’t all told me that fairy story 
+before. ‘It’s not what you look like, 
+it’s what you are 
+inside. Handsome is as handsome does. Beauty loved the 
+<span class="vw" data-w="monstrous">monstrous</span> beast for himself and when she kissed him he 
+changed into a handsome prince.’ Only he wouldn’t, he’d 
+have stayed a <span class="vw" data-w="monstrous">monstrous</span> beast. I won’t change.
+Mr LaMb:  In that way? No, you won’t.
+Derry:  And no one’ll kiss me, ever. Only my mother, and she 
+kisses me on the other side of my face, and I don’t like my 
+mother 
+to kiss me, she does it because she has to. Why 
+should I like that? I don’t care if nobody ever kisses me.
+Mr LaMb:  Ah, but do you care if you never kiss them.
+Derry:  What?
+Mr LaMb:  Girls. Pretty girls. Long hair and large eyes. People you 
+love.
+Derry:  Who’d let me? Not one.
+Mr LaMb:  Who can tell?
+Derry:  I won’t ever look different. When I’m as old as you, I’ll 
+look the same. I’ll still only have half a face.
+Mr LaMb:  So you will. But the world won’t. The world’s got a whole 
+face, and the world’s there to be looked at.
+Derry:  Do you think this is the world? This old garden?
+Mr LaMb: When I’m here. Not the only one. But the world, as much 
+as anywhere.
+Derry:  Does your leg hurt you?
+Mr LaMb:  Tin doesn’t hurt, boy!
+Derry:  When it came off, did it?
+Mr LaMb:  Certainly.
+Derry:  And now? I mean, where the tin stops, at the top?
+Mr LaMb:  Now and then. In wet weather. It doesn’t signify.
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>relative</strong></td>
+              <td><code>/ˈrel.ə.tɪv/</code><br><em>adjective</em></td>
+              <td>Evaluated only in comparison or relation to something else; subjective.</td>
+              <td>Core philosophical concept: beauty and ugliness depend entirely on perception.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>sympathy</strong></td>
+              <td><code>/ˈsɪm.pə.θi/</code><br><em>noun</em></td>
+              <td>Feelings of pity or sorrow for someone else&#x27;s misfortune; condescension.</td>
+              <td>Derry resents superficial pity, which he views as masked disgust.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>optimism</strong></td>
+              <td><code>/ˈɒp.tɪ.mɪ.zəm/</code><br><em>noun</em></td>
+              <td>Hopefulness and confidence about the future and inherent human goodness.</td>
+              <td>Lamb&#x27;s open gate and lack of curtains symbolize radiant mental openness.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Philosophical Paradox</strong></td>
+              <td><em>"Weed garden vs. flower garden (&#x27;It&#x27;s all life... growing&#x27;)"</em></td>
+              <td>Challenging arbitrary human taxonomies that arbitrarily label one plant a prized flower and another an obnoxious weed.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Intertextual Allusion</strong></td>
+              <td><em>"Fairy tale of &#x27;Beauty and the Beast&#x27;"</em></td>
+              <td>Subverted by Derry, who bitterly points out that fairytale magic does not operate in mundane reality—the beast remains unkissed.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Symbolism of the Garden</strong></td>
+              <td><em>"An uncurated, open sanctuary of nature"</em></td>
+              <td>Represents radical inclusion and egalitarian acceptance where distinctions of aesthetics dissolve.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>Mr. Lamb introduces Derry to an ecological and relativistic worldview. By asking why a dandelion is condemned as a weed while a poppy is celebrated as a flower, Lamb deconstructs societal aesthetics. Both share the exact same biological life force. When Derry scoffs at the fairytale of Beauty and the Beast—noting that no beautiful princess will ever kiss his burned cheek—Lamb does not offer false hope; instead, he shifts the locus of value away from romantic physical validation to existential curiosity and self-direction.</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: What point does Mr. Lamb make by comparing weeds and green growing plants?</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> Mr. Lamb points out that both weeds and flowering plants possess the exact same life force and growth mechanisms. The distinction between a weed and a prized flower is entirely an arbitrary human invention. Similarly, human worth should not be stratified by physical beauty or disfigurement, as all human beings partake in the same universal life.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Relativity of aesthetic judgment; arbitrariness of labels; equality of life forces; deconstruction of societal superficiality.</div>
+      </div>
+    </div>
+    
+    <div class="passage-block" id="p05">
+      <div class="passage-headline">Passage 5: Cruel Whispers, Platitudes &amp; The Unforgiving Bus Stop</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> Derry&#x27;s fierce indignation against empty platitudes (&#x27;Look at those in wheelchairs&#x27;) and the traumatizing memory of two women whispering cruelly at a bus stop.</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+Derry:  Oh, that’s something else they all say. ‘Look at all those 
+people who are in pain and brave and never cry and never 
+complain and don’t feel sorry for themselves.’
+Mr LaMb:  I haven’t said it.
+Derry:  And think of all those people worse off than you. Think, 
+you m
+ight have been blinded, or born deaf, or have to live 
+in a wheelchair, or be <span class="vw" data-w="daft">daft</span> in your head and dribble.
+Mr LaMb:  And that’s all true, and you know it.
+Derry:  It won’t make my face change. Do you know, one day, a 
+woman went by me in the street — I was at  a bus-stop 
+— and she was with another woman, and she looked at 
+me, and she said.... whisper
+ed....only I heard her.... she 
+said, “Look at that, that’s a terrible thing. That’s a face 
+only a mother could love.”
+Mr LaMb: So you believe everything you hear, then?
+Derry:  It was cruel.
+Mr LaMb:  Maybe not meant as such. Just something said between 
+them.
+Derry:  Only I heard it. I heard.
+Mr LaMb:  And is that the only thing you ever heard  anyone say, in 
+your life?
+Derry:  Oh no! I’ve heard a lot of things.
+Mr LaMb:  So now you keep your ears shut.
+Derry:  You’re....<span class="vw" data-w="peculiar">peculiar</span>. You say <span class="vw" data-w="peculiar">peculiar</span> things. You ask 
+questions I don’t understand.
+Mr LaMb:  I like to talk. Have company. You don’t have to answer  
+questions. You don’t have to stop here at all. The gate’s 
+open.
+Derry:  Yes, but...
+Mr LaMb:  I’ve a hive of bees behind those trees over there. Some 
+hear bees and they say, bees buzz. But when you listen 
+to 
+bees for a long while, they humm....and hum means 
+‘sing’. I hear them singing, my bees.
+Derry:  But....I like it here. I came in because I liked it....when I 
+looked over the wall.
+
+Mr LaMb:  If you’d seen me, you’d not have come in.
+Derry:  No.
+Mr LaMb:  No.
+Derry:  It’d have been trespassing.
+Mr LaMb:  Ah. That’s not why.
+Derry:  I don’t like being near people. When they stare....when I 
+see them being afraid of me.
+Mr LaMb:  You could lock yourself up in a room and never leave it. 
+There was a 
+man who did that.
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>bitterness</strong></td>
+              <td><code>/ˈbɪt.ər.nəs/</code><br><em>noun</em></td>
+              <td>Deep resentment, cynicism, or grievance resulting from unfair treatment.</td>
+              <td>Worse than acid: Lamb warns that internal bitterness destroys a soul.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>alienation</strong></td>
+              <td><code>/ˌeɪ.li.əˈneɪ.ʃən/</code><br><em>noun</em></td>
+              <td>The state of feeling isolated, estranged, or excluded from society.</td>
+              <td>The central psychological condition afflicting Derry prior to meeting Lamb.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>rubbish</strong></td>
+              <td><code>/ˈrʌb.ɪʃ/</code><br><em>noun</em></td>
+              <td>Nonsensical talk, worthless matter, or untrue gossip.</td>
+              <td>How Lamb dismisses neighborhood rumors and prejudice.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Anecdotal Realism</strong></td>
+              <td><em>"The two women whispering at the bus stop"</em></td>
+              <td>A devastatingly authentic illustration of casual everyday cruelty and unthinking prejudice.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Satiric Monologue</strong></td>
+              <td><em>"&#x27;Think of all those worse off than you... born blind... idiot mind...&#x27;"</em></td>
+              <td>Derry exposes the hollow, useless nature of comparative misery offered by condescending well-wishers.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Hyperbolic Despair</strong></td>
+              <td><em>"&#x27;Only a mother could love a face like that&#x27;"</em></td>
+              <td>The cruelest wound Derry carries: the conviction that even maternal affection is rooted in duty rather than genuine attraction.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>Derry skewers the typical platitudes society inflicts upon the disabled. Being reminded of blind, deaf, or bedridden people does not alter his burned face nor ease his daily humiliation. His recounting of the bus stop incident demonstrates the devastating power of overheard gossip. A stranger’s careless remark that &#x27;only a mother could love a face like that&#x27; cemented Derry’s conviction that human love is conditional and aesthetic, prompting him to construct a hostile defensive perimeter around his soul.</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: What cruel comment did Derry overhear at the bus stop, and how did it affect him?</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> At a bus stop, Derry overheard a woman whispering to another: &#x27;Look at that, that&#x27;s a terrible thing. That&#x27;s a face only a mother could love.&#x27; This vicious observation shattered Derry’s self-worth, confirming his belief that outside of biological maternal obligation, he was fundamentally unlovable and grotesque to the world.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Casual societal callousness; &#x27;only a mother could love&#x27;; profound emotional scarring; reinforced Derry&#x27;s desire for absolute isolation.</div>
+      </div>
+    </div>
+    
+    <div class="passage-block" id="p06">
+      <div class="passage-headline">Passage 6: Parable of the Timid Man &amp; Windows Without Curtains</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> Mr. Lamb&#x27;s humorous parable of the man who locked himself in his room to avoid death, and Lamb&#x27;s philosophy of houses without curtains.</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+He was afraid, you see. Of 
+everything. Everything in this world. A bus might run him 
+over, or a man might breathe deadly germs onto him, or a 
+donkey might kick him to death, or lightning might strike 
+him down, or he might love a girl and the girl would leave 
+him, and he might slip on a banana skin and fall and people 
+who saw him would laugh their heads off. So he went into 
+this room, and locked the door, and got into his bed, and 
+stayed there.
+Derry:  For ever?
+Mr LaMb: For a while.
+Derry:  Then what?
+Mr LaMb: A picture fell off the wall on to his head 
+and killed him.
+ [Derry laughs a lot]
+Mr LaMb:  You see?
+Derry:  But....you still say <span class="vw" data-w="peculiar">peculiar</span> things.
+Mr LaMb:  <span class="vw" data-w="peculiar">Peculiar</span> to some.
+Derry:  What do you do all day?
+Mr LaMb:  Sit in the sun. Read books. Ah, you thought it was an 
+empty house, but inside, it’s full. Books and other things. 
+Full.
+Derry:  But there aren’t any curtains at the windows.
+Mr LaMb: I’m not fond of curtains. Shutting things out, shutting things in. 
+I like the light 
+and the darkness, and the windows open, to hear  
+the wind.
+Do you think all 
+this will change 
+Derry’s attitude 
+towards
+Mr Lamb?
+
+Derry:  Yes. I like that. When it’s raining, I like to hear it on the 
+roof.
+Mr LaMb:  So you’re not lost, are you? Not altogether? You do hear 
+things. You listen.
+Derry:  They talk about me. Downstairs, When I’m not there. 
+‘What’ll he ever do? What’s going to happen to him when 
+we’ve gone? How ever will he get on in this world? Looking 
+like that? W
+ith that on his face?’ That’s what they say.
+Mr LaMb:
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>peculiar</strong></td>
+              <td><code>/pɪˈkjuː.li.ər/</code><br><em>adjective</em></td>
+              <td>Strange, unusual, distinctive, or eccentric.</td>
+              <td>Describes Lamb&#x27;s unorthodox philosophies and non-conformist lifestyle.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>daft</strong></td>
+              <td><code>/dɑːft/</code><br><em>adjective</em></td>
+              <td>Silly, foolish, or mentally eccentric.</td>
+              <td>Mr. Lamb&#x27;s affectionate self-deprecation and colloquial warmth.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>humming</strong></td>
+              <td><code>/ˈhʌm.ɪŋ/</code><br><em>verb / adjective</em></td>
+              <td>Making a low, steady continuous droning sound; singing softly.</td>
+              <td>Lamb&#x27;s auditory optimism: where others hear buzzing pests, he hears singing.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Parable / Fable Structure</strong></td>
+              <td><em>"The timid man killed by a falling picture in his bedroom"</em></td>
+              <td>A brilliant tragicomic allegory exposing the futility and absurdity of self-imprisonment to escape risk.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Visual Symbolism</strong></td>
+              <td><em>"Open windows without curtains vs. shuttered rooms"</em></td>
+              <td>Curtains shut things in and shut things out; their absence signifies complete openness to light, wind, and experience.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Humor as Therapeutic Device</strong></td>
+              <td><em>"Derry laughing at the climax of the story"</em></td>
+              <td>Laughter punctures Derry&#x27;s solemn self-pity, marking the first spontaneous crack in his emotional armor.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>To shake Derry out of his morbid retreat, Mr. Lamb narrates the fable of a neurotic man terrified of buses, donkeys, lightning, banana peels, and germs. The man locks himself in his room for absolute safety—only for a picture frame to fall from the wall and crush him to death. Derry laughs spontaneously, momentarily forgetting his bitterness. Lamb follows this by explaining why his house has no curtains: shutting out the world shuts out life, light, and the wind.</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: What lesson does Mr. Lamb impart through the story of the man who locked himself in a room?</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> Mr. Lamb teaches that attempting to eliminate all risks and escape suffering through self-imprisonment is both cowardly and futile. Life cannot be lived in fearful isolation; in attempting to escape death and pain, the timid man surrendered living, only to be struck down by fate anyway. One must embrace life with openness.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Futility of isolation; impossibility of avoiding life&#x27;s risks; self-imprisonment destroys living; laughter as an agent of psychological liberation.</div>
+      </div>
+    </div>
+    
+    <div class="passage-block" id="p07">
+      <div class="passage-headline">Passage 7: Radical Agency, Human Faculties &amp; Choosing One&#x27;s Destiny</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> Mr. Lamb challenges Derry&#x27;s learned helplessness by reminding him of his complete sensory and physical faculties—arms, legs, eyes, ears, tongue, and brain.</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+Lord, boy, you’ve got two arms, two legs and eyes and 
+ears, you’ve got a tongue and a brain. You’ll get on the 
+way you want, like all the rest. And if you chose, and 
+set your mind to it, you could get on better than all 
+the rest.
+Derry:  How?
+Mr LaMb:  Same way as I do.
+Derry:  Do you have any friends?
+Mr LaMb:  Hundreds.
+Derry:  But you live by yourself in that house. It’s a big house, 
+too.
+Mr LaMb:  Friends everywhere. People come in.... everybody knows 
+me. The gate’s always open. They come and sit here. And 
+in fr
+ont of the fire in winter. Kids come for the apples and 
+pears. And for toffee. I make toffee with honey. Anybody 
+comes. So have you.
+Derry:  But I’m not a friend.
+Mr LaMb: Certainly you are. So far as I’m concerned. What have 
+you done to make me think you’re not?
+Derry:  You don’t know me. You don’t know where I come from 
+or even what my name is.
+Mr LaMb: Why should that signify? Do I have to write all your 
+particulars down and put them in a filing box, before you 
+can be a friend?
+Derry:  I suppose...not. No.
+Mr LaMb: You could tell me your name. If you chose. And not, if 
+you didn’t.
+
+Derry:
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>resilience</strong></td>
+              <td><code>/rɪˈzɪl.jəns/</code><br><em>noun</em></td>
+              <td>The capacity to recover quickly from illness, trauma, or emotional hardship.</td>
+              <td>Embodied by Lamb&#x27;s tin leg and open-hearted engagement with life.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>defiant</strong></td>
+              <td><code>/dɪˈfaɪ.ənt/</code><br><em>adjective</em></td>
+              <td>Showing bold resistance, rebellion, or disobedience.</td>
+              <td>Derry&#x27;s emotional armor against world cruelty; his final assertion against his mother.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>optimism</strong></td>
+              <td><code>/ˈɒp.tɪ.mɪ.zəm/</code><br><em>noun</em></td>
+              <td>Hopefulness and confidence about the future and inherent human goodness.</td>
+              <td>Lamb&#x27;s open gate and lack of curtains symbolize radiant mental openness.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Catalogue / Enumeration</strong></td>
+              <td><em>"&#x27;Two arms, two legs, eyes, ears, tongue and a brain&#x27;"</em></td>
+              <td>Emphasizes abundance over deficiency, shifting focus from a single cosmetic scar to total human capability.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Socratic Questioning</strong></td>
+              <td><em>"&#x27;How do you do it?&#x27; / &#x27;Same way as you do.&#x27;"</em></td>
+              <td>Lamb refuses to play the role of an elite guru; he models equality and ordinary self-determination.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Shift in Nomenclature</strong></td>
+              <td><em>"Derek to Derry"</em></td>
+              <td>Derry asserting his personal preference for his name, asserting initial traces of autonomous identity.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>Here, Mr. Lamb delivers the philosophical fulcrum of the play. While society fixates on Derry&#x27;s damaged cheek, Lamb catalogues what Derry still possesses: two arms, two legs, eyes, ears, speech, and intellect. He informs the boy that with these intact faculties, he could outstrip all &#x27;normal&#x27; people if he sets his mind to it. This shifts Derry&#x27;s self-image from passive victim of circumstance to active agent of his destiny.</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: How does Mr. Lamb motivate Derry to look beyond his facial disfigurement?</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> Mr. Lamb reminds Derry that he possesses all vital physical and mental faculties—two arms, two legs, eyes, ears, a tongue, and a functioning brain. By highlighting that Derry is completely whole in his capabilities, Lamb assures him that he has the power to achieve anything he chooses, potentially living a richer life than those without scars.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Affirmation of human agency; shifting focus from lack to abundance; intellect and willpower triumph over cosmetic flaws; empowering self-reliance.</div>
+      </div>
+    </div>
+    
+    <div class="passage-block" id="p08">
+      <div class="passage-headline">Passage 8: The Poison of Hatred, False Friends &amp; The Vow to Return</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> Mr. Lamb&#x27;s profound warning that hatred causes deeper burns than acid, and Derry&#x27;s triumphant decision to run home and return to the garden.</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+Derry. Only it’s Derek....but I hate that. Derry. If I’m your 
+friend, you don’t have to be mine. I choose that.
+Mr LaMb:  Certainly.
+Derry:  I might never come here again, you might never see me 
+again and then I couldn’t still be a friend.
+Mr LaMb:  Why not?
+Derry:  How could I? You pass people in the street and you might 
+even speak to them, but you never see them again. It 
+doesn’t mean they’r
+e friends.
+Mr LaMb:  Doesn’t mean they’re enemies, either, does it?
+Derry:  No they’re just....nothing. People. That’s all.
+Mr LaMb:  People are never just nothing. Never.
+Derry:  There are some people I hate.
+Mr LaMb:  That’d do you more harm than any bottle of acid. Acid 
+only burns your face.
+Derry:  Only....
+Mr LaMb: Like a bomb only blew up my leg. There’s worse things 
+can happen. You can burn yourself away inside.
+Derry:  After I’d come home, one person said, “He’d have been 
+better off stopping in there. In the hospital. He’d be better 
+of
+f with others like himself.” She thinks blind people only 
+ought to be with other blind people and idiot boys with 
+idiot boys.
+Mr LaMb:  And people with no legs altogether?
+Derry:  That’s right.
+Mr LaMb:  What kind of a world would that be?
+Derry:  At least there’d be nobody to stare at you because you 
+weren’t like them.
+Mr LaMb:  So you think you’re just the same as all the other 
+people with burned faces? Just by what you look like? 
+Ah....everything’s differ
+ent. Everything’s the same, but 
+everything is different. Itself.
+Derry:  How do you make all that out?
+Mr LaMb:  Watching. Listening. Thinking.
+
+Derry:  I’d like a place like this. A garden. I’d like a house with 
+no curtains.
+Mr LaMb: The gate’s always open.
+Derry:  But this isn’t mine.
+Mr LaMb:  Everything’s yours if you want it. What’s mine is anybody’s.
+Derry:  So I could come here again? Even if you were out....I could 
+come here.
+Mr LaMb: Certainly. You might find others here, of course.
+Derry:  Oh....
+Mr LaMb:  Well, that needn’t stop you, you needn’t mind.
+Derry: It’d stop them. They’d mind me. When they saw me here. 
+They look at my face and run.
+Mr LaMb: They might. They might not. You’d have to take the risk. 
+So would they.
+Derry:  No, you would. You might have me and lose all your other 
+friends, because nobody wants to stay near me if they 
+can help it.
+Mr LaMb:  I’ve not moved.
+Derry:  No....
+Mr LaMb:  When I go down the street, the kids shout  ‘Lamey-Lamb.’ 
+But they still come into the garden, into my house; it’s 
+a game. They’re not afraid of me. Why should they be?
+ 
+Because I’m not afraid of them, that’s why not.
+Derry:  Did you get your leg blown off in the war?
+Mr LaMb: Certainly.
+Derry: How will you climb on a ladder and get the crab apples 
+down, then?   
+Mr LaMb: Oh, there’s a lot of things I’ve learned to do, and plenty 
+of time for it. Years. I take it steady.
+Derry:  If you fell and broke your neck, you could lie on the grass 
+and die. If you were on your own.
+Mr LaMb:  I could.
+Derry:  You said I could help you.
+Mr LaMb:  If you want to.
+
+Derry:  But my mother’ll want to know where I am. It’s three 
+miles home, across the fields. I’m fourteen. but they still 
+want to know where I am.
+Mr LaMb:  People worry.
+Derry:  People fuss.
+Mr LaMb: Go back and tell them.
+Derry:  It’s three miles.
+Mr LaMb:  It’s a fine evening. You’ve got legs.
+Derry:  Once I got home, they’d never let me come back.
+Mr LaMb:  Once you got home, you’d never let yourself come back.
+Derry:  You don’t know....you don’t know what I could do.
+Mr LaMb:  No. Only you know that.
+Derry:  If I chose....
+Mr LaMb:  Ah....if you chose. I don’t know everything, boy. I can’t 
+tell you what to do.
+Derry:  They tell me.
+Mr LaMb:  Do you have to agree?
+Derry:  I don’t know what I want. I want....something no one else 
+has got or ever will have. Something just mine. Like this 
+garden. I don’t know what it is.
+Mr LaMb: You could find out.
+Derry:  How?
+Mr LaMb:  Waiting. Watching. Listening. Sitting here or going there. 
+I’ll have to see to the bees.    
+Derry:  Those other people who come here....do they talk to you? 
+Ask you things?
+Mr LaMb:  Some do, some don’t. I ask them. I like to learn.
+Derry: I don’t believe in them. I don’t think anybody ever comes. 
+You’re here all by yourself and miserable and no one would
+ 
+know if you were alive or dead and nobody cares.
+Mr LaMb:  You think what you please.
+Derry:  All right then, tell me some of their names.
+Mr LaMb: What are names? Tom, Dick or Harry.
+
+ [Getting up] I’m off down to the bees.
+Derry:  I think you’re <span class="vw" data-w="daft">daft</span>....crazy....
+Mr LaMb:  That’s a good excuse.
+Derry:  What for? You don’t talk sense.
+Mr LaMb: Good excuse not to come back. And you’ve got a burned-
+up face, and that’s other people’s excuse.
+Derry: You’re like the others, you like to say things like that. If 
+you don’t feel sorry for my face, you’re frightened of it, 
+and if you’re not frightened, you think I’m ugly as a devil.
+ 
+I am a devil. Don’t you? [Shouts]
+ [Mr Lamb does not reply. He has gone to his bees.]
+Derry:  [Quietly] No. You don’t. I like it here.
+ [Pause.  Derry gets up and shouts.]
+ I’m going. But I’ll come back. You see. You wait.
+ I can run. I haven’t got a tin leg. I’ll be back.
+ [Derry runs off. 
+Silence. The sounds of the garden again.]
+Mr LaMb: [To himself] There my dears. That’s you seen to. Ah....you 
+know. We all know. I’ll come back. They never do, though. 
+Not them. Never do come back.
+ [The garden noises fade.]
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>bitterness</strong></td>
+              <td><code>/ˈbɪt.ər.nəs/</code><br><em>noun</em></td>
+              <td>Deep resentment, cynicism, or grievance resulting from unfair treatment.</td>
+              <td>Worse than acid: Lamb warns that internal bitterness destroys a soul.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>alienation</strong></td>
+              <td><code>/ˌeɪ.li.əˈneɪ.ʃən/</code><br><em>noun</em></td>
+              <td>The state of feeling isolated, estranged, or excluded from society.</td>
+              <td>The central psychological condition afflicting Derry prior to meeting Lamb.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>tentatively</strong></td>
+              <td><code>/ˈten.tə.tɪv.li/</code><br><em>adverb</em></td>
+              <td>Hesitantly, cautiously, without conviction or firmness.</td>
+              <td>Captures Derry&#x27;s initial fear and distrust as he enters the garden.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Aphorism / Moral Maxim</strong></td>
+              <td><em>"&#x27;Hatred does more harm than any bottle of acid. Acid only burns the face...&#x27;"</em></td>
+              <td>Elevates the thematic discourse to spiritual and psychological dimensions.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Dramatic Foreshadowing &amp; Monologue</strong></td>
+              <td><em>"Lamb&#x27;s solitary soliloquy: &#x27;They all say that... None of them ever come back.&#x27;"</em></td>
+              <td>Heightens tragic pathos and suspense regarding whether Derry will break the cycle of abandonment.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Kinetic Contrast</strong></td>
+              <td><em>"Derry running freely across fields vs. Lamb&#x27;s solitary limp"</em></td>
+              <td>Highlights Derry&#x27;s vitality and newfound purpose against Lamb&#x27;s quiet, stoic endurance.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>When Derry admits that there are people he despises, Mr. Lamb issues his most memorable ethical warning: hatred corrodes the human spirit from within, whereas acid merely scars the outer surface. When Derry announces he must run three miles home to inform his mother, Lamb skeptically murmurs that people always promise to return but never do. Derry fiercely resolves to prove him wrong, running out with a parting declaration of agency: &#x27;I can run. I haven&#x27;t got a tin leg. I&#x27;ll be back!&#x27;</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: Why does Mr. Lamb consider hatred to be more destructive than acid?</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> Mr. Lamb explains that while acid inflicts purely external, physical damage by scarring the skin, hatred corrupts the internal soul. Hatred poisons the mind, creates lifelong bitterness, destroys empathy, and hollows out a person from within, causing irreversible psychological ruin.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Physical burn vs. internal moral corrosion; hatred destroys the soul; bitterness freezes spiritual growth; external scars heal, internal malice metastasizes.</div>
+      </div>
+    </div>
+    
+    <div class="passage-block" id="p09">
+      <div class="passage-headline">Passage 9: Scene Two — The Domestic Cage, Maternal Fear &amp; Defiance</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> Derry confronts his mother&#x27;s smothering prejudice and fearful warnings, violently asserting his autonomy to return to Mr. Lamb&#x27;s garden.</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+Scene TwO
+Derry’s house.
+Mother: You think I don’t know about him, you think. I haven’t 
+heard things?
+Derry:  You shouldn’t believe all you hear.
+Mother:  Been told. Warned. We’ve not lived here three months, 
+but I know what there is to know and you’re not to go 
+back there.
+Derry:  What are you afraid of? What do you think he is? An old 
+man with a tin leg and he lives in a huge house without 
+curtains and has a garden.  And I want to be ther
+e, and 
+sit and....listen to things. Listen and look.
+Mother:  Listen to what?
+Derry:  Bees singing. Him talking.
+Mother:  And what’s he got to say to you?
+Derry:  Things that matter. Things nobody else has ever said. 
+Things I want to think about.
+Mother:  Then you stay here and do your thinking. You’re best off  
+here.
+Derry:  I hate it here.
+Mother:  You can’t help the things you say. I forgive you. It’s bound 
+to make you feel bad things....and say them. I don’t blame 
+you.
+Derry:  It’s got nothing to do with my face and what I look like. 
+I don’t care about that and it isn’t important. It’s what I 
+think and feel and what I want to see and find out and
+ 
+hear. And I’m going back there. Only to help him with 
+the crab apples. Only to look at things and listen. But 
+I’m going.
+Mother:  You’ll stop here.
+Derry:  Oh no, oh no. Because if I don’t go back there, I’ll never 
+go anywhere in this world again.
+
+[The door slams. Derry runs, panting.]
+ And I want the world....I want it....I want it....
+[The sound of his panting fades.]
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>defiant</strong></td>
+              <td><code>/dɪˈfaɪ.ənt/</code><br><em>adjective</em></td>
+              <td>Showing bold resistance, rebellion, or disobedience.</td>
+              <td>Derry&#x27;s emotional armor against world cruelty; his final assertion against his mother.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>prejudice</strong></td>
+              <td><code>/ˈpredʒ.ə.dɪs/</code><br><em>noun</em></td>
+              <td>Preconceived opinion not based on reason or actual experience.</td>
+              <td>Maternal and neighborhood warnings reflect irrational societal prejudice against Lamb.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>sympathy</strong></td>
+              <td><code>/ˈsɪm.pə.θi/</code><br><em>noun</em></td>
+              <td>Feelings of pity or sorrow for someone else&#x27;s misfortune; condescension.</td>
+              <td>Derry resents superficial pity, which he views as masked disgust.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Generational &amp; Ideological Conflict</strong></td>
+              <td><em>"Mother&#x27;s parochial fear vs. Derry&#x27;s awakened consciousness"</em></td>
+              <td>Derry&#x27;s domestic sphere represents societal paranoia, while Lamb&#x27;s garden represents philosophical enlightenment.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Sensory Awakening</strong></td>
+              <td><em>"&#x27;I want to listen to bees singing... I want to hear things&#x27;"</em></td>
+              <td>Derry adopts Lamb&#x27;s sensory epistemology, valuing listening and seeing over societal dread.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Dramatic Climax of Scene Two</strong></td>
+              <td><em>"The slam of the door as Derry runs away"</em></td>
+              <td>Acoustic punctuation of Derry breaking free from the suffocating cocoon of maternal overprotection.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>Scene Two shifts the location to Derry&#x27;s domestic environment, providing crucial sociological context. His mother embodies conventional societal prejudice: she views Mr. Lamb as an eccentric, suspicious outcast based on neighborhood gossip. Rather than fostering Derry’s independence, she seeks to keep him imprisoned in protective seclusion. Derry’s fiery defiance—rejecting her warnings, defending Lamb&#x27;s character, and slamming the door to run back—marks his psychological emancipation.</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: Why does Derry’s mother oppose his return to Mr. Lamb’s house?</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> Derry’s mother opposes his return because she has absorbed negative neighborhood gossip and warnings regarding Mr. Lamb’s eccentricity and solitary lifestyle. Driven by overprotective fear and societal prejudice, she believes the old man is unreliable or harmful, preferring that Derry remain safe within their home.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Influence of neighborhood gossip; maternal overprotection; fear of the unfamiliar/eccentric; desire to maintain Derry in safe seclusion.</div>
+      </div>
+    </div>
+    
+    <div class="passage-block" id="p10">
+      <div class="passage-headline">Passage 10: Scene Three — The Fallen Ladder, Silence &amp; Transformative Tears</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> Mr. Lamb&#x27;s tragic fatal fall from the apple tree ladder, Derry&#x27;s breathless arrival, and his devastating weeping over the motionless old man.</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+Scene Three
+Mr Lamb’s garden [Garden sounds: the noise of a branch shifting; apples 
+thumping down; the branch shifting again.]
+Mr LaMb: Steady....that’s....got it. That’s it... [More apples fall]
+ And again. That’s it....and....
+ [A creak. A crash. The ladder falls back, Mr Lamb with it. 
+A thump. The branch swishes back. Creaks. Then silence.
+ 
+Derry opens the garden gate, still panting.]
+Derry:  You see, you see! I came back. You said I wouldn’t and 
+they said....but I came back, I wanted....   
+ [He stops dead. Silence.]
+ Mr Lamb,  Mr....You’ve.....
+ [He runs through the grass. Stops. Kneels]
+ Mr Lamb, It’s all right....You fell....I’m here,  
+Mr Lamb, It’s all right. 
+ [Silence]
+ I came back. Lamey-Lamb. I did.....come back.
+ [Derry begins to weep.] 
+ The end
+Reading with Insight
+1.   What is it that draws Derry towards Mr Lamb inspite of 
+himself?
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>resilience</strong></td>
+              <td><code>/rɪˈzɪl.jəns/</code><br><em>noun</em></td>
+              <td>The capacity to recover quickly from illness, trauma, or emotional hardship.</td>
+              <td>Embodied by Lamb&#x27;s tin leg and open-hearted engagement with life.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>optimism</strong></td>
+              <td><code>/ˈɒp.tɪ.mɪ.zəm/</code><br><em>noun</em></td>
+              <td>Hopefulness and confidence about the future and inherent human goodness.</td>
+              <td>Lamb&#x27;s open gate and lack of curtains symbolize radiant mental openness.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>alienation</strong></td>
+              <td><code>/ˌeɪ.li.əˈneɪ.ʃən/</code><br><em>noun</em></td>
+              <td>The state of feeling isolated, estranged, or excluded from society.</td>
+              <td>The central psychological condition afflicting Derry prior to meeting Lamb.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Acoustic Climax / Sound Effects</strong></td>
+              <td><em>"Creaking branches, apples thumping, ladder groaning and crashing"</em></td>
+              <td>Replaces dialogue with visceral auditory cues that communicate tragic catastrophe.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Dramatic Irony &amp; Pathos</strong></td>
+              <td><em>"Derry keeping his promise too late to be acknowledged by Lamb"</em></td>
+              <td>Derry broke the curse of abandonment, yet Lamb dies before savoring the fruition of his mentorship.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Cathartic Weeping</strong></td>
+              <td><em>"&#x27;I came back... Derry begins to weep.&#x27;"</em></td>
+              <td>Tears of grief that signify the death of Derry&#x27;s emotional detachment and the birth of profound empathy.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>The play concludes with devastating dramatic irony and poignant emotional catharsis. Mr. Lamb, attempting to harvest crab apples independently on his tin leg, loses his balance as the ladder slips. When Derry arrives, breathless and exultant that he fulfilled his vow, he finds Lamb motionless on the grass. Derry’s desperate pleas and eventual tears are not merely sorrow for a lost mentor; they are the baptism of his new emotional life. Though Lamb has died, his philosophy survives inside Derry, who has permanently transcended bitterness.</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: What is the dramatic significance of the play’s ending where Derry begins to weep?</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> Derry&#x27;s weeping at the conclusion signifies profound tragic grief coupled with transformative emotional awakening. By weeping for someone other than himself, Derry sheds his hardened, cynical armor and demonstrates deep love and empathy. While Mr. Lamb dies physically, his legacy of courage, optimism, and open gates is permanently inherited by Derry.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Emotional catharsis; shift from selfish self-pity to profound selfless empathy; symbolic triumph of Lamb&#x27;s mentorship; rebirth of Derry&#x27;s humanity.</div>
+      </div>
+    </div>
+    
+  </section>
+
+  <!-- SECTION 04 -->
+  <section id="characters">
+    <h2 class="section-header">04. Master Character Sketches &amp; Psychological Profiles</h2>
+    
+    <!-- Character 1: Mr. Lamb -->
+    <div class="qa-card">
+      <div class="qa-card-meta">DRAMATIS PERSONAE // CO-PROTAGONIST // THE MENTOR</div>
+      <h3 style="font-family:var(--font-serif); font-size:20px; margin-bottom:12px;">Mr. Lamb — The Resilient Stoic &amp; Benevolent Catalyst</h3>
+      <div class="content-block">
+        <p>Mr. Lamb is an elderly war veteran who lost one of his legs to a bomb explosion and walks with the aid of an artificial tin prosthetic. Rather than succumbing to self-pity, bitterness, or misanthropy, Lamb adopts a worldview of radiant optimism, radical hospitality, and philosophical serenity. He inhabits a spacious house surrounded by an uncurated garden filled with crab apple trees, tall weeds, honeybees, and sunflowers. In stark contrast to Derry’s defensive paranoia, Lamb keeps his garden gate wide unlatched and refuses to hang curtains across his windows, asserting that he loves both the light and the dark, welcoming the wind and every curious stranger who wanders by.</p>
+        <p>Lamb’s psychological brilliance lies in his refusal to treat Derry as a grotesque medical case or an object of condescending charity. When Derry lashes out with teenage hostility, Lamb responds with unruffled wit, Socratic inquiries, and humorous parables. He deconstructs societal aesthetics through the relativity of weeds versus flowers, challenges fatalism with the fable of the timid man, and reveals the true poison of human life: hatred, which corrodes the interior spirit far more savagely than chemical acid. Although he bears his own secret cross of existential solitude—conceding quietly that visitors rarely return—his courage never falters. His tragic, fatal fall from the apple tree ladder provides the bittersweet punctuation to his life: he dies in solitude, yet his philosophy survives triumphant in the reborn soul of Derry.</p>
+      </div>
+
+      <table class="clean-table">
+        <thead>
+          <tr>
+            <th>CHARACTER DIMENSION</th>
+            <th>ANALYSIS &amp; TEXTUAL SUBSTANTIATION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Philosophical Core</strong></td>
+            <td>Radical acceptance and egalitarian relativity; refuses arbitrary societal distinctions between weeds and flowers, beauty and ugliness.</td>
+          </tr>
+          <tr>
+            <td><strong>Coping Mechanism</strong></td>
+            <td>Sublimates physical infirmity and loneliness into active engagement with nature (reading books, making apple jelly, listening to bees singing).</td>
+          </tr>
+          <tr>
+            <td><strong>Attitude to Derision</strong></td>
+            <td>Accepts the neighborhood children's taunt 'Lamey-Lamb' with good humor, noting that 'it fits me' without injuring his dignity.</td>
+          </tr>
+          <tr>
+            <td><strong>Mentorship Method</strong></td>
+            <td>Non-directive, Socratic, conversational; empowers Derry by reminding him of his intact faculties (arms, legs, eyes, ears, tongue, brain).</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="qa-card-vp">
+        <strong>CBSE Value Points:</strong> War veteran with tin leg; open gate and no curtains symbolize boundless psychological receptivity; non-judgmental mentor; rejects superficial pity; preaches that hatred is deadlier than acid; tragic death catalyzes Derry's emancipation.
+      </div>
+    </div>
+
+    <!-- Character 2: Derry -->
+    <div class="qa-card">
+      <div class="qa-card-meta">DRAMATIS PERSONAE // CO-PROTAGONIST // THE RECLAIMED SOUL</div>
+      <h3 style="font-family:var(--font-serif); font-size:20px; margin-bottom:12px;">Derry (Derek) — The Wounded Rebel &amp; Transformed Youth</h3>
+      <div class="content-block">
+        <p>Fourteen-year-old Derry is an acutely traumatized adolescent whose physical appearance was permanently scarred when acid burned away the entire flesh on one side of his face. Far more debilitating than the physical disfigurement, however, is the corrosive psychological trauma inflicted upon him by society’s superficial cruelty. Derry has been subjected to the recoiling gasps of strangers, the vicious whispering of women at bus stops ('a face only a mother could love'), and the suffocating, duty-bound sorrow of his own parents. Consequently, Derry has constructed an impenetrable psychological armor of hostility, suspicion, and aggressive misanthropy.</p>
+        <p>When he intrudes into Mr. Lamb’s garden, Derry is on the verge of total emotional self-destruction. He climbs the boundary wall precisely because he seeks an uninhabited wilderness where he cannot be seen. Yet over the course of an extraordinary afternoon, Mr. Lamb’s calm refusal to cringe or offer patronizing pity dismantles Derry's defenses. Derry’s transformation progresses from defensive aggression to intellectual curiosity, philosophical alignment, and ultimately fierce, heroic defiance against his mother’s suffocating prejudice. When Derry sprints three miles back to the garden and weeps over the fallen mentor, he achieves emotional adulthood: the cynical victim of acid is reborn as a compassionate, courageous young man who embraces life with eyes wide open.</p>
+      </div>
+
+      <table class="clean-table">
+        <thead>
+          <tr>
+            <th>PSYCHOLOGICAL DIMENSION</th>
+            <th>ANALYSIS &amp; TEXTUAL SUBSTANTIATION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Internalized Trauma</strong></td>
+            <td>Haunted by his mirror reflection; believes himself to be fundamentally unlovable; suffers from severe social anxiety and persecutory panic.</td>
+          </tr>
+          <tr>
+            <td><strong>Defensive Armor</strong></td>
+            <td>Weaponizes rudeness and hostility to push people away before they have the opportunity to reject or mock him.</td>
+          </tr>
+          <tr>
+            <td><strong>Catalyst for Change</strong></td>
+            <td>Encountering an adult who does not pity him, does not offer hollow platitudes, and treats his disfigurement as an inconsequential physical fact.</td>
+          </tr>
+          <tr>
+            <td><strong>Emancipation &amp; Heroism</strong></td>
+            <td>Defies his mother's paranoid prohibitions in Scene Two, slamming the door to claim his own voice, sensory desires, and chosen companion.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="qa-card-vp">
+        <strong>CBSE Value Points:</strong> 14-year-old boy; half face destroyed by acid; suffers from intense social alienation and internalized self-hatred; rejects empty platitudes; transformed by Lamb's radical empathy; breaks domestic shackles to return to the garden; tears represent emotional catharsis.
+      </div>
+    </div>
+
+    <!-- Character 3: Derry's Mother -->
+    <div class="qa-card">
+      <div class="qa-card-meta">DRAMATIS PERSONAE // SECONDARY CHARACTER // SOCIETAL ARCHETYPE</div>
+      <h3 style="font-family:var(--font-serif); font-size:20px; margin-bottom:12px;">Derry's Mother — The Parochial Guardian of Fear</h3>
+      <div class="content-block">
+        <p>Although she appears only briefly in Scene Two, Derry’s mother is a critical sociological presence in the drama. She embodies the conventional, fearful mindset of mainstream society that stifles and imprisons individuals with differences. While her affection for Derry is genuine, it is tainted by duty, overprotective anxiety, and profound embarrassment. Derry bitterly observes that his mother kisses him only on the unburned cheek, and even then, only because she feels morally obligated as a mother.</p>
+        <p>Furthermore, when Derry excitedly recounts his encounter with Mr. Lamb and asks permission to return, his mother reacts with immediate paranoia and suspicion. Having uncritically absorbed neighborhood gossip regarding the old man’s eccentricities, she commands Derry to remain indoors, arguing that the external world is predatory and dangerous. Her character illustrates how well-intentioned parental overprotection can be as psychologically paralyzing as open societal cruelty. By defying her and running back to the garden, Derry rejects the domestic prison of safe self-pity in favor of life’s open horizons.</p>
+      </div>
+
+      <div class="qa-card-vp">
+        <strong>CBSE Value Points:</strong> Represents conventional societal prejudice and claustrophobic maternal anxiety; kisses Derry out of pity/duty on the unscarred side; easily swayed by neighborhood gossip against Lamb; well-meaning but emotionally paralyzing; defeated by Derry's newfound autonomy.
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 05 -->
+  <section id="rtc">
+    <h2 class="section-header">05. Reference to Context (Extract-Based Questions &amp; Answers)</h2>
+
+    <!-- RTC 1 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE RTC SET 01 // SCENE ONE // THE GARDEN ENCOUNTER</div>
+      <div class="quote-passage">
+<span class="quote-label">EXTRACT</span>
+"Mr Lamb: Mind the apples!
+Derry: What? Who's that? Who's there?
+Mr Lamb: Lamb's my name. Mind the apples. Crab apples they are. Windfalls, in the long grass, you could slip and fall.
+Derry: I thought... it was empty....an empty house.
+Mr Lamb: So it is. Since I'm out here in the garden. It is empty. Until I go back inside. In the meantime, I'm out here and likely to stop. A day like this. Beautiful day. Not a day to be indoors."
+      </div>
+      <div class="qa-card-q">Questions &amp; High-Scoring Model Answers:</div>
+      <div class="qa-card-a">
+        <p><strong>(i) Why does Mr. Lamb caution Derry to 'mind the apples'?</strong><br>
+        <em>Answer:</em> Mr. Lamb cautions Derry because crab apples had fallen into the long grass as windfalls, creating a physical hazard where the boy might trip, slip, or injure himself.</p>
+        <p><strong>(ii) What false assumption had Derry made regarding the property?</strong><br>
+        <em>Answer:</em> Derry had assumed that the house and garden were completely deserted and uninhabited, seeking a secluded sanctuary where no human beings could observe him.</p>
+        <p><strong>(iii) What does Mr. Lamb’s philosophical reply about the house being empty reveal about his character?</strong><br>
+        <em>Answer:</em> It reveals Mr. Lamb’s whimsical, literal wit and profound cheerfulness; he defines the house as 'empty' simply because he is outdoors engaging with nature on a beautiful day.</p>
+        <p><strong>(iv) Identify the tone of Derry's initial response.</strong><br>
+        <em>Answer:</em> Derry’s tone is startled, panicked, and defensive, reflecting his hyper-vigilant fear of discovery and surveillance.</p>
+      </div>
+      <div class="qa-card-vp">
+        <strong>CBSE Value Points:</strong> Crab apples as windfalls; Derry seeks deserted refuge; Lamb's whimsical outdoor philosophy; Derry's defensive panic upon encountering an unexpected human presence.
+      </div>
+    </div>
+
+    <!-- RTC 2 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE RTC SET 02 // SCENE ONE // ACID &amp; THE STIGMA OF SCARS</div>
+      <div class="quote-passage">
+<span class="quote-label">EXTRACT</span>
+"Derry: Not in a fire. I got acid all down that side of my face and it ate it all away. It ate my face up. It ate me up. And now it's like this and it won't ever be any different, never.
+Mr Lamb: No.
+Derry: Aren't you interested?
+Mr Lamb: You're a boy who came into the garden. Plenty do. I'm interested in anybody. Anything. There's nothing God made that doesn't interest me."
+      </div>
+      <div class="qa-card-q">Questions &amp; High-Scoring Model Answers:</div>
+      <div class="qa-card-a">
+        <p><strong>(i) Explain the double significance of Derry’s remark: 'It ate my face up. It ate me up.'</strong><br>
+        <em>Answer:</em> It signifies that the acid not only destroyed the epidermal tissue of his face physically, but also consumed his childhood happiness, psychological security, self-esteem, and faith in humanity.</p>
+        <p><strong>(ii) Why is Derry surprised by Mr. Lamb’s monosyllabic response 'No'?</strong><br>
+        <em>Answer:</em> Derry expects listeners to gasp in horror, question him excessively, or shower him with patronizing sympathy. Lamb’s matter-of-fact calm destabilizes Derry’s defensive expectations.</p>
+        <p><strong>(iii) What does Mr. Lamb’s declaration of interest in 'anything God made' demonstrate?</strong><br>
+        <em>Answer:</em> It demonstrates Lamb’s boundless, egalitarian curiosity and non-judgmental love for all living creation, refusing to categorize people by physical deformities.</p>
+        <p><strong>(iv) Which literary device is employed in 'It ate my face up. It ate me up'?</strong><br>
+        <em>Answer:</em> Personification and metaphor, portraying the corrosive acid as an insatiable monster that devoured Derry’s physical and emotional life.</p>
+      </div>
+      <div class="qa-card-vp">
+        <strong>CBSE Value Points:</strong> Dual destruction (physical and spiritual); subversion of expected patronizing pity; Lamb's universal non-judgmental curiosity; acid as personified predatory force.
+      </div>
+    </div>
+
+    <!-- RTC 3 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE RTC SET 03 // SCENE ONE // WEEDS &amp; BEAUTY AND THE BEAST</div>
+      <div class="quote-passage">
+<span class="quote-label">EXTRACT</span>
+"Mr Lamb: It's all relative. Beauty and the beast.
+Derry: What's that supposed to mean?
+Mr Lamb: You tell me.
+Derry: You think here's a handsome prince, and when she kissed him he changed into a prince. Only I won't ever change. No one'll kiss me, ever. Only my mother, and she kisses me on the other side of my face... I don't care if nobody ever kissed me."
+      </div>
+      <div class="qa-card-q">Questions &amp; High-Scoring Model Answers:</div>
+      <div class="qa-card-a">
+        <p><strong>(i) What core philosophical concept does Mr. Lamb introduce with the phrase 'It's all relative'?</strong><br>
+        <em>Answer:</em> Lamb introduces the concept that concepts of beauty and ugliness, flowers and weeds, are entirely subjective human constructs rather than inherent objective realities.</p>
+        <p><strong>(ii) How does Derry subvert the fairytale of 'Beauty and the Beast'?</strong><br>
+        <em>Answer:</em> Derry bitterly scoffs at the fairytale, pointing out that in the real world, magical transformation does not exist; his disfigurement is permanent and he will never be transformed into a handsome prince.</p>
+        <p><strong>(iii) What tragic detail does Derry disclose regarding his mother’s kisses?</strong><br>
+        <em>Answer:</em> Derry reveals that his mother kisses him exclusively on the unburned side of his face, and does so out of maternal obligation rather than genuine affectionate attraction.</p>
+        <p><strong>(iv) Why does Derry defensively claim 'I don't care if nobody ever kissed me'?</strong><br>
+        <em>Answer:</em> His statement is a classic psychological defense mechanism of sour grapes; by feigning indifference, he attempts to numb the agonizing sting of universal romantic rejection.</p>
+      </div>
+      <div class="qa-card-vp">
+        <strong>CBSE Value Points:</strong> Aesthetic relativity; subversion of fairy-tale romanticism; mother kisses unscarred cheek out of duty; feigned apathy as emotional defense mechanism.
+      </div>
+    </div>
+
+    <!-- RTC 4 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE RTC SET 04 // SCENE ONE // WINDOWS WITHOUT CURTAINS &amp; BEES</div>
+      <div class="quote-passage">
+<span class="quote-label">EXTRACT</span>
+"Derry: But there aren't any curtains at the windows.
+Mr Lamb: I'm not fond of curtains. Shutting things out, shutting things in. I like the light and the darkness, and the windows open, to hear the wind.
+Derry: Yes. I like that. When it's raining, I like to hear it on the roof.
+Mr Lamb: So you see. You're not lost, are you? Not altogether? You do hear things. You listen."
+      </div>
+      <div class="qa-card-q">Questions &amp; High-Scoring Model Answers:</div>
+      <div class="qa-card-a">
+        <p><strong>(i) Why is Mr. Lamb averse to hanging curtains across his windows?</strong><br>
+        <em>Answer:</em> Mr. Lamb dislikes curtains because they represent physical and psychological barriers that shut things out and shut things in; he desires direct sensory communion with wind, rain, light, and darkness.</p>
+        <p><strong>(ii) What common aesthetic appreciation unites Derry and Mr. Lamb in this moment?</strong><br>
+        <em>Answer:</em> Both share an appreciation for the auditory sensations of nature—Derry loves listening to the pitter-patter of rain on a roof, echoing Lamb’s joy in hearing the wind and singing bees.</p>
+        <p><strong>(iii) Why does Mr. Lamb proclaim: 'You're not lost, are you? Not altogether?'</strong><br>
+        <em>Answer:</em> Lamb recognizes that because Derry still possesses sensitivity to natural beauty and an active capacity to listen, his soul is intact and capable of redemption, despite his cynical bitterness.</p>
+        <p><strong>(iv) What thematic contrast is highlighted by the motif of curtains?</strong><br>
+        <em>Answer:</em> The motif contrasts isolation and claustrophobic self-imprisonment (curtains drawn) with intellectual openness, freedom, and emotional courage (curtains absent).</p>
+      </div>
+      <div class="qa-card-vp">
+        <strong>CBSE Value Points:</strong> Curtains as symbols of emotional division/isolation; shared sensory joy in rainfall; Lamb recognizes Derry's uncorrupted inner soul; listening as pathway to psychological healing.
+      </div>
+    </div>
+
+    <!-- RTC 5 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE RTC SET 05 // SCENE THREE // THE SHATTERED LADDER &amp; TEARS</div>
+      <div class="quote-passage">
+<span class="quote-label">EXTRACT</span>
+"Derry: I've got back! You said I wouldn't, and they said... but I came back, I wanted...
+[He stops dead. Silence.]
+Mr Lamb, Mr... You've...
+[He kneels by him in the grass.]
+Mr Lamb, it's all right... You fell... I'm here, Mr Lamb, it's all right...
+[Silence]
+I came back. Lamey-Lamb. I did... come back.
+[Derry begins to weep.]"
+      </div>
+      <div class="qa-card-q">Questions &amp; High-Scoring Model Answers:</div>
+      <div class="qa-card-a">
+        <p><strong>(i) What milestone had Derry achieved prior to finding Mr. Lamb motionless?</strong><br>
+        <em>Answer:</em> Derry had conquered his own fear, defied his mother's strict prohibitions, and run three miles across the fields to fulfill his sacred promise of returning to the garden.</p>
+        <p><strong>(ii) What caused Mr. Lamb’s accident?</strong><br>
+        <em>Answer:</em> Mr. Lamb had climbed a ladder to harvest crab apples independently on his artificial tin leg; the branch creaked, the ladder slipped, and he crashed fatally onto the grass.</p>
+        <p><strong>(iii) Why does Derry affectionately address him as 'Lamey-Lamb' at the end?</strong><br>
+        <em>Answer:</em> Derry uses the moniker not out of mockery, but as an affectionate tribute, echoing Lamb’s own stoic acceptance and establishing an intimate, unbreakable bond between them.</p>
+        <p><strong>(iv) What is the profound thematic significance of Derry beginning to weep?</strong><br>
+        <em>Answer:</em> Derry’s tears represent emotional catharsis and the awakening of selfless love; he weeps not for his own scarred face, but for another human being, symbolizing his rebirth into full empathy.</p>
+      </div>
+      <div class="qa-card-vp">
+        <strong>CBSE Value Points:</strong> Fulfillment of promise; fatal domestic accident on ladder; affectionate adoption of 'Lamey-Lamb'; cathartic weeping marks transformation from self-pity to selfless love.
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 06 -->
+  <section id="short-qa">
+    <h2 class="section-header">06. High-Yield Short Answer Qs (2 Marks / 40–50 Words)</h2>
+
+    <!-- Q1 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 01</div>
+      <div class="qa-card-q">Why did Derry enter Mr. Lamb’s garden by climbing over the wall rather than through the gate?</div>
+      <div class="qa-card-a">Derry climbed over the garden wall because he assumed the house was completely deserted and wished to retreat into solitary seclusion. Highly conscious of his acid-burned face, Derry avoided open gates and formal entrances to evade encountering human beings and experiencing their intrusive, repulsed gaze.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Assumed property was uninhabited; desired complete solitude; hypersensitive avoidance of public gaze; wall climbing reflects instinctive evasiveness.</div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 02</div>
+      <div class="qa-card-q">How does Mr. Lamb reassure Derry when the boy panics upon being discovered in the garden?</div>
+      <div class="qa-card-a">Mr. Lamb speaks with gentle, hospitable calm, warning Derry only to watch out for fallen crab apples in the grass. He assures the startled youth that his garden gates are always open, anyone is welcome, and Derry’s presence is neither an unlawful trespass nor an unwelcome intrusion.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Gentle tone; warns about slippery windfalls; declares gate is always open; welcomes Derry without anger or accusation.</div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 03</div>
+      <div class="qa-card-q">What is Derry’s attitude towards his burnt face and society's typical reactions to it?</div>
+      <div class="qa-card-a">Derry suffers from intense bitterness and internalized self-hatred, confessing that even he is terrified of his own reflection. He resents society’s hollow, patronizing pity and views people’s stares, whispers, and fear as evidence that he is a grotesque monster who is fundamentally unlovable.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Terrified of own reflection; resents patronizing sympathy; views strangers' gaze as revulsion; defensive psychological alienation.</div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 04</div>
+      <div class="qa-card-q">Why does Mr. Lamb mention that children call him "Lamey-Lamb"? How does he react to this nickname?</div>
+      <div class="qa-card-a">Mr. Lamb reveals that local children tease him as 'Lamey-Lamb' because one of his legs was blown off during the war. Rather than taking offense or growing bitter, Lamb accepts the epithet serenely, remarking that 'it fits me' and does not prevent children from visiting his garden for apples and toffees.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Lost leg in bomb explosion; children taunt him; reacts with equanimity; refuses to let derogatory names compromise his warmth.</div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 05</div>
+      <div class="qa-card-q">Explain the significance of Mr. Lamb’s observation: "It’s all relative. Beauty and the beast."</div>
+      <div class="qa-card-a">Mr. Lamb emphasizes that human aesthetic concepts like beauty and ugliness are entirely subjective and perspective-dependent. In the fairytale, the Beast’s monstrous exterior masked a noble spirit; similarly, a person’s external scars do not diminish their inherent human worth or capacity to experience a meaningful life.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Subjectivity of aesthetics; inner worth supersedes outer disfigurement; fairy tale allusion highlights relativity of societal standards.</div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 06</div>
+      <div class="qa-card-q">How does Mr. Lamb explain the distinction between weeds and green growing plants?</div>
+      <div class="qa-card-a">Mr. Lamb points out that both weeds and prized flowering plants are manifestations of the exact same life-force and growth process. The classification of one as an ugly nuisance and another as a desirable flower is an arbitrary human prejudice, teaching Derry to reconsider arbitrary societal labels.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Same life and growing process; arbitrary human categorization; deconstructs superficial prejudices; lessons from nature.</div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 07</div>
+      <div class="qa-card-q">What traumatizing incident at the bus stop does Derry recount to Mr. Lamb?</div>
+      <div class="qa-card-a">Derry recalls standing at a bus stop when he overheard two women whispering cruelly behind him. One woman pointed at his burned cheek and declared that it was a terrible, grotesque sight that 'only a mother could love.' This callous comment severely shattered Derry’s adolescent self-esteem.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Overheard two women whispering; 'face only a mother could love'; casual societal cruelty; reinforced Derry's emotional alienation.</div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 08</div>
+      <div class="qa-card-q">Why does Mr. Lamb narrate the humorous parable of the man who locked himself in his room?</div>
+      <div class="qa-card-a">Mr. Lamb tells of a timid man who locked himself in his bedroom to avoid potential hazards like buses, donkeys, germs, or lightning—only for a picture on the wall to fall and kill him. Lamb uses this absurd tale to prove that cowardly self-imprisonment cannot evade fate and utterly destroys living.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Parable of timid man killed by falling picture; exposes futility of isolation; life cannot be lived in fearful retreat; laughter as therapy.</div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 09</div>
+      <div class="qa-card-q">Why does Mr. Lamb refuse to put curtains across the windows of his house?</div>
+      <div class="qa-card-a">Mr. Lamb dislikes curtains because he considers them artificial barriers that shut things out and shut things in. He prefers keeping his windows wide open so he can directly experience natural light, darkness, and the restorative sound of the wind blowing through the garden.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Dislikes shutting things out or in; values direct sensory connection; embraces light, darkness, and wind; symbol of mental openness.</div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 10</div>
+      <div class="qa-card-q">Why does Mr. Lamb argue that hatred does more damage than acid?</div>
+      <div class="qa-card-a">Mr. Lamb explains that while acid merely inflicts external, superficial burns on physical skin, hatred corrodes a person from within. Hatred poisons the mind, extinguishes empathy, breeds chronic bitterness, and destroys an individual’s internal soul and spiritual humanity.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Acid burns physical flesh; hatred poisons the interior soul; internal moral destruction is irreversible; warning against bitterness.</div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 11</div>
+      <div class="qa-card-q">How does Derry’s mother react when he tells her he wants to return to Mr. Lamb’s garden?</div>
+      <div class="qa-card-a">Derry’s mother reacts with suspicious paranoia and vehement opposition, relying on unverified neighborhood gossip that depicts the old man as eccentric or unsafe. Motivated by suffocating overprotection, she forbids Derry from returning, warning him to remain within the safe confinement of home.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Opposes visit; cites neighborhood gossip and warnings; overprotective anxiety; seeks to confine Derry to safe domestic isolation.</div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 12</div>
+      <div class="qa-card-q">What is the symbolic significance of Derry weeping over Mr. Lamb’s lifeless body at the end?</div>
+      <div class="qa-card-a">Derry’s weeping marks his ultimate emotional catharsis and spiritual rebirth. For the first time, Derry sheds tears not out of bitter self-pity for his scarred face, but out of selfless grief and deep love for another human being. Lamb’s mentorship triumphs, living on within an empathetic Derry.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Emotional catharsis; shift from selfish self-pity to selfless grief; proof of profound love and connection; Lamb's legacy endures.</div>
+    </div>
+  </section>
+
+  <!-- SECTION 07 -->
+  <section id="long-qa">
+    <h2 class="section-header">07. High-Scoring Long Answer &amp; Comparative Questions (CBSE 5 Marks / 120–150 Words)</h2>
+
+    <!-- LAQ 1 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 5 MARKS // LONG ANSWER // QUESTION 01</div>
+      <div class="qa-card-q">Compare and contrast the psychological attitudes and coping mechanisms of Mr. Lamb and Derry in dealing with their physical handicaps. How does Mr. Lamb succeed in transforming Derry?</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Derry’s defensive misanthropy and internalized stigma vs. Lamb’s philosophical optimism and radical acceptance; Derry views scars as all-consuming vs. Lamb treats tin leg as minor fact; Lamb uses Socratic dialogue, weed analogy, and parables to empower Derry; transformative shift from passive victim to autonomous agent.</div>
+      <div class="qa-card-a">
+        <p><strong>Introduction:</strong> In <em>On the Face of It</em>, Susan Hill presents a nuanced psychological study of two physically impaired individuals whose contrasting responses to societal stigmatization illuminate the triumph of mindset over bodily affliction.</p>
+        <p><strong>Derry's Defensive Misanthropy:</strong> Derry, traumatized by an acid burn that scarred half his face, adopts a posture of aggressive self-isolation. Haunted by the revulsion of strangers and his mother’s duty-bound pity, he concludes that the acid 'ate him up' completely. He equates physical deformity with absolute unlovability, retreating into defensive cynicism to preempt social rejection.</p>
+        <p><strong>Mr. Lamb's Philosophical Resilience:</strong> Conversely, Mr. Lamb, an elderly war veteran with a prosthetic tin leg, embraces radical acceptance. He refuses to wear trousers solely to conceal his leg, dismisses the children's mockery of 'Lamey-Lamb' with good humor, and keeps his garden gates open and windows uncurtained. Instead of brooding in solitude, Lamb engages actively with the world—harvesting crab apples, reading books, and listening to bees humming their songs.</p>
+        <p><strong>The Transformative Mentorship:</strong> Lamb transforms Derry not by lecturing or dispensing pity, but through Socratic engagement. By demonstrating that weeds and flowers share identical life-forces and reminding Derry of his intact faculties—arms, legs, eyes, ears, and brain—Lamb reinstates the boy's sense of agency. Derry realizes that while acid burnt his skin, allowing hatred to poison his spirit would be the true catastrophe. Lamb’s empathy permanently dismantles Derry’s fortress of bitterness.</p>
+      </div>
+    </div>
+
+    <!-- LAQ 2 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 5 MARKS // LONG ANSWER // QUESTION 02</div>
+      <div class="qa-card-q">"On the face of it, it is a simple play about two disabled characters, but beneath the surface lies a scathing critique of societal cruelty and well-meaning hypocrisy." Elaborate with textual evidence.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Title significance ('on the face of it' = superficiality); casual cruelty of strangers (bus stop incident); hypocrisy of patronizing platitudes ('look at those worse off'); parental overprotection as disguised discomfort (mother kissing unburned cheek); Lamb's insight that societal prejudice forces individuals into psychological exile.</div>
+      <div class="qa-card-a">
+        <p><strong>Introduction:</strong> Susan Hill’s title <em>On the Face of It</em> operates as an ironic commentary on human superficiality. While the drama outwardly depicts an afternoon conversation in a garden, its core exposes the pervasive social mechanisms that isolate, wound, and alienate those who diverge from physical norms.</p>
+        <p><strong>Casual Societal Cruelty:</strong> The play reveals that the greatest torment endured by impaired individuals is not physical pain, but the relentless, unthinking callousness of society. Derry’s memory of the women at the bus stop whispering that his face was a monstrosity 'only a mother could love' illustrates how casual cruelty permanently devastates adolescent self-worth. Society insists on treating disabled persons as medical spectacles rather than complete human beings.</p>
+        <p><strong>The Hypocrisy of Empty Platitudes:</strong> Hill ruthlessly satirizes the superficial consolation offered by well-meaning observers. Telling Derry to contemplate people who are blind, deaf, or wheelchair-bound does nothing to heal his trauma; it merely trivializes his suffering. Even within the family, parental love is contaminated by pity: Derry’s mother kisses only the uninjured side of his face out of moral duty, while warning him against eccentric neighbors.</p>
+        <p><strong>Conclusion:</strong> Hill demonstrates that society’s aesthetic prejudices construct metaphorical walls that are far more impenetrable than brick or mortar. True inclusion requires looking past outward appearances to honor intrinsic spiritual dignity.</p>
+      </div>
+    </div>
+
+    <!-- LAQ 3 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 5 MARKS // LONG ANSWER // QUESTION 03</div>
+      <div class="qa-card-q">Analyze the rich symbolism of the garden, the open gate, the windows without curtains, and the crab apples in *On the Face of It*. How do these motifs reinforce Susan Hill’s thematic vision?</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> The garden as an uncurated sanctuary of nature where weeds and flowers coexist equally; open gates symbolize unconditional hospitality; absence of curtains reflects mental openness to light, wind, and experience; crab apples/windfalls represent imperfect, discarded outcasts transformed into sweet jelly; all motifs coalesce into a philosophy of holistic acceptance.</div>
+      <div class="qa-card-a">
+        <p><strong>Introduction:</strong> In <em>On the Face of It</em>, Susan Hill employs a coherent tapestry of natural and architectural symbols to externalize the internal psychological dialectic between isolation and liberation.</p>
+        <p><strong>The Garden &amp; Weeds:</strong> Mr. Lamb’s garden functions as a pastoral Eden free from societal taxonomies. In this sanctuary, tall green weeds flourish beside bright sunflowers. Lamb’s insistence that both represent the identical miracle of growth deconstructs human vanity, serving as an organic metaphor for the equal sanctity of scarred and unscarred bodies.</p>
+        <p><strong>Open Gates &amp; Curtains:</strong> Architectural details mirror character psyches. Lamb’s garden gate is permanently unlatched, symbolizing radical hospitality. His windows lack curtains because he refuses to 'shut things out or shut things in,' welcoming light, wind, and strangers alike. This stands in sharp contrast to Derry’s domestic home, where doors are slammed and minds are shuttered by gossip and prejudice.</p>
+        <p><strong>Crab Apples &amp; Windfalls:</strong> The crab apples, falling unbidden as windfalls into the long grass, represent imperfect, overlooked outcasts. While Derry assumes they are worthless trash, Lamb harvests them to create golden, sweet jelly, proving that beauty and utility can be distilled from that which society discards.</p>
+      </div>
+    </div>
+
+    <!-- LAQ 4 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 5 MARKS // LONG ANSWER // QUESTION 04</div>
+      <div class="qa-card-q">Comparative Synthesis: Examine how the theme of overcoming existential fear and self-imposed limitations in *On the Face of It* parallels William Douglas’s ordeal in *Deep Water*. What universal lessons on resilience do both texts illuminate?</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Shared core theme: fear is an internalized psychological tyrant worse than the initial trauma; Douglas’s hydrophobia paralyzed his youth just as Derry’s disfigurement paralyzed his social existence; both overcome trauma through active courage and disciplined guidance (instructor vs Lamb); Roosevelt’s maxim 'all we have to fear is fear itself' resonates with Lamb's fable of the timid man; triumph of the human will.</div>
+      <div class="qa-card-a">
+        <p><strong>Introduction:</strong> Both William Douglas’s autobiographical narrative <em>Deep Water</em> and Susan Hill’s drama <em>On the Face of It</em> explore how early psychological trauma creates paralyzing existential fear, and how proactive courage can reclaim human life.</p>
+        <p><strong>The Tyranny of Internalized Fear:</strong> In <em>Deep Water</em>, near-fatal drowning at the YMCA pool left Douglas afflicted with debilitating hydrophobia that ruined his fishing trips and boating for years. Similarly, Derry’s acid burn created an overwhelming fear of human contact that drove him into misanthropic isolation. Both protagonists discovered that the psychological memory of trauma was far more destructive than the original physical event.</p>
+        <p><strong>The Path of Resilience &amp; Mentorship:</strong> Liberation in both narratives requires disciplined confrontation of fear. Douglas hired an instructor who meticulously dismantled his terror piece by piece until Douglas swam across Lake Wentworth alone. In parallel, Mr. Lamb acts as Derry’s philosophical instructor, dismantling the boy's bitterness through humor, nature analogies, and radical empathy.</p>
+        <p><strong>Universal Conclusion:</strong> Both texts endorse Franklin D. Roosevelt's aphorism that 'all we have to fear is fear itself.' Whether conquering watery depths or societal sneers, human beings achieve liberation only when they step beyond self-pity and confront the world with unyielding agency.</p>
+      </div>
+    </div>
+
+    <!-- LAQ 5 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 5 MARKS // LONG ANSWER // QUESTION 05</div>
+      <div class="qa-card-q">Trace Derry’s complete psychological arc from defensive misanthropy in Scene One to domestic defiance in Scene Two and selfless grief in Scene Three. What does his transformation demonstrate about the power of non-judgmental empathy?</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Scene One: initial panic, paranoia of being watched, cynical rejection of Beauty & Beast, gradual thawing through Lamb’s Socratic engagement; Scene Two: heroic rebellion against mother’s fear, slamming door, asserting need to listen to singing bees and open conversation; Scene Three: fulfills vow by running 3 miles, discovers fallen ladder, cathartic weeping represents birth of mature, selfless love; empathy as antidote to alienation.</div>
+      <div class="qa-card-a">
+        <p><strong>Introduction:</strong> Derry’s character arc in <em>On the Face of It</em> represents one of the most compelling coming-of-age transformations in modern drama, demonstrating that unconditional, non-judgmental acceptance can heal even the most deeply scarred human psyche.</p>
+        <p><strong>Scene One — Defensive Misanthropy:</strong> At the outset, Derry is a creature of shadows, climbing garden walls to evade human eyes. When confronted by Mr. Lamb, he bristles with hostile defensiveness, suspecting ridicule and projecting his own disgust. However, because Lamb refuses to flinch, scold, or shower him with sickening sympathy, Derry’s intellectual curiosity is sparked. Lamb’s parables and celebration of life awaken in Derry a dormant desire to belong to the world.</p>
+        <p><strong>Scene Two — Defiance of Claustrophobic Conformity:</strong> Returning home, Derry encounters his mother’s suffocating overprotection and uncritical absorption of neighborhood prejudice. For the first time in his life, Derry refuses to be silenced. He passionately defends Mr. Lamb, affirms his right to listen to wind and singing bees, and slams the door in defiance of parental paranoia. He chooses danger and connection over safe domestic imprisonment.</p>
+        <p><strong>Scene Three — Selfless Grief &amp; Rebirth:</strong> In the final scene, Derry sprints three miles to keep his promise. Finding Mr. Lamb motionless beneath the shattered ladder, Derry’s desperate pleas dissolve into tears. These tears do not signify regression into self-pity; they represent the birth of mature, selfless grief. Though Lamb has died, his open-hearted spirit has taken root permanently within Derry’s liberated soul.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 08 -->
+  <section id="pyq-vault">
+    <h2 class="section-header">08. Previous Years' Question Vault (2019–2025)</h2>
+    <p class="content-block">Examine these authentic CBSE Class 12 Board Examination questions with comprehensive marking scheme points and examiner tips:</p>
+
+    <!-- PYQ 1 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2024 // ALL INDIA SET 1 // 2 MARKS</div>
+      <div class="qa-card-q">Why does Mr. Lamb leave his gate always open?</div>
+      <div class="qa-card-a">Mr. Lamb leaves his gate open to welcome anyone who wishes to enter his garden. He enjoys company, loves meeting people of all ages, and harbors no fear or prejudice against strangers. His open gate symbolizes his universal hospitality and complete psychological receptivity to life.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Welcoming visitors; loves company; no fear of strangers; symbol of hospitality and mental openness.</div>
+    </div>
+
+    <!-- PYQ 2 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2024 // DELHI SET 2 // 2 MARKS</div>
+      <div class="qa-card-q">How does Derry's attitude towards life change after his meeting with Mr. Lamb?</div>
+      <div class="qa-card-a">Meeting Mr. Lamb dissolves Derry’s defensive bitterness and self-loathing. Inspired by Lamb’s optimism and reminder of his intact physical and intellectual faculties, Derry abandons his retreat into dark isolation, claims his agency, and develops a newfound enthusiasm to listen, explore, and participate actively in the world.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Sheds bitterness/self-pity; inspired by Lamb's optimism; realizes his intact capabilities; chooses active engagement over isolation.</div>
+    </div>
+
+    <!-- PYQ 3 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2023 // ALL INDIA SET 3 // 2 MARKS</div>
+      <div class="qa-card-q">What makes Derry think that Mr. Lamb is 'peculiar'?</div>
+      <div class="qa-card-a">Derry considers Mr. Lamb peculiar because of his unconventional statements and behaviors. Lamb keeps no curtains, claims to have hundreds of friends whose names he doesn't know, equates weeds with flowers, hears bees 'singing' rather than buzzing, and refuses to react with horror to Derry’s burned face.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Unconventional philosophies; no curtains; hears bees singing; refuses to be horrified by Derry's scars; treats disability with humor.</div>
+    </div>
+
+    <!-- PYQ 4 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2023 // DELHI SET 1 // 5 MARKS</div>
+      <div class="qa-card-q">"Both Derry and Mr. Lamb suffer from physical impairments, but their attitudes to life are poles apart." Discuss with reference to Susan Hill’s play *On the Face of It*.</div>
+      <div class="qa-card-a">
+        <p><strong>Model Answer:</strong> Susan Hill presents a striking character foil in <em>On the Face of It</em>. While both protagonists carry physical scars—Mr. Lamb has a tin leg from a wartime bomb and Derry has a face half-destroyed by acid—their psychological orientations represent diametric opposites.</p>
+        <p>Derry is overwhelmed by victimhood. Convinced that his disfigurement makes him inherently monstrous, he misinterprets all social interaction as either disgusted recoil or insincere, patronizing pity. He seeks total isolation, climbing walls to find empty places and brooding in self-hatred.</p>
+        <p>In contrast, Mr. Lamb embodies triumphant acceptance. He refuses to hide his tin leg, jokes about the children calling him 'Lamey-Lamb', and maintains an uncurtained house with an unlatched gate. He finds beauty in weeds, music in bees, and purpose in making apple jelly. By showing Derry that physical flaws do not dictate human potential, Lamb guides the boy from bitter misanthropy toward courageous self-determination.</p>
+      </div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Contrast between Derry’s bitterness/paranoia and Lamb’s resilience/openness; Derry hides away vs Lamb welcomes the world; Lamb’s Socratic guidance catalyzes Derry’s transformation.</div>
+    </div>
+
+    <!-- PYQ 5 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2022 (TERM 2) // ALL INDIA // 2 MARKS</div>
+      <div class="qa-card-q">How does Mr. Lamb react when Derry asks him about his friends?</div>
+      <div class="qa-card-a">Mr. Lamb cheerfully claims he has hundreds of friends, asserting that anyone who walks through his open gate is a friend. When Derry points out that these visitors don't even know his name, Lamb dismisses names as trivial labels ('Tom, Dick, or Harry'), prioritizing human connection over formal nomenclature.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Claims hundreds of friends; open gate policy; dismisses names as unimportant; values companionship over formalities.</div>
+    </div>
+
+    <!-- PYQ 6 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2020 // DELHI SET 1 // 2 MARKS</div>
+      <div class="qa-card-q">Why does Derry say, "I'd not come to steal anything"?</div>
+      <div class="qa-card-a">Derry says this defensively when startled by Mr. Lamb in the garden. Because older boys in the neighborhood often climbed the wall to steal apples ('scrumping'), Derry immediately fears that Lamb will accuse him of theft, hastily clarifying that he sought only solitude.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Defensive fear of accusation; neighborhood boys steal apples; Derry entered purely for solitude, not theft.</div>
+    </div>
+
+    <!-- PYQ 7 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2020 // ALL INDIA SET 2 // 5 MARKS</div>
+      <div class="qa-card-q">What is it that draws Derry towards Mr. Lamb in spite of himself?</div>
+      <div class="qa-card-a">
+        <p><strong>Model Answer:</strong> Derry is inexorably drawn to Mr. Lamb because the old man represents the complete antithesis of everyone Derry has ever encountered. Throughout his life, Derry experienced only two reactions to his acid-burned face: the recoiling terror of strangers or the suffocating, condescending pity of well-wishers and parents.</p>
+        <p>Mr. Lamb treats Derry with neither disgust nor patronizing sympathy. He looks past the boy’s scars, speaking to him as an equal. Lamb’s whimsical perspective—finding beauty in weeds, listening to the music of bees, and living without curtains—fascinates Derry’s hungry intellect.</p>
+        <p>Furthermore, Lamb does not interrogate Derry about his injury, nor does he offer false promises. Instead, he challenges Derry's self-pity with the parable of the timid man and reminds him of his intact faculties: two arms, two legs, eyes, ears, and a brain. This empowering, non-judgmental acceptance pierces Derry's defensive shell, compelling him to return to the garden to seek Lamb's companionship.</p>
+      </div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Absence of pity and disgust; treated as an equal; fascinated by Lamb's unique philosophy; empowered by reminder of intact faculties; non-judgmental acceptance draws Derry irresistibly.</div>
+    </div>
+
+    <!-- PYQ 8 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2019 // ALL INDIA SET 1 // 2 MARKS</div>
+      <div class="qa-card-q">In what sense does the friendship between Mr. Lamb and Derry prove fruitful for Derry?</div>
+      <div class="qa-card-a">Their brief friendship rescues Derry from the brink of permanent psychological ruination. Lamb frees Derry from the prison of self-loathing, instills courage, and teaches him that external scars cannot restrict his life unless he allows hatred to corrode his spirit from within.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Liberates Derry from self-pity and bitterness; instills self-worth and courage; shifts focus from outward appearance to inner agency.</div>
+    </div>
+
+    <!-- PYQ 9 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2019 // DELHI SET 3 // 2 MARKS</div>
+      <div class="qa-card-q">How does Mr. Lamb encourage Derry to overcome his feelings of inferiority?</div>
+      <div class="qa-card-a">Mr. Lamb encourages Derry by reminding him that he possesses all vital faculties—two arms, two legs, eyes, ears, tongue, and brain. He assures Derry that with willpower and self-reliance, he could outstrip all 'normal' people and live a life richer and more fulfilling than anyone else.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Enumerates intact faculties; emphasizes willpower and intellect; assures Derry he can surpass normal people; inspires self-reliance.</div>
+    </div>
+
+    <!-- PYQ 10 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2019 // COMPARTMENT // 5 MARKS</div>
+      <div class="qa-card-q">Discuss the role of Derry's mother in reinforcing his isolation and psychological trauma.</div>
+      <div class="qa-card-a">
+        <p><strong>Model Answer:</strong> Derry’s mother plays a pivotal sociological role in Susan Hill’s play, illustrating how well-meaning parental overprotection can be as destructive to a disabled child as outright societal hostility.</p>
+        <p>Her treatment of Derry is laden with agonizing pity rather than empowering acceptance. Derry reveals that she kisses him exclusively on the uninjured side of his face, and even then, only out of maternal duty. This conditional physical affection deepens Derry's subconscious belief that his scarred cheek is fundamentally repulsive.</p>
+        <p>Moreover, in Scene Two, when Derry expresses his desire to return to Mr. Lamb’s garden, his mother reacts with immediate paranoia. Bound by neighborhood prejudice and gossip, she orders Derry to stay indoors, arguing that the world outside is unsafe. By attempting to cocoon him within domestic safety, she inadvertently reinforces his isolation, treating him as a fragile invalid. Derry’s courageous defiance of her authority is essential for his psychological emancipation.</p>
+      </div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Kisses Derry out of duty on unburned cheek; overprotective paranoia treats him as invalid; relies on neighborhood gossip against Lamb; reinforces isolation; Derry must rebel to achieve liberation.</div>
+    </div>
+  </section>
+
+  <footer class="doc-footer">
+    <div>CBSE CLASS 12 ENGLISH CORE // VISTAS (SUPPLEMENTARY READER) // CHAPTER 05</div>
+    <div>STRICT BENCHMARK FIDELITY // GOING PLACES PARITY VERIFIED</div>
+  </footer>
+</div>
+
+<div class="floating-controls" id="floating-controls">
+  <button class="control-btn" id="theme-toggle" title="Toggle Light/Dark Theme">[ ☾ DARK ]</button>
+  <button class="control-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Jump to Top">↑ TOP</button>
+</div>
+
+<div id="vocab-tooltip">
+  <div class="tt-header">
+    <span class="tt-word" id="tt-word">Word</span>
+    <span class="tt-phonetic" id="tt-phonetic">/phonetic/</span>
+  </div>
+  <div class="tt-pos" id="tt-pos">part of speech</div>
+  <div class="tt-def" id="tt-def">Definition text goes here.</div>
+  <div class="tt-cbse" id="tt-cbse">CBSE Tip</div>
+</div>
+
+<script>
+(function() {
+  const vocabData = {"tentatively": {"ph": "/\u02c8ten.t\u0259.t\u026av.li/", "pos": "adverb", "def": "Hesitantly, cautiously, without conviction or firmness.", "cbse": "Captures Derry's initial fear and distrust as he enters the garden."}, "windfalls": {"ph": "/\u02c8w\u026and.f\u0254\u02d0lz/", "pos": "noun (plural)", "def": "Apples or fruit blown down from a tree by the wind.", "cbse": "Symbol of unintended fortune or natural vulnerability in Lamb's garden."}, "scrumping": {"ph": "/\u02c8skr\u028cm.p\u026a\u014b/", "pos": "verb (gerund)", "def": "Stealing fruit from an orchard or garden without permission.", "cbse": "Differentiates mischievous young thieves from Derry's innocent intrusion."}, "relative": {"ph": "/\u02c8rel.\u0259.t\u026av/", "pos": "adjective", "def": "Evaluated only in comparison or relation to something else; subjective.", "cbse": "Core philosophical concept: beauty and ugliness depend entirely on perception."}, "monstrous": {"ph": "/\u02c8m\u0252n.str\u0259s/", "pos": "adjective", "def": "Hideously unnatural, shocking, or grotesque.", "cbse": "Derry's projected self-hatred and fear of society's recoil."}, "daft": {"ph": "/d\u0251\u02d0ft/", "pos": "adjective", "def": "Silly, foolish, or mentally eccentric.", "cbse": "Mr. Lamb's affectionate self-deprecation and colloquial warmth."}, "peculiar": {"ph": "/p\u026a\u02c8kju\u02d0.li.\u0259r/", "pos": "adjective", "def": "Strange, unusual, distinctive, or eccentric.", "cbse": "Describes Lamb's unorthodox philosophies and non-conformist lifestyle."}, "rubbish": {"ph": "/\u02c8r\u028cb.\u026a\u0283/", "pos": "noun", "def": "Nonsensical talk, worthless matter, or untrue gossip.", "cbse": "How Lamb dismisses neighborhood rumors and prejudice."}, "humming": {"ph": "/\u02c8h\u028cm.\u026a\u014b/", "pos": "verb / adjective", "def": "Making a low, steady continuous droning sound; singing softly.", "cbse": "Lamb's auditory optimism: where others hear buzzing pests, he hears singing."}, "sympathy": {"ph": "/\u02c8s\u026am.p\u0259.\u03b8i/", "pos": "noun", "def": "Feelings of pity or sorrow for someone else's misfortune; condescension.", "cbse": "Derry resents superficial pity, which he views as masked disgust."}, "alienation": {"ph": "/\u02cce\u026a.li.\u0259\u02c8ne\u026a.\u0283\u0259n/", "pos": "noun", "def": "The state of feeling isolated, estranged, or excluded from society.", "cbse": "The central psychological condition afflicting Derry prior to meeting Lamb."}, "defiant": {"ph": "/d\u026a\u02c8fa\u026a.\u0259nt/", "pos": "adjective", "def": "Showing bold resistance, rebellion, or disobedience.", "cbse": "Derry's emotional armor against world cruelty; his final assertion against his mother."}, "resilience": {"ph": "/r\u026a\u02c8z\u026al.j\u0259ns/", "pos": "noun", "def": "The capacity to recover quickly from illness, trauma, or emotional hardship.", "cbse": "Embodied by Lamb's tin leg and open-hearted engagement with life."}, "bitterness": {"ph": "/\u02c8b\u026at.\u0259r.n\u0259s/", "pos": "noun", "def": "Deep resentment, cynicism, or grievance resulting from unfair treatment.", "cbse": "Worse than acid: Lamb warns that internal bitterness destroys a soul."}, "optimism": {"ph": "/\u02c8\u0252p.t\u026a.m\u026a.z\u0259m/", "pos": "noun", "def": "Hopefulness and confidence about the future and inherent human goodness.", "cbse": "Lamb's open gate and lack of curtains symbolize radiant mental openness."}, "prejudice": {"ph": "/\u02c8pred\u0292.\u0259.d\u026as/", "pos": "noun", "def": "Preconceived opinion not based on reason or actual experience.", "cbse": "Maternal and neighborhood warnings reflect irrational societal prejudice against Lamb."}};
+
+  const tooltip = document.getElementById('vocab-tooltip');
+  const ttWord = document.getElementById('tt-word');
+  const ttPhonetic = document.getElementById('tt-phonetic');
+  const ttPos = document.getElementById('tt-pos');
+  const ttDef = document.getElementById('tt-def');
+  const ttCbse = document.getElementById('tt-cbse');
+
+  let activeTarget = null;
+  let hideTimeout = null;
+
+  function showTooltip(el, e) {
+    const key = el.getAttribute('data-w');
+    if (!key || !vocabData[key]) return;
+    const data = vocabData[key];
+
+    ttWord.textContent = key;
+    ttPhonetic.textContent = data.ph;
+    ttPos.textContent = data.pos;
+    ttDef.textContent = data.def;
+    ttCbse.textContent = "CBSE Context: " + data.cbse;
+
+    tooltip.style.display = 'block';
+
+    const rect = el.getBoundingClientRect();
+    const ttWidth = 320;
+    let left = rect.left + window.scrollX;
+    let top = rect.bottom + window.scrollY + 6;
+
+    if (left + ttWidth > window.innerWidth - 16) {
+      left = window.innerWidth - ttWidth - 16;
+    }
+    if (left < 16) left = 16;
+
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = top + 'px';
+    activeTarget = el;
+  }
+
+  function hideTooltip() {
+    tooltip.style.display = 'none';
+    activeTarget = null;
+  }
+
+  document.addEventListener('mouseover', (e) => {
+    const el = e.target.closest('.vw');
+    if (el) {
+      clearTimeout(hideTimeout);
+      showTooltip(el, e);
+    }
+  });
+
+  document.addEventListener('mouseout', (e) => {
+    const el = e.target.closest('.vw');
+    if (el) {
+      hideTimeout = setTimeout(hideTooltip, 120);
+    }
+  });
+
+  tooltip.addEventListener('mouseenter', () => {
+    clearTimeout(hideTimeout);
+  });
+  tooltip.addEventListener('mouseleave', () => {
+    hideTimeout = setTimeout(hideTooltip, 120);
+  });
+
+  const controls = document.getElementById('floating-controls');
+  const toggleBtn = document.getElementById('theme-toggle');
+
+  function checkScroll() {
+    const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (scrollPos > 80) {
+      if (controls) controls.classList.add('visible');
+    } else {
+      if (controls) controls.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  window.addEventListener('load', checkScroll);
+  window.addEventListener('hashchange', checkScroll);
+  setTimeout(checkScroll, 150);
+  checkScroll();
+
+  function syncThemeBtn() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (toggleBtn) {
+      toggleBtn.textContent = isDark ? '[ ☼ LIGHT ]' : '[ ☾ DARK ]';
+    }
+  }
+
+  syncThemeBtn();
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const newTheme = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('cbse_theme', newTheme);
+      syncThemeBtn();
+    });
+  }
+})();
+</script>
+</body>
+</html>

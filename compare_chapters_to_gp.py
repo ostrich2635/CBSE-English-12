@@ -19,6 +19,7 @@ chapters = [
     ('Vistas Ch 02: The Tiger King', 'HTML/the_tiger_king_cbse_mastery.html', 10),
     ('Vistas Ch 03: Journey to the End of the Earth', 'HTML/journey_to_the_end_of_the_earth_cbse_mastery.html', 8),
     ('Vistas Ch 04: The Enemy', 'HTML/the_enemy_cbse_mastery.html', 10),
+    ('Vistas Ch 05: On the Face of It', 'HTML/on_the_face_of_it_cbse_mastery.html', 10),
 ]
 
 # Canonical patterns from Going Places benchmark:
