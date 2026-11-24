@@ -20,6 +20,7 @@ chapters = [
     ('Vistas Ch 03: Journey to the End of the Earth', 'HTML/journey_to_the_end_of_the_earth_cbse_mastery.html', 8),
     ('Vistas Ch 04: The Enemy', 'HTML/the_enemy_cbse_mastery.html', 10),
     ('Vistas Ch 05: On the Face of It', 'HTML/on_the_face_of_it_cbse_mastery.html', 10),
+    ('Vistas Ch 06: Memories of Childhood', 'HTML/memories_of_childhood_cbse_mastery.html', 8),
 ]
 
 # Canonical patterns from Going Places benchmark:
@@ -102,7 +103,8 @@ if os.path.exists('index.html'):
         "The Rattrap", "Indigo", "Poets and Pancakes", "The Interview", "Going Places",
         "My Mother at Sixty-Six", "Keeping Quiet", "A Thing of Beauty", "A Roadside Stand",
         "Aunt Jennifer's Tigers", "The Third Level", "The Tiger King",
-        "Journey to the End of the Earth", "The Enemy"
+        "Journey to the End of the Earth", "The Enemy", "On the Face of It",
+        "Memories of Childhood"
     ]
     for t in titles:
         if f"<strong>{t}</strong>" not in idx_html:

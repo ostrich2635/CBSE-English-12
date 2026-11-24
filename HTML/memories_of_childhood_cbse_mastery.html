@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<title>Memories of Childhood — CBSE Class 12 English Core Mastery Manual</title>
+<script>
+(function() {
+  const saved = localStorage.getItem('cbse_theme');
+  if (saved === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+<style>
+:root {
+  --bg: #ffffff;
+  --text-main: #111111;
+  --text-muted: #555555;
+  --border-light: #e5e5e5;
+  --border-dark: #111111;
+  --panel-bg: #fafafa;
+  --panel-hover: #f3f4f6;
+  --tooltip-bg: #111111;
+  --tooltip-text: #ffffff;
+  --tooltip-border: #333333;
+  --hover-bg: #f0f0f0;
+  --font-sans: "Google Sans", "Google Sans Text", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Georgia", "Cambria", "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+}
+
+[data-theme="dark"] {
+  --bg: #0d1117;
+  --text-main: #e6edf3;
+  --text-muted: #8b949e;
+  --border-light: #30363d;
+  --border-dark: #e6edf3;
+  --panel-bg: #161b22;
+  --panel-hover: #1f242c;
+  --tooltip-bg: #161b22;
+  --tooltip-text: #e6edf3;
+  --tooltip-border: #6e7681;
+  --hover-bg: #21262d;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.68;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 100px 24px;
+}
+
+.mono-kicker {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 6px;
+}
+
+.doc-title {
+  font-family: var(--font-serif);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.doc-subtitle {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+}
+
+.doc-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.spec-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border: 1px solid var(--border-light);
+  background: var(--panel-bg);
+  color: var(--text-main);
+}
+
+.toc-box {
+  background: var(--panel-bg);
+  border: 1px solid var(--border-dark);
+  padding: 20px 24px;
+  margin-bottom: 48px;
+}
+
+.toc-title {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 8px;
+}
+
+.toc-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.toc-list li a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  display: block;
+  padding: 4px 0;
+  transition: color 0.15s;
+}
+
+.toc-list li a:hover {
+  text-decoration: underline;
+}
+
+.section-header {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 700;
+  margin: 56px 0 20px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border-dark);
+}
+
+.content-block {
+  margin-bottom: 24px;
+  text-align: justify;
+}
+
+.theme-card {
+  border: 1px solid var(--border-light);
+  background: var(--panel-bg);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+.theme-card-title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.clean-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 13.5px;
+}
+
+.clean-table th, .clean-table td {
+  border: 1px solid var(--border-light);
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.clean-table th {
+  background: var(--panel-bg);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.keyword-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 24px 0;
+}
+
+.kw-chip {
+  border: 1px solid var(--border-light);
+  background: var(--panel-bg);
+  padding: 6px 10px;
+  font-size: 12.5px;
+  font-family: var(--font-mono);
+}
+
+.passage-block {
+  border: 1px solid var(--border-light);
+  background: var(--bg);
+  margin-bottom: 40px;
+  padding: 24px;
+}
+
+.passage-headline {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--text-main);
+  border-bottom: 1px dashed var(--border-light);
+  padding-bottom: 6px;
+}
+
+.quote-passage {
+  background: var(--panel-bg);
+  border-left: 3px solid var(--border-dark);
+  padding: 18px 20px;
+  margin: 16px 0 24px 0;
+  font-family: var(--font-serif);
+  font-size: 14.5px;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  position: relative;
+}
+
+.quote-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.sub-module {
+  margin: 20px 0;
+  padding: 16px;
+  border: 1px solid var(--border-light);
+  background: var(--panel-bg);
+}
+
+.sub-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+  color: var(--text-muted);
+}
+
+.exam-value-box {
+  background: var(--panel-bg);
+  border: 1px solid var(--border-dark);
+  padding: 18px 20px;
+  margin: 20px 0;
+}
+
+.qa-card {
+  border: 1px solid var(--border-light);
+  background: var(--panel-bg);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.qa-card-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.qa-card-q {
+  font-family: var(--font-serif);
+  font-size: 15.5px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.45;
+}
+
+.qa-card-a {
+  font-size: 14.5px;
+  margin-bottom: 14px;
+  text-align: justify;
+}
+
+.qa-card-vp {
+  background: var(--bg);
+  border-left: 2px solid var(--border-dark);
+  padding: 10px 14px;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  line-height: 1.55;
+}
+
+.vw {
+  cursor: pointer;
+  border-bottom: 1px dashed var(--text-muted);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.vw:hover {
+  background: var(--hover-bg);
+  border-bottom: 1px solid var(--text-main);
+}
+
+#vocab-tooltip {
+  position: absolute;
+  display: none;
+  z-index: 9999;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  border: 1px solid var(--tooltip-border);
+  padding: 12px 14px;
+  max-width: 320px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  border-radius: 4px;
+}
+
+.tt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding-bottom: 4px;
+  margin-bottom: 6px;
+}
+
+.tt-word {
+  font-weight: 700;
+  font-size: 14px;
+  font-family: var(--font-mono);
+}
+
+.tt-phonetic {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.tt-pos {
+  font-style: italic;
+  font-size: 11px;
+  margin-bottom: 4px;
+  opacity: 0.85;
+}
+
+.tt-def {
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.tt-cbse {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  border-top: 1px dashed rgba(255,255,255,0.2);
+  padding-top: 4px;
+  opacity: 0.9;
+}
+
+.floating-controls {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  gap: 8px;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.floating-controls.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.control-btn {
+  background: var(--panel-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-dark);
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.15s;
+}
+
+.control-btn:hover {
+  background: var(--panel-hover);
+}
+
+.doc-footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+</style>
+</head>
+<body>
+<div class="container" id="top">
+  <div class="mono-kicker">MANUAL // CBSE CLASS 12 ENGLISH CORE (VISTAS) // CH-06</div>
+  <h1 class="doc-title">MEMORIES OF CHILDHOOD</h1>
+  <div class="doc-subtitle">ZITKALA-SA &amp; BAMA // COMPLETE CBSE BOARD MASTERY MANUAL</div>
+
+  <div class="doc-specs">
+    <span class="spec-pill">SYLLABUS: 2026–27</span>
+    <span class="spec-pill">CORE: VISTAS (SUPPLEMENTARY)</span>
+    <span class="spec-pill">GENRE: AUTOBIOGRAPHICAL MEMOIR</span>
+    <span class="spec-pill">WEIGHTAGE: 4–7 MARKS</span>
+    <span class="spec-pill">BENCHMARK: GOING PLACES PARITY</span>
+  </div>
+
+  <nav class="toc-box">
+    <div class="toc-title">
+      <span>INDEX // QUICK NAVIGATION</span>
+      <span>[8 SECTIONS]</span>
+    </div>
+    <ul class="toc-list">
+      <li><a href="#overview">01. EXECUTIVE EXAM COMPASS &amp; THEMES</a></li>
+      <li><a href="#keywords">02. CBSE GOLDEN KEYWORDS BANK</a></li>
+      <li><a href="#passages">03. PASSAGE-BY-PASSAGE BREAKDOWN (01 TO 08)</a></li>
+      <li><a href="#characters">04. MASTER CHARACTER SKETCHES</a></li>
+      <li><a href="#rtc">05. REFERENCE TO CONTEXT (EXTRACT-BASED QS)</a></li>
+      <li><a href="#short-qa">06. HIGH-YIELD SHORT ANSWER QS (2 MARKS)</a></li>
+      <li><a href="#long-qa">07. HIGH-SCORING LONG ANSWER QS (5 MARKS)</a></li>
+      <li><a href="#pyq-vault">08. PREVIOUS YEARS' QUESTION VAULT (2019–2025)</a></li>
+    </ul>
+  </nav>
+
+  <!-- SECTION 01 -->
+  <section id="overview">
+    <h2 class="section-header">01. Executive Exam Compass &amp; Themes</h2>
+    <div class="content-block">
+      <p><em>Memories of Childhood</em> presents two poignant, deeply personal autobiographical narratives from two distinct cultural contexts across the globe: Zitkala-Sa (Gertrude Simmons Bonnin), a Native American writer from the Yankton Dakota Sioux tribe in late nineteenth-century North America, and Bama (Faustina Soosairaj), a contemporary Tamil Dalit feminist writer from South India. Though geographically and historically separated, both accounts coalesce into a powerful, universal indictment of systemic oppression, institutional violence, and the psychological trauma inflicted upon marginalized children. Crucially, neither narrative concludes in helpless victimhood; both celebrate the awakening of human consciousness, active rebellion, and the transformative power of education and literature in reclaiming human dignity.</p>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-card-title">1. Forced Cultural Assimilation &amp; Colonial Hegemony (Zitkala-Sa)</div>
+      <p>In <em>The Cutting of My Long Hair</em>, Zitkala-Sa documents the brutal trauma of cultural erasure at the Carlisle Indian Industrial School. Under the imperialist doctrine of 'civilizing' indigenous people, Native children were stripped of their ancestral language, soft moccasins, modest blankets, and long hair. In Dakota culture, long hair is an emblem of warrior bravery, whereas short hair signifies mourning and shingled hair marks captured cowards. The forced shears sever not merely physical hair, but ancestral identity, reducing sovereign human beings to 'animals driven by a herder.'</p>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-card-title">2. Inhuman Caste Hegemony &amp; Ritual Pollution (Bama)</div>
+      <p>In <em>We Too are Human Beings</em>, Bama exposes the insidious architecture of caste-based untouchability in rural Tamil Nadu. Viewed through the initially innocent eyes of a third-grade child, the sight of an elder carrying food suspended by a string appears comical. The subsequent revelation by her brother Annan—that physical touch is deemed 'polluting' by upper-caste Naicker landlords—ignites a moral earthquake. Bama gives voice to the foundational premise of subaltern resistance: Dalits are full human beings entitled to unconditional constitutional dignity and respect.</p>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-card-title">3. Education &amp; Intellectual Excellence as the Ultimate Weapon</div>
+      <p>The philosophical fulcrum of Bama's memoir echoes Dr. B. R. Ambedkar’s revolutionary call: 'Educate, Agitate, Organize.' Annan teaches Bama that while caste hierarchy denies them birthright dignity, academic excellence possesses the power to shatter these artificial barriers. By studying relentlessly and standing first in her class, Bama compels society to acknowledge her merit, demonstrating that intellectual empowerment is the supreme vehicle for dismantling systemic injustice.</p>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-card-title">4. Modes of Resistance: Physical Struggle vs. Structural Emancipation</div>
+      <p>A crucial comparative study for the CBSE exam lies in contrasting the two modes of resistance. Zitkala-Sa’s rebellion is immediate, visceral, and physical: she refuses to submit, hides under a bed, scratches, and kicks against the shears. Though physically overpowered, her moral spirit remains unbroken. In contrast, Bama channelizes her fury into long-term structural resistance through education, achieving lasting social mobility and literary empowerment.</p>
+    </div>
+
+    <table class="clean-table">
+      <thead>
+        <tr>
+          <th>COMPARATIVE DIMENSION</th>
+          <th>ZITKALA-SA (PART I)</th>
+          <th>BAMA (PART II)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Author &amp; Context</strong></td>
+          <td>Yankton Dakota Sioux / Native American; Carlisle Indian Industrial School, USA (late 19th c.).</td>
+          <td>Tamil Dalit Christian feminist; village in Tamil Nadu, South India (late 20th c.).</td>
+        </tr>
+        <tr>
+          <td><strong>Form of Oppression</strong></td>
+          <td>Racial imperialism, institutional violence, forced cultural assimilation, cultural erasure.</td>
+          <td>Feudal caste hierarchy, untouchability, ritual pollution taboos, economic subjugation.</td>
+        </tr>
+        <tr>
+          <td><strong>Symbol of Violation</strong></td>
+          <td>Cutting of long hair, loss of modest blanket, clattering shoes, eating by three-bell formula.</td>
+          <td>Carrying food parcel by string without touching, bowing obsequiously before landlord.</td>
+        </tr>
+        <tr>
+          <td><strong>Psychological Arc</strong></td>
+          <td>Initial sensory bewilderment &rarr; fierce physical resistance &rarr; grief of loss &rarr; literary testimony.</td>
+          <td>Joyful childhood innocence &rarr; comedic curiosity &rarr; burning indignation &rarr; academic triumph.</td>
+        </tr>
+        <tr>
+          <td><strong>Philosophical Message</strong></td>
+          <td>Indigenous cultural dignity is sacred; forced assimilation is spiritual genocide.</td>
+          <td>Education and intellectual mastery throw away birth-based indignities; all humans are equal.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SECTION 02 -->
+  <section id="keywords">
+    <h2 class="section-header">02. CBSE Golden Keywords Bank</h2>
+    <p class="content-block">Use these exact analytical, historical, and sociological keywords in your board answers to earn top marks:</p>
+
+    <div class="keyword-cloud">
+      <span class="kw-chip">CARLISLE INDIAN SCHOOL</span>
+      <span class="kw-chip">FORCED ASSIMILATION</span>
+      <span class="kw-chip">CULTURAL ERASURE</span>
+      <span class="kw-chip">SHINGLED HAIR</span>
+      <span class="kw-chip">EATING BY FORMULA</span>
+      <span class="kw-chip">DEHUMANIZING REGIMENTATION</span>
+      <span class="kw-chip">BEDLAM &amp; CACAPHONY</span>
+      <span class="kw-chip">ANIMALS DRIVEN BY A HERDER</span>
+      <span class="kw-chip">UNTOUCHABILITY</span>
+      <span class="kw-chip">RITUAL POLLUTION</span>
+      <span class="kw-chip">NAICKER LANDLORD</span>
+      <span class="kw-chip">STRING-BOUND PACKET</span>
+      <span class="kw-chip">ANNAN'S COUNSEL</span>
+      <span class="kw-chip">ACADEMIC EXCELLENCE</span>
+      <span class="kw-chip">AMBEDKARITE EMANCIPATION</span>
+      <span class="kw-chip">STRUCTURAL RESISTANCE</span>
+      <span class="kw-chip">INDIGNITIES THROWN AWAY</span>
+      <span class="kw-chip">SUBALTERN CONSCIOUSNESS</span>
+    </div>
+
+    <table class="clean-table">
+      <thead>
+        <tr>
+          <th>KEYWORD / CONCEPT</th>
+          <th>CBSE CONTEXTUAL MEANING</th>
+          <th>MODEL BOARD SENTENCE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Forced Assimilation</strong></td>
+          <td>The violent eradication of indigenous language, attire, and spiritual traditions by dominant colonial powers.</td>
+          <td><em>Zitkala-Sa’s trauma at Carlisle exemplifies forced assimilation, where children were coerced into discarding tribal culture.</em></td>
+        </tr>
+        <tr>
+          <td><strong>Shingled Hair</strong></td>
+          <td>Crop cut hair associated in Dakota tradition with cowards and mourners; symbol of cultural desecration.</td>
+          <td><em>To Zitkala-Sa, having her hair shingled was not an aesthetic change but a badge of cowardice and cultural devastation.</em></td>
+        </tr>
+        <tr>
+          <td><strong>Ritual Pollution Taboo</strong></td>
+          <td>The orthodox upper-caste belief that physical contact with marginalized Dalits defiles objects or food.</td>
+          <td><em>The village elder carried the packet of vadais by a string to prevent the upper-caste landlord from being defiled by ritual pollution.</em></td>
+        </tr>
+        <tr>
+          <td><strong>Education as Emancipation</strong></td>
+          <td>Using academic mastery and knowledge as a revolutionary tool to dismantle birth-based social indignities.</td>
+          <td><em>Following Annan’s counsel, Bama weaponized education to throw away caste indignities, standing first in her class.</em></td>
+        </tr>
+        <tr>
+          <td><strong>Subaltern Consciousness</strong></td>
+          <td>The awakening of marginalized individuals to the structural nature of their oppression, sparking organized defiance.</td>
+          <td><em>Both narratives document the awakening of subaltern consciousness, transitioning from childhood helplessness to active defiance.</em></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SECTION 03 -->
+  <section id="passages">
+    <h2 class="section-header">03. Passage-by-Passage Breakdown (01 to 08)</h2>
+
+    <div class="passage-block" id="p01">
+      <div class="passage-headline">Passage 1: Part I: The Land of Apples &amp; The Sensory Assault of Assimilation</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> Zitkala-Sa&#x27;s arrival at Carlisle Indian School, the freezing cold, the clatter of shoes, clinging dresses, and the theft of her modest Indian blanket.</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+I.  The Cutting of My Long Hair 
+The first day in the land of apples was a bitter-cold one; for 
+the snow still covered the ground, and the trees were bare. A large 
+bell rang for breakfast, its loud metallic voice crashing through the 
+belfry overhead and into our sensitive ears. The annoying clatter 
+of shoes on bare floors gave us no peace. The constant clash of 
+harsh noises, with an undercurrent of many voices murmuring an 
+unknown tongue, made a <span class="vw" data-w="bedlam">bedlam</span> within which I was securely tied. 
+And though my spirit tore itself in struggling for its lost freedom, 
+all was useless.
+A paleface woman, with white hair, came up after us. We 
+were placed in a line of girls who were marching into the dining 
+room. These were Indian girls, in stiff shoes and closely clinging 
+dresses. The small girls wore sleeved aprons and <span class="vw" data-w="shingled">shingled</span> hair. 
+As I walked noiselessly in my soft moccasins, I felt like sinking to 
+the floor, for my blanket had been stripped from my shoulders. I 
+looked hard at the Indian girls, who seemed not to care that they 
+were even more immodestly dressed than I, in their tightly fitting 
+clothes. While we marched in, the boys entered at an opposite 
+door. I watched for the three young braves who came in our 
+party. I spied them in the rear ranks, looking as uncomfortable 
+as I felt.
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>bedlam</strong></td>
+              <td><code>/ˈbed.ləm/</code><br><em>noun</em></td>
+              <td>A scene of noisy uproar, confusion, and overwhelming chaos.</td>
+              <td>Captures Zitkala-Sa&#x27;s initial sensory shock at the Carlisle Indian School.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>clangor</strong></td>
+              <td><code>/ˈklæŋ.ɡər/</code><br><em>noun</em></td>
+              <td>A continuous, loud, harsh, resonant metallic clanging sound.</td>
+              <td>The bell that violently shattered Zitkala-Sa&#x27;s morning peace and dictated routines.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>alienation</strong></td>
+              <td><code>/ˌeɪ.li.əˈneɪ.ʃən/</code><br><em>noun</em></td>
+              <td>The state of feeling isolated, estranged, or culturally displaced.</td>
+              <td>Both writers express acute alienation from oppressive mainstream structures.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Auditory Imagery &amp; Cacophony</strong></td>
+              <td><em>"Clatter of shoes on bare floors, constant clash of harsh noises, murmuring in foreign tongue"</em></td>
+              <td>Evokes the terrifying sensory disorientation experienced by a Native child thrust into an alien institution.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Symbolism of Dress</strong></td>
+              <td><em>"Immodest clinging dresses and stiff shoes vs. soft moccasins and loose Indian blankets"</em></td>
+              <td>The blanket represents maternal warmth and indigenous modesty; its removal signifies stripped dignity.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Metaphor of Imprisonment</strong></td>
+              <td><em>"Bedlam, paleface march, loss of freedom"</em></td>
+              <td>The residential school functions not as an educational haven but as a penal institution of forced assimilation.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>Zitkala-Sa opens her narrative by establishing the harsh, mechanical climate of the Carlisle Indian School. The &#x27;land of apples&#x27; is bitter-cold and bare, mirroring the spiritual barrenness of the colonial enterprise. The institutional assault begins with acoustic violence: the loud clattering of shoes and the clangor of bells. Her traditional blanket, which provided both physical warmth and modesty according to Dakota tribal customs, is stripped from her shoulders, forcing her into tight, revealing Western dresses. This dress-code imposition represents the first deliberate assault on her indigenous bodily integrity.</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: How does Zitkala-Sa describe her physical and emotional discomfort on her first day at the school?</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> Zitkala-Sa describes an overwhelming atmosphere of noise, cold, and regimentation. Her soft, quiet moccasins were replaced by stiff, clattering shoes; her warm Indian blanket was stripped from her shoulders, making her feel indecent and exposed in tight-fitting dresses; and the incessant metallic clangor of bells created a sensory bedlam that shattered her peace of mind.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Sensory bedlam; clattering shoes on bare floors; loss of traditional blanket; humiliation of tight clinging dresses; destruction of tribal comfort and modesty.</div>
+      </div>
+    </div>
+    
+    <div class="passage-block" id="p02">
+      <div class="passage-headline">Passage 2: Part I: The Tyranny of the Dining Formula &amp; Humiliating Regimentation</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> The rigid three-bell protocol in the dining hall, Zitkala-Sa&#x27;s mortifying procedural mistake, and the dehumanizing mechanical regimentation.</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+A small bell was tapped, and each of the pupils drew a 
+chair from under the table. Supposing this act meant they were 
+to be seated, I pulled out mine and at once slipped into it from 
+one side. But when I turned my head, I saw that I was the only 
+one seated, and all the rest at our table remained standing. Just 
+as I began to rise, looking shyly around to see how chairs were to 
+be used, a second bell was sounded. All were seated at last, and 
+I had to crawl back into my chair again. I heard a man’s voice at 
+one end of the hall, and I looked around to see him. But all the 
+others hung their heads over their plates. As I glanced at the long 
+chain of tables, I caught the eyes of a paleface woman upon me. 
+Immediately I dropped my eyes, wondering why I was so keenly 
+watched by the strange woman. The man ceased his mutterings, 
+and then a third bell was tapped. Every one picked up his knife 
+and fork and began eating. I began crying instead, for by this time 
+I was afraid to venture anything more.
+..........Zitkala-Sa 
+
+But this eating by <span class="vw" data-w="formula">formula</span> was not the hardest trial in that 
+first day.
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>formula</strong></td>
+              <td><code>/ˈfɔː.mjə.lə/</code><br><em>noun</em></td>
+              <td>A rigid, mechanical, standardized routine or set rule.</td>
+              <td>The dining hall bell ritual that mortified Zitkala-Sa.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>subjugation</strong></td>
+              <td><code>/ˌsʌb.dʒʊˈɡeɪ.ʃən/</code><br><em>noun</em></td>
+              <td>The act of bringing someone under complete domination, control, or enslavement.</td>
+              <td>The systemic oppression experienced by both Zitkala-Sa and Bama.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>defiance</strong></td>
+              <td><code>/dɪˈfaɪ.əns/</code><br><em>noun</em></td>
+              <td>Bold disobedience and active refusal to submit to unjust authority.</td>
+              <td>Zitkala-Sa&#x27;s struggle against having her hair cut; Bama&#x27;s academic rebellion.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Satiric Critique of Regimentation</strong></td>
+              <td><em>"&#x27;Eating by formula&#x27; — three bells dictating pulling chairs, sitting, and praying"</em></td>
+              <td>Exposes the absurdity of military-style institutional control that reduces a basic human act into an anxiety-ridden drill.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Situational Irony &amp; Pathos</strong></td>
+              <td><em>"Zitkala-Sa sitting at the first bell while all others remain standing"</em></td>
+              <td>Heightens the vulnerable isolation of the protagonist under the watchful, judgmental eyes of the paleface matron.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Atmospheric Tension</strong></td>
+              <td><em>"Eyes of the pale woman fixed upon the frightened child"</em></td>
+              <td>Illustrates the panoptic surveillance designed to enforce absolute conformity.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>The dining hall episode exemplifies the totalizing control exercised by colonial boarding schools. Rather than a communal meal of nourishment, eating is transformed into a punitive, mechanized &#x27;formula&#x27; governed by three bells. Unfamiliar with this rigid code, Zitkala-Sa sits down at the first tap of the bell, only to realize with horror that she is the only one seated under the gaze of a stern paleface woman. When the second bell rings and she stands, everyone else sits. This ritual humiliation illustrates how imperial systems deliberately manufacture shame to break the independent spirit of indigenous children.</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: What was the &#x27;eating by formula&#x27; routine that embarrassed Zitkala-Sa?</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> The &#x27;eating by formula&#x27; was a rigid three-bell dining routine: at the first tap of a small bell, students pulled out their chairs; at the second bell, they sat down; and at the third bell, they began eating after a brief prayer. Unaware of the formula, Zitkala-Sa sat immediately at the first bell and began eating, suffering intense mortification when she realized she was the sole person seated.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Three-bell mechanical protocol; sitting prematurely; surveillance by paleface matron; institutionalized humiliation; regimentation destroying spontaneous humanity.</div>
+      </div>
+    </div>
+    
+    <div class="passage-block" id="p03">
+      <div class="passage-headline">Passage 3: Part I: Judewin&#x27;s Warning &amp; The Cultural Stigma of Shingled Hair</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> Judewin&#x27;s disclosure of the impending hair-cutting, the sacred significance of long hair in Dakota tradition, and Zitkala-Sa&#x27;s vow to resist.</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+Late in the morning, my friend Judewin gave me a terrible 
+warning. Judewin knew a few words of English; and she had 
+overheard the paleface woman talk about cutting our long, heavy 
+hair. Our mothers had taught us that only unskilled warriors who 
+were captured had their hair <span class="vw" data-w="shingled">shingled</span> by the enemy. Among our 
+people, short hair was worn by mourners, and <span class="vw" data-w="shingled">shingled</span> hair by 
+cowards!
+We discussed our fate some moments, and when Judewin said, 
+“We have to submit, because they are strong,” I rebelled.
+“No, I will not submit! I will struggle first!” I answered.
+I watched my chance, and when no one noticed,
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>shingled</strong></td>
+              <td><code>/ˈʃɪŋ.ɡəld/</code><br><em>adjective / verb</em></td>
+              <td>Hair cut short and tapered close to the head; culturally worn by cowards/captives by the Sioux.</td>
+              <td>Symbol of cultural erasure and forced Western assimilation.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>defiance</strong></td>
+              <td><code>/dɪˈfaɪ.əns/</code><br><em>noun</em></td>
+              <td>Bold disobedience and active refusal to submit to unjust authority.</td>
+              <td>Zitkala-Sa&#x27;s struggle against having her hair cut; Bama&#x27;s academic rebellion.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>indignities</strong></td>
+              <td><code>/ɪnˈdɪɡ.nə.tiz/</code><br><em>noun (plural)</em></td>
+              <td>Humiliating, degrading, or insulting treatments or circumstances.</td>
+              <td>The insults suffered by Dalits and Native Americans under systemic oppression.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Cultural Foil Dynamics</strong></td>
+              <td><em>"Judewin&#x27;s resigned pragmatism (&#x27;We have to submit&#x27;) vs. Zitkala-Sa&#x27;s heroic defiance (&#x27;I will struggle first!&#x27;)"</em></td>
+              <td>Contrasts defeatist submission with indomitable indigenous pride and active resistance.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Cultural Symbolism of Hair</strong></td>
+              <td><em>"Long hair as emblem of Dakota bravery vs. shingled hair of cowards/captives"</em></td>
+              <td>Hair is not an aesthetic accessory but a sacred spiritual marker of tribal identity and warrior dignity.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Foreshadowing</strong></td>
+              <td><em>"&#x27;No, I will not submit! I will struggle first!&#x27;"</em></td>
+              <td>Prepares the audience for the desperate hide-and-seek struggle and physical rebellion.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>This passage articulates the cultural crux of the tragedy. Judewin overhears the authorities planning to cut the girls&#x27; long, heavy hair and counsels passive submission. However, Zitkala-Sa refuses. In Dakota culture, long hair is intimately bound to spiritual honor and tribal identity. Short hair was worn exclusively by mourners in bereavement, while shingled hair was the badge of captured cowards sheared by victorious enemies. To have her hair shingled by white teachers represents ultimate spiritual desecration and cultural castration. Her refusal—&#x27;I will struggle first!&#x27;—marks an unforgettable act of anti-colonial defiance.</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: Why did Zitkala-Sa fiercely resist having her long hair cut?</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> In Dakota tribal culture, long hair was a sacred badge of honor and bravery. According to her mother&#x27;s teachings, short hair was worn only by mourners in deep grief, and shingled hair was the mark of cowards captured by enemies. Zitkala-Sa resisted because losing her hair meant suffering profound cultural disgrace, losing her indigenous identity, and being branded as a defeated captive.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Dakota cultural tradition; short hair for mourners; shingled hair for cowards/captives; sacred badge of honor; refusal to submit to cultural castration.</div>
+      </div>
+    </div>
+    
+    <div class="passage-block" id="p04">
+      <div class="passage-headline">Passage 4: Part I: The Dark Sanctuary Under the Bed &amp; The Severed Braids</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> Zitkala-Sa hiding in the dark room under the bed, her violent discovery, being strapped to a chair, and the traumatic shingling of her thick braids.</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+I disappeared. 
+I crept up the stairs as quietly as I could in my squeaking shoes, 
+— my moccasins had been exchanged for shoes. Along the hall I 
+passed, without knowing whither I was going. Turning aside to an 
+open door, I found a large room with three white beds in it. The 
+windows were covered with dark green curtains, which made the 
+room very dim. Thankful that no one was there, I directed my steps 
+toward the corner farthest from the door. On 
+my hands and knees I crawled under the bed, 
+and huddled myself in the dark corner.
+From my hiding place I peered out, 
+shuddering with fear whenever I heard footsteps 
+near by. Though in the hall loud voices were 
+calling my name, and I knew that even Judewin 
+was searching for me, I did not open my mouth 
+to answer. Then the steps were quickened and 
+the voices became excited. 
+The sounds came nearer 
+and nearer. Women and 
+girls entered the room. 
+I held my breath and 
+watched them open 
+closet doors and 
+peep behind large 
+trunks. Some 
+one threw up the 
+
+curtains, and the room was filled with sudden light. What caused 
+them to stoop and look under the bed I do not know. I remember 
+being dragged out, though I resisted by kicking and scratching 
+wildly. Inspite of myself, I was carried downstairs and tied fast in 
+a chair.
+I cried aloud, shaking my head all the while until I felt the cold 
+blades of the scissors against my neck, and heard them gnaw off 
+one of my thick braids. Then I lost my spirit. Since the day I was 
+taken from my mother I had suffered extreme <span class="vw" data-w="indignities">indignities</span>. People 
+had stared at me. I had been tossed about in the air like a wooden 
+puppet. And now my long hair was <span class="vw" data-w="shingled">shingled</span> like a coward’s! In my 
+anguish I moaned for my mother, but no one came to comfort me. 
+Not a soul reasoned quietly with me, as my own mother used to do; 
+for now I was only one of many little animals driven by a herder.
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>subjugation</strong></td>
+              <td><code>/ˌsʌb.dʒʊˈɡeɪ.ʃən/</code><br><em>noun</em></td>
+              <td>The act of bringing someone under complete domination, control, or enslavement.</td>
+              <td>The systemic oppression experienced by both Zitkala-Sa and Bama.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>oppression</strong></td>
+              <td><code>/əˈpreʃ.ən/</code><br><em>noun</em></td>
+              <td>Prolonged cruel, unjust treatment or exercise of tyrannical authority.</td>
+              <td>The overarching thematic reality confronting both marginalized young girls.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>alienation</strong></td>
+              <td><code>/ˌeɪ.li.əˈneɪ.ʃən/</code><br><em>noun</em></td>
+              <td>The state of feeling isolated, estranged, or culturally displaced.</td>
+              <td>Both writers express acute alienation from oppressive mainstream structures.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Visceral Auditory &amp; Tactile Imagery</strong></td>
+              <td><em>"Cold blades of scissors, gnawing shears, wild crying and head shaking"</em></td>
+              <td>Communicates the raw physical terror and bodily violation of the forced hair-cutting.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Simile of Dehumanization</strong></td>
+              <td><em>"&#x27;Now I was only one of many little animals driven by a herder&#x27;"</em></td>
+              <td>Dramatizes the absolute reduction of indigenous human beings to domesticated livestock under colonial hegemony.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Tragic Tone Shift</strong></td>
+              <td><em>"Heroic struggle yielding to broken spirit and profound grief"</em></td>
+              <td>Underlines the traumatic psychic scar left by forced institutional assimilation.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>Passage 4 contains the harrowing climax of Zitkala-Sa&#x27;s memoir. Slipping away unnoticed, she crawls under a bed in a dark upstairs room, desperately seeking refuge behind window curtains. When discovered, she fights back with primal courage—kicking, scratching, and screaming wildly. Yet brute institutional force overpowers her: she is dragged down, strapped into a chair, and forced to endure the cold bite of the shears. When her braids are severed, she does not merely lose hair; she loses her maternal sanctuary and tribal identity, reduced to &#x27;one of many little animals driven by a herder.&#x27;</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: Describe the scene where Zitkala-Sa’s hair is forcibly cut. How does she react afterward?</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> After being dragged from under the bed where she hid, Zitkala-Sa was tied fast into a chair, crying aloud and shaking her head frantically while resisting. She felt the cold blades of the shears gnaw through her thick braids until they fell away. Afterward, she felt completely broken and stripped of her spirit, weeping in utter loneliness like an animal driven by a herder.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Hidden under bed; dragged out kicking and screaming; tied to chair; cold shears gnaw off braids; loss of spirit; dehumanized into cattle driven by a herder.</div>
+      </div>
+    </div>
+    
+    <div class="passage-block" id="p05">
+      <div class="passage-headline">Passage 5: Part II: The Enchanted Street &amp; Innocent Third-Grade Wonder</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> Bama&#x27;s third-grade perspective, the lively 10-minute walk from school that stretched into an hour of captivating street spectacles and bazaar amusements.</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+II.  We Too are Human Beings 
+When I was studying in the third class, I hadn’t yet heard 
+people speak openly of <span class="vw" data-w="untouchability">untouchability</span>. But I had already seen, felt, 
+experienced and been humiliated by what it is.
+ I was walking home from school one day, an old bag hanging 
+from my shoulder. It was actually possible to walk the distance in 
+ten minutes. But usually it would take me thirty minutes at the  
+very least to reach home. It would take me from half an hour to an 
+hour to dawdle along, watching all the fun and games that were 
+going on, all the entertaining novelties and oddities is the streets, 
+the shops and the bazaar.
+The performing monkey; the snake which the snakecharmer 
+kept in its box and displayed from time to time; the cyclist who had 
+not got off his bike for three days, and who kept pedalling as hard as 
+he could from break of day; the rupee notes that were pinned on to 
+his shirt to spur him on; the spinning wheels; the Maariyaata temple, 
+the huge bell hanging there; the pongal offerings being cooked in 
+front of the temple; the dried fish stall by the statue of Gandhi; the 
+sweet stall, the stall selling fried snacks, and all the other shops next 
+to each other; the street light always demonstrating how it could 
+change from blue to violet; the narikkuravan huntergypsy with his 
+wild lemur in cages, selling needles, clay beads and instruments 
+..........Bama
+
+for cleaning out the ears — Oh, I could go on and on. Each thing 
+would pull me to a stand-still and not allow me to go any further.
+At times, people from various political parties would arrive, put 
+up a stage and harangue us through their mikes. Then there might 
+be a street play, or a puppet show, or a “no magic, no miracle” stunt 
+performance. All these would happen from time to time. But almost 
+certainly there would be some entertainment or other going on.
+Even otherwise, there were the coffee clubs in the bazaar: the 
+way each waiter cooled the coffee, lifting a tumbler high up and 
+pouring its contents into a tumbler held in his other hand. Or the 
+way some people sat in front of the shops chopping up onion, their 
+eyes turned elsewhere so that they would not smart. Or the almond 
+tree growing there and its fruit which was occasionally blown down 
+by the wind. All these sights taken together would tether my legs 
+and stop me from going home.
+And then, according to the season, there would be mango, 
+cucumber, sugar-cane, sweet-potato, palm-shoots, gram, palm-
+syrup and palm-fruit, guavas and jack-fruit. Every day I would 
+see people selling sweet and savoury fried snacks, payasam, halva, 
+boiled tamarind seeds and iced lollies.
+Gazing at all this, one day, I came to my street, my bag slung 
+over my shoulder. At the opposite corner, though, a threshing floor 
+had been set up, and the landlord watched the proceedings, seated 
+on a piece of sacking spread over a stone ledge. Our people were 
+hard at work, driving cattle in pairs, round and round, to tread out 
+the grain from the straw. The animals were muzzled so that they 
+wouldn’t help themselves to the straw. I stood for a while there, 
+watching the fun.
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>spectacle</strong></td>
+              <td><code>/ˈspek.tə.kəl/</code><br><em>noun</em></td>
+              <td>A visually striking or curious performance, display, or event.</td>
+              <td>The entertaining street scenes that captivated young Bama on her walk home.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>untouchability</strong></td>
+              <td><code>/ʌnˌtʌtʃ.əˈbɪl.ə.ti/</code><br><em>noun</em></td>
+              <td>The inhumane social practice of ostracizing a group regarded as ritually impure by caste hierarchy.</td>
+              <td>The pervasive caste discrimination witnessed and challenged by Bama.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>alienation</strong></td>
+              <td><code>/ˌeɪ.li.əˈneɪ.ʃən/</code><br><em>noun</em></td>
+              <td>The state of feeling isolated, estranged, or culturally displaced.</td>
+              <td>Both writers express acute alienation from oppressive mainstream structures.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Rich Visual &amp; Cultural Catalogue</strong></td>
+              <td><em>"Performing monkey, snake charmer, cyclist, Pongal sweets, dried fish stalls, narikkuravan with wild lemur"</em></td>
+              <td>Celebrates the vibrant, kaleidoscopic street life of rural Tamil Nadu seen through an enchanted childhood gaze.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Innocent Dramatic Perspective</strong></td>
+              <td><em>"Third-grader unaware of structural untouchability"</em></td>
+              <td>Establishes a baseline of idyllic childhood innocence before the shattering awakening to caste cruelty.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Narrative Pacing &amp; Delay</strong></td>
+              <td><em>"A 10-minute walk dawdled over an hour"</em></td>
+              <td>Mirrors the leisurely curiosity and joy of a young child absorbed in sensory pleasures.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>In Part II, Bama shifts the narrative to a rural village in Tamil Nadu. As a carefree nine-year-old in the third class, Bama is initially blind to the brutal caste divisions around her. The ten-minute walk between school and home becomes an enchanting journey lasting up to an hour as she pauses to absorb street spectacles: snake charmers, trick cyclists, roasting chickpeas, puppet shows, and temple festivities. This idyllic catalogue highlights Bama&#x27;s joyful childhood innocence, creating a sharp narrative contrast for the social trauma about to unfold.</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: Why did it normally take Bama thirty minutes to an hour to reach home from school when it was only a ten-minute walk?</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> It took Bama thirty minutes to an hour because she was utterly fascinated by the vibrant street spectacles and bazaars along the route. She would stop to watch performing monkeys, snake charmers, cycling marathoners, temple offerings, fruit stalls, puppet shows, and laborers threshing grain, dawdling innocently in sensory delight.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Only 10-minute physical distance; stopped by street performances (snake charmer, monkey, cyclist); bazaar stalls and sweet vendors; pure childhood curiosity and wonder.</div>
+      </div>
+    </div>
+    
+    <div class="passage-block" id="p06">
+      <div class="passage-headline">Passage 6: Part II: The Elder, The Stringed Parcel &amp; The Landlord</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> Bama observing a village elder holding a packet of vadais by a string, bowing obsequiously before the Naicker landlord, and Bama&#x27;s naive amusement.</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+Just then, an elder of our street came along from the direction 
+of the bazaar. The manner in which he was walking along made me 
+want to double up. I wanted to shriek with laughter at the sight of 
+such a big man carrying a small packet in that fashion. I guessed 
+there was something like vadai or green banana bhajji in the packet, 
+because the wrapping paper was stained with oil. He came along, 
+holding out the packet by its string, without touching it. I stood 
+there thinking to myself, if he holds it like that, won’t the package 
+come undone, and the vadais fall out?
+
+The elder went straight up to the 
+landlord, bowed low and extended the 
+packet towards him, cupping the 
+hand that held the string with 
+his other hand. The landlord 
+opened the parcel and 
+began to eat the vadais.
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>indignities</strong></td>
+              <td><code>/ɪnˈdɪɡ.nə.tiz/</code><br><em>noun (plural)</em></td>
+              <td>Humiliating, degrading, or insulting treatments or circumstances.</td>
+              <td>The insults suffered by Dalits and Native Americans under systemic oppression.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>pariah</strong></td>
+              <td><code>/pəˈraɪ.ə/</code><br><em>noun</em></td>
+              <td>An outcast rejected, despised, and subjugated by society.</td>
+              <td>Describes the societal degradation inflicted upon the Dalit community.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>spectacle</strong></td>
+              <td><code>/ˈspek.tə.kəl/</code><br><em>noun</em></td>
+              <td>A visually striking or curious performance, display, or event.</td>
+              <td>The entertaining street scenes that captivated young Bama on her walk home.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Dramatic Irony</strong></td>
+              <td><em>"Bama interpreting the elder&#x27;s posture as a funny comedy act while the reality is dehumanizing humiliation"</em></td>
+              <td>The reader perceives the grotesque caste hierarchy long before the innocent narrator understands it.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Visual Symbolism</strong></td>
+              <td><em>"Holding a food parcel strictly by its string without touching the packet"</em></td>
+              <td>The string represents the ritual barrier of untouchability and the upper-caste obsession with &#x27;ritual pollution&#x27;.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Spatial Hierarchy</strong></td>
+              <td><em>"Landlord seated haughtily on stone ledge vs. bowed elder extending packet from a distance"</em></td>
+              <td>Encapsulates feudal caste subjugation and systemic inequality in a single physical tableau.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>Near the threshing floor, Bama encounters a bizarre sight: a respected village elder carrying a small packet of hot vadais wrapped in banana leaf and paper, holding it delicately by a string without letting his fingers touch the package. He bows low before the upper-caste Naicker landlord, who takes the food without touching the man. To Bama&#x27;s child eyes, the elder’s comical posture resembles a clown’s stunt, and she wants to double up with laughter. This dramatic irony emphasizes how normalized and absurd feudal oppression appears when viewed through uncorrupted childhood innocence.</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: How was the village elder carrying the food packet, and why did Bama find the sight comic?</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> The elder was holding the food packet by its string, keeping it suspended at a distance without touching the wrapping paper with his hands. Bama found it comical because she thought the elderly, respected man was performing a ridiculous stunt or playing a game, imagining the packet bursting open and the snacks tumbling out onto the street.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Carrying packet suspended by string; avoiding physical touch; bowing low before landlord; Bama misinterprets ritual pollution as a humorous clown performance.</div>
+      </div>
+    </div>
+    
+    <div class="passage-block" id="p07">
+      <div class="passage-headline">Passage 7: Part II: Annan&#x27;s Revelation &amp; The Boil of Moral Humiliation</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> Annan explains the cruel truth of untouchability and caste pollution to Bama; her innocence dissolves into burning outrage and humiliation.</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+After I had watched all 
+this, at last I went home. 
+My elder brother was there. 
+I told him the story in all its 
+comic detail. I fell about with 
+laughter at the memory of 
+a big man, and an elder at 
+that, making such a game 
+out of carrying the parcel. 
+But Annan was not amused. 
+Annan told me the man wasn’t 
+being funny when he carried 
+the package like that. He said 
+everybody believed that they were upper caste and therefore must 
+not touch us. If they did, they would be polluted. That’s why he 
+had to carry the package by its string. 
+When I heard this, I didn’t want to laugh any more, and I felt 
+terribly sad. How could they believe that it was disgusting if one 
+of us held that package in his hands, even though the vadai had 
+been wrapped first in a banana leaf, and then parcelled in paper? 
+I felt so provoked and angry that I wanted to touch those wretched 
+vadais myself straightaway. Why should we have to fetch and carry 
+for these people, I wondered. Such an important elder of ours goes 
+meekly to the shops to fetch snacks and hands them over reverently, 
+bowing and shrinking, to this fellow who just sits there and stuffs 
+them into his mouth. The thought of it infuriated me.
+How was it that these fellows thought so much of themselves? 
+Because they had scraped four coins together, did that mean they 
+must lose all human feelings? But we too are human beings. Our 
+people should never run these petty errands for these fellows. We 
+should work in their fields, take home our wages, and leave it at that.
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>untouchability</strong></td>
+              <td><code>/ʌnˌtʌtʃ.əˈbɪl.ə.ti/</code><br><em>noun</em></td>
+              <td>The inhumane social practice of ostracizing a group regarded as ritually impure by caste hierarchy.</td>
+              <td>The pervasive caste discrimination witnessed and challenged by Bama.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>oppression</strong></td>
+              <td><code>/əˈpreʃ.ən/</code><br><em>noun</em></td>
+              <td>Prolonged cruel, unjust treatment or exercise of tyrannical authority.</td>
+              <td>The overarching thematic reality confronting both marginalized young girls.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>indignities</strong></td>
+              <td><code>/ɪnˈdɪɡ.nə.tiz/</code><br><em>noun (plural)</em></td>
+              <td>Humiliating, degrading, or insulting treatments or circumstances.</td>
+              <td>The insults suffered by Dalits and Native Americans under systemic oppression.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Epiphany / Loss of Innocence</strong></td>
+              <td><em>"Bama’s laughter turning into profound sorrow and burning indignation"</em></td>
+              <td>The exact psychological pivot where naive childhood ends and political consciousness is born.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Rhetorical Outrage &amp; Title Motif</strong></td>
+              <td><em>"&#x27;We too are human beings... Why should we run errands for these people?&#x27;"</em></td>
+              <td>Articulates the fundamental humanist claim to equal dignity and constitutional rights.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Direct Contrast of Perspectives</strong></td>
+              <td><em>"Bama&#x27;s naive comedy vs. Annan&#x27;s solemn sociological lucidity"</em></td>
+              <td>Annan serves as the enlightened catalyst who interprets structural oppression for his younger sister.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>When Bama joyfully recounts the comedy to her elder brother Annan, he does not laugh. Solemnly, he dismantles her innocence, explaining that the landlord is a Naicker who considers their Dalit community &#x27;untouchable.&#x27; Had the elder&#x27;s hand touched the packet, the food would have been deemed polluted. This revelation produces a volcanic epiphany in Bama. Her laughter evaporates, replaced by profound humiliation and burning fury: &#x27;We too are human beings!&#x27; Why should an elderly, hardworking man have to demean himself before a landlord simply because of caste birth?</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: How did Annan explain the elder’s behavior to Bama, and what impact did it have on her?</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> Annan explained that the upper-caste landlord belonged to the Naicker caste and believed that members of their Dalit community were untouchable. If the elder had touched the packet directly, the food would be considered polluted. Hearing this, Bama’s amusement turned to bitter sorrow and fury, shattering her innocence and igniting a fierce sense of righteous indignation against caste injustice.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Upper-caste landlord considers Dalits untouchable; fear of ritual pollution; laughter turns into burning fury; realization of systemic humiliation (&#x27;We too are human beings&#x27;).</div>
+      </div>
+    </div>
+    
+    <div class="passage-block" id="p08">
+      <div class="passage-headline">Passage 8: Part II: Education as the Weapon of Liberation &amp; Defiant Triumph</div>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Thematic Focus:</strong> Annan&#x27;s revolutionary counsel on using academic excellence to shatter caste indignities, Bama&#x27;s fierce devotion to study, and her academic triumph.</p>
+      
+      <div class="quote-passage">
+<span class="quote-label">ORIGINAL VERBATIM TEXT</span>
+My elder brother, who was studying at a university, had come 
+home for the holidays. He would often go to the library in our 
+neighbouring village in order to borrow books. He was on his way 
+home one day, walking along the banks of the irrigation tank. One 
+of the landlord’s men came up behind him. He thought my Annan 
+looked unfamiliar, and so he asked, “Who are you, appa, what’s your 
+name?” Annan told him his name. Immediately the other man asked, 
+“Thambi, on which street do you live?” The point of this was that 
+if he knew on which street we lived, he would know our caste too.
+Annan told me all these things. And he added, “Because we 
+are born into this community, we are never given any honour or 
+dignity or respect; we are stripped of all that. But if we study and 
+make progress, we can throw away these <span class="vw" data-w="indignities">indignities</span>. So study with 
+care, learn all you can. If you are always ahead in your lessons, 
+people will come to you of their own accord and attach themselves 
+to you. Work hard and learn.” The words that Annan spoke to me 
+that day made a very deep impression on me. And I studied hard, 
+with all my breath and being, in a frenzy almost. As Annan had 
+urged, I stood first in my class. And because of that, many people 
+became my friends.
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ VOCABULARY &amp; PHRASES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>WORD / PHRASE</th>
+              <th>PHONETICS &amp; POS</th>
+              <th>CONTEXTUAL MEANING</th>
+              <th>CBSE EXAM APPLICATION</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>emancipation</strong></td>
+              <td><code>/iˌmæn.sɪˈpeɪ.ʃən/</code><br><em>noun</em></td>
+              <td>The process of being set free from legal, social, or caste restrictions.</td>
+              <td>Achieved through education and intellectual empowerment, as urged by Annan.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>resilience</strong></td>
+              <td><code>/rɪˈzɪl.jəns/</code><br><em>noun</em></td>
+              <td>The capacity to recover quickly from trauma, humiliation, or marginalization.</td>
+              <td>Demonstrated by Bama channelizing anger into academic excellence.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>defiance</strong></td>
+              <td><code>/dɪˈfaɪ.əns/</code><br><em>noun</em></td>
+              <td>Bold disobedience and active refusal to submit to unjust authority.</td>
+              <td>Zitkala-Sa&#x27;s struggle against having her hair cut; Bama&#x27;s academic rebellion.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; STYLISTIC DEVICES ]</div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>LITERARY DEVICE</th>
+              <th>TEXTUAL EVIDENCE</th>
+              <th>DRAMATIC &amp; EXAM SIGNIFICANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td><strong>Aphorism of Empowerment</strong></td>
+              <td><em>"&#x27;If we study and make progress, we can throw away these indignities.&#x27;"</em></td>
+              <td>Frames education not merely as a career tool but as an emancipatory weapon of civil rights and social justice.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Kinetic Imagery of Determination</strong></td>
+              <td><em>"Studying with all breath and being, in a frenzy almost"</em></td>
+              <td>Conveys the fierce, transformative energy unleashed by intellectual purpose.</td>
+            </tr>
+        
+            <tr>
+              <td><strong>Triumphant Resolution</strong></td>
+              <td><em>"Standing first in class, earning universal respect and friendship"</em></td>
+              <td>Provides an inspiring, triumphant conclusion demonstrating that merit and intellect overcome birth-based prejudice.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-module">
+        <div class="sub-label">[ LITERARY &amp; PSYCHOLOGICAL ANALYSIS ]</div>
+        <div class="content-block">
+          <p>Annan delivers the philosophical and political climax of the text, echoing the transformative vision of Dr. B. R. Ambedkar. He explains that while birth has stripped them of dignity, honor, and respect, education possesses the radical power to throw off these indignities. If Bama studies hard and excels, people will look past caste hierarchy and seek her out of their own accord. Annan&#x27;s words inspire Bama with ferocious determination. She studies with all her breath and being, stands first in her class, and earns the respect and friendship of peers across social divides.</p>
+        </div>
+      </div>
+
+      <div class="exam-value-box">
+        <div class="sub-label" style="color:var(--text-main);">[ CBSE EXAM VALUE POINTS &amp; RTC ]</div>
+        <div style="font-weight:700; margin-bottom:8px; font-size:14.5px;">RTC Question: What advice did Annan give to Bama regarding how to overcome caste-based humiliation?</div>
+        <div style="margin-bottom:12px; font-size:14px; text-align:justify;"><strong>Model Answer:</strong> Annan advised Bama that because they were born into the oppressed Dalit community, they were denied dignity, respect, and social equality. However, he urged her that education was their sole weapon of emancipation: by studying with utmost care, progressing, and excelling in school, they could throw away these indignities and compel society to recognize their worth.</div>
+        <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Education as weapon of liberation; study hard and excel; throw off caste indignities; academic success earns voluntary respect and equality; echo of Ambedkar&#x27;s ideology.</div>
+      </div>
+    </div>
+    
+  </section>
+
+  <!-- SECTION 04 -->
+  <section id="characters">
+    <h2 class="section-header">04. Master Character Sketches &amp; Psychological Profiles</h2>
+
+    <!-- Character 1: Zitkala-Sa -->
+    <div class="qa-card">
+      <div class="qa-card-meta">DRAMATIS PERSONAE // PROTAGONIST (PART I) // INDOMITABLE NATIVE REBEL</div>
+      <h3 style="font-family:var(--font-serif); font-size:20px; margin-bottom:12px;">Zitkala-Sa (Gertrude Simmons Bonnin) — The Defiant Warrior of Dakota Culture</h3>
+      <div class="content-block">
+        <p>Zitkala-Sa is a sensitive, fiercely independent eight-year-old Yankton Dakota girl whose encounter with colonial boarding school education becomes an epic struggle for cultural survival. Uprooted from her ancestral prairies and loving mother to be enrolled in the Carlisle Indian Industrial School, she is subjected to a systemic program designed to eradicate her indigenous identity. Unlike other children who passively surrender to authority, Zitkala-Sa possesses an instinctive defiance rooted in the noble traditions of her people.</p>
+        <p>Her psychological architecture is characterized by profound reverence for Dakota spiritual norms. To her, long hair is not an aesthetic adornment but a sacred symbol of warrior dignity and tribal honor. When informed that her braids will be sheared, she rejects compromise: 'I will struggle first!' She hides under a bed in a dark attic, kicks and scratches wildly when dragged out, and resists until physically tied to a chair. Although her braids are forcibly severed, leaving her feeling dehumanized like an animal driven by a herder, her moral resistance remains unsullied. She survives to become a pioneering Native American author, orator, and activist who uses the English language forced upon her as a potent instrument to expose colonial violence.</p>
+      </div>
+
+      <table class="clean-table">
+        <thead>
+          <tr>
+            <th>CHARACTER TRAIT</th>
+            <th>ANALYSIS &amp; TEXTUAL SUBSTANTIATION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Cultural Pride &amp; Loyalty</strong></td>
+            <td>Maintains sacred tribal traditions regarding hair, blankets, and modesty; rejects the alien Western dress code and mechanical bell routines.</td>
+          </tr>
+          <tr>
+            <td><strong>Uncompromising Defiance</strong></td>
+            <td>Refuses Judewin's counsel of passive submission; hides under beds and fights violently against the shear-wielding matrons.</td>
+          </tr>
+          <tr>
+            <td><strong>Psychological Sensitivity</strong></td>
+            <td>Deeply wounded by the loss of maternal sanctuary and cultural identity; experiences profound grief upon being shingled.</td>
+          </tr>
+          <tr>
+            <td><strong>Literary Emancipation</strong></td>
+            <td>Transforms childhood victimization into authoritative autobiographical literature that bears witness to indigenous trauma.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="qa-card-vp">
+        <strong>CBSE Value Points:</strong> Native American Yankton Dakota child; victim of forced assimilation at Carlisle School; values hair as sacred badge of bravery; rebels physically against having hair cut; spirit momentarily crushed but later triumphs as a literary activist.
+      </div>
+    </div>
+
+    <!-- Character 2: Bama -->
+    <div class="qa-card">
+      <div class="qa-card-meta">DRAMATIS PERSONAE // PROTAGONIST (PART II) // THE AWAKENED DALIT REVOLUTIONARY</div>
+      <h3 style="font-family:var(--font-serif); font-size:20px; margin-bottom:12px;">Bama (Faustina Soosairaj) — From Innocent Wonder to Academic Emancipation</h3>
+      <div class="content-block">
+        <p>Bama is an observant, cheerful, and intellectually gifted nine-year-old Tamil Dalit girl whose autobiographical account <em>Karukku</em> captures the painful transition from idyllic childhood innocence to sociopolitical consciousness. Initially, Bama navigates her village with pure childlike delight, dawdling for hours on her walk from school to watch snake charmers, performing monkeys, coffee stalls, and agricultural labor. Her world is filled with curiosity and humor.</p>
+        <p>However, the sight of a respected village elder carrying a snack parcel by a string to avoid polluting an upper-caste landlord triggers a profound epistemic rupture. When her brother Annan explains the cruel reality of untouchability, Bama’s innocence shatters. Her laughter transforms into incandescent fury: 'We too are human beings!' Instead of sinking into despair or futile violence, Bama channelizes her righteous indignation into academic diligence following Annan’s counsel. By studying with fierce dedication, standing first in class, and securing the friendship of her peers, Bama proves that intellectual merit can dismantle feudal prejudice. She evolves into a major Dalit feminist author who uses literature to challenge caste hegemony.</p>
+      </div>
+
+      <table class="clean-table">
+        <thead>
+          <tr>
+            <th>CHARACTER TRAIT</th>
+            <th>ANALYSIS &amp; TEXTUAL SUBSTANTIATION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Innocent Curiosity</strong></td>
+            <td>Third-grade schoolgirl who delights in everyday rural spectacles; watches street performances with joyful amusement.</td>
+          </tr>
+          <tr>
+            <td><strong>Fierce Sense of Justice</strong></td>
+            <td>Experiences instantaneous moral outrage upon discovering caste untouchability; rejects obsequious subservience before landlords.</td>
+          </tr>
+          <tr>
+            <td><strong>Constructive Resilience</strong></td>
+            <td>Heeds Annan's advice, converting personal humiliation into disciplined, passionate academic labor.</td>
+          </tr>
+          <tr>
+            <td><strong>Academic &amp; Social Triumph</strong></td>
+            <td>Stands first in class, shattering casteist myths of intellectual inferiority; gains universal respect and friendship.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="qa-card-vp">
+        <strong>CBSE Value Points:</strong> Tamil Dalit schoolgirl; innocent third-grader fascinated by village life; experiences awakening upon learning of untouchability; outraged by caste humiliation; uses education as weapon of liberation; stands first in class.
+      </div>
+    </div>
+
+    <!-- Character 3: Annan -->
+    <div class="qa-card">
+      <div class="qa-card-meta">DRAMATIS PERSONAE // SECONDARY CHARACTER // THE ENLIGHTENED INTELLECTUAL MENTOR</div>
+      <h3 style="font-family:var(--font-serif); font-size:20px; margin-bottom:12px;">Annan (Bama's Elder Brother) — The Apostle of Ambedkarite Liberation</h3>
+      <div class="content-block">
+        <p>Annan, Bama’s older brother studying at a university, is the philosophical guide and intellectual catalyst of Part II. Mature, quiet, and deeply read, Annan has personal experience of caste humiliation—such as being subjected to intrusive questioning about his residential street by upper-caste men on tank banks to determine his caste identity. Rather than reacting with irrational anger or defeatism, Annan understands the structural machinery of caste hegemony.</p>
+        <p>He serves as Bama’s mentor, explaining the concept of ritual pollution without sugarcoating its cruelty. Crucially, Annan provides the actionable blueprint for emancipation: since caste society denies Dalits dignity at birth, they must claim it through academic and professional excellence. His revolutionary maxim—'If we study and make progress, we can throw away these indignities'—echoes Dr. B. R. Ambedkar’s ideology, igniting Bama’s lifelong passion for learning and social justice.</p>
+      </div>
+
+      <div class="qa-card-vp">
+        <strong>CBSE Value Points:</strong> University student; perceptive and politically conscious; explains structural untouchability to Bama; preaches Ambedkarite doctrine of education as the sole weapon against caste indignities; catalyst for Bama's academic success.
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 05 -->
+  <section id="rtc">
+    <h2 class="section-header">05. Reference to Context (Extract-Based Questions &amp; Answers)</h2>
+
+    <!-- RTC 1 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE RTC SET 01 // PART I // THE CARLISLE DINING HALL</div>
+      <div class="quote-passage">
+<span class="quote-label">EXTRACT</span>
+"A small bell was tapped, and each of the pupils pulled out a chair from under the table. Supposing this act meant they were to be seated, I pulled out mine and at once slipped into it from one side. But when I turned my head, I saw that I was the only one seated, and all the rest at our table remained standing. Just as I began to rise, looking hurriedly to see why everyone was standing, a second bell was sounded. All were seated, and I had to crawl back into my chair again. I heard a man's voice at one end of the hall, which I supposed had something to do with giving thanks."
+      </div>
+      <div class="qa-card-q">Questions &amp; High-Scoring Model Answers:</div>
+      <div class="qa-card-a">
+        <p><strong>(i) What mistake did Zitkala-Sa make when the first bell rang?</strong><br>
+        <em>Answer:</em> Zitkala-Sa mistakenly assumed that the first tap of the bell meant students were to be seated; consequently, she pulled out her chair and sat down immediately, only to find that all other pupils remained standing.</p>
+        <p><strong>(ii) Explain the significance of the 'second bell'.</strong><br>
+        <em>Answer:</em> The second bell signaled that the pupils were finally permitted to take their seats. For Zitkala-Sa, who had just started rising in confusion, it meant an awkward, humiliating scramble back into her chair.</p>
+        <p><strong>(iii) What does the narrator's phrase 'eating by formula' convey about the school environment?</strong><br>
+        <em>Answer:</em> It conveys that the colonial boarding school was governed by cold, rigid, military-style regimentation where even natural bodily activities like dining were subordinated to mechanical drills and panoptic surveillance.</p>
+        <p><strong>(iv) Identify the emotional state of the narrator during this episode.</strong><br>
+        <em>Answer:</em> The narrator felt deeply humiliated, disoriented, anxious, and acutely self-conscious under the watchful, judgmental gaze of the paleface authorities.</p>
+      </div>
+      <div class="qa-card-vp">
+        <strong>CBSE Value Points:</strong> Sitting prematurely at first bell; second bell signals seating; 'eating by formula' reveals mechanical colonial regimentation; profound humiliation and disorientation.
+      </div>
+    </div>
+
+    <!-- RTC 2 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE RTC SET 02 // PART I // THE SHINGLING OF THE BRAIDS</div>
+      <div class="quote-passage">
+<span class="quote-label">EXTRACT</span>
+"I cried aloud, shaking my head all the while until I felt the cold blades of the scissors against my neck, and heard them gnaw off one of my thick braids. Then I lost my spirit. Since the day I was taken from my mother I had suffered extreme indignities. People had stared at me. I had been tossed about in the air like a wooden puppet. And now my long hair was shingled like a coward's! In my anguish I moaned for my mother, but no one came to comfort me... Now I was only one of many little animals driven by a herder."
+      </div>
+      <div class="qa-card-q">Questions &amp; High-Scoring Model Answers:</div>
+      <div class="qa-card-a">
+        <p><strong>(i) Why does the narrator describe her hair as being shingled 'like a coward's'?</strong><br>
+        <em>Answer:</em> In Yankton Dakota tribal tradition, long hair was an emblem of warrior honor, while shingled hair was the badge of captured enemy cowards. To have her hair shingled meant enduring ultimate cultural disgrace.</p>
+        <p><strong>(ii) What caused the narrator to 'lose her spirit'?</strong><br>
+        <em>Answer:</em> She lost her spirit when her desperate physical resistance was crushed, her thick braids were severed by the cold shears, and she realized her cultural identity and maternal protection were completely stripped away.</p>
+        <p><strong>(iii) Explain the metaphor: 'one of many little animals driven by a herder.'</strong><br>
+        <em>Answer:</em> This powerful animal imagery underscores total dehumanization; the indigenous children were stripped of their individual human agency, cultural dignity, and sovereign souls, reduced to domesticated livestock controlled by colonial masters.</p>
+        <p><strong>(iv) Which phrase indicates the narrator's profound yearning for maternal comfort?</strong><br>
+        <em>Answer:</em> The phrase 'In my anguish I moaned for my mother, but no one came to comfort me' highlights her utter emotional desolation.</p>
+      </div>
+      <div class="qa-card-vp">
+        <strong>CBSE Value Points:</strong> Cultural stigma of coward's shingled hair; loss of spiritual agency; dehumanization into herded livestock; yearning for maternal sanctuary.
+      </div>
+    </div>
+
+    <!-- RTC 3 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE RTC SET 03 // PART II // THE ENCHANTED BAZAAR</div>
+      <div class="quote-passage">
+<span class="quote-label">EXTRACT</span>
+"The performing monkey; the snake which the charmer kept in its box and displayed from time to time; the cyclist who had not got off his bike for three days, and who had kept on pedalling as hard as he could from break of day; the rupee coin that was chopped up and sold in the market... Oh, I could go on and on. Each thing would pull me to a stand-still and not allow me to go any further."
+      </div>
+      <div class="qa-card-q">Questions &amp; High-Scoring Model Answers:</div>
+      <div class="qa-card-a">
+        <p><strong>(i) What do these details reveal about Bama’s childhood perspective?</strong><br>
+        <em>Answer:</em> These details reveal that young Bama possessed vibrant curiosity, acute observational power, and pure childhood joy, finding endless magic and entertainment in ordinary village street life.</p>
+        <p><strong>(ii) Why did a ten-minute walk take Bama up to an hour?</strong><br>
+        <em>Answer:</em> The walk took up to an hour because every street performance, bazaar stall, snack vendor, and roadside novelty arrested her attention, pulling her to a standstill in innocent wonder.</p>
+        <p><strong>(iii) How does this passage function structurally within the larger memoir?</strong><br>
+        <em>Answer:</em> It establishes an idyllic baseline of carefree childhood innocence, creating a poignant and sharp emotional contrast for the subsequent shocking revelation of caste cruelty.</p>
+        <p><strong>(iv) Name two specific street sights mentioned by Bama in the extract.</strong><br>
+        <em>Answer:</em> The performing monkey and the snake charmer displaying his snake from a box (or the marathon cyclist pedaling without stopping).</p>
+      </div>
+      <div class="qa-card-vp">
+        <strong>CBSE Value Points:</strong> Innocent curiosity; ten-minute walk dawdled over an hour; contrast between idyllic childhood and subsequent social trauma; rich local cultural catalog.
+      </div>
+    </div>
+
+    <!-- RTC 4 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE RTC SET 04 // PART II // THE STRING-BOUND PACKET</div>
+      <div class="quote-passage">
+<span class="quote-label">EXTRACT</span>
+"An elder of our street came along from the direction of the bazaar. The manner in which he was walking along made me want to double up. I wanted to shriek with laughter at the sight of such a big man carrying a small packet in that fashion. I guessed there was something like vadai or green banana bhaji in the packet... The elder went straight up to the landlord, bowed low and extended the packet towards him, cupping the hand that held the string with his other hand."
+      </div>
+      <div class="qa-card-q">Questions &amp; High-Scoring Model Answers:</div>
+      <div class="qa-card-a">
+        <p><strong>(i) Why did Bama find the elder's manner of carrying the packet comical?</strong><br>
+        <em>Answer:</em> Bama found it comical because an elderly, dignified man was holding a tiny food parcel suspended awkwardly by a string without letting his fingers touch the package, resembling a clown performing a funny trick.</p>
+        <p><strong>(ii) What was the actual, tragic reason behind the elder's strange behavior?</strong><br>
+        <em>Answer:</em> The tragic reality was the practice of untouchability; the upper-caste landlord believed that if a lower-caste Dalit touched the parcel directly, the food would become ritually polluted.</p>
+        <p><strong>(iii) What does the elder's bowing posture reveal about caste relations?</strong><br>
+        <em>Answer:</em> It reveals the entrenched, obsequious feudal subjugation forced upon marginalized Dalits, requiring even respected community elders to demean themselves before upper-caste landowners.</p>
+        <p><strong>(iv) Which literary device is evident in Bama’s initial reaction?</strong><br>
+        <em>Answer:</em> Dramatic irony, as the young narrator is laughing at a spectacle whose real meaning is horrific humiliation and dehumanizing oppression.</p>
+      </div>
+      <div class="qa-card-vp">
+        <strong>CBSE Value Points:</strong> Elder holds packet by string; Bama misinterprets as comedy; actual reason is upper-caste fear of ritual pollution; dramatic irony underscores feudal caste oppression.
+      </div>
+    </div>
+
+    <!-- RTC 5 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE RTC SET 05 // PART II // ANNAN'S PHILOSOPHY OF EMANCIPATION</div>
+      <div class="quote-passage">
+<span class="quote-label">EXTRACT</span>
+"Annan told me all these things. And he added, 'Because we are born into this community, we are never given any honour or dignity or respect; we are stripped of all that. But if we study and make progress, we can throw away these indignities. So study with care, learn all you can. If you are always ahead in your lessons, people will come to you of their own accord and attach themselves to you. Work hard and learn.' The words that Annan spoke to me that day made a very deep impression on me."
+      </div>
+      <div class="qa-card-q">Questions &amp; High-Scoring Model Answers:</div>
+      <div class="qa-card-a">
+        <p><strong>(i) According to Annan, why is their community denied honor and respect?</strong><br>
+        <em>Answer:</em> According to Annan, their community is denied honor, dignity, and respect simply because of their birth into the Dalit caste, which upper-caste society deems inferior and untouchable.</p>
+        <p><strong>(ii) What solution does Annan propose to combat these structural indignities?</strong><br>
+        <em>Answer:</em> Annan proposes education and academic excellence; he urges that by studying diligently, making progress, and excelling in their lessons, they can throw off caste-based indignities.</p>
+        <p><strong>(iii) What prediction did Annan make regarding academic success?</strong><br>
+        <em>Answer:</em> He predicted that if Bama remained ahead in her studies, people from all social strata would recognize her worth, respect her voluntarily, and attach themselves to her as friends.</p>
+        <p><strong>(iv) How did Annan’s advice alter the trajectory of Bama’s life?</strong><br>
+        <em>Answer:</em> Annan's words inspired Bama with ferocious determination; she studied in a frenzy, stood first in her class, earned widespread friendship, and grew into a fearless activist writer.</p>
+      </div>
+      <div class="qa-card-vp">
+        <strong>CBSE Value Points:</strong> Birth-based denial of dignity; education as the weapon to throw off indignities; academic excellence compels voluntary respect; inspired Bama to stand first in class.
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 06 -->
+  <section id="short-qa">
+    <h2 class="section-header">06. High-Yield Short Answer Qs (2 Marks / 40–50 Words)</h2>
+
+    <!-- Q1 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 01</div>
+      <div class="qa-card-q">Why was Zitkala-Sa terrified and disoriented on her first day at the Carlisle Indian School?</div>
+      <div class="qa-card-a">Zitkala-Sa was overwhelmed by the sensory bedlam of loud metallic bells, the harsh clattering of stiff shoes on bare floors, and people murmuring in an alien language. Furthermore, having her warm, modest Indian blanket stripped from her shoulders left her feeling exposed, undignified, and terrified.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Sensory bedlam and metallic bells; stiff clattering shoes; murmuring in alien tongue; loss of traditional modest blanket.</div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 02</div>
+      <div class="qa-card-q">Explain why Zitkala-Sa felt humiliated during the dining hall routine.</div>
+      <div class="qa-card-a">The dining ritual followed an unfamiliar 'formula' of three bells. Unaware of the code, Zitkala-Sa pulled out her chair and sat down at the first bell, only to realize that everyone else remained standing. Under the stern gaze of the paleface matron, she was mortified by her blunder.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Rigid three-bell formula; sat down prematurely at first bell; only person seated; scrutinized by stern paleface matron.</div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 03</div>
+      <div class="qa-card-q">What cultural significance was attached to long hair in Zitkala-Sa’s Yankton Dakota tribe?</div>
+      <div class="qa-card-a">In Dakota tribal culture, long hair was a sacred badge of honor, bravery, and tribal identity. According to her mother's teachings, short cropped hair was worn exclusively by mourners in bereavement, while shingled hair was the mark of cowards captured by enemies in battle.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Sacred symbol of bravery; short hair reserved for mourners; shingled hair marks captured cowards; cultural castration.</div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 04</div>
+      <div class="qa-card-q">How did Zitkala-Sa react to Judewin’s advice to submit to having their hair cut?</div>
+      <div class="qa-card-a">Unlike Judewin, who advocated passive resignation ('We have to submit'), Zitkala-Sa fiercely rebelled, declaring: 'No, I will not submit! I will struggle first!' She slipped away into an upstairs room, crawled under a bed, and fought valiantly before being overpowered.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Rejects Judewin's passive submission; declares 'I will struggle first!'; hides under bed; fights valiantly against authorities.</div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 05</div>
+      <div class="qa-card-q">Why does Zitkala-Sa say, "Now I was only one of many little animals driven by a herder"?</div>
+      <div class="qa-card-a">This metaphor expresses complete loss of personal agency, dignity, and cultural identity. Having her braids forcibly shingled severed her connection to her heritage and mother, reducing her from a proud, free human being into an enslaved, domesticated animal driven by colonial masters.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Animal metaphor; loss of personal and cultural identity; severed connection to heritage; total subjugation by colonial masters.</div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 06</div>
+      <div class="qa-card-q">What street novelties and spectacles fascinated young Bama on her walk home from school?</div>
+      <div class="qa-card-a">Bama was entranced by performing monkeys, snake charmers, a marathon cyclist pedaling for days, street vendors roasting chickpeas and sweets, chopped rupee coins for sale, temple Pongal preparations, and the narikkuravan with his wild lemur in a cage.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Performing monkeys; snake charmer; marathon cyclist; street food vendors; wild lemur; innocent sensory wonder.</div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 07</div>
+      <div class="qa-card-q">Describe the scene of the village elder carrying the food packet to the landlord.</div>
+      <div class="qa-card-a">The village elder carried a small parcel of hot snacks by a piece of string, holding it suspended at a distance without letting his fingers touch the wrapping paper. He approached the upper-caste Naicker landlord, bowed obsequiously, and extended the parcel by the string.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Carried packet suspended by string; avoided touching paper; bowed low before Naicker landlord; feudal subservience.</div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 08</div>
+      <div class="qa-card-q">Why did Bama initially burst into laughter upon seeing the elder carry the packet by a string?</div>
+      <div class="qa-card-a">In her third-grade innocence, Bama was unaware of the cruel reality of untouchability. She assumed the big, elderly man was performing a comical trick or clownish stunt, imagining the string snapping and the snacks tumbling hilariously onto the dusty street.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Innocent third-grader; unaware of untouchability; misread gesture as comical trick or stunt; dramatic irony.</div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 09</div>
+      <div class="qa-card-q">How did Annan explain the concept of ritual pollution to Bama?</div>
+      <div class="qa-card-a">Annan explained that the landlord belonged to the upper Naicker caste and considered Dalits 'untouchable.' If the elder had touched the food parcel directly, the upper-caste landlord would consider the food polluted and unfit for consumption due to caste prejudice.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Landlord is upper-caste Naicker; considers Dalits untouchable; physical touch deemed polluting; structural prejudice explained.</div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 10</div>
+      <div class="qa-card-q">What incident did Annan recount regarding his own experience of caste scrutiny on the tank bank?</div>
+      <div class="qa-card-a">Annan shared that while walking home with books, a landlord’s man approached him, asked his name, and immediately inquired which street he lived on. Because Dalit communities were segregated into designated lower streets, the question was an insidious way to identify his caste.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Approached on tank bank; asked name and street of residence; residential segregation used as proxy to determine caste.</div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 11</div>
+      <div class="qa-card-q">What advice did Annan give Bama to overcome caste-based indignities?</div>
+      <div class="qa-card-a">Annan urged Bama to pursue education with relentless dedication. He told her that while birth had stripped them of dignity, academic excellence was their weapon to throw away these indignities; if she stood ahead in her lessons, people would voluntarily respect and befriend her.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Birth stripped them of dignity; education as emancipatory weapon; academic excellence compels voluntary respect; study hard.</div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 2 MARKS // SHORT ANSWER // QUESTION 12</div>
+      <div class="qa-card-q">How did Bama put Annan’s advice into practice, and what was the outcome?</div>
+      <div class="qa-card-a">Bama applied herself to her studies with ferocious determination, studying 'with all my breath and being.' As a result, she stood first in her class, earning widespread academic recognition, breaking caste barriers, and gaining many friends who sought her company.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Studied with fierce determination; stood first in class; shattered caste barriers; gained voluntary respect and friends.</div>
+    </div>
+  </section>
+
+  <!-- SECTION 07 -->
+  <section id="long-qa">
+    <h2 class="section-header">07. High-Scoring Long Answer &amp; Comparative Questions (CBSE 5 Marks / 120–150 Words)</h2>
+
+    <!-- LAQ 1 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 5 MARKS // LONG ANSWER // QUESTION 01</div>
+      <div class="qa-card-q">Compare and contrast the childhood experiences of Zitkala-Sa and Bama. What commonalities of oppression and divergence of resistance do their autobiographical narratives illuminate?</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Commonalities: both are victims of systemic institutional oppression (racial colonialism vs caste untouchability); both suffer humiliation in childhood; both refuse passive submission. Divergences: Zitkala-Sa faces cultural erasure in a distant school; her resistance is immediate, physical (hiding under bed, kicking); Bama faces social untouchability in her own village; her resistance is intellectual and structural (education as weapon); both evolve into literary activists.</div>
+      <div class="qa-card-a">
+        <p><strong>Introduction:</strong> Despite geographical and historical separation, Zitkala-Sa (a Native American in late-nineteenth-century USA) and Bama (a Tamil Dalit in twentieth-century India) share a profound thematic bond: the trauma of systemic marginalization and the triumph of the human spirit.</p>
+        <p><strong>Commonalities of Marginalization:</strong> Both authors recount childhood encounters with institutionalized prejudice that attempted to strip them of basic human dignity. Zitkala-Sa was subjected to forced cultural assimilation at the Carlisle Indian School, where her tribal blanket was snatched and her sacred long hair forcibly shingled. Bama witnessed the dehumanizing practice of untouchability, where a respected community elder was forced to carry food by a string to prevent ritual pollution of an upper-caste landlord. Both experienced the agonizing epiphany that society regarded them as inherently inferior.</p>
+        <p><strong>Divergence in Modes of Resistance:</strong> Their responses reflect their differing environments. Zitkala-Sa’s resistance is visceral and physical: she rebels against passive advice, hides under a bed, and fights violently against the shears. Though physically overpowered, her spirit remains defiant. Bama, guided by her brother Annan, adopts a long-term structural strategy: channelizing moral outrage into academic excellence. By standing first in class, Bama shatters caste stereotypes.</p>
+        <p><strong>Conclusion:</strong> Ultimately, both women achieve emancipation through the written word, transforming childhood scars into authoritative subaltern literature that challenges global hegemony.</p>
+      </div>
+    </div>
+
+    <!-- LAQ 2 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 5 MARKS // LONG ANSWER // QUESTION 02</div>
+      <div class="qa-card-q">"Untouchability is not merely a social anomaly, but a deeply entrenched crime against human dignity." Discuss how Bama’s narrative *We Too are Human Beings* exposes this reality and highlights education as the supreme weapon of emancipation.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Dehumanizing nature of untouchability; absurdity of ritual pollution (carrying vadai packet by string); psychological impact on children; Annan’s Ambedkarite philosophy; education as the ultimate equalizer to throw off indignities; Bama standing first in class as practical proof.</div>
+      <div class="qa-card-a">
+        <p><strong>Introduction:</strong> In <em>We Too are Human Beings</em>, Bama exposes the grotesque cruelty of caste-based untouchability, proving that discriminatory social hierarchies assault the fundamental essence of human dignity.</p>
+        <p><strong>The Grotesque Reality of Caste Pollution:</strong> The narrative pivots on a striking visual tableau: an elderly, respected Dalit man carrying a tiny packet of food suspended by a string, bowing low before a feudal Naicker landlord. Bama’s initial amusement dissolves into burning indignation when Annan reveals that upper castes consider Dalit touch polluting. This exposes the perverse absurdity of caste: Dalits may perform grueling labor in the landlord's fields, yet their physical touch is deemed contaminated.</p>
+        <p><strong>Education as the Weapon of Liberation:</strong> Annan delivers the philosophical core of the text, echoing Dr. B. R. Ambedkar’s revolutionary tenets. He cautions Bama that birth into an oppressed caste deprives them of inherent honor; however, education possesses the radical power to 'throw away these indignities.' Academic mastery is not a passive pursuit of grades, but an act of social defiance.</p>
+        <p><strong>Conclusion:</strong> Bama’s academic triumph—studying in a frenzy and standing first in her class—vindicates Annan’s philosophy. It proves that knowledge and intellect can shatter feudal chains, asserting the undeniable truth that all marginalized people are equal human beings.</p>
+      </div>
+    </div>
+
+    <!-- LAQ 3 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 5 MARKS // LONG ANSWER // QUESTION 03</div>
+      <div class="qa-card-q">Analyze the cultural and psychological symbolism of long hair in Zitkala-Sa’s narrative *The Cutting of My Long Hair*. Why was the loss of her braids described as losing her spirit?</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Hair as sacred tribal emblem of Yankton Dakota; long hair equals bravery; short hair for mourners, shingled hair for captured cowards; cutting hair represents cultural genocide and forced assimilation; loss of maternal connection and identity; reduced to 'animals driven by a herder.'</div>
+      <div class="qa-card-a">
+        <p><strong>Introduction:</strong> In <em>The Cutting of My Long Hair</em>, hair is not a trivial aesthetic detail, but the central spiritual and cultural battlefield between indigenous autonomy and colonial subjugation.</p>
+        <p><strong>The Sacred Cultural Code of the Dakota:</strong> For the Yankton Dakota Sioux, long hair was an intimate marker of spiritual dignity, tribal belonging, and warrior bravery. Zitkala-Sa’s mother taught her that short hair was reserved strictly for mourners engulfed in bereavement, while shingled hair was the humiliating badge of captured cowards sheared by victorious enemies. Therefore, having her braids shingled by white school authorities was an act of profound cultural desecration and spiritual castration.</p>
+        <p><strong>The Psychic Trauma of Severance:</strong> When the shears gnawed through her braids, Zitkala-Sa did not merely lose physical hair; she lost her connection to her mother, ancestral tradition, and personal sovereignty. Her desperate struggle—hiding under a bed, screaming, kicking—underscores her intuitive awareness of the stakes. The aftermath is crushing: stripped of her braids, she describes herself as 'one of many little animals driven by a herder.'</p>
+        <p><strong>Conclusion:</strong> Zitkala-Sa’s severed braids symbolize the broader tragedy of forced assimilation inflicted upon indigenous populations, transforming a child's vibrant spirit into institutionalized compliance.</p>
+      </div>
+    </div>
+
+    <!-- LAQ 4 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 5 MARKS // LONG ANSWER // QUESTION 04</div>
+      <div class="qa-card-q">Comparative Synthesis: Both Zitkala-Sa and Bama refuse to accept victimhood passively. How do both authors demonstrate agency, resilience, and resistance in the face of overwhelming structural oppression?</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Active refusal of passive submission; Zitkala-Sa's physical battle ('I will struggle first!'), hiding, kicking; Bama's moral indignation ('We too are human beings!') and academic discipline; both turn traumatic childhood memory into published literature; writing as the ultimate act of subaltern agency.</div>
+      <div class="qa-card-a">
+        <p><strong>Introduction:</strong> While <em>Memories of Childhood</em> chronicles harrowing instances of systemic cruelty, its overarching legacy is one of indomitable human resilience and fierce agency. Neither Zitkala-Sa nor Bama permits herself to remain a passive victim of circumstance.</p>
+        <p><strong>Zitkala-Sa’s Visceral Resistance:</strong> Zitkala-Sa’s agency is demonstrated in her instantaneous refusal to comply with Judewin’s defeatist advice. Declaring 'I will struggle first!', she actively disrupts institutional control. By hiding in a dark attic, resisting discovery, and kicking wildly against the shears, she forces her oppressors to reveal their naked brutality. Though physically overpowered, her internal rebellion never capitulates, laying the groundwork for her lifelong political activism.</p>
+        <p><strong>Bama’s Strategic Intellectual Rebellion:</strong> Bama demonstrates agency by converting emotional trauma into focused intellectual power. Rather than succumbing to despair after witnessing the humiliation of the village elder, she embraces Annan's challenge. Studying with all her breath and being, she stands first in class, compelling upper-caste society to acknowledge her intellectual superiority and earn their respect.</p>
+        <p><strong>Conclusion:</strong> The ultimate triumph of both authors is their published memoirs. By mastering the written word—Zitkala-Sa in English and Bama in Tamil—they reclaimed their voices, exposing oppression to the world and inspiring future generations of marginalized people.</p>
+      </div>
+    </div>
+
+    <!-- LAQ 5 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE 5 MARKS // LONG ANSWER // QUESTION 05</div>
+      <div class="qa-card-q">Discuss the role of mentors and family in the two memoirs. Contrast Zitkala-Sa’s devastating loss of maternal sanctuary with Bama’s empowering guidance from her brother Annan.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Zitkala-Sa: complete physical and emotional separation from her mother; absence of maternal comfort; Judewin counsels submission; isolation deepens trauma. Bama: supported by elder brother Annan; university-educated mentor; demystifies caste prejudice; provides constructive roadmap (education); familial support enables empowerment.</div>
+      <div class="qa-card-a">
+        <p><strong>Introduction:</strong> The presence or absence of familial mentorship plays a decisive role in shaping the psychological trajectories of the young protagonists in <em>Memories of Childhood</em>.</p>
+        <p><strong>Zitkala-Sa’s Tragic Isolation:</strong> Zitkala-Sa’s ordeal is exacerbated by absolute separation from her maternal sanctuary. Removed from her mother and placed in a hostile institution, she has no supportive adult to turn to. When she moans in anguish after her hair is cut, 'no one came to comfort me.' Her peer Judewin offers only pragmatic submission ('We have to submit'). Without parental protection or ideological mentorship, Zitkala-Sa must rely solely on her instinctive, solitary bravery, which intensifies the emotional trauma of her experience.</p>
+        <p><strong>Bama’s Empowering Familial Guidance:</strong> In stark contrast, Bama benefits immeasurably from the presence of her university-educated elder brother, Annan. When Bama shares her confusion, Annan provides a clear sociological explanation of untouchability, preventing her from internalizing false notions of inferiority. Furthermore, he equips her with an empowering ideological roadmap: education as the tool to 'throw away these indignities.' Annan’s guidance converts Bama's raw emotional outrage into disciplined academic ambition.</p>
+        <p><strong>Conclusion:</strong> While Zitkala-Sa’s isolation highlights the devastating cruelty of institutional boarding schools that tore children from families, Bama’s experience demonstrates how enlightened familial mentorship can transform social trauma into triumphant emancipation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 08 -->
+  <section id="pyq-vault">
+    <h2 class="section-header">08. Previous Years' Question Vault (2019–2025)</h2>
+    <p class="content-block">Analyze these authentic CBSE Class 12 Board Examination questions with comprehensive marking scheme points and examiner tips:</p>
+
+    <!-- PYQ 1 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2024 // ALL INDIA SET 2 // 2 MARKS</div>
+      <div class="qa-card-q">Why was Zitkala-Sa in tears on the first day at Carlisle Indian School?</div>
+      <div class="qa-card-a">Zitkala-Sa wept because her sacred tribal braids were forcibly cut off with scissors while she was tied to a chair. In her Dakota culture, shingled hair was the mark of cowards, and its loss stripped her of her cultural identity, maternal connection, and self-respect.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Hair forcibly cut while tied to chair; cultural belief that shingled hair marks cowards; loss of identity and dignity.</div>
+    </div>
+
+    <!-- PYQ 2 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2024 // DELHI SET 1 // 2 MARKS</div>
+      <div class="qa-card-q">What made Bama conclude that the landlord was an upper-caste man?</div>
+      <div class="qa-card-a">Bama concluded this after Annan explained that the elder held the food packet by a string to prevent ritual pollution. Upper-caste Naickers believed that direct physical contact with Dalits would defile their food, proving the landlord’s high caste status and untouchability practices.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Food carried by string; fear of ritual pollution; Naicker landlord's caste prejudice against Dalits.</div>
+    </div>
+
+    <!-- PYQ 3 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2023 // ALL INDIA SET 1 // 2 MARKS</div>
+      <div class="qa-card-q">How did Zitkala-Sa try to prevent the cutting of her long hair?</div>
+      <div class="qa-card-a">Zitkala-Sa slipped away unnoticed, crept upstairs into a large dark room, and crawled under a bed, hiding behind window curtains. When discovered, she resisted fiercely, screaming, crying, and scratching wildly before being overpowered and tied to a chair.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Slipped away upstairs; hid under bed behind curtains; screamed, cried, and scratched when dragged out.</div>
+    </div>
+
+    <!-- PYQ 4 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2023 // DELHI SET 3 // 5 MARKS</div>
+      <div class="qa-card-q">"Untouchability is a curse on society." How does Bama's account highlight this social evil and how did Annan's advice show her a path of redemption?</div>
+      <div class="qa-card-a">
+        <p><strong>Model Answer:</strong> Bama’s autobiographical account in <em>Memories of Childhood</em> provides a scathing indictment of untouchability. Through the episode of the village elder carrying a food packet by a string to prevent 'polluting' the upper-caste Naicker landlord, Bama exposes how caste prejudice dehumanizes hard-working individuals.</p>
+        <p>The elder, an experienced and respected man in the community, was forced to bow obsequiously before the landlord. Bama’s initial laughter turned into profound grief and anger upon realizing that her people were denied basic human dignity simply by accident of birth.</p>
+        <p>Her brother Annan showed her the path of redemption by presenting education as an emancipatory weapon. He advised her that while birth had stripped them of honor, academic excellence could throw away these indignities. By studying with fierce determination and standing first in class, Bama broke social barriers and won the respect and friendship of peers across castes, proving that knowledge is the ultimate equalizer.</p>
+      </div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Elder carrying packet by string exposes ritual pollution; Dalits stripped of dignity; Annan counsels education as emancipatory tool; Bama stands first in class to throw off indignities.</div>
+    </div>
+
+    <!-- PYQ 5 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2022 (TERM 2) // ALL INDIA // 2 MARKS</div>
+      <div class="qa-card-q">What words of advice from Annan deeply impressed Bama?</div>
+      <div class="qa-card-a">Annan advised Bama: "If we study and make progress, we can throw away these indignities. So study with care, learn all you can. If you are always ahead in your lessons, people will come to you of their own accord and attach themselves to you."</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Education allows throwing away indignities; study hard and excel; academic success earns voluntary respect.</div>
+    </div>
+
+    <!-- PYQ 6 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2020 // DELHI SET 2 // 2 MARKS</div>
+      <div class="qa-card-q">Why was Zitkala-Sa opposed to wearing the stiff shoes and tight clinging dresses at Carlisle?</div>
+      <div class="qa-card-a">Zitkala-Sa opposed them because stiff shoes made an unbearable clattering noise on bare floors, unlike her quiet, soft moccasins. Furthermore, the tight, clinging dresses felt immodest and indecent according to Dakota customs, which favored loose, modest Indian blankets.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Stiff shoes noisy compared to soft moccasins; clinging dresses felt immodest; violated tribal norms of modesty.</div>
+    </div>
+
+    <!-- PYQ 7 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2020 // ALL INDIA SET 3 // 5 MARKS</div>
+      <div class="qa-card-q">Compare the reactions of Zitkala-Sa and Judewin when they learned that their hair was to be cut. What does this reveal about their personalities?</div>
+      <div class="qa-card-a">
+        <p><strong>Model Answer:</strong> In <em>The Cutting of My Long Hair</em>, the contrasting reactions of Zitkala-Sa and Judewin highlight two divergent responses to institutional tyranny.</p>
+        <p>Judewin, who had overheard the paleface woman discussing the haircut, represents pragmatic compliance and defeatism. She counsels passive submission, remarking resignedly: 'We have to submit, because they are strong.' Judewin has already internalized institutional helplessness, believing that resistance against white authority is futile.</p>
+        <p>In contrast, Zitkala-Sa embodies heroic defiance and unyielding cultural pride. She refuses to capitulate, declaring passionately: 'No, I will not submit! I will struggle first!' She hides under a bed, resists capture, and kicks and scratches wildly when dragged out. Even though overpowered, Zitkala-Sa’s spirited resistance preserves her internal integrity. While Judewin seeks peace through compliance, Zitkala-Sa chooses resistance, demonstrating the indomitable soul of a proud Dakota warrior.</p>
+      </div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Judewin counsels passive submission ('they are strong'); represents compliance; Zitkala-Sa vows to struggle first; hides under bed and fights; reveals indomitable warrior pride vs. defeatist pragmatism.</div>
+    </div>
+
+    <!-- PYQ 8 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2019 // ALL INDIA SET 1 // 2 MARKS</div>
+      <div class="qa-card-q">How does Bama describe the threshing floor and the landlord's presence in her village?</div>
+      <div class="qa-card-a">Bama describes a threshing floor set up on a high ledge where upper-caste Naicker landlords sat watching Dalit laborers work. Bullocks trod out grain, laborers drove them round, and workers performed hard labor under the haughty surveillance of the landowner.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Threshing floor on high ledge; Naicker landlord watching from stone ledge; Dalit laborers driving bullocks; visual hierarchy of caste.</div>
+    </div>
+
+    <!-- PYQ 9 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2019 // DELHI SET 2 // 2 MARKS</div>
+      <div class="qa-card-q">What did Zitkala-Sa feel when her blanket was stripped from her shoulders?</div>
+      <div class="qa-card-a">When her traditional Indian blanket was stripped from her shoulders, Zitkala-Sa felt acutely humiliated and exposed. Dakota custom demanded modest attire, and without her blanket, she felt indecent in the tight, form-fitting Western dress provided by the school.</div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Blanket stripped from shoulders; felt intensely humiliated and exposed; violated tribal modesty norms.</div>
+    </div>
+
+    <!-- PYQ 10 -->
+    <div class="qa-card">
+      <div class="qa-card-meta">CBSE BOARD 2019 // COMPARTMENT // 5 MARKS</div>
+      <div class="qa-card-q">"Both Zitkala-Sa and Bama belonged to marginalized communities, but their struggle against oppression took different forms." Discuss.</div>
+      <div class="qa-card-a">
+        <p><strong>Model Answer:</strong> In <em>Memories of Childhood</em>, Susan Hill brings together the voices of Zitkala-Sa and Bama, representing two oppressed communities fighting against systemic dehumanization.</p>
+        <p>Zitkala-Sa’s battle is against cultural assimilation in a colonial boarding school. Stripped of her language, dress, and braids, her struggle is immediate, physical, and visceral. She hides under beds, kicks, scratches, and refuses passive submission. Although overpowered, her rebellion demonstrates that indigenous identity cannot be erased without violent coercion.</p>
+        <p>Bama’s battle is against caste-based untouchability in rural India. When her innocent amusement at an elder carrying a food parcel by a string is shattered by the revelation of caste pollution, she experiences fierce outrage. Guided by her brother Annan, her struggle takes an intellectual form: she uses education as an emancipatory weapon, working with all her might to stand first in class.</p>
+        <p>Both authors demonstrate that resistance takes multiple forms—from direct physical defiance to structural academic excellence—ultimately culminating in literature that bears witness against oppression.</p>
+      </div>
+      <div class="qa-card-vp"><strong>CBSE Value Points:</strong> Zitkala-Sa fights cultural assimilation through visceral physical resistance; Bama fights caste untouchability through intellectual excellence; both reject victimhood and achieve liberation through literature.</div>
+    </div>
+  </section>
+
+  <footer class="doc-footer">
+    <div>CBSE CLASS 12 ENGLISH CORE // VISTAS (SUPPLEMENTARY READER) // CHAPTER 06</div>
+    <div>STRICT BENCHMARK FIDELITY // GOING PLACES PARITY VERIFIED</div>
+  </footer>
+</div>
+
+<div class="floating-controls" id="floating-controls">
+  <button class="control-btn" id="theme-toggle" title="Toggle Light/Dark Theme">[ ☾ DARK ]</button>
+  <button class="control-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Jump to Top">↑ TOP</button>
+</div>
+
+<div id="vocab-tooltip">
+  <div class="tt-header">
+    <span class="tt-word" id="tt-word">Word</span>
+    <span class="tt-phonetic" id="tt-phonetic">/phonetic/</span>
+  </div>
+  <div class="tt-pos" id="tt-pos">part of speech</div>
+  <div class="tt-def" id="tt-def">Definition text goes here.</div>
+  <div class="tt-cbse" id="tt-cbse">CBSE Tip</div>
+</div>
+
+<script>
+(function() {
+  const vocabData = {"bedlam": {"ph": "/\u02c8bed.l\u0259m/", "pos": "noun", "def": "A scene of noisy uproar, confusion, and overwhelming chaos.", "cbse": "Captures Zitkala-Sa's initial sensory shock at the Carlisle Indian School."}, "clangor": {"ph": "/\u02c8kl\u00e6\u014b.\u0261\u0259r/", "pos": "noun", "def": "A continuous, loud, harsh, resonant metallic clanging sound.", "cbse": "The bell that violently shattered Zitkala-Sa's morning peace and dictated routines."}, "shingled": {"ph": "/\u02c8\u0283\u026a\u014b.\u0261\u0259ld/", "pos": "adjective / verb", "def": "Hair cut short and tapered close to the head; culturally worn by cowards/captives by the Sioux.", "cbse": "Symbol of cultural erasure and forced Western assimilation."}, "indignities": {"ph": "/\u026an\u02c8d\u026a\u0261.n\u0259.tiz/", "pos": "noun (plural)", "def": "Humiliating, degrading, or insulting treatments or circumstances.", "cbse": "The insults suffered by Dalits and Native Americans under systemic oppression."}, "untouchability": {"ph": "/\u028cn\u02cct\u028ct\u0283.\u0259\u02c8b\u026al.\u0259.ti/", "pos": "noun", "def": "The inhumane social practice of ostracizing a group regarded as ritually impure by caste hierarchy.", "cbse": "The pervasive caste discrimination witnessed and challenged by Bama."}, "assimilation": {"ph": "/\u0259\u02ccs\u026am.\u026a\u02c8le\u026a.\u0283\u0259n/", "pos": "noun", "def": "The coercive process of forcing a minority cultural group to adopt the customs of the dominant group.", "cbse": "The Carlisle school's policy to eradicate Native American heritage."}, "pariah": {"ph": "/p\u0259\u02c8ra\u026a.\u0259/", "pos": "noun", "def": "An outcast rejected, despised, and subjugated by society.", "cbse": "Describes the societal degradation inflicted upon the Dalit community."}, "subjugation": {"ph": "/\u02ccs\u028cb.d\u0292\u028a\u02c8\u0261e\u026a.\u0283\u0259n/", "pos": "noun", "def": "The act of bringing someone under complete domination, control, or enslavement.", "cbse": "The systemic oppression experienced by both Zitkala-Sa and Bama."}, "defiance": {"ph": "/d\u026a\u02c8fa\u026a.\u0259ns/", "pos": "noun", "def": "Bold disobedience and active refusal to submit to unjust authority.", "cbse": "Zitkala-Sa's struggle against having her hair cut; Bama's academic rebellion."}, "resilience": {"ph": "/r\u026a\u02c8z\u026al.j\u0259ns/", "pos": "noun", "def": "The capacity to recover quickly from trauma, humiliation, or marginalization.", "cbse": "Demonstrated by Bama channelizing anger into academic excellence."}, "formula": {"ph": "/\u02c8f\u0254\u02d0.mj\u0259.l\u0259/", "pos": "noun", "def": "A rigid, mechanical, standardized routine or set rule.", "cbse": "The dining hall bell ritual that mortified Zitkala-Sa."}, "alienation": {"ph": "/\u02cce\u026a.li.\u0259\u02c8ne\u026a.\u0283\u0259n/", "pos": "noun", "def": "The state of feeling isolated, estranged, or culturally displaced.", "cbse": "Both writers express acute alienation from oppressive mainstream structures."}, "spectacle": {"ph": "/\u02c8spek.t\u0259.k\u0259l/", "pos": "noun", "def": "A visually striking or curious performance, display, or event.", "cbse": "The entertaining street scenes that captivated young Bama on her walk home."}, "emancipation": {"ph": "/i\u02ccm\u00e6n.s\u026a\u02c8pe\u026a.\u0283\u0259n/", "pos": "noun", "def": "The process of being set free from legal, social, or caste restrictions.", "cbse": "Achieved through education and intellectual empowerment, as urged by Annan."}, "oppression": {"ph": "/\u0259\u02c8pre\u0283.\u0259n/", "pos": "noun", "def": "Prolonged cruel, unjust treatment or exercise of tyrannical authority.", "cbse": "The overarching thematic reality confronting both marginalized young girls."}};
+
+  const tooltip = document.getElementById('vocab-tooltip');
+  const ttWord = document.getElementById('tt-word');
+  const ttPhonetic = document.getElementById('tt-phonetic');
+  const ttPos = document.getElementById('tt-pos');
+  const ttDef = document.getElementById('tt-def');
+  const ttCbse = document.getElementById('tt-cbse');
+
+  let activeTarget = null;
+  let hideTimeout = null;
+
+  function showTooltip(el, e) {
+    const key = el.getAttribute('data-w');
+    if (!key || !vocabData[key]) return;
+    const data = vocabData[key];
+
+    ttWord.textContent = key;
+    ttPhonetic.textContent = data.ph;
+    ttPos.textContent = data.pos;
+    ttDef.textContent = data.def;
+    ttCbse.textContent = "CBSE Context: " + data.cbse;
+
+    tooltip.style.display = 'block';
+
+    const rect = el.getBoundingClientRect();
+    const ttWidth = 320;
+    let left = rect.left + window.scrollX;
+    let top = rect.bottom + window.scrollY + 6;
+
+    if (left + ttWidth > window.innerWidth - 16) {
+      left = window.innerWidth - ttWidth - 16;
+    }
+    if (left < 16) left = 16;
+
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = top + 'px';
+    activeTarget = el;
+  }
+
+  function hideTooltip() {
+    tooltip.style.display = 'none';
+    activeTarget = null;
+  }
+
+  document.addEventListener('mouseover', (e) => {
+    const el = e.target.closest('.vw');
+    if (el) {
+      clearTimeout(hideTimeout);
+      showTooltip(el, e);
+    }
+  });
+
+  document.addEventListener('mouseout', (e) => {
+    const el = e.target.closest('.vw');
+    if (el) {
+      hideTimeout = setTimeout(hideTooltip, 120);
+    }
+  });
+
+  tooltip.addEventListener('mouseenter', () => {
+    clearTimeout(hideTimeout);
+  });
+  tooltip.addEventListener('mouseleave', () => {
+    hideTimeout = setTimeout(hideTooltip, 120);
+  });
+
+  const controls = document.getElementById('floating-controls');
+  const toggleBtn = document.getElementById('theme-toggle');
+
+  function checkScroll() {
+    const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (scrollPos > 80) {
+      if (controls) controls.classList.add('visible');
+    } else {
+      if (controls) controls.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  window.addEventListener('load', checkScroll);
+  window.addEventListener('hashchange', checkScroll);
+  setTimeout(checkScroll, 150);
+  checkScroll();
+
+  function syncThemeBtn() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (toggleBtn) {
+      toggleBtn.textContent = isDark ? '[ ☼ LIGHT ]' : '[ ☾ DARK ]';
+    }
+  }
+
+  syncThemeBtn();
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const newTheme = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('cbse_theme', newTheme);
+      syncThemeBtn();
+    });
+  }
+})();
+</script>
+</body>
+</html>

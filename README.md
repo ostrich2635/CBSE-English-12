@@ -43,8 +43,8 @@ A curated, high-yield digital study compendium and reference manual for CBSE Cla
 - [x] **Chapter 2: The Tiger King** by Kalki &mdash; [Read HTML](HTML/the_tiger_king_cbse_mastery.html) | [Download PDF](PDF/The_Tiger_King_CBSE_Guide.pdf)
 - [x] **Chapter 3: Journey to the End of the Earth** by Tishani Doshi &mdash; [Read HTML](HTML/journey_to_the_end_of_the_earth_cbse_mastery.html) | [Download PDF](PDF/Journey_to_the_End_of_the_Earth_CBSE_Guide.pdf)
 - [x] **Chapter 4: The Enemy** by Pearl S. Buck &mdash; [Read HTML](HTML/the_enemy_cbse_mastery.html) | [Download PDF](PDF/The_Enemy_CBSE_Guide.pdf)
-- [x] Chapter 5: On the Face of It (Susan Hill)
-- [ ] Chapter 6: Memories of Childhood (Zitkala-Sa & Bama)
+- [x] **Chapter 5: On the Face of It** by Susan Hill &mdash; [Read HTML](HTML/on_the_face_of_it_cbse_mastery.html) | [Download PDF](PDF/On_the_Face_of_It_CBSE_Guide.pdf)
+- [x] **Chapter 6: Memories of Childhood** by Zitkala-Sa &amp; Bama &mdash; [Read HTML](HTML/memories_of_childhood_cbse_mastery.html) | [Download PDF](PDF/Memories_of_Childhood_CBSE_Guide.pdf)
 
 ---
 
