@@ -36,7 +36,7 @@ A curated, high-yield digital study compendium and reference manual for CBSE Cla
 - [x] **Poem 2: Keeping Quiet** by Pablo Neruda &mdash; [Read HTML](HTML/keeping_quiet_cbse_mastery.html) | [Download PDF](PDF/Keeping_Quiet_CBSE_Guide.pdf)
 - [x] **Poem 3: A Thing of Beauty** by John Keats &mdash; [Read HTML](HTML/a_thing_of_beauty_cbse_mastery.html) | [Download PDF](PDF/A_Thing_of_Beauty_CBSE_Guide.pdf)
 - [x] **Poem 4: A Roadside Stand** by Robert Frost &mdash; [Read HTML](HTML/a_roadside_stand_cbse_mastery.html) | [Download PDF](PDF/A_Roadside_Stand_CBSE_Guide.pdf)
-- [ ] Poem 5: Aunt Jennifer's Tigers (Adrienne Rich)
+- [x] **Poem 5: Aunt Jennifer's Tigers** by Adrienne Rich &mdash; [Read HTML](HTML/aunt_jennifers_tigers_cbse_mastery.html) | [Download PDF](PDF/Aunt_Jennifers_Tigers_CBSE_Guide.pdf)
 
 ### Vistas (Supplementary Reader)
 - [ ] Chapter 1: The Third Level (Jack Finney)
@@ -69,7 +69,8 @@ CBSE-English-12/
 │   ├── my_mother_at_sixty_six_cbse_mastery.html
 │   ├── keeping_quiet_cbse_mastery.html
 │   ├── a_thing_of_beauty_cbse_mastery.html
-│   └── a_roadside_stand_cbse_mastery.html
+│   ├── a_roadside_stand_cbse_mastery.html
+│   └── aunt_jennifers_tigers_cbse_mastery.html
 ├── PDF/              # Print-ready vector chapter PDFs
 │   ├── The_Last_Lesson_CBSE_Guide.pdf
 │   ├── Lost_Spring_CBSE_Guide.pdf
@@ -82,7 +83,8 @@ CBSE-English-12/
 │   ├── My_Mother_at_Sixty_Six_CBSE_Guide.pdf
 │   ├── Keeping_Quiet_CBSE_Guide.pdf
 │   ├── A_Thing_of_Beauty_CBSE_Guide.pdf
-│   └── A_Roadside_Stand_CBSE_Guide.pdf
+│   ├── A_Roadside_Stand_CBSE_Guide.pdf
+│   └── Aunt_Jennifers_Tigers_CBSE_Guide.pdf
 ├── NCERT/            # Official NCERT textbooks (renamed by chapter)
 │   ├── Flamingo/     # Prose (Ch 01-08) & Poetry (Poem 01-05)
 │   └── Vistas/       # Supplementary Reader (Ch 01-06)

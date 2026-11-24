@@ -14,6 +14,7 @@ chapters = [
     ('Poem 02: Keeping Quiet', 'HTML/keeping_quiet_cbse_mastery.html', 7),
     ('Poem 03: A Thing of Beauty', 'HTML/a_thing_of_beauty_cbse_mastery.html', 4),
     ('Poem 04: A Roadside Stand', 'HTML/a_roadside_stand_cbse_mastery.html', 5),
+    ('Poem 05: Aunt Jennifer\'s Tigers', 'HTML/aunt_jennifers_tigers_cbse_mastery.html', 3),
 ]
 
 # Canonical patterns from Going Places benchmark:
@@ -94,7 +95,8 @@ if os.path.exists('index.html'):
     titles = [
         "The Last Lesson", "Lost Spring: Stories of Stolen Childhood", "Deep Water",
         "The Rattrap", "Indigo", "Poets and Pancakes", "The Interview", "Going Places",
-        "My Mother at Sixty-Six", "Keeping Quiet", "A Thing of Beauty", "A Roadside Stand"
+        "My Mother at Sixty-Six", "Keeping Quiet", "A Thing of Beauty", "A Roadside Stand",
+        "Aunt Jennifer's Tigers"
     ]
     for t in titles:
         if f"<strong>{t}</strong>" not in idx_html:
