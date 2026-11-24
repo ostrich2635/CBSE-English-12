@@ -42,7 +42,7 @@ A curated, high-yield digital study compendium and reference manual for CBSE Cla
 - [x] **Chapter 1: The Third Level** by Jack Finney &mdash; [Read HTML](HTML/the_third_level_cbse_mastery.html) | [Download PDF](PDF/The_Third_Level_CBSE_Guide.pdf)
 - [x] **Chapter 2: The Tiger King** by Kalki &mdash; [Read HTML](HTML/the_tiger_king_cbse_mastery.html) | [Download PDF](PDF/The_Tiger_King_CBSE_Guide.pdf)
 - [x] **Chapter 3: Journey to the End of the Earth** by Tishani Doshi &mdash; [Read HTML](HTML/journey_to_the_end_of_the_earth_cbse_mastery.html) | [Download PDF](PDF/Journey_to_the_End_of_the_Earth_CBSE_Guide.pdf)
-- [ ] Chapter 4: The Enemy (Pearl S. Buck)
+- [x] **Chapter 4: The Enemy** by Pearl S. Buck &mdash; [Read HTML](HTML/the_enemy_cbse_mastery.html) | [Download PDF](PDF/The_Enemy_CBSE_Guide.pdf)
 - [ ] Chapter 5: On the Face of It (Susan Hill)
 - [ ] Chapter 6: Memories of Childhood (Zitkala-Sa & Bama)
 
@@ -73,7 +73,8 @@ CBSE-English-12/
 │   ├── aunt_jennifers_tigers_cbse_mastery.html
 │   ├── the_third_level_cbse_mastery.html
 │   ├── the_tiger_king_cbse_mastery.html
-│   └── journey_to_the_end_of_the_earth_cbse_mastery.html
+│   ├── journey_to_the_end_of_the_earth_cbse_mastery.html
+│   └── the_enemy_cbse_mastery.html
 ├── PDF/              # Print-ready vector chapter PDFs
 │   ├── The_Last_Lesson_CBSE_Guide.pdf
 │   ├── Lost_Spring_CBSE_Guide.pdf
@@ -90,7 +91,8 @@ CBSE-English-12/
 │   ├── Aunt_Jennifers_Tigers_CBSE_Guide.pdf
 │   ├── The_Third_Level_CBSE_Guide.pdf
 │   ├── The_Tiger_King_CBSE_Guide.pdf
-│   └── Journey_to_the_End_of_the_Earth_CBSE_Guide.pdf
+│   ├── Journey_to_the_End_of_the_Earth_CBSE_Guide.pdf
+│   └── The_Enemy_CBSE_Guide.pdf
 ├── NCERT/            # Official NCERT textbooks (renamed by chapter)
 │   ├── Flamingo/     # Prose (Ch 01-08) & Poetry (Poem 01-05)
 │   └── Vistas/       # Supplementary Reader (Ch 01-06)
