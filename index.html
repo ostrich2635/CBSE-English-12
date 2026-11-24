@@ -363,6 +363,23 @@ h2.section-header {
     display: none !important;
   }
 }
+
+.chapter-table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.chapter-table tbody tr:hover {
+  background-color: var(--panel-hover);
+}
+
+.chapter-table tbody tr.row-opened {
+  background-color: var(--panel-bg);
+}
+
+.chapter-table tbody tr.row-opened:hover {
+  background-color: var(--panel-hover);
+}
+
 </style>
 </head>
 <body>
@@ -416,7 +433,7 @@ h2.section-header {
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr data-id="the_last_lesson">
 <td class="chapter-num">01</td>
 <td class="chapter-title">
 <strong>The Last Lesson</strong>
@@ -430,7 +447,7 @@ h2.section-header {
 </div>
 </td>
 </tr>
-<tr>
+<tr data-id="lost_spring">
 <td class="chapter-num">02</td>
 <td class="chapter-title">
 <strong>Lost Spring: Stories of Stolen Childhood</strong>
@@ -444,7 +461,7 @@ h2.section-header {
 </div>
 </td>
 </tr>
-<tr>
+<tr data-id="deep_water">
 <td class="chapter-num">03</td>
 <td class="chapter-title">
 <strong>Deep Water</strong>
@@ -458,7 +475,7 @@ h2.section-header {
 </div>
 </td>
 </tr>
-<tr>
+<tr data-id="the_rattrap">
 <td class="chapter-num">04</td>
 <td class="chapter-title">
 <strong>The Rattrap</strong>
@@ -472,7 +489,7 @@ h2.section-header {
 </div>
 </td>
 </tr>
-<tr>
+<tr data-id="indigo">
 <td class="chapter-num">05</td>
 <td class="chapter-title">
 <strong>Indigo</strong>
@@ -486,7 +503,7 @@ h2.section-header {
 </div>
 </td>
 </tr>
-<tr>
+<tr data-id="poets_and_pancakes">
 <td class="chapter-num">06</td>
 <td class="chapter-title">
 <strong>Poets and Pancakes</strong>
@@ -500,7 +517,7 @@ h2.section-header {
 </div>
 </td>
 </tr>
-<tr>
+<tr data-id="the_interview">
 <td class="chapter-num">07</td>
 <td class="chapter-title">
 <strong>The Interview</strong>
@@ -514,7 +531,7 @@ h2.section-header {
 </div>
 </td>
 </tr>
-<tr style="background: var(--panel-bg);">
+<tr data-id="going_places">
 <td class="chapter-num">08</td>
 <td class="chapter-title">
 <strong>Going Places</strong>
@@ -546,7 +563,7 @@ h2.section-header {
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr data-id="my_mother_at_sixty_six">
 <td class="chapter-num">01</td>
 <td class="chapter-title">
 <strong>My Mother at Sixty-Six</strong>
@@ -560,7 +577,7 @@ h2.section-header {
 </div>
 </td>
 </tr>
-<tr>
+<tr data-id="keeping_quiet">
 <td class="chapter-num">02</td>
 <td class="chapter-title">
 <strong>Keeping Quiet</strong>
@@ -574,7 +591,7 @@ h2.section-header {
 </div>
 </td>
 </tr>
-<tr>
+<tr data-id="a_thing_of_beauty">
 <td class="chapter-num">03</td>
 <td class="chapter-title">
 <strong>A Thing of Beauty</strong>
@@ -588,7 +605,7 @@ h2.section-header {
 </div>
 </td>
 </tr>
-<tr>
+<tr data-id="a_roadside_stand">
 <td class="chapter-num">04</td>
 <td class="chapter-title">
 <strong>A Roadside Stand</strong>
@@ -602,7 +619,7 @@ h2.section-header {
 </div>
 </td>
 </tr>
-<tr>
+<tr data-id="aunt_jennifers_tigers">
 <td class="chapter-num">05</td>
 <td class="chapter-title">
 <strong>Aunt Jennifer's Tigers</strong>
@@ -628,7 +645,7 @@ h2.section-header {
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr data-id="the_third_level">
 <td class="chapter-num">01</td>
 <td class="chapter-title">
 <strong>The Third Level</strong>
@@ -636,7 +653,7 @@ h2.section-header {
 </td>
 <td><span class="badge-pending">Queued</span></td>
 </tr>
-<tr>
+<tr data-id="the_tiger_king">
 <td class="chapter-num">02</td>
 <td class="chapter-title">
 <strong>The Tiger King</strong>
@@ -644,7 +661,7 @@ h2.section-header {
 </td>
 <td><span class="badge-pending">Queued</span></td>
 </tr>
-<tr>
+<tr data-id="journey_to_the_end_of_the_earth">
 <td class="chapter-num">03</td>
 <td class="chapter-title">
 <strong>Journey to the End of the Earth</strong>
@@ -652,7 +669,7 @@ h2.section-header {
 </td>
 <td><span class="badge-pending">Queued</span></td>
 </tr>
-<tr>
+<tr data-id="the_enemy">
 <td class="chapter-num">04</td>
 <td class="chapter-title">
 <strong>The Enemy</strong>
@@ -660,7 +677,7 @@ h2.section-header {
 </td>
 <td><span class="badge-pending">Queued</span></td>
 </tr>
-<tr>
+<tr data-id="on_the_face_of_it">
 <td class="chapter-num">05</td>
 <td class="chapter-title">
 <strong>On the Face of It</strong>
@@ -668,7 +685,7 @@ h2.section-header {
 </td>
 <td><span class="badge-pending">Queued</span></td>
 </tr>
-<tr>
+<tr data-id="memories_of_childhood">
 <td class="chapter-num">06</td>
 <td class="chapter-title">
 <strong>Memories of Childhood</strong>
@@ -734,6 +751,61 @@ h2.section-header {
       syncThemeBtn();
     });
   }
+
+  // ========================================================================
+  // CHAPTER OPENED / VISITED HIGHLIGHT TRACKER (LOCALSTORAGE PERSISTED)
+  // ========================================================================
+  const VISITED_STORAGE_KEY = 'cbse_opened_chapters';
+
+  function getOpenedChapters() {
+    try {
+      return JSON.parse(localStorage.getItem(VISITED_STORAGE_KEY) || '[]');
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function markChapterOpened(id) {
+    if (!id) return;
+    const opened = getOpenedChapters();
+    if (!opened.includes(id)) {
+      opened.push(id);
+      try {
+        localStorage.setItem(VISITED_STORAGE_KEY, JSON.stringify(opened));
+      } catch (e) {}
+    }
+    applyOpenedHighlights();
+  }
+
+  function applyOpenedHighlights() {
+    const opened = getOpenedChapters();
+    const rows = document.querySelectorAll('.chapter-table tbody tr[data-id]');
+    rows.forEach(function(row) {
+      const rowId = row.getAttribute('data-id');
+      if (opened.includes(rowId)) {
+        row.classList.add('row-opened');
+      } else {
+        row.classList.remove('row-opened');
+      }
+    });
+  }
+
+  // Apply immediately on load and when tab/window regains focus
+  applyOpenedHighlights();
+  window.addEventListener('pageshow', applyOpenedHighlights);
+  window.addEventListener('focus', applyOpenedHighlights);
+
+  // Event delegation: click on any link inside a chapter row marks it as opened
+  document.addEventListener('click', function(e) {
+    const link = e.target.closest('a');
+    if (!link) return;
+    const row = link.closest('tr[data-id]');
+    if (row) {
+      const chapterId = row.getAttribute('data-id');
+      markChapterOpened(chapterId);
+    }
+  });
+
 })();
 </script>
 </body>
