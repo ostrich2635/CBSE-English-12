@@ -15,11 +15,12 @@ chapters = [
     ('Poem 03: A Thing of Beauty', 'HTML/a_thing_of_beauty_cbse_mastery.html', 4),
     ('Poem 04: A Roadside Stand', 'HTML/a_roadside_stand_cbse_mastery.html', 5),
     ('Poem 05: Aunt Jennifer\'s Tigers', 'HTML/aunt_jennifers_tigers_cbse_mastery.html', 3),
+    ('Vistas Ch 01: The Third Level', 'HTML/the_third_level_cbse_mastery.html', 10),
 ]
 
 # Canonical patterns from Going Places benchmark:
 checks = [
-    ('mono_kicker', r'<div class="mono-kicker">MANUAL // CBSE CLASS 12 ENGLISH CORE \(FLAMINGO\) // CH-\d+</div>'),
+    ('mono_kicker', r'<div class="mono-kicker">MANUAL // CBSE CLASS 12 ENGLISH CORE \((?:FLAMINGO|VISTAS)\) // CH-\d+</div>'),
     ('doc_specs_pill', r'<div class="doc-specs">\s*<span class="spec-pill">SYLLABUS: 2026–27</span>'),
     ('toc_box_title', r'<nav class="toc-box">\s*<div class="toc-title">\s*<span>INDEX // QUICK NAVIGATION</span>\s*<span>\[8 SECTIONS\]</span>'),
     ('toc_item_01', r'<li><a href="#overview">01\. EXECUTIVE EXAM COMPASS &amp; THEMES</a></li>'),
@@ -96,7 +97,7 @@ if os.path.exists('index.html'):
         "The Last Lesson", "Lost Spring: Stories of Stolen Childhood", "Deep Water",
         "The Rattrap", "Indigo", "Poets and Pancakes", "The Interview", "Going Places",
         "My Mother at Sixty-Six", "Keeping Quiet", "A Thing of Beauty", "A Roadside Stand",
-        "Aunt Jennifer's Tigers"
+        "Aunt Jennifer's Tigers", "The Third Level"
     ]
     for t in titles:
         if f"<strong>{t}</strong>" not in idx_html:
