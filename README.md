@@ -40,7 +40,7 @@ A curated, high-yield digital study compendium and reference manual for CBSE Cla
 
 ### Vistas (Supplementary Reader)
 - [x] **Chapter 1: The Third Level** by Jack Finney &mdash; [Read HTML](HTML/the_third_level_cbse_mastery.html) | [Download PDF](PDF/The_Third_Level_CBSE_Guide.pdf)
-- [ ] Chapter 2: The Tiger King (Kalki)
+- [x] **Chapter 2: The Tiger King** by Kalki &mdash; [Read HTML](HTML/the_tiger_king_cbse_mastery.html) | [Download PDF](PDF/The_Tiger_King_CBSE_Guide.pdf)
 - [ ] Chapter 3: Journey to the End of the Earth (Tishani Doshi)
 - [ ] Chapter 4: The Enemy (Pearl S. Buck)
 - [ ] Chapter 5: On the Face of It (Susan Hill)
@@ -71,7 +71,8 @@ CBSE-English-12/
 │   ├── a_thing_of_beauty_cbse_mastery.html
 │   ├── a_roadside_stand_cbse_mastery.html
 │   ├── aunt_jennifers_tigers_cbse_mastery.html
-│   └── the_third_level_cbse_mastery.html
+│   ├── the_third_level_cbse_mastery.html
+│   └── the_tiger_king_cbse_mastery.html
 ├── PDF/              # Print-ready vector chapter PDFs
 │   ├── The_Last_Lesson_CBSE_Guide.pdf
 │   ├── Lost_Spring_CBSE_Guide.pdf
@@ -86,7 +87,8 @@ CBSE-English-12/
 │   ├── A_Thing_of_Beauty_CBSE_Guide.pdf
 │   ├── A_Roadside_Stand_CBSE_Guide.pdf
 │   ├── Aunt_Jennifers_Tigers_CBSE_Guide.pdf
-│   └── The_Third_Level_CBSE_Guide.pdf
+│   ├── The_Third_Level_CBSE_Guide.pdf
+│   └── The_Tiger_King_CBSE_Guide.pdf
 ├── NCERT/            # Official NCERT textbooks (renamed by chapter)
 │   ├── Flamingo/     # Prose (Ch 01-08) & Poetry (Poem 01-05)
 │   └── Vistas/       # Supplementary Reader (Ch 01-06)
